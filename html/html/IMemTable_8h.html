@@ -1,0 +1,708 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/modulos/interface/IMemTable.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/modulos/interface/IMemTable.h</h1>
+<p>
+<a href="IMemTable_8h-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#4e0f33d6db1e52e1c31e66bc4b32ae32">showMemoryTable</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Mostrar tabela de memória na tela.  <a href="#4e0f33d6db1e52e1c31e66bc4b32ae32"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#af3e35b730e851ee1d2a8feff64813c8">addLinPart</a> (int numTab, int pa, int pid, T_32 c_point, T_32 c_size, T_32 h_point, T_32 h_size, T_32 s_point, T_32 s_size)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Essa função escreve as linhas da tabela de partições da mémoria e marca as páginas utilizadas pela partição.  <a href="#af3e35b730e851ee1d2a8feff64813c8"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#9c73926af5649bce7c5ce424d1e57318">checkRelocSize</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_32&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#564904271468b35143b579b9d2634f18">getProcStackPointer</a> (int numTab)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna o valor do ponteiro da pilha do stack, de uma determinada linha.  <a href="#564904271468b35143b579b9d2634f18"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_32&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#2186819c7ce0f89b384a6e2eae737bb0">getProcStackSize</a> (int numTab)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna o valor restante do tamanho da pilha de stack.  <a href="#2186819c7ce0f89b384a6e2eae737bb0"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#a7f28fb01004b3d23d5f9e043a65f505">getMemoryTableSize</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned long int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#33b0b9bda1814ce7c523e28db221650c">getTableMemoryPa</a> (int line)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned long int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#23ed3e9bab38d7a5af35eb15cab6c9fb">getTableMemoryPid</a> (int line)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structs__free__node.html">s_free_node</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#8fd768925e809390190d18a2e7767968">getTableMemoryCab</a> (int line)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned long int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#61411ab16fe38820037ab75a53a44321">getTableMemoryHeapPoint</a> (int line)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned long int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#ecdfa300d9e7f1382e3130f98cf1b821">getTableMemoryHeapSize</a> (int line)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#c731af1f0e4b8261252594c9d0a0cde3">setTableMemoryRelocSize</a> (int line, int size)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#d6e24bce6e2887c684704ccdcb6dd65e">setTableMemoryHeapSize</a> (int line, unsigned short int heapSize)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#96bd780771dcfadbb4b12deeff0edb14">setTableMemoryPa</a> (int line, int myPart)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#b87ca7df09b49e08020c53bce27890c0">setTableMemoryPid</a> (int line, int pid)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#fa96a71ce0b7764a48d067060bd8d786">setTableMemoryCab</a> (int line, struct <a class="el" href="structs__free__node.html">s_free_node</a> *cab)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#ebef9056fe89017711796dcf3f2e690c">setTableMenoryHeapPoint</a> (int line, unsigned short int heapPointSize)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#37cf7c47a1a4c9154ec8dff042ae1e55">partDispose</a> (int pid)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Libera o espaço de memória ocupado por um processo.  <a href="#37cf7c47a1a4c9154ec8dff042ae1e55"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="IMemTable_8h.html#a7c8227a7c9e42fcf9f3581f2a497273">partAlloc</a> (int pid, T_32 sizeCode, T_32 sizeStack, T_32 sizeHeap)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Essa função deve allocar uma partição da memória para o processo, de acordo com o tamanho da pilha de código, stack e partições livres.  <a href="#a7c8227a7c9e42fcf9f3581f2a497273"></a><br></td></tr>
+</table>
+<hr><h2>Funções</h2>
+<a class="anchor" name="af3e35b730e851ee1d2a8feff64813c8"></a><!-- doxytag: member="IMemTable.h::addLinPart" ref="af3e35b730e851ee1d2a8feff64813c8" args="(int numTab, int pa, int pid, T_32 c_point, T_32 c_size, T_32 h_point, T_32 h_size, T_32 s_point, T_32 s_size)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addLinPart           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>numLine</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pa</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>c_point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>c_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>h_point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>h_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>s_point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>s_size</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Essa função escreve as linhas da tabela de partições da mémoria e marca as páginas utilizadas pela partição. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>numLine,:</em>&nbsp;</td><td>Número da linha da tabela em que a partição será alocada. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pa</em>&nbsp;</td><td>O valor 0 indica que a linha esta livre e 1 indica que ela esta ocupada. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pid</em>&nbsp;</td><td>Número do PID do processo. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>c_point</em>&nbsp;</td><td>Ponteiro para código do processo . </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>c_size</em>&nbsp;</td><td>Tamanho restante da região de código do processo. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>h_point</em>&nbsp;</td><td>Ponteiro para heap do processo . </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>h_size</em>&nbsp;</td><td>Tamanho restante da heap do processo. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>s_point</em>&nbsp;</td><td>Ponteiro para stack do processo . </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>s_size</em>&nbsp;</td><td>Tamanho restante da pilha do processo. </td></tr>
+  </table>
+</dl>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00069">69</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemStructs_8h-source.html#l00033">sdesc_tabMem::cab</a>, <a class="el" href="MemStructs_8h-source.html#l00024">sdesc_tabMem::code_point</a>, <a class="el" href="MemStructs_8h-source.html#l00026">sdesc_tabMem::code_size</a>, <a class="el" href="MemStructs_8h-source.html#l00025">sdesc_tabMem::codePointStart</a>, <a class="el" href="MemStructs_8h-source.html#l00027">sdesc_tabMem::heap_point</a>, <a class="el" href="MemStructs_8h-source.html#l00029">sdesc_tabMem::heap_size</a>, <a class="el" href="MemStructs_8h-source.html#l00028">sdesc_tabMem::heapPointStart</a>, <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a>, <a class="el" href="Defs_8h-source.html#l00033">NULL</a>, <a class="el" href="MemStructs_8h-source.html#l00023">sdesc_tabMem::own_pid</a>, <a class="el" href="MemStructs_8h-source.html#l00022">sdesc_tabMem::pa</a>, <a class="el" href="MemStructs_8h-source.html#l00034">sdesc_tabMem::relocSize</a>, <a class="el" href="MemStructs_8h-source.html#l00030">sdesc_tabMem::stack_point</a>, <a class="el" href="MemStructs_8h-source.html#l00032">sdesc_tabMem::stack_size</a>, <a class="el" href="MemStructs_8h-source.html#l00031">sdesc_tabMem::stackPointStart</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="9c73926af5649bce7c5ce424d1e57318"></a><!-- doxytag: member="IMemTable.h::checkRelocSize" ref="9c73926af5649bce7c5ce424d1e57318" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void checkRelocSize           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00304">304</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a>, <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>, <a class="el" href="MemStructs_8h-source.html#l00034">sdesc_tabMem::relocSize</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="a7f28fb01004b3d23d5f9e043a65f505"></a><!-- doxytag: member="IMemTable.h::getMemoryTableSize" ref="a7f28fb01004b3d23d5f9e043a65f505" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int getMemoryTableSize           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00256">256</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="Gmem_8h-source.html#l00016">MAX_PART</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="564904271468b35143b579b9d2634f18"></a><!-- doxytag: member="IMemTable.h::getProcStackPointer" ref="564904271468b35143b579b9d2634f18" args="(int numTab)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_32 getProcStackPointer           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>numTab</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna o valor do ponteiro da pilha do stack, de uma determinada linha. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>numTab,:</em>&nbsp;</td><td>É a linha, que se deseja tirar as informações. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>O valor do ponteiro da pilha de stack. </dd></dl>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00244">244</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a>, <a class="el" href="MemStructs_8h-source.html#l00030">sdesc_tabMem::stack_point</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="2186819c7ce0f89b384a6e2eae737bb0"></a><!-- doxytag: member="IMemTable.h::getProcStackSize" ref="2186819c7ce0f89b384a6e2eae737bb0" args="(int numTab)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_32 getProcStackSize           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>numTab</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna o valor restante do tamanho da pilha de stack. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>numTab,:</em>&nbsp;</td><td>É a linha, que se deseja tirar as informações. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>O valor de espaço restante, na pilha de stack. </dd></dl>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00252">252</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a>, <a class="el" href="MemStructs_8h-source.html#l00032">sdesc_tabMem::stack_size</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="8fd768925e809390190d18a2e7767968"></a><!-- doxytag: member="IMemTable.h::getTableMemoryCab" ref="8fd768925e809390190d18a2e7767968" args="(int line)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structs__free__node.html">s_free_node</a>* getTableMemoryCab           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>line</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"><code> [read]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00268">268</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemStructs_8h-source.html#l00033">sdesc_tabMem::cab</a>, <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="61411ab16fe38820037ab75a53a44321"></a><!-- doxytag: member="IMemTable.h::getTableMemoryHeapPoint" ref="61411ab16fe38820037ab75a53a44321" args="(int line)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long int getTableMemoryHeapPoint           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>line</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00272">272</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemStructs_8h-source.html#l00027">sdesc_tabMem::heap_point</a>, <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="ecdfa300d9e7f1382e3130f98cf1b821"></a><!-- doxytag: member="IMemTable.h::getTableMemoryHeapSize" ref="ecdfa300d9e7f1382e3130f98cf1b821" args="(int line)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long int getTableMemoryHeapSize           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>line</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00276">276</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemStructs_8h-source.html#l00029">sdesc_tabMem::heap_size</a>, <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="33b0b9bda1814ce7c523e28db221650c"></a><!-- doxytag: member="IMemTable.h::getTableMemoryPa" ref="33b0b9bda1814ce7c523e28db221650c" args="(int line)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long int getTableMemoryPa           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>line</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00260">260</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a>, <a class="el" href="MemStructs_8h-source.html#l00022">sdesc_tabMem::pa</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="23ed3e9bab38d7a5af35eb15cab6c9fb"></a><!-- doxytag: member="IMemTable.h::getTableMemoryPid" ref="23ed3e9bab38d7a5af35eb15cab6c9fb" args="(int line)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long int getTableMemoryPid           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>line</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00264">264</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a>, <a class="el" href="MemStructs_8h-source.html#l00023">sdesc_tabMem::own_pid</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="a7c8227a7c9e42fcf9f3581f2a497273"></a><!-- doxytag: member="IMemTable.h::partAlloc" ref="a7c8227a7c9e42fcf9f3581f2a497273" args="(int pid, T_32 sizeCode, T_32 sizeStack, T_32 sizeHeap)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int partAlloc           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>sizeCode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>sizeStack</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>sizeHeap</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Essa função deve allocar uma partição da memória para o processo, de acordo com o tamanho da pilha de código, stack e partições livres. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>pid</em>&nbsp;</td><td>Número do PID do processo. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>sizeCode</em>&nbsp;</td><td>Tamanho restante da região de código do processo </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>sizeHeap</em>&nbsp;</td><td>Tamanho restante da heap do processo </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>sizeStack</em>&nbsp;</td><td>Tamanho restante da pilha do processo </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>O valor 0, Indica que houve sucesso na operação, qualquer outro número significa que houve erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00093">93</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemTable_8c-source.html#l00069">addLinPart()</a>, <a class="el" href="MemStructs_8h-source.html#l00047">bitMap::block</a>, <a class="el" href="MemStructs_8h-source.html#l00004">FREE</a>, <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a>, <a class="el" href="Gmem_8h-source.html#l00016">MAX_PART</a>, <a class="el" href="MemTable_8c-source.html#l00010">memoryBlockList</a>, <a class="el" href="MemStructs_8h-source.html#l00022">sdesc_tabMem::pa</a>, <a class="el" href="MemStructs_8h-source.html#l00006">PAGE</a>, <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>, <a class="el" href="MemTable_8c-source.html#l00163">searchFreeSpace()</a>, <a class="el" href="Defs_8h-source.html#l00014">T_32</a>, <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a> e <a class="el" href="MemStructs_8h-source.html#l00005">USED</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="37cf7c47a1a4c9154ec8dff042ae1e55"></a><!-- doxytag: member="IMemTable.h::partDispose" ref="37cf7c47a1a4c9154ec8dff042ae1e55" args="(int pid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int partDispose           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pid</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Libera o espaço de memória ocupado por um processo. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>pid,:</em>&nbsp;</td><td>indica o número do processo que deve ter sua partição desalocada. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>0 indica que houve sucesso na operação, qualquer outro número significa que houve erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00213">213</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemTable_8c-source.html#l00069">addLinPart()</a>, <a class="el" href="MemStructs_8h-source.html#l00047">bitMap::block</a>, <a class="el" href="MemStructs_8h-source.html#l00026">sdesc_tabMem::code_size</a>, <a class="el" href="MemStructs_8h-source.html#l00025">sdesc_tabMem::codePointStart</a>, <a class="el" href="MemStructs_8h-source.html#l00004">FREE</a>, <a class="el" href="MemStructs_8h-source.html#l00027">sdesc_tabMem::heap_point</a>, <a class="el" href="MemStructs_8h-source.html#l00029">sdesc_tabMem::heap_size</a>, <a class="el" href="MemStructs_8h-source.html#l00028">sdesc_tabMem::heapPointStart</a>, <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a>, <a class="el" href="Gmem_8h-source.html#l00016">MAX_PART</a>, <a class="el" href="MemTable_8c-source.html#l00010">memoryBlockList</a>, <a class="el" href="MemStructs_8h-source.html#l00023">sdesc_tabMem::own_pid</a>, <a class="el" href="MemStructs_8h-source.html#l00006">PAGE</a>, <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>, <a class="el" href="MemStructs_8h-source.html#l00030">sdesc_tabMem::stack_point</a>, <a class="el" href="MemStructs_8h-source.html#l00032">sdesc_tabMem::stack_size</a>, <a class="el" href="MemStructs_8h-source.html#l00031">sdesc_tabMem::stackPointStart</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gmem_8c-source.html#l00143">disposePart()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="fa96a71ce0b7764a48d067060bd8d786"></a><!-- doxytag: member="IMemTable.h::setTableMemoryCab" ref="fa96a71ce0b7764a48d067060bd8d786" args="(int line, struct s_free_node *cab)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setTableMemoryCab           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structs__free__node.html">s_free_node</a> *&nbsp;</td>
+          <td class="paramname"> <em>cab</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00296">296</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemStructs_8h-source.html#l00033">sdesc_tabMem::cab</a>, <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="d6e24bce6e2887c684704ccdcb6dd65e"></a><!-- doxytag: member="IMemTable.h::setTableMemoryHeapSize" ref="d6e24bce6e2887c684704ccdcb6dd65e" args="(int line, unsigned short int heapSize)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setTableMemoryHeapSize           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&nbsp;</td>
+          <td class="paramname"> <em>heapSize</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00284">284</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemStructs_8h-source.html#l00029">sdesc_tabMem::heap_size</a>, <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="96bd780771dcfadbb4b12deeff0edb14"></a><!-- doxytag: member="IMemTable.h::setTableMemoryPa" ref="96bd780771dcfadbb4b12deeff0edb14" args="(int line, int myPart)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setTableMemoryPa           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>myPart</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00288">288</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a>, <a class="el" href="MemStructs_8h-source.html#l00022">sdesc_tabMem::pa</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="b87ca7df09b49e08020c53bce27890c0"></a><!-- doxytag: member="IMemTable.h::setTableMemoryPid" ref="b87ca7df09b49e08020c53bce27890c0" args="(int line, int pid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setTableMemoryPid           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pid</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00292">292</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a>, <a class="el" href="MemStructs_8h-source.html#l00023">sdesc_tabMem::own_pid</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="c731af1f0e4b8261252594c9d0a0cde3"></a><!-- doxytag: member="IMemTable.h::setTableMemoryRelocSize" ref="c731af1f0e4b8261252594c9d0a0cde3" args="(int line, int size)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setTableMemoryRelocSize           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>size</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00280">280</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a>, <a class="el" href="MemStructs_8h-source.html#l00034">sdesc_tabMem::relocSize</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="ebef9056fe89017711796dcf3f2e690c"></a><!-- doxytag: member="IMemTable.h::setTableMenoryHeapPoint" ref="ebef9056fe89017711796dcf3f2e690c" args="(int line, unsigned short int heapPointSize)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setTableMenoryHeapPoint           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&nbsp;</td>
+          <td class="paramname"> <em>heapPointSize</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00300">300</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemStructs_8h-source.html#l00027">sdesc_tabMem::heap_point</a>, <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="4e0f33d6db1e52e1c31e66bc4b32ae32"></a><!-- doxytag: member="IMemTable.h::showMemoryTable" ref="4e0f33d6db1e52e1c31e66bc4b32ae32" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void showMemoryTable           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Mostrar tabela de memória na tela. 
+<p>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Imprime na tela a situação da tabela de Partições. </dd></dl>
+
+<p>Definição na linha <a class="el" href="MemTable_8c-source.html#l00192">192</a> do arquivo <a class="el" href="MemTable_8c-source.html">MemTable.c</a>.</p>
+
+<p>Referências <a class="el" href="MemTable_8h-source.html#l00025">stab_mem::lin</a>, <a class="el" href="Gmem_8h-source.html#l00016">MAX_PART</a>, <a class="el" href="MemStructs_8h-source.html#l00023">sdesc_tabMem::own_pid</a>, <a class="el" href="MemStructs_8h-source.html#l00022">sdesc_tabMem::pa</a>, <a class="el" href="Scrn_8c-source.html#l00129">printfInt()</a>, <a class="el" href="Scrn_8c-source.html#l00093">puts()</a> e <a class="el" href="MemTable_8c-source.html#l00004">tabMem</a>.</p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:30 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/modulos/Gmem.c</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/modulos/Gmem.c</h1><a href="Gmem_8c.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00005"></a>00005 <span class="preprocessor">#include "<a class="code" href="Gmem_8h.html" title="Este arquivo contém as definições, necessárias para gerenciador de memória.">include/Gmem.h</a>"</span>
+<a name="l00006"></a><a class="code" href="Gmem_8c.html#e0103146947bc676e02290941bfa814b">00006</a> <span class="keywordtype">int</span> <a class="code" href="Gmem_8c.html#e0103146947bc676e02290941bfa814b">debugGMem</a> = 0;
+<a name="l00007"></a>00007 
+<a name="l00011"></a><a class="code" href="Gmem_8h.html#1e681341bf798b480ceea7ba9aed69c3">00011</a> <a class="code" href="Defs_8h.html#e4cc35dcc70810fa972cc8a5185a28fa">BOOL</a> <a class="code" href="Gmem_8c.html#1e681341bf798b480ceea7ba9aed69c3" title="realoca memória, dos processos.">memRelocDisp</a>(<span class="keywordtype">int</span> proc,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size) {
+<a name="l00012"></a>00012         <span class="keyword">struct </span><a class="code" href="structs__free__node.html">s_free_node</a> *aux;
+<a name="l00013"></a>00013         
+<a name="l00014"></a>00014         <span class="keywordflow">if</span> ( <a class="code" href="MemTable_8h.html#8fd768925e809390190d18a2e7767968">getTableMemoryCab</a>(proc) == <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>){
+<a name="l00015"></a>00015                 <span class="keywordflow">return</span> 0;
+<a name="l00016"></a>00016         }<span class="keywordflow">else</span> {
+<a name="l00017"></a>00017                 aux=<a class="code" href="MemTable_8h.html#8fd768925e809390190d18a2e7767968">getTableMemoryCab</a>(proc);
+<a name="l00018"></a>00018                 <span class="keywordflow">while</span> (aux-&gt;<a class="code" href="structs__free__node.html#e72faa2cad4bc888d9710a0f7635d8bf">next</a> != <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {
+<a name="l00019"></a>00019                         <span class="keywordflow">if</span> (aux-&gt;<a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a> &gt;= size)
+<a name="l00020"></a>00020                         <span class="keywordflow">return</span> 1;
+<a name="l00021"></a>00021                         aux=aux-&gt;<a class="code" href="structs__free__node.html#e72faa2cad4bc888d9710a0f7635d8bf">next</a>;
+<a name="l00022"></a>00022                 }
+<a name="l00023"></a>00023         }
+<a name="l00024"></a>00024         <span class="keywordflow">return</span> 0;
+<a name="l00025"></a>00025 }
+<a name="l00026"></a>00026 
+<a name="l00030"></a><a class="code" href="Igmem_8h.html#76481785cc2cb7d43fc6317ebec427b4">00030</a> <span class="keywordtype">void</span> *<a class="code" href="Gmem_8c.html#76481785cc2cb7d43fc6317ebec427b4" title="Retorna: Ponteiro para a HEAP do processo atual.">malloc</a>(<span class="keywordtype">int</span> <a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a>) {
+<a name="l00031"></a>00031         <span class="keywordtype">void</span> *<a class="code" href="structs__free__node.html#74da61acc850088dcb4be84c9853b44a">end</a>;
+<a name="l00032"></a>00032         <span class="keywordtype">int</span> tab_lin;
+<a name="l00033"></a>00033         <span class="keyword">struct </span><a class="code" href="structs__free__node.html">s_free_node</a> *aux;
+<a name="l00034"></a>00034         <span class="keywordtype">void</span> *pont;
+<a name="l00035"></a>00035         <span class="keywordflow">if</span> ((tab_lin = <a class="code" href="Gmem_8c.html#a06947bf8359fa1351732a025c313020" title="Retorna: retorna o numero da linha da tabela de mem&amp;oacute;ria do respectivo processo...">findMyPart</a>())!=-1) {
+<a name="l00036"></a>00036                 <span class="comment">//verificar se existe espaço...</span>
+<a name="l00037"></a>00037                 <span class="keywordflow">if</span> (<a class="code" href="MemTable_8h.html#ecdfa300d9e7f1382e3130f98cf1b821">getTableMemoryHeapSize</a>(tab_lin)&gt;=(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span>)size) {
+<a name="l00038"></a>00038                         <a class="code" href="MemTable_8h.html#d6e24bce6e2887c684704ccdcb6dd65e">setTableMemoryHeapSize</a>(tab_lin,size);
+<a name="l00039"></a>00039                         pont=(<span class="keywordtype">void</span> *)<a class="code" href="MemTable_8h.html#61411ab16fe38820037ab75a53a44321">getTableMemoryHeapPoint</a>(tab_lin);
+<a name="l00040"></a>00040                         <a class="code" href="MemTable_8h.html#ebef9056fe89017711796dcf3f2e690c">setTableMenoryHeapPoint</a>(tab_lin,size);
+<a name="l00041"></a>00041                         <span class="keywordflow">return</span> pont;
+<a name="l00042"></a>00042                 } <span class="keywordflow">else</span> {
+<a name="l00043"></a>00043                         <span class="comment">//verificar se existe espaço liberado</span>
+<a name="l00044"></a>00044                         <span class="keywordflow">if</span> (<a class="code" href="Gmem_8c.html#1e681341bf798b480ceea7ba9aed69c3" title="realoca memória, dos processos.">memRelocDisp</a>(tab_lin, size) == <a class="code" href="Defs_8h.html#a93f0eb578d23995850d61f7d61c55c1">FALSE</a>) 
+<a name="l00045"></a>00045                                 <span class="comment">//Se passar sabemos que CAB.NEXT é valido!</span>
+<a name="l00046"></a>00046                                 <span class="keywordflow">return</span> <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00047"></a>00047                         <span class="keywordflow">else</span> {
+<a name="l00048"></a>00048                                 aux=<a class="code" href="MemTable_8h.html#8fd768925e809390190d18a2e7767968">getTableMemoryCab</a>(tab_lin);
+<a name="l00049"></a>00049                                 <span class="keywordflow">if</span> (aux-&gt;<a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a> &gt;=(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span>)size) { 
+<a name="l00050"></a>00050                                         <span class="comment">//entao serve!</span>
+<a name="l00051"></a>00051                                         <a class="code" href="MemTable_8h.html#fa96a71ce0b7764a48d067060bd8d786">setTableMemoryCab</a>(tab_lin, aux-&gt;<a class="code" href="structs__free__node.html#e72faa2cad4bc888d9710a0f7635d8bf">next</a>);
+<a name="l00052"></a>00052                                         end=aux-&gt;<a class="code" href="structs__free__node.html#74da61acc850088dcb4be84c9853b44a">end</a>;
+<a name="l00053"></a>00053                                         <a class="code" href="Gmem_8c.html#214fae502327dcf0cbdaf1ddd07aa2c9" title="Libera Ponteiro da HEAP do processo atual.">dispose</a>(aux);
+<a name="l00054"></a>00054                                         <span class="keywordflow">return</span> end;
+<a name="l00055"></a>00055                                 } <span class="keywordflow">else</span> {
+<a name="l00056"></a>00056                                         <span class="keywordflow">while</span> (aux-&gt;<a class="code" href="structs__free__node.html#e72faa2cad4bc888d9710a0f7635d8bf">next</a> != <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {
+<a name="l00057"></a>00057                                                 <span class="keywordflow">if</span> (aux-&gt;<a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a> &gt;= (<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span>)size) {
+<a name="l00058"></a>00058                                                         <a class="code" href="MemTable_8h.html#fa96a71ce0b7764a48d067060bd8d786">setTableMemoryCab</a>(tab_lin,aux-&gt;<a class="code" href="structs__free__node.html#e72faa2cad4bc888d9710a0f7635d8bf">next</a>);
+<a name="l00059"></a>00059                                                         end=aux-&gt;<a class="code" href="structs__free__node.html#74da61acc850088dcb4be84c9853b44a">end</a>;
+<a name="l00060"></a>00060                                                         <a class="code" href="Gmem_8c.html#214fae502327dcf0cbdaf1ddd07aa2c9" title="Libera Ponteiro da HEAP do processo atual.">dispose</a>(aux);
+<a name="l00061"></a>00061                                                         <span class="keywordflow">return</span> end;
+<a name="l00062"></a>00062                                                 }
+<a name="l00063"></a>00063                                                 aux=aux-&gt;<a class="code" href="structs__free__node.html#e72faa2cad4bc888d9710a0f7635d8bf">next</a>;
+<a name="l00064"></a>00064                                         }
+<a name="l00065"></a>00065                                 }
+<a name="l00066"></a>00066                         }
+<a name="l00067"></a>00067                 }
+<a name="l00068"></a>00068                 <span class="keywordflow">return</span> <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00069"></a>00069         }
+<a name="l00070"></a>00070         <span class="keywordflow">return</span> <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00071"></a>00071 }
+<a name="l00072"></a>00072 
+<a name="l00076"></a><a class="code" href="Igmem_8h.html#214fae502327dcf0cbdaf1ddd07aa2c9">00076</a> <span class="keywordtype">void</span> <a class="code" href="Gmem_8c.html#214fae502327dcf0cbdaf1ddd07aa2c9" title="Libera Ponteiro da HEAP do processo atual.">dispose</a>(<span class="keywordtype">void</span> *pont) {
+<a name="l00077"></a>00077         <span class="keywordtype">int</span> procPid = <a class="code" href="Scrn_8h.html#20b9cd12c16dd2bafb141277d5200f8b" title="Pega o pid do processo que o executa.">getMyPid</a>();
+<a name="l00078"></a>00078         <span class="keywordtype">int</span> tab_lin;
+<a name="l00079"></a>00079         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> rsize;
+<a name="l00080"></a>00080         <span class="keyword">struct </span><a class="code" href="structs__free__node.html">s_free_node</a> *node;
+<a name="l00081"></a>00081         <span class="comment">//struct s_free_node *aux;</span>
+<a name="l00082"></a>00082         <a class="code" href="Gpro_8c.html#ba9b84c98fbd0e78a33762a0ead68c2a" title="Pega o pid do processo que o executa.">setCurrentPid</a>(0);
+<a name="l00083"></a>00083         rsize = <span class="keyword">sizeof</span>(*pont);
+<a name="l00084"></a>00084         <span class="keywordflow">if</span> ((tab_lin = <a class="code" href="Gmem_8c.html#a06947bf8359fa1351732a025c313020" title="Retorna: retorna o numero da linha da tabela de mem&amp;oacute;ria do respectivo processo...">findMyPart</a>())!=-1) {
+<a name="l00085"></a>00085                 <span class="keywordflow">if</span> (<a class="code" href="MemTable_8h.html#8fd768925e809390190d18a2e7767968">getTableMemoryCab</a>(tab_lin) == <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {
+<a name="l00086"></a>00086                         <span class="comment">//primeiro no a ser liberado!</span>
+<a name="l00087"></a>00087                         <span class="comment">//primeiro no a ser liberado!</span>
+<a name="l00088"></a>00088                         node = <a class="code" href="Gmem_8c.html#76481785cc2cb7d43fc6317ebec427b4" title="Retorna: Ponteiro para a HEAP do processo atual.">malloc</a>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code" href="structs__free__node.html">s_free_node</a>)); 
+<a name="l00089"></a>00089                         <span class="comment">// Alocacao do Dispose ocorre na área do S.O !  mas a liberacao na do processo!</span>
+<a name="l00090"></a>00090                         node-&gt;<a class="code" href="structs__free__node.html#74da61acc850088dcb4be84c9853b44a">end</a>=&amp;pont;
+<a name="l00091"></a>00091                         node-&gt;<a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a>=<span class="keyword">sizeof</span>(*pont);
+<a name="l00092"></a>00092                         node-&gt;<a class="code" href="structs__free__node.html#e72faa2cad4bc888d9710a0f7635d8bf">next</a>=<a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00093"></a>00093                         <a class="code" href="MemTable_8h.html#fa96a71ce0b7764a48d067060bd8d786">setTableMemoryCab</a>(tab_lin, node);
+<a name="l00094"></a>00094                 }
+<a name="l00095"></a>00095                 <span class="keywordflow">else</span>
+<a name="l00096"></a>00096                 { <span class="comment">//ja existem liberacoes.. colocar no no inicio! (mais rápido..)</span>
+<a name="l00097"></a>00097                         node = <a class="code" href="Gmem_8c.html#76481785cc2cb7d43fc6317ebec427b4" title="Retorna: Ponteiro para a HEAP do processo atual.">malloc</a>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code" href="structs__free__node.html">s_free_node</a>));
+<a name="l00098"></a>00098                         node-&gt;<a class="code" href="structs__free__node.html#e72faa2cad4bc888d9710a0f7635d8bf">next</a> = <a class="code" href="MemTable_8h.html#8fd768925e809390190d18a2e7767968">getTableMemoryCab</a>(tab_lin);
+<a name="l00099"></a>00099                         node-&gt;<a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a> = <span class="keyword">sizeof</span>(*pont);
+<a name="l00100"></a>00100                         node-&gt;<a class="code" href="structs__free__node.html#74da61acc850088dcb4be84c9853b44a">end</a> = &amp;pont;
+<a name="l00101"></a>00101                         <a class="code" href="MemTable_8h.html#fa96a71ce0b7764a48d067060bd8d786">setTableMemoryCab</a>(tab_lin, node);
+<a name="l00102"></a>00102                 }
+<a name="l00103"></a>00103         }
+<a name="l00104"></a>00104         <a class="code" href="Gpro_8c.html#ba9b84c98fbd0e78a33762a0ead68c2a" title="Pega o pid do processo que o executa.">setCurrentPid</a>(procPid); 
+<a name="l00105"></a>00105         <span class="comment">//restaurando o PID!</span>
+<a name="l00106"></a>00106 }
+<a name="l00107"></a>00107 
+<a name="l00111"></a><a class="code" href="Gmem_8h.html#a06947bf8359fa1351732a025c313020">00111</a> <span class="keywordtype">int</span> <a class="code" href="Gmem_8c.html#a06947bf8359fa1351732a025c313020" title="Retorna: retorna o numero da linha da tabela de mem&amp;oacute;ria do respectivo processo...">findMyPart</a>() {
+<a name="l00112"></a>00112         <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> cont=0;
+<a name="l00113"></a>00113         
+<a name="l00114"></a>00114         <span class="keywordflow">while</span> (cont&lt;=<a class="code" href="MemTable_8h.html#a7f28fb01004b3d23d5f9e043a65f505">getMemoryTableSize</a>()) {
+<a name="l00115"></a>00115                 <span class="keywordflow">if</span> ((<a class="code" href="MemTable_8h.html#33b0b9bda1814ce7c523e28db221650c">getTableMemoryPa</a>(cont) ==(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span>) 1) &amp;&amp; (<a class="code" href="MemTable_8h.html#23ed3e9bab38d7a5af35eb15cab6c9fb">getTableMemoryPid</a>(cont) ==(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span>) <a class="code" href="Scrn_8h.html#20b9cd12c16dd2bafb141277d5200f8b" title="Pega o pid do processo que o executa.">getMyPid</a>()))
+<a name="l00116"></a>00116                         <span class="keywordflow">return</span> cont;
+<a name="l00117"></a>00117                 cont++;
+<a name="l00118"></a>00118         }
+<a name="l00119"></a>00119         <span class="keywordflow">return</span> -1;
+<a name="l00120"></a>00120 }
+<a name="l00121"></a>00121 
+<a name="l00122"></a><a class="code" href="Gmem_8h.html#60dc57648cba76c8269a5c2d549b0e9f">00122</a> <span class="keywordtype">int</span> <a class="code" href="Gmem_8c.html#60dc57648cba76c8269a5c2d549b0e9f">findFreePart</a>() {
+<a name="l00123"></a>00123         <span class="keywordtype">int</span> cont=0;
+<a name="l00124"></a>00124         
+<a name="l00125"></a>00125         <span class="keywordflow">while</span> (<a class="code" href="MemTable_8h.html#a7f28fb01004b3d23d5f9e043a65f505">getMemoryTableSize</a>() &gt;=(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) cont) {
+<a name="l00126"></a>00126                 <span class="keywordflow">if</span> (<a class="code" href="MemTable_8h.html#33b0b9bda1814ce7c523e28db221650c">getTableMemoryPa</a>(cont) == 0)
+<a name="l00127"></a>00127                         <span class="keywordflow">return</span> cont;
+<a name="l00128"></a>00128                 cont++;
+<a name="l00129"></a>00129         }
+<a name="l00130"></a>00130         <span class="keywordflow">return</span> -1;
+<a name="l00131"></a>00131 }
+<a name="l00132"></a>00132 
+<a name="l00136"></a><a class="code" href="Igmem_8h.html#78ab6341633a4fb2e868c93d5d247fad">00136</a> <span class="keywordtype">int</span> <a class="code" href="Gmem_8c.html#78ab6341633a4fb2e868c93d5d247fad" title="Retorna: aloca particao para uso do processo atual.">alocPart</a>(<span class="keywordtype">int</span> pid) {
+<a name="l00137"></a>00137         <span class="keywordflow">return</span> <a class="code" href="MemTable_8h.html#a7c8227a7c9e42fcf9f3581f2a497273" title="Essa função deve allocar uma partição da memória para o processo, de acordo...">partAlloc</a>(pid,<a class="code" href="Gmem_8h.html#d1991eb62755e9424477b88768f085c0">TAM5K</a>,<a class="code" href="Gmem_8h.html#d1991eb62755e9424477b88768f085c0">TAM5K</a>,<a class="code" href="Gmem_8h.html#d1991eb62755e9424477b88768f085c0">TAM5K</a>);
+<a name="l00138"></a>00138 }
+<a name="l00139"></a>00139 
+<a name="l00143"></a><a class="code" href="Igmem_8h.html#d00b89208f11d7eaa73196ecc0230533">00143</a> <span class="keywordtype">int</span> <a class="code" href="Gmem_8c.html#d00b89208f11d7eaa73196ecc0230533" title="libera uma particao de memória">disposePart</a>(<span class="keywordtype">int</span> pid) {
+<a name="l00144"></a>00144         <a class="code" href="IMemTable_8h.html#37cf7c47a1a4c9154ec8dff042ae1e55" title="Libera o espaço de memória ocupado por um processo.">partDispose</a>(pid);
+<a name="l00145"></a>00145         <span class="keywordflow">return</span> 0;
+<a name="l00146"></a>00146 }
+<a name="l00147"></a>00147 
+<a name="l00148"></a>00148 
+<a name="l00154"></a><a class="code" href="Gmem_8h.html#76eeab67538896f5d22aaaa6af0e3799">00154</a> <span class="keywordtype">int</span> <a class="code" href="Gmem_8c.html#76eeab67538896f5d22aaaa6af0e3799" title="Verificar se existe espaco para alocacao na área usada para indexar relocacao: Retorno:...">OSmemRelocDisp</a>(<span class="keywordtype">int</span> <a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a>) {
+<a name="l00155"></a>00155         <span class="keyword">struct </span><a class="code" href="structs__free__node.html">s_free_node</a> *aux;
+<a name="l00156"></a>00156         
+<a name="l00157"></a>00157         <span class="keywordflow">if</span> (<a class="code" href="MemTable_8h.html#8fd768925e809390190d18a2e7767968">getTableMemoryCab</a>(0) == <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)
+<a name="l00158"></a>00158                 <span class="keywordflow">return</span> 0;
+<a name="l00159"></a>00159         <span class="keywordflow">else</span> {
+<a name="l00160"></a>00160                 aux = <a class="code" href="MemTable_8h.html#8fd768925e809390190d18a2e7767968">getTableMemoryCab</a>(0);
+<a name="l00161"></a>00161                 <span class="keywordflow">while</span> (aux-&gt;<a class="code" href="structs__free__node.html#e72faa2cad4bc888d9710a0f7635d8bf">next</a> != <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {
+<a name="l00162"></a>00162                         <span class="keywordflow">if</span> (aux-&gt;<a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a> &gt;=(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)size)
+<a name="l00163"></a>00163                                 <span class="keywordflow">return</span> 1;
+<a name="l00164"></a>00164                         <span class="keywordflow">else</span>
+<a name="l00165"></a>00165                                 aux=aux-&gt;<a class="code" href="structs__free__node.html#e72faa2cad4bc888d9710a0f7635d8bf">next</a>;
+<a name="l00166"></a>00166                 }
+<a name="l00167"></a>00167         }
+<a name="l00168"></a>00168         <span class="keywordflow">return</span> 0;
+<a name="l00169"></a>00169 }
+<a name="l00170"></a>00170 
+<a name="l00175"></a><a class="code" href="Gmem_8h.html#2bf88ec892d572cab2e3c42a5f828459">00175</a> <span class="keywordtype">void</span> *<a class="code" href="Gmem_8c.html#2bf88ec892d572cab2e3c42a5f828459" title="Alloca memória, apenas para SO.">OSmallocF</a>(<span class="keywordtype">int</span> <a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a>) {
+<a name="l00176"></a>00176         <span class="keywordtype">void</span> *pont;
+<a name="l00177"></a>00177         
+<a name="l00178"></a>00178         <span class="keywordflow">if</span> (<a class="code" href="MemTable_8h.html#ecdfa300d9e7f1382e3130f98cf1b821">getTableMemoryHeapSize</a>(0) &gt;=(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span>)size) {
+<a name="l00179"></a>00179                 <a class="code" href="MemTable_8h.html#d6e24bce6e2887c684704ccdcb6dd65e">setTableMemoryHeapSize</a>(0, size);
+<a name="l00180"></a>00180                 pont = (<span class="keywordtype">void</span> *)<a class="code" href="MemTable_8h.html#61411ab16fe38820037ab75a53a44321">getTableMemoryHeapPoint</a>(0);
+<a name="l00181"></a>00181                 <a class="code" href="MemTable_8h.html#ebef9056fe89017711796dcf3f2e690c">setTableMenoryHeapPoint</a>(0,size);
+<a name="l00182"></a>00182                 <span class="comment">//Não usa mais tracker!</span>
+<a name="l00183"></a>00183                 <span class="keywordflow">return</span> pont;
+<a name="l00184"></a>00184         } <span class="keywordflow">else</span> {
+<a name="l00185"></a>00185                 <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n Erro Final na HEAP. Não existe espaço para permitir relocação ! !! \n"</span>);
+<a name="l00186"></a>00186                 __asm__ __volatile__(   <span class="stringliteral">"hlt"</span>);
+<a name="l00187"></a>00187 }
+<a name="l00188"></a>00188 <span class="keywordflow">return</span> <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00189"></a>00189 }
+<a name="l00190"></a>00190 
+<a name="l00197"></a><a class="code" href="Gmem_8h.html#dbf7bae53d69c802625dd0278e015b57">00197</a> <span class="keywordtype">int</span> <a class="code" href="Gmem_8c.html#dbf7bae53d69c802625dd0278e015b57" title="adiciona tracker para manter referências do ponteiro..">addOSTrackPoint</a>(<span class="keyword">struct</span> <a class="code" href="structs__free__node.html">s_free_node</a> noAlocado) {
+<a name="l00198"></a>00198         <span class="keyword">struct </span><a class="code" href="structs__free__node.html">s_free_node</a> *aux;
+<a name="l00199"></a>00199         <span class="keyword">struct </span><a class="code" href="structs__free__node.html">s_free_node</a> *prox;
+<a name="l00200"></a>00200         <span class="keywordflow">if</span> (<a class="code" href="MemTable_8h.html#8fd768925e809390190d18a2e7767968">getTableMemoryCab</a>(0) == <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {
+<a name="l00201"></a>00201                 <span class="comment">//Primeiro item a ser adicionado!</span>
+<a name="l00202"></a>00202                 aux=<a class="code" href="Gmem_8c.html#2bf88ec892d572cab2e3c42a5f828459" title="Alloca memória, apenas para SO.">OSmallocF</a>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code" href="structs__free__node.html">s_free_node</a>));
+<a name="l00203"></a>00203                 <span class="keywordflow">if</span> (aux==<a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {
+<a name="l00204"></a>00204                         <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n Error na criação do Tracker! \n"</span>);
+<a name="l00205"></a>00205                 } <span class="keywordflow">else</span> {
+<a name="l00206"></a>00206                         <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n Tracker criado com sucesso\n"</span>);
+<a name="l00207"></a>00207                 }
+<a name="l00208"></a>00208                 aux-&gt;<a class="code" href="structs__free__node.html#74da61acc850088dcb4be84c9853b44a">end</a> = noAlocado.<a class="code" href="structs__free__node.html#74da61acc850088dcb4be84c9853b44a">end</a>;
+<a name="l00209"></a>00209                 aux-&gt;<a class="code" href="structs__free__node.html#e8ff939abaf7f391f13e067b0d8d11fa">pa</a> = noAlocado.<a class="code" href="structs__free__node.html#e8ff939abaf7f391f13e067b0d8d11fa">pa</a>;
+<a name="l00210"></a>00210                 aux-&gt;<a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a> = noAlocado.<a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a>;
+<a name="l00211"></a>00211                 aux-&gt;<a class="code" href="structs__free__node.html#e72faa2cad4bc888d9710a0f7635d8bf">next</a> = <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00212"></a>00212                 <a class="code" href="MemTable_8h.html#fa96a71ce0b7764a48d067060bd8d786">setTableMemoryCab</a>(0,aux);
+<a name="l00213"></a>00213                 <a class="code" href="MemTable_8h.html#c731af1f0e4b8261252594c9d0a0cde3">setTableMemoryRelocSize</a>(0,1);
+<a name="l00214"></a>00214                 <span class="keywordflow">return</span> 1;
+<a name="l00215"></a>00215         } <span class="keywordflow">else</span> {
+<a name="l00216"></a>00216                 <span class="comment">//podemos adicionar logo no primeiro! mais rapido.</span>
+<a name="l00217"></a>00217                 <span class="comment">//preparando tracker..</span>
+<a name="l00218"></a>00218                 prox = <a class="code" href="Gmem_8c.html#2bf88ec892d572cab2e3c42a5f828459" title="Alloca memória, apenas para SO.">OSmallocF</a>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code" href="structs__free__node.html">s_free_node</a>));
+<a name="l00219"></a>00219                 <span class="keywordflow">if</span> (prox == <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {
+<a name="l00220"></a>00220                         <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n Error na criação do Tracker! \n"</span>);
+<a name="l00221"></a>00221                 } <span class="keywordflow">else</span> {
+<a name="l00222"></a>00222                 }
+<a name="l00223"></a>00223                 prox-&gt;<a class="code" href="structs__free__node.html#74da61acc850088dcb4be84c9853b44a">end</a> = noAlocado.<a class="code" href="structs__free__node.html#74da61acc850088dcb4be84c9853b44a">end</a>;
+<a name="l00224"></a>00224                 prox-&gt;<a class="code" href="structs__free__node.html#e8ff939abaf7f391f13e067b0d8d11fa">pa</a> = noAlocado.<a class="code" href="structs__free__node.html#e8ff939abaf7f391f13e067b0d8d11fa">pa</a>;
+<a name="l00225"></a>00225                 prox-&gt;<a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a> = noAlocado.<a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a>;
+<a name="l00226"></a>00226                 <span class="comment">//Tracker sera novo cabeça... e antigo sera apontado por tracker! </span>
+<a name="l00227"></a>00227                 prox-&gt;<a class="code" href="structs__free__node.html#e72faa2cad4bc888d9710a0f7635d8bf">next</a> = <a class="code" href="MemTable_8h.html#8fd768925e809390190d18a2e7767968">getTableMemoryCab</a>(0);
+<a name="l00228"></a>00228                 <a class="code" href="MemTable_8h.html#fa96a71ce0b7764a48d067060bd8d786">setTableMemoryCab</a>(0,prox);
+<a name="l00229"></a>00229                 <a class="code" href="MemTable_8h.html#c731af1f0e4b8261252594c9d0a0cde3">setTableMemoryRelocSize</a>(0,1);
+<a name="l00230"></a>00230                 <span class="keywordflow">return</span> 1;
+<a name="l00231"></a>00231         }
+<a name="l00232"></a>00232         <span class="keywordflow">return</span> 0;
+<a name="l00233"></a>00233 }
+<a name="l00234"></a>00234 
+<a name="l00239"></a><a class="code" href="Gmem_8h.html#ff2a344def6eb2e57006c3423e95c203">00239</a> <span class="keywordtype">void</span> *<a class="code" href="Gmem_8c.html#ff2a344def6eb2e57006c3423e95c203" title="Retorna um endereço de alocação valida da lista de malloc a função já marca...">getOStrackPoint</a>(<span class="keywordtype">int</span> <a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a>) {
+<a name="l00240"></a>00240         <span class="keywordtype">void</span> *<a class="code" href="structs__free__node.html#74da61acc850088dcb4be84c9853b44a">end</a>;
+<a name="l00241"></a>00241         <span class="keyword">struct </span><a class="code" href="structs__free__node.html">s_free_node</a> *aux;
+<a name="l00242"></a>00242         <span class="keywordflow">if</span> (<a class="code" href="MemTable_8h.html#8fd768925e809390190d18a2e7767968">getTableMemoryCab</a>(0) == <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)
+<a name="l00243"></a>00243                 <span class="keywordflow">return</span> <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00244"></a>00244         <span class="keywordflow">else</span> {
+<a name="l00245"></a>00245                 aux=<a class="code" href="MemTable_8h.html#8fd768925e809390190d18a2e7767968">getTableMemoryCab</a>(0);
+<a name="l00246"></a>00246                 <span class="keywordflow">while</span> (aux-&gt;<a class="code" href="structs__free__node.html#e72faa2cad4bc888d9710a0f7635d8bf">next</a> != <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {
+<a name="l00247"></a>00247                         <span class="keywordflow">if</span> (aux-&gt;<a class="code" href="structs__free__node.html#e8ff939abaf7f391f13e067b0d8d11fa">pa</a> == 0&amp;&amp; aux-&gt;<a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a> &gt;=(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) size) {
+<a name="l00248"></a>00248                                 <span class="comment">//significa que ponteiro é livre e tem tamanho suficiente</span>
+<a name="l00249"></a>00249                                 end = (<span class="keywordtype">void</span> *)aux-&gt;<a class="code" href="structs__free__node.html#74da61acc850088dcb4be84c9853b44a">end</a>;
+<a name="l00250"></a>00250                                 aux-&gt;<a class="code" href="structs__free__node.html#e8ff939abaf7f391f13e067b0d8d11fa">pa</a> = 1;
+<a name="l00251"></a>00251                                 <span class="comment">//marcar como ocupado</span>
+<a name="l00252"></a>00252                                 <span class="keywordflow">return</span> end;
+<a name="l00253"></a>00253                         }
+<a name="l00254"></a>00254                         aux = aux-&gt;<a class="code" href="structs__free__node.html#e72faa2cad4bc888d9710a0f7635d8bf">next</a>;
+<a name="l00255"></a>00255                 }
+<a name="l00256"></a>00256         }
+<a name="l00257"></a>00257         <span class="keywordflow">return</span> <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00258"></a>00258 }
+<a name="l00259"></a>00259 
+<a name="l00264"></a><a class="code" href="Gmem_8h.html#5faa74740e42e6e98308960fc7e17883">00264</a> <span class="keywordtype">int</span> <a class="code" href="Gmem_8c.html#5faa74740e42e6e98308960fc7e17883" title="libera o ponteiro de malloc para o processo!">releaseOStrackPoint</a>(<span class="keywordtype">void</span> *<a class="code" href="structs__free__node.html#74da61acc850088dcb4be84c9853b44a">end</a>) {
+<a name="l00265"></a>00265         <span class="keyword">struct </span><a class="code" href="structs__free__node.html">s_free_node</a> *aux;
+<a name="l00266"></a>00266         <span class="keywordflow">if</span> (<a class="code" href="MemTable_8h.html#8fd768925e809390190d18a2e7767968">getTableMemoryCab</a>(0) == <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {
+<a name="l00267"></a>00267                 <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n &gt;&gt;&gt; Erro no releaseOStrackPoint : tabMem.lin[0].cab == NULL, memoria do so nao inicializa \n"</span>);
+<a name="l00268"></a>00268                 <span class="keywordflow">return</span> 0;
+<a name="l00269"></a>00269         } <span class="keywordflow">else</span> {
+<a name="l00270"></a>00270                 aux=<a class="code" href="MemTable_8h.html#8fd768925e809390190d18a2e7767968">getTableMemoryCab</a>(0);
+<a name="l00271"></a>00271                 <span class="keywordflow">while</span> (aux != <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {
+<a name="l00272"></a>00272                         <span class="keywordflow">if</span> (aux-&gt;<a class="code" href="structs__free__node.html#74da61acc850088dcb4be84c9853b44a">end</a> == end ) {
+<a name="l00273"></a>00273                                 <span class="comment">//achou ponteiro a liberar    </span>
+<a name="l00274"></a>00274                                 aux-&gt;<a class="code" href="structs__free__node.html#e8ff939abaf7f391f13e067b0d8d11fa">pa</a> = 0;
+<a name="l00275"></a>00275                                 <span class="keywordflow">return</span> 1;
+<a name="l00276"></a>00276                         }
+<a name="l00277"></a>00277                         aux = aux-&gt;<a class="code" href="structs__free__node.html#e72faa2cad4bc888d9710a0f7635d8bf">next</a>;
+<a name="l00278"></a>00278                 }
+<a name="l00279"></a>00279         }
+<a name="l00280"></a>00280         <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n &gt;&gt;&gt; Error. Ponteiro buscado para liberacao nao existe! \n"</span>);
+<a name="l00281"></a>00281         __asm__ __volatile__
+<a name="l00282"></a>00282 (       <span class="stringliteral">"hlt"</span>);
+<a name="l00283"></a>00283         <span class="keywordflow">return</span> 0;
+<a name="l00284"></a>00284 }
+<a name="l00285"></a>00285 
+<a name="l00286"></a>00286 
+<a name="l00287"></a>00287 
+<a name="l00288"></a>00288 
+<a name="l00293"></a><a class="code" href="Igmem_8h.html#9f6d5d1c438568fee2163a44ba8936ec">00293</a> <span class="keywordtype">void</span> *<a class="code" href="Gmem_8c.html#9f6d5d1c438568fee2163a44ba8936ec" title="Ponteiro para a HEAP do SO.">OSmalloc</a>(<span class="keywordtype">int</span> <a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a>) {
+<a name="l00294"></a>00294         <span class="comment">//struct s_free_node *aux;</span>
+<a name="l00295"></a>00295         <span class="keyword">struct </span><a class="code" href="structs__free__node.html">s_free_node</a> track;
+<a name="l00296"></a>00296         <span class="keywordtype">void</span> *auxEnd;
+<a name="l00297"></a>00297         <span class="keywordtype">void</span> *pont;
+<a name="l00298"></a>00298         <span class="keywordflow">if</span> (<a class="code" href="MemTable_8h.html#ecdfa300d9e7f1382e3130f98cf1b821">getTableMemoryHeapSize</a>(0) &gt;=(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span>)size) {
+<a name="l00299"></a>00299                 <a class="code" href="MemTable_8h.html#d6e24bce6e2887c684704ccdcb6dd65e">setTableMemoryHeapSize</a>(0, size);
+<a name="l00300"></a>00300                 pont=(<span class="keywordtype">void</span> *)<a class="code" href="MemTable_8h.html#61411ab16fe38820037ab75a53a44321">getTableMemoryHeapPoint</a>(0);
+<a name="l00301"></a>00301                 <a class="code" href="MemTable_8h.html#ebef9056fe89017711796dcf3f2e690c">setTableMenoryHeapPoint</a>(0,size);
+<a name="l00302"></a>00302                 <span class="comment">//Alocado espaço para ponteiro, agora criar tracker para o ponteiro.</span>
+<a name="l00303"></a>00303                 track.<a class="code" href="structs__free__node.html#74da61acc850088dcb4be84c9853b44a">end</a>=pont;
+<a name="l00304"></a>00304                 <span class="keywordflow">if</span> (track.<a class="code" href="structs__free__node.html#74da61acc850088dcb4be84c9853b44a">end</a> != pont) {
+<a name="l00305"></a>00305                         <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n &gt;&gt;&gt; Error. OSmalloc. track.end != pont \n"</span>);
+<a name="l00306"></a>00306                         __asm__ __volatile__
+<a name="l00307"></a>00307 (               <span class="stringliteral">"hlt"</span>);
+<a name="l00308"></a>00308         }
+<a name="l00309"></a>00309         track.<a class="code" href="structs__free__node.html#e8ff939abaf7f391f13e067b0d8d11fa">pa</a> = 1;
+<a name="l00310"></a>00310         track.<a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a> = size;
+<a name="l00311"></a>00311         <a class="code" href="Gmem_8c.html#dbf7bae53d69c802625dd0278e015b57" title="adiciona tracker para manter referências do ponteiro..">addOSTrackPoint</a>(track);
+<a name="l00312"></a>00312         <span class="keywordflow">return</span> pont;
+<a name="l00313"></a>00313 }
+<a name="l00314"></a>00314 <span class="keywordflow">else</span>
+<a name="l00315"></a>00315 {<span class="comment">//verificar se existe espaço liberado</span>
+<a name="l00316"></a>00316         <span class="keywordflow">if</span> (<a class="code" href="Gmem_8c.html#76eeab67538896f5d22aaaa6af0e3799" title="Verificar se existe espaco para alocacao na área usada para indexar relocacao: Retorno:...">OSmemRelocDisp</a>(size) == 0) {
+<a name="l00317"></a>00317                 <span class="comment">//Verificar se existe mem diponivel..</span>
+<a name="l00318"></a>00318                 <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n Nao tem espaco.. HEAP do SO cheia !! \n"</span>);
+<a name="l00319"></a>00319                 __asm__ __volatile__ (<span class="stringliteral">"hlt"</span>);
+<a name="l00320"></a>00320                 <span class="keywordflow">return</span> <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00321"></a>00321         }
+<a name="l00322"></a>00322         <span class="keywordflow">else</span>
+<a name="l00323"></a>00323         { <span class="comment">//Recuperar um valor da lista de CAB!</span>
+<a name="l00324"></a>00324                 auxEnd=<a class="code" href="Gmem_8c.html#ff2a344def6eb2e57006c3423e95c203" title="Retorna um endereço de alocação valida da lista de malloc a função já marca...">getOStrackPoint</a>(size);
+<a name="l00325"></a>00325                 <span class="keywordflow">if</span> (auxEnd == <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {
+<a name="l00326"></a>00326                         <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n HEAP do SO cheia !! \n"</span>);
+<a name="l00327"></a>00327                         __asm__ __volatile__ (<span class="stringliteral">"hlt"</span>);
+<a name="l00328"></a>00328                 }
+<a name="l00329"></a>00329                 <span class="keywordflow">else</span>
+<a name="l00330"></a>00330                 <span class="keywordflow">return</span> auxEnd;
+<a name="l00331"></a>00331         }
+<a name="l00332"></a>00332 }
+<a name="l00333"></a>00333 <span class="keywordflow">return</span> <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00334"></a>00334 }
+<a name="l00335"></a>00335 
+<a name="l00336"></a>00336 
+<a name="l00340"></a><a class="code" href="Igmem_8h.html#55e8859539d8d9b17fc9fe26f83c2835">00340</a> <span class="keywordtype">void</span> <a class="code" href="Gmem_8c.html#55e8859539d8d9b17fc9fe26f83c2835" title="Libera Ponteiro da HEAP do SO.">OSdispose</a>(<span class="keywordtype">void</span> *pont) {
+<a name="l00341"></a>00341 
+<a name="l00342"></a>00342         <span class="keywordflow">if</span> (pont == <a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {
+<a name="l00343"></a>00343                 <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n &gt;&gt;&gt; Dispose on NULL error!! \n"</span>);
+<a name="l00344"></a>00344                 __asm__ __volatile__
+<a name="l00345"></a>00345                 (       <span class="stringliteral">"hlt"</span>);
+<a name="l00346"></a>00346         }
+<a name="l00347"></a>00347         <span class="keywordflow">if</span> (<a class="code" href="Gmem_8c.html#5faa74740e42e6e98308960fc7e17883" title="libera o ponteiro de malloc para o processo!">releaseOStrackPoint</a>(pont) == 0) {
+<a name="l00348"></a>00348                 <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n &gt;&gt;&gt; Release do track retorna erro !! \n"</span>);
+<a name="l00349"></a>00349                 __asm__ __volatile__ (<span class="stringliteral">"hlt"</span>);
+<a name="l00350"></a>00350         }
+<a name="l00351"></a>00351         <span class="keywordflow">else</span>
+<a name="l00352"></a>00352         {
+<a name="l00353"></a>00353                 <a class="code" href="Scrn_8h.html#273a809d3de4626e50ad4ecd05c44754" title="Responsável por imprimir mensagens de debug na tela.">APOSDEBUG</a>(<a class="code" href="Gmem_8c.html#e0103146947bc676e02290941bfa814b">debugGMem</a>,<span class="stringliteral">"\n *** Release do track funcionando corretamente !! \n"</span>);
+<a name="l00354"></a>00354         }
+<a name="l00355"></a>00355 }
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

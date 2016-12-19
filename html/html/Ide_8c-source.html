@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/kernel/Ide.c</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/kernel/Ide.c</h1><a href="Ide_8c.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> * Implementação baseada na versão anterior do APOS.</span>
+<a name="l00003"></a>00003 <span class="comment"> * Orientador: Edeyson Andrade Gomes   edeyson@gmail.com</span>
+<a name="l00004"></a>00004 <span class="comment"> * Aluno: Ríad Mattos Nassiffe            riad.nassiffe@gmail.com</span>
+<a name="l00005"></a>00005 <span class="comment"> */</span>
+<a name="l00006"></a>00006 
+<a name="l00013"></a>00013 <span class="preprocessor">#include "<a class="code" href="Ide_8h.html" title="Fornece um arquivo com todas as definições e prototipação das funções utilizadas...">include/Ide.h</a>"</span>
+<a name="l00017"></a><a class="code" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4">00017</a> <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4" title="Variável que ativa o modo debug, se seu valor for TRUE(1) e desativa se for FALSE(0)...">debug</a> = <a class="code" href="Defs_8h.html#a93f0eb578d23995850d61f7d61c55c1">FALSE</a>;
+<a name="l00022"></a>00022 <span class="keyword">static</span> <a class="code" href="structdisk.html" title="Lista com as informações dos discos* carregados.">disk</a> diskList[<a class="code" href="Ide_8h.html#972f58c27d853d3ab0e826ad3fbecda7">MAX_DISC</a>];
+<a name="l00023"></a>00023 
+<a name="l00027"></a><a class="code" href="KIide_8h.html#60c7b5c6ac9d0b23bd2d523454303c67">00027</a> <span class="keywordtype">void</span> <a class="code" href="Ide_8c.html#60c7b5c6ac9d0b23bd2d523454303c67" title="Inicializa os dispositivos IDE que achar, sendo limitado até dois hds.">initIDE</a>() {
+<a name="l00028"></a>00028         <span class="keywordtype">int</span> IdeStatus=0;
+<a name="l00029"></a>00029         
+<a name="l00030"></a>00030         <span class="keywordtype">int</span> count=0;
+<a name="l00031"></a>00031         <a class="code" href="Scrn_8h.html#273a809d3de4626e50ad4ecd05c44754" title="Responsável por imprimir mensagens de debug na tela.">APOSDEBUG</a>(<a class="code" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4" title="Variável que ativa o modo debug, se seu valor for TRUE(1) e desativa se for FALSE(0)...">debug</a>, <span class="stringliteral">"Inicializando dispositivos IDE...\n"</span>);
+<a name="l00032"></a>00032         <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#76dfba4762c855fda9814696446fa669">IDE_REG_DEVICE_CONTROL</a>, <a class="code" href="Ide_8h.html#3d0cb38d662c35eeebb8255445faac41">IDE_DCR_NOINTERRUPT</a> | <a class="code" href="Ide_8h.html#a4689e72ad200494045dee23e3fe3bd6">IDE_DCR_RESET</a>);
+<a name="l00033"></a>00033         <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#76dfba4762c855fda9814696446fa669">IDE_REG_DEVICE_CONTROL</a>, <a class="code" href="Ide_8h.html#3d0cb38d662c35eeebb8255445faac41">IDE_DCR_NOINTERRUPT</a>);
+<a name="l00034"></a>00034         IdeStatus = <a class="code" href="Ide_8c.html#ddf34e9daa4318d94658a556a8af0396" title="Espera o disco completar uma operação e informa se teve sucesso ou não.">diskWait</a>();
+<a name="l00035"></a>00035         <a class="code" href="Scrn_8h.html#273a809d3de4626e50ad4ecd05c44754" title="Responsável por imprimir mensagens de debug na tela.">APOSDEBUG</a>(<a class="code" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4" title="Variável que ativa o modo debug, se seu valor for TRUE(1) e desativa se for FALSE(0)...">debug</a>, <span class="stringliteral">"Valor do status da IDE:"</span>);
+<a name="l00036"></a>00036         <a class="code" href="Scrn_8h.html#3b47c20d8bb9e5c9d3cd0137c247ed81" title="Imprime na tela um inteiro.">printfInt</a>(IdeStatus);
+<a name="l00037"></a>00037         <a class="code" href="Scrn_8h.html#273a809d3de4626e50ad4ecd05c44754" title="Responsável por imprimir mensagens de debug na tela.">APOSDEBUG</a>(<a class="code" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4" title="Variável que ativa o modo debug, se seu valor for TRUE(1) e desativa se for FALSE(0)...">debug</a>, <span class="stringliteral">"\n"</span>);
+<a name="l00038"></a>00038         <span class="keywordflow">if</span> (IdeStatus == 0) {
+<a name="l00039"></a>00039                 <a class="code" href="Scrn_8h.html#273a809d3de4626e50ad4ecd05c44754" title="Responsável por imprimir mensagens de debug na tela.">APOSDEBUG</a>(<a class="code" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4" title="Variável que ativa o modo debug, se seu valor for TRUE(1) e desativa se for FALSE(0)...">debug</a>,
+<a name="l00040"></a>00040                                 <span class="stringliteral">"Registradires de controle da IDE limpados com succeso...\n"</span>);
+<a name="l00041"></a>00041                 <span class="keywordflow">for</span> (count=0; count &lt; 2; count++) {
+<a name="l00042"></a>00042                         <a class="code" href="Scrn_8h.html#273a809d3de4626e50ad4ecd05c44754" title="Responsável por imprimir mensagens de debug na tela.">APOSDEBUG</a>(<a class="code" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4" title="Variável que ativa o modo debug, se seu valor for TRUE(1) e desativa se for FALSE(0)...">debug</a>, <span class="stringliteral">"Tentando detecar o HD número:"</span>);
+<a name="l00043"></a>00043                         <a class="code" href="Scrn_8h.html#3b47c20d8bb9e5c9d3cd0137c247ed81" title="Imprime na tela um inteiro.">printfInt</a>(count);
+<a name="l00044"></a>00044                         <a class="code" href="Ide_8c.html#591f2f51833b3926d1a1d67da6f8af4a" title="Detecta HD e captura as informações dele.">detecDisk</a>(count);
+<a name="l00045"></a>00045                 }
+<a name="l00046"></a>00046                 <a class="code" href="Scrn_8h.html#273a809d3de4626e50ad4ecd05c44754" title="Responsável por imprimir mensagens de debug na tela.">APOSDEBUG</a>(<a class="code" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4" title="Variável que ativa o modo debug, se seu valor for TRUE(1) e desativa se for FALSE(0)...">debug</a>, <span class="stringliteral">"Dispositivos IDE inicializados....\n"</span>);
+<a name="l00047"></a>00047         } <span class="keywordflow">else</span> {
+<a name="l00048"></a>00048                 <a class="code" href="Scrn_8h.html#273a809d3de4626e50ad4ecd05c44754" title="Responsável por imprimir mensagens de debug na tela.">APOSDEBUG</a>(<a class="code" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4" title="Variável que ativa o modo debug, se seu valor for TRUE(1) e desativa se for FALSE(0)...">debug</a>,
+<a name="l00049"></a>00049                                 <span class="stringliteral">"Falha ao limpar os registradores de controle da IDE...\n"</span>);
+<a name="l00050"></a>00050         }
+<a name="l00051"></a>00051 }
+<a name="l00052"></a>00052 
+<a name="l00059"></a><a class="code" href="Ide_8c.html#591f2f51833b3926d1a1d67da6f8af4a">00059</a> <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#591f2f51833b3926d1a1d67da6f8af4a" title="Detecta HD e captura as informações dele.">detecDisk</a>(<span class="keywordtype">short</span> <span class="keywordtype">int</span> diskNumber) {
+<a name="l00060"></a>00060         <span class="keywordtype">int</span> count, status;
+<a name="l00061"></a>00061         <span class="keywordtype">short</span> info[256];
+<a name="l00062"></a>00062         <span class="keywordtype">int</span> IdeStatus = 0;
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064         <span class="comment">/*</span>
+<a name="l00065"></a>00065 <span class="comment">         * Caso não tenha sido detectado nenhum HD ele tenta detectar o principal(Master), caso algum já tenha sido detectado,</span>
+<a name="l00066"></a>00066 <span class="comment">         *ele tenta detecar o escravo(slave).</span>
+<a name="l00067"></a>00067 <span class="comment">         */</span>
+<a name="l00068"></a>00068         <span class="keywordflow">if</span> (diskNumber == 0) {
+<a name="l00069"></a>00069                 <span class="comment">//enviamos para aos registradores do dispositivo, o código correspondente a HD master.</span>
+<a name="l00070"></a>00070                 <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#ebc13b5ad2eef5813d807752bb23f5ff">IDE_REG_DEVICE_HEAD</a>, <a class="code" href="Ide_8h.html#44a6dfcdaf57eeb1db1710e5fd9b93eb">IDE_Master</a>);
+<a name="l00071"></a>00071         } <span class="keywordflow">else</span> {
+<a name="l00072"></a>00072                 <span class="comment">//enviamos para aos registradores do dispositivo, o código correspondente a HD slave.</span>
+<a name="l00073"></a>00073                 <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#ebc13b5ad2eef5813d807752bb23f5ff">IDE_REG_DEVICE_HEAD</a>, <a class="code" href="Ide_8h.html#623b1eda0cda01a9d494359885ba2ff8">IDE_Slave</a>);
+<a name="l00074"></a>00074         }
+<a name="l00075"></a>00075         <span class="comment">//enviamos para o dispositivo, responsável de executar a ações, um código para ele tentar reconhecer algum dispositivo,</span>
+<a name="l00076"></a>00076         <span class="comment">// que neste momento já deve ter seu código no registrador esperado pelo commando.</span>
+<a name="l00077"></a>00077         <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#d1867d57f8f946aa156483a976cb75d7">IDE_STATUS_REGISTER</a>,<a class="code" href="Ide_8h.html#2611a03a8b8c48f48d2cafd4d6638ff4">IDE_COMMAND_IDENTIFY_DRIVE</a>);
+<a name="l00078"></a>00078         
+<a name="l00079"></a>00079         IdeStatus = <a class="code" href="Ide_8c.html#ddf34e9daa4318d94658a556a8af0396" title="Espera o disco completar uma operação e informa se teve sucesso ou não.">diskWait</a>();
+<a name="l00080"></a>00080         
+<a name="l00081"></a>00081         <span class="comment">/*</span>
+<a name="l00082"></a>00082 <span class="comment">         *Antes de dar o HD como reconhecido, precisamos verificar se a operação ocorreu com sucesso ou não, para isso temos que verificar o valor armazenado no </span>
+<a name="l00083"></a>00083 <span class="comment">         * registrador IDE_STATUS_REGISTER(0x1f7)</span>
+<a name="l00084"></a>00084 <span class="comment">         */</span> 
+<a name="l00085"></a>00085         status = <a class="code" href="Io_8h.html#950ea0bafe719ed6d8ec38121ffdc414" title="Ler um byte da porta de I/O.">In_Byte</a>(<a class="code" href="Ide_8h.html#d1867d57f8f946aa156483a976cb75d7">IDE_STATUS_REGISTER</a>);
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087         <span class="comment">//Se o valor armazenado for 0, significa que o dispositivo foi reconhecido, com sucesso, caso o contrario não existe ou pode esta com algum problema.</span>
+<a name="l00088"></a>00088         <span class="keywordflow">if</span> (IdeStatus == 0) {
+<a name="l00089"></a>00089                 <span class="comment">//caso hd tenha sido reconhecido com sucesso, precisamos agora ir no registrador onde ele guarda as informações e ler elas.</span>
+<a name="l00090"></a>00090                 <span class="keywordflow">for</span> (count=0; count &lt; 256; count++) {
+<a name="l00091"></a>00091                         info[count]= <a class="code" href="Io_8h.html#7e6ac69e31842f292b5eeea8cc562f99" title="Escreve uma word da porta de I/O.">In_Word</a>(<a class="code" href="Ide_8h.html#6602760c2032320044118f8914e173e9">IDE_REG_DEVICE_DATA_PORT</a>);
+<a name="l00092"></a>00092                 }
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094                 <span class="comment">//a operação traz um vetor com 256 posições, sendo que no momento somente 4 delas nos importam, que são as seguintes:</span>
+<a name="l00095"></a>00095                 diskList[diskNumber].<a class="code" href="structdisk.html#b9a7f546eff633ae8bb89fce1659e554">cylinders</a>=info[<a class="code" href="Ide_8h.html#e796b57a8f531992ae4cff6394976778">IDE_INDENTIFY_CYLINDERS</a>];
+<a name="l00096"></a>00096                 diskList[diskNumber].<a class="code" href="structdisk.html#920d0a6b10e02d052f4e348666d0926c">heads</a>=info[<a class="code" href="Ide_8h.html#a3697f84552dd944c122a999fca835d7">IDE_INDENTIFY_HEADERS</a>];
+<a name="l00097"></a>00097                 diskList[diskNumber].<a class="code" href="structdisk.html#afd2de26f711bf6f1d7996e9be1061a0">sectorPerTrack</a>=info[<a class="code" href="Ide_8h.html#8d83a4fbedfeb409e08bc7d7821f1e6a">IDE_INDENTIFY_SECTORS_TRACK</a>];
+<a name="l00098"></a>00098                 diskList[diskNumber].<a class="code" href="structdisk.html#34e772a21ade6fa1ddb83ce1051b649b">bytesPerSector</a>=info[<a class="code" href="Ide_8h.html#074b997f64b5035aeddcbead56079258">IDE_INDENTIFY_BYTES_SECTOR</a>];
+<a name="l00099"></a>00099                 diskList[diskNumber].<a class="code" href="structdisk.html#ed76df81cd4622f0d826ab1e679d1619">status</a> = 0;
+<a name="l00100"></a>00100                 <a class="code" href="Ide_8c.html#44af5d7b11ec51227c837c0a4d973a3b" title="Essa função é para uso interno, para depurar o código e mostrar informações...">getDiskInfo</a>(diskNumber);
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102         }<span class="keywordflow">else</span>{
+<a name="l00103"></a>00103                 <span class="keywordflow">return</span> <a class="code" href="Defs_8h.html#73efe787c131b385070f25d18b7c9aa4" title="Failing exit status.">EXIT_FAILURE</a>;
+<a name="l00104"></a>00104         }
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106         <span class="keywordflow">return</span> <a class="code" href="Defs_8h.html#687984f47d8cce148d1b914d2b79612a" title="Successful exit status.">EXIT_SUCCESS</a>;
+<a name="l00107"></a>00107 }
+<a name="l00113"></a><a class="code" href="KIide_8h.html#df28570c3a70c15746a81ea2628652e9">00113</a> <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#df28570c3a70c15746a81ea2628652e9" title="Retornar a quantidade de cilindros de um hd.">getDiskCylinders</a>(<span class="keywordtype">short</span> diskNumber) {
+<a name="l00114"></a>00114         <span class="keywordflow">return</span> diskList[diskNumber].<a class="code" href="structdisk.html#b9a7f546eff633ae8bb89fce1659e554">cylinders</a>;
+<a name="l00115"></a>00115 }
+<a name="l00121"></a><a class="code" href="KIide_8h.html#a576f9e371be3de5d0abe403b8369ae1">00121</a> <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#a576f9e371be3de5d0abe403b8369ae1" title="Retornar a quantidade de cabeçalhos de um hd.">getDiskHeads</a>(<span class="keywordtype">short</span> diskNumber) {
+<a name="l00122"></a>00122         <span class="keywordflow">return</span> diskList[diskNumber].<a class="code" href="structdisk.html#920d0a6b10e02d052f4e348666d0926c">heads</a>;
+<a name="l00123"></a>00123 }
+<a name="l00130"></a><a class="code" href="KIide_8h.html#142511891c2876bd8b63491ce80b90bd">00130</a> <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#142511891c2876bd8b63491ce80b90bd" title="Retornar a quantidade de setores por trilha de um hd.">getDiskSectorsPerTrack</a>(<span class="keywordtype">short</span> diskNumber) {
+<a name="l00131"></a>00131         <span class="keywordflow">return</span> diskList[diskNumber].<a class="code" href="structdisk.html#afd2de26f711bf6f1d7996e9be1061a0">sectorPerTrack</a>;
+<a name="l00132"></a>00132 }
+<a name="l00138"></a><a class="code" href="KIide_8h.html#44af5d7b11ec51227c837c0a4d973a3b">00138</a> <span class="keywordtype">void</span> <a class="code" href="Ide_8c.html#44af5d7b11ec51227c837c0a4d973a3b" title="Essa função é para uso interno, para depurar o código e mostrar informações...">getDiskInfo</a>(<span class="keywordtype">int</span> diskNumber) {
+<a name="l00139"></a>00139         <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n*** Configuracao do disco IDE"</span>);
+<a name="l00140"></a>00140         <a class="code" href="Scrn_8h.html#3b47c20d8bb9e5c9d3cd0137c247ed81" title="Imprime na tela um inteiro.">printfInt</a>(diskNumber);
+<a name="l00141"></a>00141         <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n Cilindros: "</span>);
+<a name="l00142"></a>00142         <a class="code" href="Scrn_8h.html#3b47c20d8bb9e5c9d3cd0137c247ed81" title="Imprime na tela um inteiro.">printfInt</a>(diskList[diskNumber].cylinders);
+<a name="l00143"></a>00143         <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n Cabecas: "</span>);
+<a name="l00144"></a>00144         <a class="code" href="Scrn_8h.html#3b47c20d8bb9e5c9d3cd0137c247ed81" title="Imprime na tela um inteiro.">printfInt</a>(diskList[diskNumber].heads);
+<a name="l00145"></a>00145         <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n Setor por trilha: "</span>);
+<a name="l00146"></a>00146         <a class="code" href="Scrn_8h.html#3b47c20d8bb9e5c9d3cd0137c247ed81" title="Imprime na tela um inteiro.">printfInt</a>(diskList[diskNumber].sectorPerTrack);
+<a name="l00147"></a>00147         <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n Bytes por setor: "</span>);
+<a name="l00148"></a>00148         <a class="code" href="Scrn_8h.html#3b47c20d8bb9e5c9d3cd0137c247ed81" title="Imprime na tela um inteiro.">printfInt</a>(diskList[diskNumber].bytesPerSector);
+<a name="l00149"></a>00149         <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"\n*** IDE DISK   *** \n"</span>);
+<a name="l00150"></a>00150 }
+<a name="l00155"></a><a class="code" href="KIide_8h.html#289154455e46f469d1835f652a7a58af">00155</a> <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#289154455e46f469d1835f652a7a58af" title="Essa função verifica a quantidade de HDs detectados.">getDisks</a>() {
+<a name="l00156"></a>00156         <span class="keywordflow">if</span> (diskList[1].bytesPerSector != 0)
+<a name="l00157"></a>00157                 <span class="keywordflow">return</span> 2;
+<a name="l00158"></a>00158         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (diskList[0].bytesPerSector != 0) {
+<a name="l00159"></a>00159                 <span class="keywordflow">return</span> 1;
+<a name="l00160"></a>00160         } <span class="keywordflow">else</span> {
+<a name="l00161"></a>00161                 <span class="keywordflow">return</span> 0;
+<a name="l00162"></a>00162         }
+<a name="l00163"></a>00163 }
+<a name="l00168"></a><a class="code" href="KIide_8h.html#a0dfd568f17f1f381f4d791b92c34c40">00168</a> <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#a0dfd568f17f1f381f4d791b92c34c40" title="Calcula o tamanho do disco.">getDiskSize</a>(<span class="keywordtype">short</span> diskNumber) {
+<a name="l00169"></a>00169         <span class="keywordflow">return</span> diskList[diskNumber].<a class="code" href="structdisk.html#34e772a21ade6fa1ddb83ce1051b649b">bytesPerSector</a>
+<a name="l00170"></a>00170                         *diskList[diskNumber].<a class="code" href="structdisk.html#afd2de26f711bf6f1d7996e9be1061a0">sectorPerTrack</a>* diskList[diskNumber].<a class="code" href="structdisk.html#920d0a6b10e02d052f4e348666d0926c">heads</a>
+<a name="l00171"></a>00171                         *diskList[diskNumber].<a class="code" href="structdisk.html#b9a7f546eff633ae8bb89fce1659e554">cylinders</a>;
+<a name="l00172"></a>00172 }
+<a name="l00180"></a><a class="code" href="Ide_8c.html#a50554702a6b831c05346509d3a8bdc6">00180</a> <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#a50554702a6b831c05346509d3a8bdc6" title="Grava informações no disco.">writeDisk</a>(<span class="keywordtype">short</span> <span class="keywordtype">int</span> driveNumber, <span class="keyword">struct</span> <a class="code" href="structdiskAddress.html" title="Estrutura responsável por armazenar o endereço de uma posição do HD.">diskAddress</a> *address, <span class="keywordtype">char</span> *buffer) {
+<a name="l00181"></a>00181         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count;
+<a name="l00182"></a>00182         <span class="keywordtype">short</span> *w_buffer;
+<a name="l00183"></a>00183         <span class="keywordtype">int</span> IdeStatus = 0;
+<a name="l00184"></a>00184         
+<a name="l00185"></a>00185 
+<a name="l00186"></a>00186         <span class="keywordflow">if</span> (diskList[driveNumber].status != 1) {
+<a name="l00187"></a>00187          diskList[driveNumber].<a class="code" href="structdisk.html#ed76df81cd4622f0d826ab1e679d1619">status</a> = 1;
+<a name="l00188"></a>00188         <span class="comment">//Desativando as interrupções em ASM</span>
+<a name="l00189"></a>00189         __asm__ __volatile__
+<a name="l00190"></a>00190 (<span class="stringliteral">"cli"</span>);
+<a name="l00191"></a>00191                                 
+<a name="l00192"></a>00192         <a class="code" href="Ide_8c.html#bb9ee10191569258e0f22bdd0a95ba62" title="Gera um delay.">delay</a>();
+<a name="l00193"></a>00193         <span class="comment">//Zera o registrador de erro, para evitar que alguma sugeira seja interpretada como erro mais tarde.</span>
+<a name="l00194"></a>00194         <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#27bfeb47230c6bfa0e8d074dce4be18c">IDE_REG_DEVICE_ERROR_PORT</a>,0x00);
+<a name="l00195"></a>00195         <span class="comment">//Informa quantos setores serão lidos</span>
+<a name="l00196"></a>00196         <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#609b386fad63b78a3a707ce8a90c03ea">IDE_SECTOR_COUNT_REGISTER</a>, 1);
+<a name="l00197"></a>00197         <span class="comment">//informa o número do cd que será lido</span>
+<a name="l00198"></a>00198         <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#1fd968a349316f59ec02461a3bba9361">IDE_SECTOR_NUMBER_REGISTER</a>, address-&gt;<a class="code" href="structdiskAddress.html#9e59ac496be4054961ce14949200d79c">sector</a>);
+<a name="l00199"></a>00199         <span class="comment">//Pega os primeiros 8 bits  do endereço do cilindro.</span>
+<a name="l00200"></a>00200         <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#3091341b623d02a5cd587e1d051ba8df">IDE_CYLINDER_LOW_REGISTER</a>, <a class="code" href="Ide_8h.html#af16148e7a910d20df2da6bcf300ea25">LOW_BYTE</a>(address-&gt;<a class="code" href="structdiskAddress.html#2f7b5031a108153440c4de95187bd274">cylinder</a>));
+<a name="l00201"></a>00201         <span class="comment">//Pega os 8 ultimos bits do endereço do cilindro e passa.</span>
+<a name="l00202"></a>00202         <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#152339d616e217e64266900503cebcaf">IDE_REG_DEVICE_CYLINDER_HIGH</a>, <a class="code" href="Ide_8h.html#414e62382b4f31e419c3dce2bd833ca7">HIGH_BYTE</a>(address-&gt;<a class="code" href="structdiskAddress.html#2f7b5031a108153440c4de95187bd274">cylinder</a>));
+<a name="l00203"></a>00203         <span class="comment">//Verifica se que esta gravando é o HD </span>
+<a name="l00204"></a>00204         <span class="keywordflow">if</span> (driveNumber == 0) {
+<a name="l00205"></a>00205                 <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#ebc13b5ad2eef5813d807752bb23f5ff">IDE_REG_DEVICE_HEAD</a>, <a class="code" href="Ide_8h.html#44a6dfcdaf57eeb1db1710e5fd9b93eb">IDE_Master</a> | address-&gt;<a class="code" href="structdiskAddress.html#fec4a33ebc5d3bfdc9a5790532e37a6d">head</a>);
+<a name="l00206"></a>00206         } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (driveNumber == 1) {
+<a name="l00207"></a>00207                 <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#ebc13b5ad2eef5813d807752bb23f5ff">IDE_REG_DEVICE_HEAD</a>, <a class="code" href="Ide_8h.html#623b1eda0cda01a9d494359885ba2ff8">IDE_Slave</a> | address-&gt;<a class="code" href="structdiskAddress.html#fec4a33ebc5d3bfdc9a5790532e37a6d">head</a>);
+<a name="l00208"></a>00208         }
+<a name="l00209"></a>00209         <span class="comment">//escreve no registrador de controlo da IDE, para ela gravar um setor por vez</span>
+<a name="l00210"></a>00210         <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#d1867d57f8f946aa156483a976cb75d7">IDE_STATUS_REGISTER</a>, <a class="code" href="Ide_8h.html#83f422ab0256092278e72d7a75bd257b">IDE_COMMAND_WRITE_SECTORS</a>);
+<a name="l00211"></a>00211         <a class="code" href="Ide_8c.html#bb9ee10191569258e0f22bdd0a95ba62" title="Gera um delay.">delay</a>();
+<a name="l00212"></a>00212         IdeStatus = <a class="code" href="Ide_8c.html#ddf34e9daa4318d94658a556a8af0396" title="Espera o disco completar uma operação e informa se teve sucesso ou não.">diskWait</a>();
+<a name="l00213"></a>00213         <span class="keywordflow">if</span> (IdeStatus == <a class="code" href="Defs_8h.html#687984f47d8cce148d1b914d2b79612a" title="Successful exit status.">EXIT_SUCCESS</a>) {
+<a name="l00214"></a>00214                 w_buffer=(<span class="keywordtype">short</span> *)buffer;
+<a name="l00215"></a>00215                 <span class="keywordflow">for</span> (count=0; count &lt; 256; count++) {
+<a name="l00216"></a>00216                         <a class="code" href="Io_8h.html#c4a39b87ac6c4798e2a7cc713598a597" title="Escreve uma word na porta de I/O.">Out_Word</a>(<a class="code" href="Ide_8h.html#6602760c2032320044118f8914e173e9">IDE_REG_DEVICE_DATA_PORT</a>, w_buffer[count]);
+<a name="l00217"></a>00217                 }
+<a name="l00218"></a>00218                 <a class="code" href="Ide_8c.html#bb9ee10191569258e0f22bdd0a95ba62" title="Gera um delay.">delay</a>();
+<a name="l00219"></a>00219         }
+<a name="l00220"></a>00220         IdeStatus = <a class="code" href="Ide_8c.html#ddf34e9daa4318d94658a556a8af0396" title="Espera o disco completar uma operação e informa se teve sucesso ou não.">diskWait</a>();
+<a name="l00221"></a>00221         <span class="comment">//Reativando structinterrupções em ASM</span>
+<a name="l00222"></a>00222         __asm__ __volatile__
+<a name="l00223"></a>00223 (       <span class="stringliteral">"sti"</span>);
+<a name="l00224"></a>00224                                 diskList[driveNumber].<a class="code" href="structdisk.html#ed76df81cd4622f0d826ab1e679d1619">status</a> = 0;
+<a name="l00225"></a>00225          }
+<a name="l00226"></a>00226 
+<a name="l00227"></a>00227         <span class="keywordflow">return</span> <a class="code" href="Defs_8h.html#687984f47d8cce148d1b914d2b79612a" title="Successful exit status.">EXIT_SUCCESS</a>;
+<a name="l00228"></a>00228 
+<a name="l00229"></a>00229 }
+<a name="l00230"></a>00230 
+<a name="l00238"></a><a class="code" href="Ide_8c.html#49f300dd0c1649ae2c02f98f021592a6">00238</a> <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#49f300dd0c1649ae2c02f98f021592a6" title="Ler informações no disco.">readDisk</a>(<span class="keywordtype">short</span> <span class="keywordtype">int</span> driveNumber, <span class="keyword">struct</span> <a class="code" href="structdiskAddress.html" title="Estrutura responsável por armazenar o endereço de uma posição do HD.">diskAddress</a> *address, <span class="keywordtype">char</span> *buffer) {
+<a name="l00239"></a>00239         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count;
+<a name="l00240"></a>00240         <span class="keywordtype">short</span> *w_buffer;<span class="comment">//</span>
+<a name="l00241"></a>00241         <span class="keywordtype">int</span> IdeStatus=0;
+<a name="l00242"></a>00242         
+<a name="l00243"></a>00243         <span class="comment">//Verifica se o dispositivo esta liberado para gravar.</span>
+<a name="l00244"></a>00244         <span class="keywordflow">if</span> (diskList[driveNumber].status != 1) {
+<a name="l00245"></a>00245                 diskList[driveNumber].<a class="code" href="structdisk.html#ed76df81cd4622f0d826ab1e679d1619">status</a> = 1;
+<a name="l00246"></a>00246                 __asm__ __volatile__
+<a name="l00247"></a>00247 (<span class="stringliteral">"cli"</span>);
+<a name="l00248"></a>00248                 
+<a name="l00249"></a>00249         
+<a name="l00250"></a>00250 
+<a name="l00251"></a>00251                 <a class="code" href="Ide_8c.html#bb9ee10191569258e0f22bdd0a95ba62" title="Gera um delay.">delay</a>();
+<a name="l00252"></a>00252                 <span class="comment">//Zera o registrador de erro, para evitar que alguma sugeira seja interpretada como erro mais tarde.</span>
+<a name="l00253"></a>00253                 <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#27bfeb47230c6bfa0e8d074dce4be18c">IDE_REG_DEVICE_ERROR_PORT</a>,0x00);
+<a name="l00254"></a>00254                 <span class="comment">//Informa quantos setores serão lidos</span>
+<a name="l00255"></a>00255                 <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#609b386fad63b78a3a707ce8a90c03ea">IDE_SECTOR_COUNT_REGISTER</a>, 1);
+<a name="l00256"></a>00256                 <span class="comment">//informa o número do cd que será lido</span>
+<a name="l00257"></a>00257                 <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#1fd968a349316f59ec02461a3bba9361">IDE_SECTOR_NUMBER_REGISTER</a>, address-&gt;<a class="code" href="structdiskAddress.html#9e59ac496be4054961ce14949200d79c">sector</a>);
+<a name="l00258"></a>00258                 <span class="comment">//Pega os primeiros 8 bits  do endereço do cilindro.</span>
+<a name="l00259"></a>00259                 <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#3091341b623d02a5cd587e1d051ba8df">IDE_CYLINDER_LOW_REGISTER</a>, <a class="code" href="Ide_8h.html#af16148e7a910d20df2da6bcf300ea25">LOW_BYTE</a>(address-&gt;<a class="code" href="structdiskAddress.html#2f7b5031a108153440c4de95187bd274">cylinder</a>));
+<a name="l00260"></a>00260                 <span class="comment">//Pega os 8 últimos bits do endereço do cilindro e passa.</span>
+<a name="l00261"></a>00261                 <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#152339d616e217e64266900503cebcaf">IDE_REG_DEVICE_CYLINDER_HIGH</a>, <a class="code" href="Ide_8h.html#414e62382b4f31e419c3dce2bd833ca7">HIGH_BYTE</a>(address-&gt;<a class="code" href="structdiskAddress.html#2f7b5031a108153440c4de95187bd274">cylinder</a>));
+<a name="l00262"></a>00262                 <span class="comment">//Verifica se que esta gravando é o HD </span>
+<a name="l00263"></a>00263                 <span class="keywordflow">if</span> (driveNumber == 0) {
+<a name="l00264"></a>00264                         <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#ebc13b5ad2eef5813d807752bb23f5ff">IDE_REG_DEVICE_HEAD</a>, <a class="code" href="Ide_8h.html#44a6dfcdaf57eeb1db1710e5fd9b93eb">IDE_Master</a> | address-&gt;<a class="code" href="structdiskAddress.html#fec4a33ebc5d3bfdc9a5790532e37a6d">head</a>);
+<a name="l00265"></a>00265                 } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (driveNumber == 1) {
+<a name="l00266"></a>00266                         <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#ebc13b5ad2eef5813d807752bb23f5ff">IDE_REG_DEVICE_HEAD</a>, <a class="code" href="Ide_8h.html#623b1eda0cda01a9d494359885ba2ff8">IDE_Slave</a> | address-&gt;<a class="code" href="structdiskAddress.html#fec4a33ebc5d3bfdc9a5790532e37a6d">head</a>);
+<a name="l00267"></a>00267                 }
+<a name="l00268"></a>00268                 <span class="comment">//escreve no registrador de controlo da IDE, para ela ler um setor por vez</span>
+<a name="l00269"></a>00269                 <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Ide_8h.html#6a0cbdb5ccfc4de284fd7ae0c245cf57">IDE_COMMAND_REGISTER</a>, <a class="code" href="Ide_8h.html#3f4bff89b3cfb7647f3d169082fa2d23">IDE_COMMAND_READ_SECTORS</a>);
+<a name="l00270"></a>00270                 <span class="comment">//espera até que as informações que queremos gravar sejam passadas.</span>
+<a name="l00271"></a>00271                 <a class="code" href="Ide_8c.html#bb9ee10191569258e0f22bdd0a95ba62" title="Gera um delay.">delay</a>();
+<a name="l00272"></a>00272                 IdeStatus = <a class="code" href="Ide_8c.html#ddf34e9daa4318d94658a556a8af0396" title="Espera o disco completar uma operação e informa se teve sucesso ou não.">diskWait</a>();
+<a name="l00273"></a>00273                 <span class="keywordflow">if</span> (IdeStatus == <a class="code" href="Defs_8h.html#687984f47d8cce148d1b914d2b79612a" title="Successful exit status.">EXIT_SUCCESS</a>) {
+<a name="l00274"></a>00274                         w_buffer=(<span class="keywordtype">short</span> *)buffer;
+<a name="l00275"></a>00275                         <span class="comment">//                      timesToRead = 256 * numberOfSectors;</span>
+<a name="l00276"></a>00276                         <span class="keywordflow">for</span> (count = 0; count &lt; 256; count++) {
+<a name="l00277"></a>00277                                 w_buffer[count] = <a class="code" href="Io_8h.html#7e6ac69e31842f292b5eeea8cc562f99" title="Escreve uma word da porta de I/O.">In_Word</a>(<a class="code" href="Ide_8h.html#6602760c2032320044118f8914e173e9">IDE_REG_DEVICE_DATA_PORT</a>);
+<a name="l00278"></a>00278 
+<a name="l00279"></a>00279                         }
+<a name="l00280"></a>00280                         <a class="code" href="Ide_8c.html#bb9ee10191569258e0f22bdd0a95ba62" title="Gera um delay.">delay</a>();
+<a name="l00281"></a>00281                 }
+<a name="l00282"></a>00282 
+<a name="l00283"></a>00283                 __asm__ __volatile__
+<a name="l00284"></a>00284 (       <span class="stringliteral">"sti"</span>);
+<a name="l00285"></a>00285                                 diskList[driveNumber].<a class="code" href="structdisk.html#ed76df81cd4622f0d826ab1e679d1619">status</a> = 0;
+<a name="l00286"></a>00286         }
+<a name="l00287"></a>00287         <span class="keywordflow">return</span> <a class="code" href="Defs_8h.html#687984f47d8cce148d1b914d2b79612a" title="Successful exit status.">EXIT_SUCCESS</a>;
+<a name="l00288"></a>00288 }
+<a name="l00289"></a>00289 
+<a name="l00294"></a><a class="code" href="Ide_8h.html#ddf34e9daa4318d94658a556a8af0396">00294</a> <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#ddf34e9daa4318d94658a556a8af0396" title="Espera o disco completar uma operação e informa se teve sucesso ou não.">diskWait</a>() {
+<a name="l00295"></a>00295         <span class="keywordflow">while</span> (<a class="code" href="Io_8h.html#950ea0bafe719ed6d8ec38121ffdc414" title="Ler um byte da porta de I/O.">In_Byte</a>(<a class="code" href="Ide_8h.html#d1867d57f8f946aa156483a976cb75d7">IDE_STATUS_REGISTER</a>) &amp; <a class="code" href="Ide_8h.html#fbedb1e77f9f2bc0f433b504b2cd2386">IDE_STATUS_DRIVE_BUSY</a>)
+<a name="l00296"></a>00296                 ; <span class="comment">//espera ocupada [enquanto est. ocupado do disco] </span>
+<a name="l00297"></a>00297         <span class="keywordflow">if</span> (<a class="code" href="Io_8h.html#950ea0bafe719ed6d8ec38121ffdc414" title="Ler um byte da porta de I/O.">In_Byte</a>(<a class="code" href="Ide_8h.html#d1867d57f8f946aa156483a976cb75d7">IDE_STATUS_REGISTER</a>) &amp; <a class="code" href="Ide_8h.html#a28644da61459dd09d273df3bc764776">IDE_STATUS_DRIVE_ERROR</a>) {
+<a name="l00298"></a>00298                 <span class="comment">//caso ocorra um erro na operação do HD, ele será percebido aqui.</span>
+<a name="l00299"></a>00299                 <a class="code" href="Scrn_8h.html#273a809d3de4626e50ad4ecd05c44754" title="Responsável por imprimir mensagens de debug na tela.">APOSDEBUG</a>(<a class="code" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4" title="Variável que ativa o modo debug, se seu valor for TRUE(1) e desativa se for FALSE(0)...">debug</a>, <span class="stringliteral">"ocorreu erro no acesso ao dispositivo fisico \n"</span>);
+<a name="l00300"></a>00300                 <span class="keywordtype">int</span> error = <a class="code" href="Io_8h.html#950ea0bafe719ed6d8ec38121ffdc414" title="Ler um byte da porta de I/O.">In_Byte</a>(<a class="code" href="Ide_8h.html#27bfeb47230c6bfa0e8d074dce4be18c">IDE_REG_DEVICE_ERROR_PORT</a>);
+<a name="l00301"></a>00301                 <a class="code" href="Scrn_8h.html#273a809d3de4626e50ad4ecd05c44754" title="Responsável por imprimir mensagens de debug na tela.">APOSDEBUG</a>(<a class="code" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4" title="Variável que ativa o modo debug, se seu valor for TRUE(1) e desativa se for FALSE(0)...">debug</a>,
+<a name="l00302"></a>00302                                 <span class="stringliteral">"ERROR: no acesso ao dispositivo fisico- o numero do erro foi: \n"</span>
+<a name="l00303"></a>00303                                                 +error);
+<a name="l00304"></a>00304                 <span class="keywordflow">return</span> error;
+<a name="l00305"></a>00305         } <span class="keywordflow">else</span> {
+<a name="l00306"></a>00306                 <a class="code" href="Scrn_8h.html#273a809d3de4626e50ad4ecd05c44754" title="Responsável por imprimir mensagens de debug na tela.">APOSDEBUG</a>(<a class="code" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4" title="Variável que ativa o modo debug, se seu valor for TRUE(1) e desativa se for FALSE(0)...">debug</a>, <span class="stringliteral">"Sucesso no acesso ao dispositivo fisico \n"</span>);
+<a name="l00307"></a>00307                 <span class="keywordflow">return</span> <a class="code" href="Defs_8h.html#687984f47d8cce148d1b914d2b79612a" title="Successful exit status.">EXIT_SUCCESS</a>;
+<a name="l00308"></a>00308         }
+<a name="l00309"></a>00309 }
+<a name="l00310"></a>00310 
+<a name="l00320"></a><a class="code" href="Ide_8h.html#bb9ee10191569258e0f22bdd0a95ba62">00320</a> <span class="keywordtype">void</span> <a class="code" href="Ide_8c.html#bb9ee10191569258e0f22bdd0a95ba62" title="Gera um delay.">delay</a>() {
+<a name="l00321"></a>00321         <span class="keywordtype">int</span> lk;
+<a name="l00322"></a>00322         <span class="keywordflow">for</span> (lk = 0; lk &lt; 2000; lk++)
+<a name="l00323"></a>00323                 ;
+<a name="l00324"></a>00324 }
+<a name="l00325"></a>00325 
+<a name="l00326"></a>00326 <span class="comment">/*  _________________________________</span>
+<a name="l00327"></a>00327 <span class="comment"> * | *LBA= Endereço lógico do bloco  |</span>
+<a name="l00328"></a>00328 <span class="comment"> * |_________________________________|</span>
+<a name="l00329"></a>00329 <span class="comment"> * http://www.osdever.net/tutorials/lba.php</span>
+<a name="l00330"></a>00330 <span class="comment"> * http://bochs.sourceforge.net/techspec/IDE-reference.txt</span>
+<a name="l00331"></a>00331 <span class="comment"> * http://ata-atapi.com/</span>
+<a name="l00332"></a>00332 <span class="comment"> */</span>
+<a name="l00333"></a>00333 
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

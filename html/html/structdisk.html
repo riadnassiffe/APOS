@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência da Estrutura disk</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li><a href="functions.html"><span>Campos&nbsp;de&nbsp;Dados</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência da Estrutura disk</h1><!-- doxytag: class="disk" -->Lista com as informações dos discos* carregados.  
+<a href="#_details">Mais...</a>
+<p>
+<code>#include &lt;<a class="el" href="Ide_8h-source.html">Ide.h</a>&gt;</code>
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Campos de Dados</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdisk.html#b9a7f546eff633ae8bb89fce1659e554">cylinders</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdisk.html#920d0a6b10e02d052f4e348666d0926c">heads</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdisk.html#afd2de26f711bf6f1d7996e9be1061a0">sectorPerTrack</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdisk.html#34e772a21ade6fa1ddb83ce1051b649b">bytesPerSector</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdisk.html#ed76df81cd4622f0d826ab1e679d1619">status</a>:1</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Descrição Detalhada</h2>
+Lista com as informações dos discos* carregados. 
+<p>
+Estrutura que guardas as informações necessárias de um HD. 
+<p>Definição na linha <a class="el" href="Ide_8h-source.html#l00108">108</a> do arquivo <a class="el" href="Ide_8h-source.html">Ide.h</a>.</p>
+<hr><h2>Campos e Atributos</h2>
+<a class="anchor" name="b9a7f546eff633ae8bb89fce1659e554"></a><!-- doxytag: member="disk::cylinders" ref="b9a7f546eff633ae8bb89fce1659e554" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">short <a class="el" href="structdisk.html#b9a7f546eff633ae8bb89fce1659e554">disk::cylinders</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Guarda os valores do cilindro do HD 
+<p>Definição na linha <a class="el" href="Ide_8h-source.html#l00110">110</a> do arquivo <a class="el" href="Ide_8h-source.html">Ide.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Ide_8c-source.html#l00059">detecDisk()</a>, <a class="el" href="Ide_8c-source.html#l00113">getDiskCylinders()</a> e <a class="el" href="Ide_8c-source.html#l00168">getDiskSize()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="920d0a6b10e02d052f4e348666d0926c"></a><!-- doxytag: member="disk::heads" ref="920d0a6b10e02d052f4e348666d0926c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">short <a class="el" href="structdisk.html#920d0a6b10e02d052f4e348666d0926c">disk::heads</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Guarda a quantidade de cabeças do HD 
+<p>Definição na linha <a class="el" href="Ide_8h-source.html#l00112">112</a> do arquivo <a class="el" href="Ide_8h-source.html">Ide.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Ide_8c-source.html#l00059">detecDisk()</a>, <a class="el" href="Ide_8c-source.html#l00121">getDiskHeads()</a> e <a class="el" href="Ide_8c-source.html#l00168">getDiskSize()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="afd2de26f711bf6f1d7996e9be1061a0"></a><!-- doxytag: member="disk::sectorPerTrack" ref="afd2de26f711bf6f1d7996e9be1061a0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">short <a class="el" href="structdisk.html#afd2de26f711bf6f1d7996e9be1061a0">disk::sectorPerTrack</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Guarda a quantidade de setores por track no HD 
+<p>Definição na linha <a class="el" href="Ide_8h-source.html#l00114">114</a> do arquivo <a class="el" href="Ide_8h-source.html">Ide.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Ide_8c-source.html#l00059">detecDisk()</a>, <a class="el" href="Ide_8c-source.html#l00130">getDiskSectorsPerTrack()</a> e <a class="el" href="Ide_8c-source.html#l00168">getDiskSize()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="34e772a21ade6fa1ddb83ce1051b649b"></a><!-- doxytag: member="disk::bytesPerSector" ref="34e772a21ade6fa1ddb83ce1051b649b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">short <a class="el" href="structdisk.html#34e772a21ade6fa1ddb83ce1051b649b">disk::bytesPerSector</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Guarda a quantidade de bytes por setor do HD 
+<p>Definição na linha <a class="el" href="Ide_8h-source.html#l00116">116</a> do arquivo <a class="el" href="Ide_8h-source.html">Ide.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Ide_8c-source.html#l00059">detecDisk()</a> e <a class="el" href="Ide_8c-source.html#l00168">getDiskSize()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="ed76df81cd4622f0d826ab1e679d1619"></a><!-- doxytag: member="disk::status" ref="ed76df81cd4622f0d826ab1e679d1619" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char <a class="el" href="structdisk.html#ed76df81cd4622f0d826ab1e679d1619">disk::status</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Guarda o estatus atual do HD, 1 se estiver ocupado e 0 se estiver livre. 
+<p>Definição na linha <a class="el" href="Ide_8h-source.html#l00118">118</a> do arquivo <a class="el" href="Ide_8h-source.html">Ide.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Ide_8c-source.html#l00059">detecDisk()</a>, <a class="el" href="Ide_8c-source.html#l00238">readDisk()</a> e <a class="el" href="Ide_8c-source.html#l00180">writeDisk()</a>.</p>
+
+</div>
+</div><p>
+<hr>A documentação para esta estrutura foi gerada a partir do seguinte arquivo:<ul>
+<li>src/kernel/include/<a class="el" href="Ide_8h-source.html">Ide.h</a></ul>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:30 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

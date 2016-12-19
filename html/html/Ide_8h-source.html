@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/kernel/include/Ide.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/kernel/include/Ide.h</h1><a href="Ide_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> * Implementação baseada na versão anterior do APOS.</span>
+<a name="l00003"></a>00003 <span class="comment"> * Orientador: Edeyson Andrade Gomes   edeyson@gmail.com</span>
+<a name="l00004"></a>00004 <span class="comment"> * Aluno: Ríad Mattos Nassiffe            riad.nassiffe@gmail.com</span>
+<a name="l00005"></a>00005 <span class="comment"> */</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#ifndef IDE_H_</span>
+<a name="l00013"></a>00013 <span class="preprocessor"></span><span class="preprocessor">#define IDE_H_</span>
+<a name="l00014"></a>00014 <span class="preprocessor"></span><span class="preprocessor">#include "../interface/KIio.h"</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include "../interface/KIscrn.h"</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include "../../include/Defs.h"</span>
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 <span class="comment">/*</span>
+<a name="l00019"></a>00019 <span class="comment"> +----+------+------+---+---+---+---------------------+------------------------+</span>
+<a name="l00020"></a>00020 <span class="comment"> |Addr|-CS1FX|-CS3FX|SA2|SA1|SA0| Read (-IOR)            | Write (-IOW)                    |</span>
+<a name="l00021"></a>00021 <span class="comment"> +----+------+------+---+---+---+---------------------+-------------------------+----------+</span>
+<a name="l00022"></a>00022 <span class="comment"> |    |  0   |  0   | X | X | X | ilegal                 | ilegal                          | &lt;--+      |</span>
+<a name="l00023"></a>00023 <span class="comment"> |    |  1   |  1   | X | X | X | High Impedance         | não utilizado                  | Control   |</span>
+<a name="l00024"></a>00024 <span class="comment"> |3FX |  1   |  0   | 0 | X | X | High Impedance         | não utilizado                  | Block     |</span>
+<a name="l00025"></a>00025 <span class="comment"> |3FX |  1   |  0   | 1 | 0 | X | High Impedance         | não utilizado                  | Registers |</span>
+<a name="l00026"></a>00026 <span class="comment"> |3F6 |  1   |  0   | 1 | 1 | 0 | Altern Status          | Dispositivo de controle |    |      |</span>
+<a name="l00027"></a>00027 <span class="comment"> |3F7 |  1   |  0   | 1 | 1 | 1 | Drive Address          | não utilizado           | &lt;--+      |</span>
+<a name="l00028"></a>00028 <span class="comment"> +----+------+------+---+---+---+--------------------+-------------------------+-----------+</span>
+<a name="l00029"></a>00029 <span class="comment"> |1F0 |  0   |  1   | 0 | 0 | 0 | porta de dados         | porta de dados                  | &lt;--+      |</span>
+<a name="l00030"></a>00030 <span class="comment"> |1F1 |  0   |  1   | 0 | 0 | 1 | erro de registrador| Precomp                     |    |      |</span>
+<a name="l00031"></a>00031 <span class="comment"> |1F2 |  0   |  1   | 0 | 1 | 0 | contador de setor  | contador de setor       | Command   |</span>
+<a name="l00032"></a>00032 <span class="comment"> |1F3 |  0   |  1   | 0 | 1 | 1 | número de setor       | número de setor         | Block     |</span>
+<a name="l00033"></a>00033 <span class="comment"> |1F4 |  0   |  1   | 1 | 0 | 0 | Cylinder Low           | Cylinder Low                    | Registers |</span>
+<a name="l00034"></a>00034 <span class="comment"> |1F5 |  0   |  1   | 1 | 0 | 1 | Cylinder High          | Cylinder High                   |    |      |</span>
+<a name="l00035"></a>00035 <span class="comment"> |1F6 |  0   |  1   | 1 | 1 | 0 | Drive / Head           | Drive / Head                    |    |      |</span>
+<a name="l00036"></a>00036 <span class="comment"> |1F7 |  0   |  1   | 1 | 1 | 1 | Status                 | comando                     | &lt;--+      |</span>
+<a name="l00037"></a>00037 <span class="comment"> +----+------+------+---+---+---+---------------------+-------------------------+-----------+</span>
+<a name="l00038"></a>00038 <span class="comment"> */</span>
+<a name="l00039"></a>00039 
+<a name="l00041"></a><a class="code" href="Ide_8h.html#6602760c2032320044118f8914e173e9">00041</a> <span class="preprocessor">#define IDE_REG_DEVICE_DATA_PORT         0x1f0</span>
+<a name="l00042"></a><a class="code" href="Ide_8h.html#27bfeb47230c6bfa0e8d074dce4be18c">00042</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_REG_DEVICE_ERROR_PORT        0x1f1</span>
+<a name="l00043"></a><a class="code" href="Ide_8h.html#609b386fad63b78a3a707ce8a90c03ea">00043</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_SECTOR_COUNT_REGISTER        0x1f2</span>
+<a name="l00044"></a><a class="code" href="Ide_8h.html#1fd968a349316f59ec02461a3bba9361">00044</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_SECTOR_NUMBER_REGISTER       0x1f3</span>
+<a name="l00045"></a><a class="code" href="Ide_8h.html#3091341b623d02a5cd587e1d051ba8df">00045</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_CYLINDER_LOW_REGISTER        0x1f4</span>
+<a name="l00046"></a><a class="code" href="Ide_8h.html#152339d616e217e64266900503cebcaf">00046</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_REG_DEVICE_CYLINDER_HIGH 0x1f5</span>
+<a name="l00047"></a><a class="code" href="Ide_8h.html#ebc13b5ad2eef5813d807752bb23f5ff">00047</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_REG_DEVICE_HEAD              0x1f6</span>
+<a name="l00048"></a><a class="code" href="Ide_8h.html#d1867d57f8f946aa156483a976cb75d7">00048</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_STATUS_REGISTER                      0x1f7</span>
+<a name="l00049"></a><a class="code" href="Ide_8h.html#6a0cbdb5ccfc4de284fd7ae0c245cf57">00049</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_COMMAND_REGISTER             0x1f7</span>
+<a name="l00050"></a><a class="code" href="Ide_8h.html#76dfba4762c855fda9814696446fa669">00050</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_REG_DEVICE_CONTROL           0x3F6</span>
+<a name="l00051"></a>00051 <span class="preprocessor"></span>
+<a name="l00053"></a><a class="code" href="Ide_8h.html#44a6dfcdaf57eeb1db1710e5fd9b93eb">00053</a> <span class="preprocessor">#define IDE_Master      0xa0</span>
+<a name="l00054"></a><a class="code" href="Ide_8h.html#623b1eda0cda01a9d494359885ba2ff8">00054</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_Slave       0xb0</span>
+<a name="l00055"></a>00055 <span class="preprocessor"></span>
+<a name="l00057"></a><a class="code" href="Ide_8h.html#2611a03a8b8c48f48d2cafd4d6638ff4">00057</a> <span class="preprocessor">#define IDE_COMMAND_IDENTIFY_DRIVE              0xEC</span>
+<a name="l00058"></a><a class="code" href="Ide_8h.html#71ae92bb8fa30fea7aef1241fed585c7">00058</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_COMMAND_SEEK                        0x70</span>
+<a name="l00059"></a><a class="code" href="Ide_8h.html#3f4bff89b3cfb7647f3d169082fa2d23">00059</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_COMMAND_READ_SECTORS                0x21//0x20</span>
+<a name="l00060"></a><a class="code" href="Ide_8h.html#672c2148515c6c6f5c78ab746f23f6c5">00060</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_COMMAND_READ_BUFFER                 0xE4</span>
+<a name="l00061"></a>00061 <span class="preprocessor"></span>
+<a name="l00064"></a><a class="code" href="Ide_8h.html#83f422ab0256092278e72d7a75bd257b">00064</a> <span class="preprocessor">#define IDE_COMMAND_WRITE_SECTORS               0x30//31</span>
+<a name="l00065"></a><a class="code" href="Ide_8h.html#c64d2faabfbc478d2591ce06e42576af">00065</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_COMMAND_WRITE_BUFFER                0xE8</span>
+<a name="l00066"></a><a class="code" href="Ide_8h.html#9d73a748dd0c6876c292b80e664f291d">00066</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_COMMAND_DIAGNOSTIC                  0x90</span>
+<a name="l00067"></a><a class="code" href="Ide_8h.html#c35e06de9c32940e7894f21ffe9f97f6">00067</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_COMMAND_ATAPI_IDENT_DRIVE   0xA1</span>
+<a name="l00068"></a>00068 <span class="preprocessor"></span>
+<a name="l00070"></a><a class="code" href="Ide_8h.html#fbedb1e77f9f2bc0f433b504b2cd2386">00070</a> <span class="preprocessor">#define IDE_STATUS_DRIVE_BUSY                   0x80</span>
+<a name="l00071"></a><a class="code" href="Ide_8h.html#f0237ec50d21415e0fab738c36f01a21">00071</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_STATUS_DRIVE_READY                  0x40</span>
+<a name="l00072"></a><a class="code" href="Ide_8h.html#f2dba0bd048240886c05a7a518cd8a24">00072</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_STATUS_DRIVE_WRITE_FAULT    0x20</span>
+<a name="l00073"></a><a class="code" href="Ide_8h.html#2e0b3945b0ef483e1770e55e94969083">00073</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_STATUS_DRIVE_SEEK_COMPLETE  0x10</span>
+<a name="l00074"></a><a class="code" href="Ide_8h.html#9d5d0f28b099d7a3f8457ae6ad1dca04">00074</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_STATUS_DRIVE_DATA_REQUEST   0x08</span>
+<a name="l00075"></a><a class="code" href="Ide_8h.html#fa9e9ffc29608e39f35711c4ee107e16">00075</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_STATUS_DRIVE_CORRECTED_DATA 0x04</span>
+<a name="l00076"></a><a class="code" href="Ide_8h.html#9a69ba7f6198afe68af30a52e788aca9">00076</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_STATUS_DRIVE_INDEX                  0x02</span>
+<a name="l00077"></a><a class="code" href="Ide_8h.html#a28644da61459dd09d273df3bc764776">00077</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_STATUS_DRIVE_ERROR                  0x01</span>
+<a name="l00078"></a>00078 <span class="preprocessor"></span>
+<a name="l00080"></a><a class="code" href="Ide_8h.html#3d0cb38d662c35eeebb8255445faac41">00080</a> <span class="preprocessor">#define IDE_DCR_NOINTERRUPT             0x02</span>
+<a name="l00081"></a><a class="code" href="Ide_8h.html#a4689e72ad200494045dee23e3fe3bd6">00081</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_DCR_RESET                   0x04</span>
+<a name="l00082"></a>00082 <span class="preprocessor"></span>
+<a name="l00084"></a><a class="code" href="Ide_8h.html#6c7e6c8d9faae9c4fda3366cddb07f7b">00084</a> <span class="preprocessor">#define IDE_CONTROL_REGISTER            0x3F6</span>
+<a name="l00085"></a><a class="code" href="Ide_8h.html#9c10032c2ef269a7631778074aeb8d03">00085</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_CONTROL_SOFTWARE_RESET      0x04</span>
+<a name="l00086"></a><a class="code" href="Ide_8h.html#a7fdcdf5fdd525067015f0bd1db4a083">00086</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_CONTROL_INT_DISABLE         0x02</span>
+<a name="l00087"></a>00087 <span class="preprocessor"></span>
+<a name="l00089"></a><a class="code" href="Ide_8h.html#a3697f84552dd944c122a999fca835d7">00089</a> <span class="preprocessor">#define IDE_INDENTIFY_HEADERS           0x03</span>
+<a name="l00090"></a><a class="code" href="Ide_8h.html#e796b57a8f531992ae4cff6394976778">00090</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_INDENTIFY_CYLINDERS                 0x01</span>
+<a name="l00091"></a><a class="code" href="Ide_8h.html#ad4ff59d41ddf3187f4d376c64566f10">00091</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_INDENTIFY_BYTES_TRACK               0x04</span>
+<a name="l00092"></a><a class="code" href="Ide_8h.html#074b997f64b5035aeddcbead56079258">00092</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_INDENTIFY_BYTES_SECTOR              0x05</span>
+<a name="l00093"></a><a class="code" href="Ide_8h.html#8d83a4fbedfeb409e08bc7d7821f1e6a">00093</a> <span class="preprocessor"></span><span class="preprocessor">#define IDE_INDENTIFY_SECTORS_TRACK     0x06</span>
+<a name="l00094"></a>00094 <span class="preprocessor"></span>
+<a name="l00096"></a><a class="code" href="Ide_8h.html#af16148e7a910d20df2da6bcf300ea25">00096</a> <span class="preprocessor">#define LOW_BYTE(x)     (x &amp; 0xff)</span>
+<a name="l00097"></a>00097 <span class="preprocessor"></span>
+<a name="l00098"></a><a class="code" href="Ide_8h.html#414e62382b4f31e419c3dce2bd833ca7">00098</a> <span class="preprocessor">#define HIGH_BYTE(x)    ((x &gt;&gt; 8) &amp; 0xff)</span>
+<a name="l00099"></a>00099 <span class="preprocessor"></span>
+<a name="l00101"></a><a class="code" href="Ide_8h.html#972f58c27d853d3ab0e826ad3fbecda7">00101</a> <span class="preprocessor">#define MAX_DISC   2</span>
+<a name="l00102"></a>00102 <span class="preprocessor"></span>
+<a name="l00108"></a><a class="code" href="structdisk.html">00108</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>{
+<a name="l00110"></a><a class="code" href="structdisk.html#b9a7f546eff633ae8bb89fce1659e554">00110</a>         <span class="keywordtype">short</span> cylinders; 
+<a name="l00112"></a><a class="code" href="structdisk.html#920d0a6b10e02d052f4e348666d0926c">00112</a>         <span class="keywordtype">short</span> heads;
+<a name="l00114"></a><a class="code" href="structdisk.html#afd2de26f711bf6f1d7996e9be1061a0">00114</a>         <span class="keywordtype">short</span> sectorPerTrack;
+<a name="l00116"></a><a class="code" href="structdisk.html#34e772a21ade6fa1ddb83ce1051b649b">00116</a>         <span class="keywordtype">short</span> bytesPerSector;
+<a name="l00118"></a><a class="code" href="structdisk.html#ed76df81cd4622f0d826ab1e679d1619">00118</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> status:1;
+<a name="l00119"></a>00119 } <a class="code" href="structdisk.html" title="Lista com as informações dos discos* carregados.">disk</a>;
+<a name="l00120"></a>00120 
+<a name="l00125"></a><a class="code" href="structdiskAddress.html">00125</a> <span class="keyword">struct </span><a class="code" href="structdiskAddress.html" title="Estrutura responsável por armazenar o endereço de uma posição do HD.">diskAddress</a> {
+<a name="l00127"></a><a class="code" href="structdiskAddress.html#ad283e69dfbef6b1323cdc18ba3dc46c">00127</a>         <span class="keywordtype">short</span> <a class="code" href="structdiskAddress.html#ad283e69dfbef6b1323cdc18ba3dc46c">lba</a>;
+<a name="l00129"></a><a class="code" href="structdiskAddress.html#fec4a33ebc5d3bfdc9a5790532e37a6d">00129</a>         <span class="keywordtype">short</span> <a class="code" href="structdiskAddress.html#fec4a33ebc5d3bfdc9a5790532e37a6d">head</a>;
+<a name="l00131"></a><a class="code" href="structdiskAddress.html#9e59ac496be4054961ce14949200d79c">00131</a>         <span class="keywordtype">short</span> <a class="code" href="structdiskAddress.html#9e59ac496be4054961ce14949200d79c">sector</a>;
+<a name="l00133"></a><a class="code" href="structdiskAddress.html#2f7b5031a108153440c4de95187bd274">00133</a>         <span class="keywordtype">short</span> <a class="code" href="structdiskAddress.html#2f7b5031a108153440c4de95187bd274">cylinder</a>;
+<a name="l00135"></a><a class="code" href="structdiskAddress.html#dc9405f2e4d862f336366d5e513a3240">00135</a>         <span class="keywordtype">char</span> <a class="code" href="structdiskAddress.html#dc9405f2e4d862f336366d5e513a3240">error</a> :1;
+<a name="l00136"></a>00136 }__attribute__((<a class="code" href="FatDefs_8h.html#16b1e4fbd894edb397960459715541d8">packed</a>));;
+<a name="l00137"></a>00137 
+<a name="l00141"></a>00141 <span class="keywordtype">void</span> <a class="code" href="Ide_8c.html#60c7b5c6ac9d0b23bd2d523454303c67" title="Inicializa os dispositivos IDE que achar, sendo limitado até dois hds.">initIDE</a>();
+<a name="l00148"></a>00148 <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#591f2f51833b3926d1a1d67da6f8af4a" title="Detecta HD e captura as informações dele.">detecDisk</a>(<span class="keywordtype">short</span> diskNumber);
+<a name="l00154"></a>00154 <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#df28570c3a70c15746a81ea2628652e9" title="Retornar a quantidade de cilindros de um hd.">getDiskCylinders</a>(<span class="keywordtype">short</span> diskNumber);
+<a name="l00160"></a>00160 <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#a576f9e371be3de5d0abe403b8369ae1" title="Retornar a quantidade de cabeçalhos de um hd.">getDiskHeads</a>(<span class="keywordtype">short</span> diskNumber);
+<a name="l00167"></a>00167 <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#142511891c2876bd8b63491ce80b90bd" title="Retornar a quantidade de setores por trilha de um hd.">getDiskSectorsPerTrack</a>(<span class="keywordtype">short</span> diskNumber);
+<a name="l00173"></a>00173 <span class="keywordtype">void</span> <a class="code" href="Ide_8c.html#44af5d7b11ec51227c837c0a4d973a3b" title="Essa função é para uso interno, para depurar o código e mostrar informações...">getDiskInfo</a>(<span class="keywordtype">int</span> diskNumber);
+<a name="l00178"></a>00178 <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#289154455e46f469d1835f652a7a58af" title="Essa função verifica a quantidade de HDs detectados.">getDisks</a>();
+<a name="l00183"></a>00183 <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#a0dfd568f17f1f381f4d791b92c34c40" title="Calcula o tamanho do disco.">getDiskSize</a>(<span class="keywordtype">short</span> diskNumber);
+<a name="l00191"></a>00191 <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#a50554702a6b831c05346509d3a8bdc6" title="Grava informações no disco.">writeDisk</a>(<span class="keywordtype">short</span>  driveNumber, <span class="keyword">struct</span> <a class="code" href="structdiskAddress.html" title="Estrutura responsável por armazenar o endereço de uma posição do HD.">diskAddress</a> *address, <span class="keywordtype">char</span> *buffer);
+<a name="l00199"></a>00199 <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#49f300dd0c1649ae2c02f98f021592a6" title="Ler informações no disco.">readDisk</a>(<span class="keywordtype">short</span>  driveNumber, <span class="keyword">struct</span> <a class="code" href="structdiskAddress.html" title="Estrutura responsável por armazenar o endereço de uma posição do HD.">diskAddress</a> *address, <span class="keywordtype">char</span> *buffer);
+<a name="l00204"></a>00204 <span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#ddf34e9daa4318d94658a556a8af0396" title="Espera o disco completar uma operação e informa se teve sucesso ou não.">diskWait</a>();
+<a name="l00214"></a>00214 <span class="keywordtype">void</span> <a class="code" href="Ide_8c.html#bb9ee10191569258e0f22bdd0a95ba62" title="Gera um delay.">delay</a>();
+<a name="l00215"></a>00215 <span class="preprocessor">#endif </span><span class="comment">/*IDE_H_*/</span>
+<a name="l00216"></a>00216 
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

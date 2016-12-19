@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/kernel/IO.c</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/kernel/IO.c</h1><a href="IO_8c.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include "<a class="code" href="Io_8h.html">include/Io.h</a>"</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 
+<a name="l00008"></a><a class="code" href="IO_8c.html#7428aa46f312091045636d8e4bf49f1a">00008</a> <span class="keywordtype">void</span> <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(<a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> port, <a class="code" href="Defs_8h.html#807678d6b75a0ea29e946e41423da6f1">uchar_t</a> value)
+<a name="l00009"></a>00009 {
+<a name="l00010"></a>00010     __asm__ __volatile__ (<span class="stringliteral">"outb %b0, %w1"</span>: : <span class="stringliteral">"a"</span> (value), <span class="stringliteral">"Nd"</span> (port));
+<a name="l00011"></a>00011 }
+<a name="l00012"></a>00012 
+<a name="l00017"></a><a class="code" href="IO_8c.html#950ea0bafe719ed6d8ec38121ffdc414">00017</a> <a class="code" href="Defs_8h.html#807678d6b75a0ea29e946e41423da6f1">uchar_t</a> <a class="code" href="Io_8h.html#950ea0bafe719ed6d8ec38121ffdc414" title="Ler um byte da porta de I/O.">In_Byte</a>(<a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> port)
+<a name="l00018"></a>00018 {
+<a name="l00019"></a>00019     <a class="code" href="Defs_8h.html#807678d6b75a0ea29e946e41423da6f1">uchar_t</a> value;
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021     __asm__ __volatile__ (
+<a name="l00022"></a>00022         <span class="stringliteral">"inb %w1, %b0"</span>
+<a name="l00023"></a>00023         : <span class="stringliteral">"=a"</span> (value)
+<a name="l00024"></a>00024         : <span class="stringliteral">"Nd"</span> (port)
+<a name="l00025"></a>00025     );
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027     <span class="keywordflow">return</span> value;
+<a name="l00028"></a>00028 }
+<a name="l00029"></a>00029 
+<a name="l00034"></a><a class="code" href="IO_8c.html#c4a39b87ac6c4798e2a7cc713598a597">00034</a> <span class="keywordtype">void</span> <a class="code" href="Io_8h.html#c4a39b87ac6c4798e2a7cc713598a597" title="Escreve uma word na porta de I/O.">Out_Word</a>(<a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> port, <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> value)
+<a name="l00035"></a>00035 {
+<a name="l00036"></a>00036     __asm__ __volatile__ (
+<a name="l00037"></a>00037         <span class="stringliteral">"outw %w0, %w1"</span>
+<a name="l00038"></a>00038         :
+<a name="l00039"></a>00039         : <span class="stringliteral">"a"</span> (value), <span class="stringliteral">"Nd"</span> (port)
+<a name="l00040"></a>00040     );
+<a name="l00041"></a>00041 }
+<a name="l00042"></a>00042 
+<a name="l00047"></a><a class="code" href="IO_8c.html#7e6ac69e31842f292b5eeea8cc562f99">00047</a> <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="Io_8h.html#7e6ac69e31842f292b5eeea8cc562f99" title="Escreve uma word da porta de I/O.">In_Word</a>(<a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> port)
+<a name="l00048"></a>00048 {
+<a name="l00049"></a>00049     <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> value;
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051     __asm__ __volatile__ (
+<a name="l00052"></a>00052         <span class="stringliteral">"inw %w1, %w0"</span>
+<a name="l00053"></a>00053         : <span class="stringliteral">"=a"</span> (value)
+<a name="l00054"></a>00054         : <span class="stringliteral">"Nd"</span> (port)
+<a name="l00055"></a>00055     );
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057     <span class="keywordflow">return</span> value;
+<a name="l00058"></a>00058 }
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

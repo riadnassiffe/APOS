@@ -1,0 +1,621 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/modulos/include/Gmem.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/modulos/include/Gmem.h</h1>Este arquivo contém as definições, necessárias para gerenciador de memória. <a href="#_details">Mais...</a>
+<p>
+<code>#include &quot;<a class="el" href="Defs_8h-source.html">../../include/Defs.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="KIgdt_8h-source.html">../../kernel/interface/KIgdt.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="KIscrn_8h-source.html">../../kernel/interface/KIscrn.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="IMemTable_8h-source.html">../../modulos/interface/IMemTable.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="Igpro_8h-source.html">../../modulos/interface/Igpro.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="MemStructs_8h-source.html">../../modulos/defs/MemStructs.h</a>&quot;</code><br>
+
+<p>
+<a href="Gmem_8h-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Definições e Macros</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#ae1c291782a22dfa1d54bd80cba5c1fa">MAX_PART</a>&nbsp;&nbsp;&nbsp;11</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#77e8f2a10448980c03e224df8df2e589">TAM2K</a>&nbsp;&nbsp;&nbsp;2048</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#ab9fa0310b5cfd53d04e143f4ef9ab40">TAM4K</a>&nbsp;&nbsp;&nbsp;4096</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#d1991eb62755e9424477b88768f085c0">TAM5K</a>&nbsp;&nbsp;&nbsp;5120</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#36c05fe12a1fe7bab97be46255668e35">TAM10K</a>&nbsp;&nbsp;&nbsp;10240</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#d29e3fa093f89b98f8b508133d3d3a48">TAM1MB</a>&nbsp;&nbsp;&nbsp;1048576</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#9cfce745fd1f1bd8e3c3c67fdfc383af">TAM5MB</a>&nbsp;&nbsp;&nbsp;5242880</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>&nbsp;&nbsp;&nbsp;0x00</td></tr>
+
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#1e681341bf798b480ceea7ba9aed69c3">memRelocDisp</a> (int proc, unsigned int size)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">realoca memória, dos processos.  <a href="#1e681341bf798b480ceea7ba9aed69c3"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#76481785cc2cb7d43fc6317ebec427b4">malloc</a> (int size)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna: Ponteiro para a HEAP do processo atual.  <a href="#76481785cc2cb7d43fc6317ebec427b4"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#214fae502327dcf0cbdaf1ddd07aa2c9">dispose</a> (void *pont)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Libera Ponteiro da HEAP do processo atual.  <a href="#214fae502327dcf0cbdaf1ddd07aa2c9"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#a06947bf8359fa1351732a025c313020">findMyPart</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna: retorna o numero da linha da tabela de mem&oacute;ria do respectivo processo em execução.  <a href="#a06947bf8359fa1351732a025c313020"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#60dc57648cba76c8269a5c2d549b0e9f">findFreePart</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#78ab6341633a4fb2e868c93d5d247fad">alocPart</a> (int pid)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna: aloca particao para uso do processo atual.  <a href="#78ab6341633a4fb2e868c93d5d247fad"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#d00b89208f11d7eaa73196ecc0230533">disposePart</a> (int pid)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">libera uma particao de memória  <a href="#d00b89208f11d7eaa73196ecc0230533"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#76eeab67538896f5d22aaaa6af0e3799">OSmemRelocDisp</a> (int size)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Verificar se existe espaco para alocacao na área usada para indexar relocacao: Retorno: 0: ERROR 1: OK.  <a href="#76eeab67538896f5d22aaaa6af0e3799"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#2bf88ec892d572cab2e3c42a5f828459">OSmallocF</a> (int size)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Alloca memória, apenas para SO.  <a href="#2bf88ec892d572cab2e3c42a5f828459"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#dbf7bae53d69c802625dd0278e015b57">addOSTrackPoint</a> (struct <a class="el" href="structs__free__node.html">s_free_node</a> noAlocado)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">adiciona tracker para manter referências do ponteiro..  <a href="#dbf7bae53d69c802625dd0278e015b57"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#ff2a344def6eb2e57006c3423e95c203">getOStrackPoint</a> (int size)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna um endereço de alocação valida da lista de malloc a função já marca o ponteiro na lista como usado!  <a href="#ff2a344def6eb2e57006c3423e95c203"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#5faa74740e42e6e98308960fc7e17883">releaseOStrackPoint</a> (void *end)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">libera o ponteiro de malloc para o processo!  <a href="#5faa74740e42e6e98308960fc7e17883"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#9f6d5d1c438568fee2163a44ba8936ec">OSmalloc</a> (int size)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Ponteiro para a HEAP do SO.  <a href="#9f6d5d1c438568fee2163a44ba8936ec"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gmem_8h.html#55e8859539d8d9b17fc9fe26f83c2835">OSdispose</a> (void *pont)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Libera Ponteiro da HEAP do SO.  <a href="#55e8859539d8d9b17fc9fe26f83c2835"></a><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Descrição Detalhada</h2>
+Este arquivo contém as definições, necessárias para gerenciador de memória. 
+<p>
+
+<p>Definição no arquivo <a class="el" href="Gmem_8h-source.html">Gmem.h</a>.</p>
+<hr><h2>Definições e macros</h2>
+<a class="anchor" name="ae1c291782a22dfa1d54bd80cba5c1fa"></a><!-- doxytag: member="Gmem.h::MAX_PART" ref="ae1c291782a22dfa1d54bd80cba5c1fa" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_PART&nbsp;&nbsp;&nbsp;11          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8h-source.html#l00016">16</a> do arquivo <a class="el" href="Gmem_8h-source.html">Gmem.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="MemTable_8c-source.html#l00256">getMemoryTableSize()</a>, <a class="el" href="MemTable_8c-source.html#l00046">initMemTable()</a>, <a class="el" href="MemTable_8c-source.html#l00093">partAlloc()</a>, <a class="el" href="MemTable_8c-source.html#l00213">partDispose()</a> e <a class="el" href="MemTable_8c-source.html#l00192">showMemoryTable()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="070d2ce7b6bb7e5c05602aa8c308d0c4"></a><!-- doxytag: member="Gmem.h::NULL" ref="070d2ce7b6bb7e5c05602aa8c308d0c4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NULL&nbsp;&nbsp;&nbsp;0x00          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8h-source.html#l00023">23</a> do arquivo <a class="el" href="Gmem_8h-source.html">Gmem.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="36c05fe12a1fe7bab97be46255668e35"></a><!-- doxytag: member="Gmem.h::TAM10K" ref="36c05fe12a1fe7bab97be46255668e35" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAM10K&nbsp;&nbsp;&nbsp;10240          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8h-source.html#l00020">20</a> do arquivo <a class="el" href="Gmem_8h-source.html">Gmem.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="MemTable_8c-source.html#l00046">initMemTable()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="d29e3fa093f89b98f8b508133d3d3a48"></a><!-- doxytag: member="Gmem.h::TAM1MB" ref="d29e3fa093f89b98f8b508133d3d3a48" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAM1MB&nbsp;&nbsp;&nbsp;1048576          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8h-source.html#l00021">21</a> do arquivo <a class="el" href="Gmem_8h-source.html">Gmem.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="MemTable_8c-source.html#l00046">initMemTable()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="77e8f2a10448980c03e224df8df2e589"></a><!-- doxytag: member="Gmem.h::TAM2K" ref="77e8f2a10448980c03e224df8df2e589" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAM2K&nbsp;&nbsp;&nbsp;2048          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8h-source.html#l00017">17</a> do arquivo <a class="el" href="Gmem_8h-source.html">Gmem.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="ab9fa0310b5cfd53d04e143f4ef9ab40"></a><!-- doxytag: member="Gmem.h::TAM4K" ref="ab9fa0310b5cfd53d04e143f4ef9ab40" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAM4K&nbsp;&nbsp;&nbsp;4096          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8h-source.html#l00018">18</a> do arquivo <a class="el" href="Gmem_8h-source.html">Gmem.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="d1991eb62755e9424477b88768f085c0"></a><!-- doxytag: member="Gmem.h::TAM5K" ref="d1991eb62755e9424477b88768f085c0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAM5K&nbsp;&nbsp;&nbsp;5120          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8h-source.html#l00019">19</a> do arquivo <a class="el" href="Gmem_8h-source.html">Gmem.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gmem_8c-source.html#l00136">alocPart()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="9cfce745fd1f1bd8e3c3c67fdfc383af"></a><!-- doxytag: member="Gmem.h::TAM5MB" ref="9cfce745fd1f1bd8e3c3c67fdfc383af" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAM5MB&nbsp;&nbsp;&nbsp;5242880          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8h-source.html#l00022">22</a> do arquivo <a class="el" href="Gmem_8h-source.html">Gmem.h</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Funções</h2>
+<a class="anchor" name="dbf7bae53d69c802625dd0278e015b57"></a><!-- doxytag: member="Gmem.h::addOSTrackPoint" ref="dbf7bae53d69c802625dd0278e015b57" args="(struct s_free_node noAlocado)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int addOSTrackPoint           </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structs__free__node.html">s_free_node</a>&nbsp;</td>
+          <td class="paramname"> <em>noAlocado</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+adiciona tracker para manter referências do ponteiro.. 
+<p>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>-Retorna 0 : Error 1 : Sucesso </dd></dl>
+
+<p>Definição na linha <a class="el" href="Gmem_8c-source.html#l00197">197</a> do arquivo <a class="el" href="Gmem_8c-source.html">Gmem.c</a>.</p>
+
+<p>Referências <a class="el" href="MemStructs_8h-source.html#l00038">s_free_node::end</a>, <a class="el" href="MemTable_8c-source.html#l00268">getTableMemoryCab()</a>, <a class="el" href="MemStructs_8h-source.html#l00042">s_free_node::next</a>, <a class="el" href="Defs_8h-source.html#l00033">NULL</a>, <a class="el" href="Gmem_8c-source.html#l00175">OSmallocF()</a>, <a class="el" href="MemStructs_8h-source.html#l00039">s_free_node::pa</a>, <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>, <a class="el" href="MemTable_8c-source.html#l00296">setTableMemoryCab()</a>, <a class="el" href="MemTable_8c-source.html#l00280">setTableMemoryRelocSize()</a> e <a class="el" href="MemStructs_8h-source.html#l00041">s_free_node::size</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gmem_8c-source.html#l00293">OSmalloc()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="78ab6341633a4fb2e868c93d5d247fad"></a><!-- doxytag: member="Gmem.h::alocPart" ref="78ab6341633a4fb2e868c93d5d247fad" args="(int pid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int alocPart           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pid</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna: aloca particao para uso do processo atual. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8c-source.html#l00136">136</a> do arquivo <a class="el" href="Gmem_8c-source.html">Gmem.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="214fae502327dcf0cbdaf1ddd07aa2c9"></a><!-- doxytag: member="Gmem.h::dispose" ref="214fae502327dcf0cbdaf1ddd07aa2c9" args="(void *pont)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dispose           </td>
+          <td>(</td>
+          <td class="paramtype">void *&nbsp;</td>
+          <td class="paramname"> <em>pont</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Libera Ponteiro da HEAP do processo atual. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8c-source.html#l00076">76</a> do arquivo <a class="el" href="Gmem_8c-source.html">Gmem.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="d00b89208f11d7eaa73196ecc0230533"></a><!-- doxytag: member="Gmem.h::disposePart" ref="d00b89208f11d7eaa73196ecc0230533" args="(int pid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int disposePart           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pid</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+libera uma particao de memória 
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8c-source.html#l00143">143</a> do arquivo <a class="el" href="Gmem_8c-source.html">Gmem.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="60dc57648cba76c8269a5c2d549b0e9f"></a><!-- doxytag: member="Gmem.h::findFreePart" ref="60dc57648cba76c8269a5c2d549b0e9f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int findFreePart           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8c-source.html#l00122">122</a> do arquivo <a class="el" href="Gmem_8c-source.html">Gmem.c</a>.</p>
+
+<p>Referências <a class="el" href="MemTable_8c-source.html#l00256">getMemoryTableSize()</a> e <a class="el" href="MemTable_8c-source.html#l00260">getTableMemoryPa()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="a06947bf8359fa1351732a025c313020"></a><!-- doxytag: member="Gmem.h::findMyPart" ref="a06947bf8359fa1351732a025c313020" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int findMyPart           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna: retorna o numero da linha da tabela de mem&oacute;ria do respectivo processo em execução. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8c-source.html#l00111">111</a> do arquivo <a class="el" href="Gmem_8c-source.html">Gmem.c</a>.</p>
+
+<p>Referências <a class="el" href="MemTable_8c-source.html#l00256">getMemoryTableSize()</a>, <a class="el" href="Gpro_8c-source.html#l00083">getMyPid()</a>, <a class="el" href="MemTable_8c-source.html#l00260">getTableMemoryPa()</a> e <a class="el" href="MemTable_8c-source.html#l00264">getTableMemoryPid()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gmem_8c-source.html#l00076">dispose()</a> e <a class="el" href="Gmem_8c-source.html#l00030">malloc()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="ff2a344def6eb2e57006c3423e95c203"></a><!-- doxytag: member="Gmem.h::getOStrackPoint" ref="ff2a344def6eb2e57006c3423e95c203" args="(int size)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* getOStrackPoint           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>size</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna um endereço de alocação valida da lista de malloc a função já marca o ponteiro na lista como usado! 
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8c-source.html#l00239">239</a> do arquivo <a class="el" href="Gmem_8c-source.html">Gmem.c</a>.</p>
+
+<p>Referências <a class="el" href="MemStructs_8h-source.html#l00038">s_free_node::end</a>, <a class="el" href="MemTable_8c-source.html#l00268">getTableMemoryCab()</a>, <a class="el" href="MemStructs_8h-source.html#l00042">s_free_node::next</a>, <a class="el" href="Defs_8h-source.html#l00033">NULL</a>, <a class="el" href="MemStructs_8h-source.html#l00039">s_free_node::pa</a> e <a class="el" href="MemStructs_8h-source.html#l00041">s_free_node::size</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gmem_8c-source.html#l00293">OSmalloc()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="76481785cc2cb7d43fc6317ebec427b4"></a><!-- doxytag: member="Gmem.h::malloc" ref="76481785cc2cb7d43fc6317ebec427b4" args="(int size)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* malloc           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>size</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna: Ponteiro para a HEAP do processo atual. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8c-source.html#l00030">30</a> do arquivo <a class="el" href="Gmem_8c-source.html">Gmem.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="1e681341bf798b480ceea7ba9aed69c3"></a><!-- doxytag: member="Gmem.h::memRelocDisp" ref="1e681341bf798b480ceea7ba9aed69c3" args="(int proc, unsigned int size)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL memRelocDisp           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>proc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>size</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+realoca memória, dos processos. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8c-source.html#l00011">11</a> do arquivo <a class="el" href="Gmem_8c-source.html">Gmem.c</a>.</p>
+
+<p>Referências <a class="el" href="MemTable_8c-source.html#l00268">getTableMemoryCab()</a>, <a class="el" href="MemStructs_8h-source.html#l00042">s_free_node::next</a>, <a class="el" href="Defs_8h-source.html#l00033">NULL</a> e <a class="el" href="MemStructs_8h-source.html#l00041">s_free_node::size</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gmem_8c-source.html#l00030">malloc()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="55e8859539d8d9b17fc9fe26f83c2835"></a><!-- doxytag: member="Gmem.h::OSdispose" ref="55e8859539d8d9b17fc9fe26f83c2835" args="(void *pont)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OSdispose           </td>
+          <td>(</td>
+          <td class="paramtype">void *&nbsp;</td>
+          <td class="paramname"> <em>pont</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Libera Ponteiro da HEAP do SO. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8c-source.html#l00340">340</a> do arquivo <a class="el" href="Gmem_8c-source.html">Gmem.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="9f6d5d1c438568fee2163a44ba8936ec"></a><!-- doxytag: member="Gmem.h::OSmalloc" ref="9f6d5d1c438568fee2163a44ba8936ec" args="(int size)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* OSmalloc           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>size</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Ponteiro para a HEAP do SO. 
+<p>
+<dl class="attention" compact><dt><b>Atenção:</b></dt><dd>Este MALLOC é utilizado apenas pelo Sistema Operacional! </dd></dl>
+
+<p>Definição na linha <a class="el" href="Gmem_8c-source.html#l00293">293</a> do arquivo <a class="el" href="Gmem_8c-source.html">Gmem.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="2bf88ec892d572cab2e3c42a5f828459"></a><!-- doxytag: member="Gmem.h::OSmallocF" ref="2bf88ec892d572cab2e3c42a5f828459" args="(int size)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* OSmallocF           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>size</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Alloca memória, apenas para SO. 
+<p>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Ponteiro para a HEAP do SO. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Gmem_8c-source.html#l00175">175</a> do arquivo <a class="el" href="Gmem_8c-source.html">Gmem.c</a>.</p>
+
+<p>Referências <a class="el" href="MemTable_8c-source.html#l00272">getTableMemoryHeapPoint()</a>, <a class="el" href="MemTable_8c-source.html#l00276">getTableMemoryHeapSize()</a>, <a class="el" href="Defs_8h-source.html#l00033">NULL</a>, <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>, <a class="el" href="MemTable_8c-source.html#l00284">setTableMemoryHeapSize()</a> e <a class="el" href="MemTable_8c-source.html#l00300">setTableMenoryHeapPoint()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gmem_8c-source.html#l00197">addOSTrackPoint()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="76eeab67538896f5d22aaaa6af0e3799"></a><!-- doxytag: member="Gmem.h::OSmemRelocDisp" ref="76eeab67538896f5d22aaaa6af0e3799" args="(int size)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int OSmemRelocDisp           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>size</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Verificar se existe espaco para alocacao na área usada para indexar relocacao: Retorno: 0: ERROR 1: OK. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gmem_8c-source.html#l00154">154</a> do arquivo <a class="el" href="Gmem_8c-source.html">Gmem.c</a>.</p>
+
+<p>Referências <a class="el" href="MemTable_8c-source.html#l00268">getTableMemoryCab()</a>, <a class="el" href="MemStructs_8h-source.html#l00042">s_free_node::next</a>, <a class="el" href="Defs_8h-source.html#l00033">NULL</a> e <a class="el" href="MemStructs_8h-source.html#l00041">s_free_node::size</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gmem_8c-source.html#l00293">OSmalloc()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="5faa74740e42e6e98308960fc7e17883"></a><!-- doxytag: member="Gmem.h::releaseOStrackPoint" ref="5faa74740e42e6e98308960fc7e17883" args="(void *end)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int releaseOStrackPoint           </td>
+          <td>(</td>
+          <td class="paramtype">void *&nbsp;</td>
+          <td class="paramname"> <em>end</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+libera o ponteiro de malloc para o processo! 
+<p>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Apenas setar PA=0! se retornar 0 erro e 1 sucesso </dd></dl>
+
+<p>Definição na linha <a class="el" href="Gmem_8c-source.html#l00264">264</a> do arquivo <a class="el" href="Gmem_8c-source.html">Gmem.c</a>.</p>
+
+<p>Referências <a class="el" href="MemStructs_8h-source.html#l00038">s_free_node::end</a>, <a class="el" href="MemTable_8c-source.html#l00268">getTableMemoryCab()</a>, <a class="el" href="MemStructs_8h-source.html#l00042">s_free_node::next</a>, <a class="el" href="Defs_8h-source.html#l00033">NULL</a>, <a class="el" href="MemStructs_8h-source.html#l00039">s_free_node::pa</a> e <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gmem_8c-source.html#l00340">OSdispose()</a>.</p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/include/If.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/include/If.h</h1><a href="include_2If_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> Interface do APOS</span>
+<a name="l00003"></a>00003 <span class="comment"> */</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include "<a class="code" href="Defs_8h.html" title="Este arquivo, guarda as definições que podem ser usadas, por qualquer parte do...">Defs.h</a>"</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include "../kernel/interface/KIscrn.h"</span><span class="comment">//sair daqui</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include "../libs/include/Slib.h"</span> 
+<a name="l00007"></a>00007 <span class="preprocessor">#include "../modulos/interface/Igpro.h"</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include "../modulos/interface/Itim.h"</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include "../kernel/interface/KIkb.h"</span><span class="comment">//sair daqui</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include "../kernel/include/Fat.h"</span><span class="comment">//sair daqui</span>
+<a name="l00011"></a>00011 
+<a name="l00015"></a>00015 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="If_8c.html#11585dc88b1366a0d406197f83857a54">turnoff</a>();<span class="comment">//sair daqui</span>
+<a name="l00016"></a>00016 
+<a name="l00020"></a>00020 <span class="keyword">struct </span><a class="code" href="structs__shareScreen.html">s_shareScreen</a> {
+<a name="l00021"></a>00021         <span class="keywordtype">int</span> <a class="code" href="structs__shareScreen.html#4cbfe8b310ee544baa3a707882ca29c8">listAllow</a>[11]; 
+<a name="l00022"></a>00022 };
+<a name="l00023"></a>00023 
+<a name="l00027"></a>00027 <span class="keywordtype">void</span> <a class="code" href="If_8c.html#3eba20b8eb97e23499915f0d131bfbd7">initInterfaceShare</a>();
+<a name="l00031"></a>00031 <span class="keywordtype">void</span> <a class="code" href="If_8c.html#a8b43cc29058547d0c9d27ced2922dff">command_analyzer</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *command);
+<a name="l00035"></a>00035 <span class="keywordtype">void</span> <a class="code" href="If_8c.html#c6b661aa3e6f532e3beba5b19f32e12a">changeInterfaceMode</a>(<span class="keywordtype">int</span> pid);
+<a name="l00039"></a>00039 <span class="keywordtype">void</span> <a class="code" href="If_8c.html#5cd4781da1513187706d6ec593c7598a">setInterfaceFree</a>(<span class="keywordtype">int</span> pid);
+<a name="l00043"></a>00043 <span class="keywordtype">void</span> <a class="code" href="If_8c.html#88771a73d46f8a054909e810261a5635">setInterfaceNotFree</a>(<span class="keywordtype">int</span> pid);
+<a name="l00047"></a>00047 <span class="keywordtype">int</span> <a class="code" href="If_8c.html#6839d0e674e29d7fea2c8e7e8d734289">getInterfaceState</a>(<span class="keywordtype">int</span> pid);
+<a name="l00051"></a>00051 <span class="keywordtype">void</span> <a class="code" href="If_8c.html#33d8c55566ef29f1b87704c25bcf003a">command_list</a>();
+<a name="l00055"></a>00055 <span class="keywordtype">void</span> <a class="code" href="If_8c.html#2a1ecaa97390568ca3c11c9ed7d33bf9">command_exit</a>();
+<a name="l00059"></a>00059 <span class="keywordtype">void</span> <a class="code" href="If_8c.html#bd96e0a7ca91eb8e67935b12b5b91b18">command_interface</a>();
+<a name="l00063"></a>00063 <span class="keywordtype">int</span> <a class="code" href="If_8c.html#65821d073510b038187c9c3a46a730b6">get_parm</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *command);
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065 <span class="comment">/*Imprimi de acordo com estado da tela*/</span>
+<a name="l00066"></a>00066 <span class="keywordtype">void</span> <a class="code" href="If_8c.html#85da473ae22c5f425793485e0504caa1">printfAPOS</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *text);
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

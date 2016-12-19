@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência da Estrutura idt_entry</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li><a href="functions.html"><span>Campos&nbsp;de&nbsp;Dados</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência da Estrutura idt_entry</h1><!-- doxytag: class="idt_entry" -->Define os valores de uma entrada da IDT.  
+<a href="#_details">Mais...</a>
+<p>
+<code>#include &lt;<a class="el" href="Idt_8h-source.html">Idt.h</a>&gt;</code>
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Campos de Dados</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structidt__entry.html#7d7806fd6f93a7be7fad98efa77b4da0">base_lo</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structidt__entry.html#e497f0d390f5d96c9cf7178d21624cff">sel</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structidt__entry.html#d9da320ede3a7fdd12165ccfab4a1c0d">always0</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structidt__entry.html#a2dd8173abc594eaa80bcc4f4ceaf3ec">flags</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structidt__entry.html#588a301ecbdb0329b2c5f632aaa78e64">base_hi</a></td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Descrição Detalhada</h2>
+Define os valores de uma entrada da IDT. 
+<p>Definição na linha <a class="el" href="Idt_8h-source.html#l00016">16</a> do arquivo <a class="el" href="Idt_8h-source.html">Idt.h</a>.</p>
+<hr><h2>Campos e Atributos</h2>
+<a class="anchor" name="7d7806fd6f93a7be7fad98efa77b4da0"></a><!-- doxytag: member="idt_entry::base_lo" ref="7d7806fd6f93a7be7fad98efa77b4da0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short <a class="el" href="structidt__entry.html#7d7806fd6f93a7be7fad98efa77b4da0">idt_entry::base_lo</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Idt_8h-source.html#l00017">17</a> do arquivo <a class="el" href="Idt_8h-source.html">Idt.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Idt_8c-source.html#l00026">idt_set_gate()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="e497f0d390f5d96c9cf7178d21624cff"></a><!-- doxytag: member="idt_entry::sel" ref="e497f0d390f5d96c9cf7178d21624cff" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short <a class="el" href="structidt__entry.html#e497f0d390f5d96c9cf7178d21624cff">idt_entry::sel</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Idt_8h-source.html#l00018">18</a> do arquivo <a class="el" href="Idt_8h-source.html">Idt.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Idt_8c-source.html#l00026">idt_set_gate()</a> e <a class="el" href="Idt_8c-source.html#l00038">idt_set_TaskGate()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="d9da320ede3a7fdd12165ccfab4a1c0d"></a><!-- doxytag: member="idt_entry::always0" ref="d9da320ede3a7fdd12165ccfab4a1c0d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char <a class="el" href="structidt__entry.html#d9da320ede3a7fdd12165ccfab4a1c0d">idt_entry::always0</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Idt_8h-source.html#l00019">19</a> do arquivo <a class="el" href="Idt_8h-source.html">Idt.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Idt_8c-source.html#l00026">idt_set_gate()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="a2dd8173abc594eaa80bcc4f4ceaf3ec"></a><!-- doxytag: member="idt_entry::flags" ref="a2dd8173abc594eaa80bcc4f4ceaf3ec" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char <a class="el" href="structidt__entry.html#a2dd8173abc594eaa80bcc4f4ceaf3ec">idt_entry::flags</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Idt_8h-source.html#l00020">20</a> do arquivo <a class="el" href="Idt_8h-source.html">Idt.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Idt_8c-source.html#l00026">idt_set_gate()</a> e <a class="el" href="Idt_8c-source.html#l00038">idt_set_TaskGate()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="588a301ecbdb0329b2c5f632aaa78e64"></a><!-- doxytag: member="idt_entry::base_hi" ref="588a301ecbdb0329b2c5f632aaa78e64" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short <a class="el" href="structidt__entry.html#588a301ecbdb0329b2c5f632aaa78e64">idt_entry::base_hi</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Idt_8h-source.html#l00021">21</a> do arquivo <a class="el" href="Idt_8h-source.html">Idt.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Idt_8c-source.html#l00026">idt_set_gate()</a>.</p>
+
+</div>
+</div><p>
+<hr>A documentação para esta estrutura foi gerada a partir do seguinte arquivo:<ul>
+<li>src/kernel/include/<a class="el" href="Idt_8h-source.html">Idt.h</a></ul>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:30 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

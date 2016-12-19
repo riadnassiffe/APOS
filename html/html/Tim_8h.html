@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/modulos/include/Tim.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/modulos/include/Tim.h</h1><code>#include &quot;<a class="el" href="Defs_8h-source.html">../../include/Defs.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="Itim_8h-source.html">../interface/Itim.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="KIirq_8h-source.html">../../kernel/interface/KIirq.h</a>&quot;</code><br>
+
+<p>
+<a href="Tim_8h-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Tim_8h.html#07e287feb3654c39cbb13ce4518aa9d8">resched</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Elege o próximo processo a executar. Algoritmo: 1. verifica se algum processo bloqueado já terminou caso sim.. Inserir na lista de Ready 2. verificar se existe processo para ser atendido em Ready caso sim.. 1. Colocar o processo atual na lista de Ready 2. Load para o pr&oacute;ximo processo de Ready.  <a href="#07e287feb3654c39cbb13ce4518aa9d8"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Tim_8h.html#c4561258617d41229ce472f210f69662">load_task</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Tim_8h.html#e5c154c7e7197cd6008b806e0eb3018a">getTimerLimit</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Tim_8h.html#6ae8406790c1822e2ae37a3fbec9c79a">setTimerLimit</a> (int time)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Tim_8h.html#9e63ea32abae3f871fcbe66fd99003b2">timer_handler</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Tim_8h.html#2d444258206f871faecf998529196e63">timer_wait</a> (int ticks)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Tim_8h.html#3dbff66ad499916b8bf4e2b5304066dc">timer_install</a> ()</td></tr>
+
+<tr><td colspan="2"><br><h2>Variáveis</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Tim_8h.html#faca1be8a65f7f1f9773ceecad94852b">flag_ctx</a></td></tr>
+
+</table>
+<hr><h2>Funções</h2>
+<a class="anchor" name="e5c154c7e7197cd6008b806e0eb3018a"></a><!-- doxytag: member="Tim.h::getTimerLimit" ref="e5c154c7e7197cd6008b806e0eb3018a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getTimerLimit           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Tim_8c-source.html#l00055">55</a> do arquivo <a class="el" href="Tim_8c-source.html">Tim.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="If_8c-source.html#l00116">command_analyzer()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="c4561258617d41229ce472f210f69662"></a><!-- doxytag: member="Tim.h::load_task" ref="c4561258617d41229ce472f210f69662" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void load_task           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="07e287feb3654c39cbb13ce4518aa9d8"></a><!-- doxytag: member="Tim.h::resched" ref="07e287feb3654c39cbb13ce4518aa9d8" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void resched           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Elege o próximo processo a executar. Algoritmo: 1. verifica se algum processo bloqueado já terminou caso sim.. Inserir na lista de Ready 2. verificar se existe processo para ser atendido em Ready caso sim.. 1. Colocar o processo atual na lista de Ready 2. Load para o pr&oacute;ximo processo de Ready. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00514">514</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="6ae8406790c1822e2ae37a3fbec9c79a"></a><!-- doxytag: member="Tim.h::setTimerLimit" ref="6ae8406790c1822e2ae37a3fbec9c79a" args="(int time)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setTimerLimit           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>time</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Tim_8c-source.html#l00059">59</a> do arquivo <a class="el" href="Tim_8c-source.html">Tim.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="If_8c-source.html#l00116">command_analyzer()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="9e63ea32abae3f871fcbe66fd99003b2"></a><!-- doxytag: member="Tim.h::timer_handler" ref="9e63ea32abae3f871fcbe66fd99003b2" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void timer_handler           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Tim_8c-source.html#l00020">20</a> do arquivo <a class="el" href="Tim_8c-source.html">Tim.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Tim_8c-source.html#l00051">timer_install()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="3dbff66ad499916b8bf4e2b5304066dc"></a><!-- doxytag: member="Tim.h::timer_install" ref="3dbff66ad499916b8bf4e2b5304066dc" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void timer_install           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Tim_8c-source.html#l00051">51</a> do arquivo <a class="el" href="Tim_8c-source.html">Tim.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="2d444258206f871faecf998529196e63"></a><!-- doxytag: member="Tim.h::timer_wait" ref="2d444258206f871faecf998529196e63" args="(int ticks)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void timer_wait           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ticks</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Tim_8c-source.html#l00039">39</a> do arquivo <a class="el" href="Tim_8c-source.html">Tim.c</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Variáveis</h2>
+<a class="anchor" name="faca1be8a65f7f1f9773ceecad94852b"></a><!-- doxytag: member="Tim.h::flag_ctx" ref="faca1be8a65f7f1f9773ceecad94852b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="Tim_8h.html#faca1be8a65f7f1f9773ceecad94852b">flag_ctx</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:30 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

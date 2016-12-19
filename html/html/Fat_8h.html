@@ -1,0 +1,760 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/kernel/include/Fat.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/kernel/include/Fat.h</h1><code>#include &quot;<a class="el" href="KIscrn_8h-source.html">../interface/KIscrn.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="Ide_8h-source.html">Ide.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="Slib_8h-source.html">../../libs/include/Slib.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="Igmem_8h-source.html">../../modulos/interface/Igmem.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="FatDefs_8h-source.html">../defs/FatDefs.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="Defs_8h-source.html">../../include/Defs.h</a>&quot;</code><br>
+
+<p>
+<a href="Fat_8h-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Fat_8h.html#33c0d4ebb128fd8f3b6027191f3b73dc">fatSeekCluster</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Fat_8h.html#8ade7c95fb9669c2a42b8950474b84af">loadFatIDEDrivers</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Esta função deve carrega todos os volumes detectados, e listados pelo drive IDE.c.  <a href="#8ade7c95fb9669c2a42b8950474b84af"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Fat_8h.html#ab5b856bdea33a3bcd6b92b3741190d4">loadFatList</a> (short int driveNumber)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Tenta carregar na LBA 0 do dispositivo o BS, do sistema de partição, se não conseguir, formata o volume.  <a href="#ab5b856bdea33a3bcd6b92b3741190d4"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Fat_8h.html#9588e166a75e2559d64aa27132b5e28f">formatDisk</a> (short int driveNumber)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Fomata o disco, no sistema de partição AFS2.0, criando uma bs e um Fat para ele.  <a href="#9588e166a75e2559d64aa27132b5e28f"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Fat_8h.html#6c3231707b55e1e8cc48a1e7923839da">calcAddress</a> (short int volumeNumber, struct <a class="el" href="structdiskAddress.html">diskAddress</a> *address)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Pegar o valor da LBA*, e calcula o endereço do HD.  <a href="#6c3231707b55e1e8cc48a1e7923839da"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Fat_8h.html#1be2e5bac21b53aa3d6736bc4beb628b">readFile</a> (short int driveNumber, char *name, char *type)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Ler um arquivo do diretório atual.  <a href="#1be2e5bac21b53aa3d6736bc4beb628b"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Fat_8h.html#6898244ccdbbe8f9ab35001524802626">addDirectoryEntry</a> (short int driveNumber, unsigned short int lba, char *name, struct <a class="el" href="structAttribute.html">Attribute</a> attribute, unsigned long int fileSize)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Acrescenta uma entrada de um diretório para outro.  <a href="#6898244ccdbbe8f9ab35001524802626"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Fat_8h.html#a607d9c91b3aaa6ad9c6fc0b0f01427d">setDirectoryEntry</a> (struct <a class="el" href="structfatDirectory.html">fatDirectory</a> *newEntry, char *name, struct <a class="el" href="structAttribute.html">Attribute</a> attribute, unsigned short int startCluster, unsigned long int fileSize)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Seta valores para um DirectoryEntry.  <a href="#a607d9c91b3aaa6ad9c6fc0b0f01427d"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Fat_8h.html#3db07212e5795833bdd0c6a4bfd29986">createDIR</a> (short int driveNumber, char *name, char attr)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Cria um diretorio.  <a href="#3db07212e5795833bdd0c6a4bfd29986"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Fat_8h.html#95a7aeafd74b4f8fc670ad5289a12395">createFile</a> (short int driveNumber, char *name, char attr, char *file)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Cria uma arquivo no diretório atual.  <a href="#95a7aeafd74b4f8fc670ad5289a12395"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Fat_8h.html#ce93e750ab8efdb659bb2ee6afe3fd1f">delDirectoryEntry</a> (short int driveNumber, short int startCluster)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Remove um DirectoryEntry do diretório atual.  <a href="#ce93e750ab8efdb659bb2ee6afe3fd1f"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Fat_8h.html#fdc91eb61dc27e41e7a89455c9909316">delFile</a> (short int driveNumber, char *name, char *type, unsigned short int dirStartCluster)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Deleta um arquivo do diretório atual.  <a href="#fdc91eb61dc27e41e7a89455c9909316"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Fat_8h.html#ac40f6c5bdbc9e36558946572c22f971">delDir</a> (short int driveNumber, char *fileName)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Deleta todos os arquivos e diretórios contidos no arquivo tb.  <a href="#ac40f6c5bdbc9e36558946572c22f971"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Fat_8h.html#192789b92c69b7c8224a17915f33a7fc">printDir</a> (short int driveNumber)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Esta função serve para imprimir na tela todas as informações do diretorio atual.  <a href="#192789b92c69b7c8224a17915f33a7fc"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Fat_8h.html#b2ef313f23df0aeadc3741f16bdcb75f">updateFat</a> (int driveNumber)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Grava as ultimas modificações da FAT no HD.  <a href="#b2ef313f23df0aeadc3741f16bdcb75f"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Fat_8h.html#a06f318d5d5e6dc5eb78278a4ad3e809">refreshDirectoryEnter</a> (short int driveNumber, char *name)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">atualiza o diretório atual para algum que seja filho do atual.  <a href="#a06f318d5d5e6dc5eb78278a4ad3e809"></a><br></td></tr>
+</table>
+<hr><h2>Funções</h2>
+<a class="anchor" name="6898244ccdbbe8f9ab35001524802626"></a><!-- doxytag: member="Fat.h::addDirectoryEntry" ref="6898244ccdbbe8f9ab35001524802626" args="(short int driveNumber, unsigned short int lba, char *name, struct Attribute attribute, unsigned long int fileSize)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int addDirectoryEntry           </td>
+          <td>(</td>
+          <td class="paramtype">short int&nbsp;</td>
+          <td class="paramname"> <em>driveNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&nbsp;</td>
+          <td class="paramname"> <em>lba</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structAttribute.html">Attribute</a>&nbsp;</td>
+          <td class="paramname"> <em>attribute</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned long int&nbsp;</td>
+          <td class="paramname"> <em>fileSize</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Acrescenta uma entrada de um diretório para outro. 
+<p>
+adiciona um item a um diretório.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>driveNumber</em>&nbsp;</td><td>- corresponde ao número do dispositivo que será formatado. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>lba</em>&nbsp;</td><td>indica o endereço lógico da partição. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>nome do item que deverá ser guardado na estrutura de entrada de um diretório. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>attribute</em>&nbsp;</td><td>passa os atributos do item, sele é um arquivo ou diretório, se é um arquivo de sistema ou somente leitura. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>fileSize</em>&nbsp;</td><td>Número de clusters ocupado por um item do diretório. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>0 indica que houve sucesso na operação, qualquer outro número significa que houve erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Fat_8c-source.html#l00402">402</a> do arquivo <a class="el" href="Fat_8c-source.html">Fat.c</a>.</p>
+
+<p>Referências <a class="el" href="Fat_8c-source.html#l00383">calcAddress()</a>, <a class="el" href="FatDefs_8h-source.html#l00009">EOC</a>, <a class="el" href="Defs_8h-source.html#l00042">EXIT_SUCCESS</a>, <a class="el" href="FatDefs_8h-source.html#l00134">FatInstance::fatList</a>, <a class="el" href="Ide_8h-source.html#l00127">diskAddress::lba</a>, <a class="el" href="FatDefs_8h-source.html#l00136">FatInstance::LBL</a>, <a class="el" href="Slib_8c-source.html#l00227">memcpy()</a>, <a class="el" href="Ide_8c-source.html#l00238">readDisk()</a>, <a class="el" href="Fat_8c-source.html#l00484">setDirectoryEntry()</a>, <a class="el" href="FatDefs_8h-source.html#l00044">Attribute::status</a>, <a class="el" href="FatDefs_8h-source.html#l00011">unchecked</a>, <a class="el" href="Fat_8c-source.html#l00334">updateFat()</a> e <a class="el" href="Ide_8c-source.html#l00180">writeDisk()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00740">createDIR()</a> e <a class="el" href="Fat_8c-source.html#l00603">createFile()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="6c3231707b55e1e8cc48a1e7923839da"></a><!-- doxytag: member="Fat.h::calcAddress" ref="6c3231707b55e1e8cc48a1e7923839da" args="(short int volumeNumber, struct diskAddress *address)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int calcAddress           </td>
+          <td>(</td>
+          <td class="paramtype">short int&nbsp;</td>
+          <td class="paramname"> <em>volumeNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structdiskAddress.html">diskAddress</a> *&nbsp;</td>
+          <td class="paramname"> <em>address</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Pegar o valor da LBA*, e calcula o endereço do HD. 
+<p>
+Calcula atravez da LBA um endereçõ no hd.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>volumeNumber</em>&nbsp;</td><td>Corresponde ao número do dispositivo que será formatado. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>address</em>&nbsp;</td><td>Passa o valor da LBA para que a função possa calcular endereço de um cluster no HD </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>A função retorna 0, para indica que houve sucesso na operação, qualquer outro número significa que houve erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Fat_8c-source.html#l00383">383</a> do arquivo <a class="el" href="Fat_8c-source.html">Fat.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="3db07212e5795833bdd0c6a4bfd29986"></a><!-- doxytag: member="Fat.h::createDIR" ref="3db07212e5795833bdd0c6a4bfd29986" args="(short int driveNumber, char *name, char attr)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int createDIR           </td>
+          <td>(</td>
+          <td class="paramtype">short int&nbsp;</td>
+          <td class="paramname"> <em>driveNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&nbsp;</td>
+          <td class="paramname"> <em>attr</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Cria um diretorio. 
+<p>
+Cria um diretório.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>driveNumber</em>&nbsp;</td><td>- corresponde ao número do dispositivo que será formatado. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>attr</em>&nbsp;</td><td>indica os atributos do diretório. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>nome do arquivo que deverá ser apagado. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>0 indica que houve sucesso na operação, qualquer outro número significa que houve erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Fat_8c-source.html#l00740">740</a> do arquivo <a class="el" href="Fat_8c-source.html">Fat.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="95a7aeafd74b4f8fc670ad5289a12395"></a><!-- doxytag: member="Fat.h::createFile" ref="95a7aeafd74b4f8fc670ad5289a12395" args="(short int driveNumber, char *name, char attr, char *file)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int createFile           </td>
+          <td>(</td>
+          <td class="paramtype">short int&nbsp;</td>
+          <td class="paramname"> <em>driveNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&nbsp;</td>
+          <td class="paramname"> <em>attr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>file</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Cria uma arquivo no diretório atual. 
+<p>
+Cria um arquivos.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>driveNumber</em>&nbsp;</td><td>indica o HD que o arquivo será gravado. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>é o nome do arquivo. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>attr</em>&nbsp;</td><td>indicar as permissões </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>file</em>&nbsp;</td><td>é o conteúdo do arquivo </td></tr>
+  </table>
+</dl>
+
+<p>Definição na linha <a class="el" href="Fat_8c-source.html#l00603">603</a> do arquivo <a class="el" href="Fat_8c-source.html">Fat.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="ac40f6c5bdbc9e36558946572c22f971"></a><!-- doxytag: member="Fat.h::delDir" ref="ac40f6c5bdbc9e36558946572c22f971" args="(short int driveNumber, char *fileName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int delDir           </td>
+          <td>(</td>
+          <td class="paramtype">short int&nbsp;</td>
+          <td class="paramname"> <em>driveNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>fileName</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Deleta todos os arquivos e diretórios contidos no arquivo tb. 
+<p>
+Deleta um diretório<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>driveNumber</em>&nbsp;</td><td>Corresponde ao número do dispositivo que será formatado. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>fileName</em>&nbsp;</td><td>Nome do diretório que deverá ser apagado. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>0 indica que houve sucesso na operação, qualquer outro número significa que houve erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Fat_8c-source.html#l00853">853</a> do arquivo <a class="el" href="Fat_8c-source.html">Fat.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="ce93e750ab8efdb659bb2ee6afe3fd1f"></a><!-- doxytag: member="Fat.h::delDirectoryEntry" ref="ce93e750ab8efdb659bb2ee6afe3fd1f" args="(short int driveNumber, short int startCluster)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int delDirectoryEntry           </td>
+          <td>(</td>
+          <td class="paramtype">short int&nbsp;</td>
+          <td class="paramname"> <em>driveNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">short int&nbsp;</td>
+          <td class="paramname"> <em>startCluster</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Remove um DirectoryEntry do diretório atual. 
+<p>
+Deleta um item da lista de diretórios, de forma lógica.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>driveNumber</em>&nbsp;</td><td>- corresponde ao número do dispositivo que será formatado. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>startCluster</em>&nbsp;</td><td>Cluster da partição na qual o volume esta inicialmente armazenado. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>0 indica que houve sucesso na operação, qualquer outro número significa que houve erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Fat_8c-source.html#l00786">786</a> do arquivo <a class="el" href="Fat_8c-source.html">Fat.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="fdc91eb61dc27e41e7a89455c9909316"></a><!-- doxytag: member="Fat.h::delFile" ref="fdc91eb61dc27e41e7a89455c9909316" args="(short int driveNumber, char *name, char *type, unsigned short int dirStartCluster)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int delFile           </td>
+          <td>(</td>
+          <td class="paramtype">short int&nbsp;</td>
+          <td class="paramname"> <em>driveNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&nbsp;</td>
+          <td class="paramname"> <em>dirStartCluster</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Deleta um arquivo do diretório atual. 
+<p>
+Deleta um arquivo de forma lógica<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>driveNumber</em>&nbsp;</td><td>Corresponde ao número do dispositivo que será formatado. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>Nome do arquivo que deverá ser apagado. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>type</em>&nbsp;</td><td>Tipo do arquivo que deverá ser apagado. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>dirStartCluster</em>&nbsp;</td><td>Caso esse parâmetro seja igual a 0 procurará o arquivo no diretorio atual, caso contrario, ele pegará o número do cluster do diretório passado e procurará o arquivo a ser deletado nele. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>0 indica que houve sucesso na operação, qualquer outro número significa que houve erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Fat_8c-source.html#l00651">651</a> do arquivo <a class="el" href="Fat_8c-source.html">Fat.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="33c0d4ebb128fd8f3b6027191f3b73dc"></a><!-- doxytag: member="Fat.h::fatSeekCluster" ref="33c0d4ebb128fd8f3b6027191f3b73dc" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int fatSeekCluster           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Procura por um cluster, através do nome do arquivo. 
+</div>
+</div><p>
+<a class="anchor" name="9588e166a75e2559d64aa27132b5e28f"></a><!-- doxytag: member="Fat.h::formatDisk" ref="9588e166a75e2559d64aa27132b5e28f" args="(short int driveNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int formatDisk           </td>
+          <td>(</td>
+          <td class="paramtype">short int&nbsp;</td>
+          <td class="paramname"> <em>driveNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Fomata o disco, no sistema de partição AFS2.0, criando uma bs e um Fat para ele. 
+<p>
+Formata o disco, para um sistema de arquivos suportado pelo APOS.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>driveNumber</em>&nbsp;</td><td>- corresponde ao número do dispositivo que será formatado. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorno 0 indica que houve sucesso na operação, qualquer outro número significa que houve erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Fat_8c-source.html#l00183">183</a> do arquivo <a class="el" href="Fat_8c-source.html">Fat.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="8ade7c95fb9669c2a42b8950474b84af"></a><!-- doxytag: member="Fat.h::loadFatIDEDrivers" ref="8ade7c95fb9669c2a42b8950474b84af" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int loadFatIDEDrivers           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Esta função deve carrega todos os volumes detectados, e listados pelo drive IDE.c. 
+<p>
+Reconhece a quantidade de partições a serem carregadas.<p>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna 0, para indicar que houve sucesso na operação, qualquer outro número significa que houve erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Fat_8c-source.html#l00027">27</a> do arquivo <a class="el" href="Fat_8c-source.html">Fat.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="ab5b856bdea33a3bcd6b92b3741190d4"></a><!-- doxytag: member="Fat.h::loadFatList" ref="ab5b856bdea33a3bcd6b92b3741190d4" args="(short int driveNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int loadFatList           </td>
+          <td>(</td>
+          <td class="paramtype">short int&nbsp;</td>
+          <td class="paramname"> <em>driveNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Tenta carregar na LBA 0 do dispositivo o BS, do sistema de partição, se não conseguir, formata o volume. 
+<p>
+Carrega as informações do volume formatado, para inicializar a fat<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>driveNumber</em>&nbsp;</td><td>Informa o número do dispositivo na lista de HD. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>0 indica que houve sucesso na operação, qualquer outro número significa que houve erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Fat_8c-source.html#l00098">98</a> do arquivo <a class="el" href="Fat_8c-source.html">Fat.c</a>.</p>
+
+<p>Referências <a class="el" href="FatDefs_8h-source.html#l00132">FatInstance::actualDirectory</a>, <a class="el" href="Scrn_8c-source.html#l00138">APOSDEBUG()</a>, <a class="el" href="FatDefs_8h-source.html#l00082">tBpb::BPB_BytsPerSec</a>, <a class="el" href="FatDefs_8h-source.html#l00096">tBpb::BPB_FATSz16</a>, <a class="el" href="FatDefs_8h-source.html#l00090">tBpb::BPB_LBL</a>, <a class="el" href="FatDefs_8h-source.html#l00106">tBpb::BPB_RootClus</a>, <a class="el" href="FatDefs_8h-source.html#l00084">tBpb::BPB_SecPerClus</a>, <a class="el" href="FatDefs_8h-source.html#l00128">FatInstance::bs</a>, <a class="el" href="FatDefs_8h-source.html#l00114">tBpb::BS_VolID</a>, <a class="el" href="Fat_8c-source.html#l00383">calcAddress()</a>, <a class="el" href="Fat_8c-source.html#l00021">debugVariable</a>, <a class="el" href="Ide_8h-source.html#l00135">diskAddress::error</a>, <a class="el" href="Defs_8h-source.html#l00040">EXIT_FAILURE</a>, <a class="el" href="Defs_8h-source.html#l00042">EXIT_SUCCESS</a>, <a class="el" href="FatDefs_8h-source.html#l00130">FatInstance::fatPos</a>, <a class="el" href="Ide_8h-source.html#l00127">diskAddress::lba</a>, <a class="el" href="FatDefs_8h-source.html#l00136">FatInstance::LBL</a>, <a class="el" href="Slib_8c-source.html#l00227">memcpy()</a>, <a class="el" href="Ide_8c-source.html#l00238">readDisk()</a> e <a class="el" href="FatDefs_8h-source.html#l00067">fatDirectory::startCluster</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00027">loadFatIDEDrivers()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="192789b92c69b7c8224a17915f33a7fc"></a><!-- doxytag: member="Fat.h::printDir" ref="192789b92c69b7c8224a17915f33a7fc" args="(short int driveNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int printDir           </td>
+          <td>(</td>
+          <td class="paramtype">short int&nbsp;</td>
+          <td class="paramname"> <em>driveNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Esta função serve para imprimir na tela todas as informações do diretorio atual. 
+<p>
+lista todos os item de um diretório.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>driveNumber</em>&nbsp;</td><td>- corresponde ao número do dispositivo que será formatado. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>0 indica que houve sucesso na operação, qualquer outro número significa que houve erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Fat_8c-source.html#l00964">964</a> do arquivo <a class="el" href="Fat_8c-source.html">Fat.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="1be2e5bac21b53aa3d6736bc4beb628b"></a><!-- doxytag: member="Fat.h::readFile" ref="1be2e5bac21b53aa3d6736bc4beb628b" args="(short int driveNumber, char *name, char *type)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int readFile           </td>
+          <td>(</td>
+          <td class="paramtype">short int&nbsp;</td>
+          <td class="paramname"> <em>driveNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>type</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Ler um arquivo do diretório atual. 
+<p>
+Ler um determinado arquivo no diretório atual.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>driveNumber</em>&nbsp;</td><td>Corresponde ao número do dispositivo que será lido. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>Indica o nome do arquivo que será lido. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>type</em>&nbsp;</td><td>Referencia o tipo do arquivo que esta sendo gravado. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>0 indica que houve sucesso na operação, qualquer outro número significa que houve erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Fat_8c-source.html#l00522">522</a> do arquivo <a class="el" href="Fat_8c-source.html">Fat.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="a06f318d5d5e6dc5eb78278a4ad3e809"></a><!-- doxytag: member="Fat.h::refreshDirectoryEnter" ref="a06f318d5d5e6dc5eb78278a4ad3e809" args="(short int driveNumber, char *name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int refreshDirectoryEnter           </td>
+          <td>(</td>
+          <td class="paramtype">short int&nbsp;</td>
+          <td class="paramname"> <em>driveNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>name</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+atualiza o diretório atual para algum que seja filho do atual. 
+<p>
+atualiza o diretório atual para algum que seja filho do atual.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>driveNumber</em>&nbsp;</td><td>corresponde ao número do dispositivo que será formatado. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>corresponde ao nome do novo diretório que o sistema carregará como atual. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>0 indica que houve sucesso na operação, qualquer outro número significa que houve erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Fat_8c-source.html#l00905">905</a> do arquivo <a class="el" href="Fat_8c-source.html">Fat.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="a607d9c91b3aaa6ad9c6fc0b0f01427d"></a><!-- doxytag: member="Fat.h::setDirectoryEntry" ref="a607d9c91b3aaa6ad9c6fc0b0f01427d" args="(struct fatDirectory *newEntry, char *name, struct Attribute attribute, unsigned short int startCluster, unsigned long int fileSize)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int setDirectoryEntry           </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structfatDirectory.html">fatDirectory</a> *&nbsp;</td>
+          <td class="paramname"> <em>newEntry</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structAttribute.html">Attribute</a>&nbsp;</td>
+          <td class="paramname"> <em>attribute</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&nbsp;</td>
+          <td class="paramname"> <em>startCluster</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned long int&nbsp;</td>
+          <td class="paramname"> <em>fileSize</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Seta valores para um DirectoryEntry. 
+<p>
+Define valores para uma entrada de um diretório.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>newEntry</em>&nbsp;</td><td>Corresponde a nova entrada que receberá os valores. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>Nome do item que deverá ser guardado na estrutura de entrada. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>attribute</em>&nbsp;</td><td>Passa os atributos do item, sele é um arquivo ou diretório, se é um arquivo de sistema ou somente leitura. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>startCluster</em>&nbsp;</td><td>Cluster da partição na qual o volume esta inicialmente armazenado. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>fileSize</em>&nbsp;</td><td>Número de clusters ocupado por um item do diretório. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>O retorno 0 indica que houve sucesso na operação, qualquer outro número significa que houve erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Fat_8c-source.html#l00484">484</a> do arquivo <a class="el" href="Fat_8c-source.html">Fat.c</a>.</p>
+
+<p>Referências <a class="el" href="FatDefs_8h-source.html#l00059">fatDirectory::attribute</a>, <a class="el" href="FatDefs_8h-source.html#l00010">checked</a>, <a class="el" href="FatDefs_8h-source.html#l00046">Attribute::directory</a>, <a class="el" href="Defs_8h-source.html#l00042">EXIT_SUCCESS</a>, <a class="el" href="FatDefs_8h-source.html#l00057">fatDirectory::file</a>, <a class="el" href="FatDefs_8h-source.html#l00048">Attribute::file</a>, <a class="el" href="FatDefs_8h-source.html#l00069">fatDirectory::fileSize</a>, <a class="el" href="FatDefs_8h-source.html#l00040">Attribute::hidden</a>, <a class="el" href="Slib_8c-source.html#l00227">memcpy()</a>, <a class="el" href="FatDefs_8h-source.html#l00023">Name::name</a>, <a class="el" href="FatDefs_8h-source.html#l00038">Attribute::readOnly</a>, <a class="el" href="FatDefs_8h-source.html#l00067">fatDirectory::startCluster</a>, <a class="el" href="FatDefs_8h-source.html#l00044">Attribute::status</a> e <a class="el" href="FatDefs_8h-source.html#l00025">Name::type</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00402">addDirectoryEntry()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="b2ef313f23df0aeadc3741f16bdcb75f"></a><!-- doxytag: member="Fat.h::updateFat" ref="b2ef313f23df0aeadc3741f16bdcb75f" args="(int driveNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int updateFat           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>driveNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Grava as ultimas modificações da FAT no HD. 
+<p>
+Atualiza a tabela fat no hd.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>driveNumber</em>&nbsp;</td><td>- corresponde ao número do dispositivo que será formatado. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>0 indica que houve sucesso na operação, qualquer outro número significa que houve erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Fat_8c-source.html#l00334">334</a> do arquivo <a class="el" href="Fat_8c-source.html">Fat.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00138">APOSDEBUG()</a>, <a class="el" href="FatDefs_8h-source.html#l00082">tBpb::BPB_BytsPerSec</a>, <a class="el" href="FatDefs_8h-source.html#l00096">tBpb::BPB_FATSz16</a>, <a class="el" href="FatDefs_8h-source.html#l00090">tBpb::BPB_LBL</a>, <a class="el" href="FatDefs_8h-source.html#l00084">tBpb::BPB_SecPerClus</a>, <a class="el" href="FatDefs_8h-source.html#l00128">FatInstance::bs</a>, <a class="el" href="Fat_8c-source.html#l00383">calcAddress()</a>, <a class="el" href="Fat_8c-source.html#l00021">debugVariable</a>, <a class="el" href="Defs_8h-source.html#l00042">EXIT_SUCCESS</a>, <a class="el" href="Ide_8h-source.html#l00127">diskAddress::lba</a>, <a class="el" href="FatDefs_8h-source.html#l00136">FatInstance::LBL</a>, <a class="el" href="Slib_8c-source.html#l00227">memcpy()</a> e <a class="el" href="Ide_8c-source.html#l00180">writeDisk()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00402">addDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00740">createDIR()</a>, <a class="el" href="Fat_8c-source.html#l00603">createFile()</a>, <a class="el" href="Fat_8c-source.html#l00853">delDir()</a>, <a class="el" href="Fat_8c-source.html#l00786">delDirectoryEntry()</a> e <a class="el" href="Fat_8c-source.html#l00651">delFile()</a>.</p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

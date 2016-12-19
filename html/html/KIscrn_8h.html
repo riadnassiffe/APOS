@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/kernel/interface/KIscrn.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/kernel/interface/KIscrn.h</h1>
+<p>
+<a href="KIscrn_8h-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIscrn_8h.html#48fd0ff5a5e286669ae0f1885835bcc3">init_video</a> (void)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Aciona o modo texto VGA.  <a href="#48fd0ff5a5e286669ae0f1885835bcc3"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIscrn_8h.html#ffb7f407d6601f057a9c641482a344a0">puts</a> (const char *text)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Função feita para imprimir na tela, feita em ASSEMBLER.  <a href="#ffb7f407d6601f057a9c641482a344a0"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIscrn_8h.html#6c191b72e355c963e4eebb94d304f891">putch</a> (unsigned char c)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Coloca apenas um unico carater na tela.  <a href="#6c191b72e355c963e4eebb94d304f891"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIscrn_8h.html#4826277cc150ddc0f4de4bd464a34909">cls</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Limpa a tela.  <a href="#4826277cc150ddc0f4de4bd464a34909"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIscrn_8h.html#aca006dbe60bba1341806e99f8ae3e03">printf</a> (unsigned char *text)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Função feita para imprimir na tela.  <a href="#aca006dbe60bba1341806e99f8ae3e03"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIscrn_8h.html#3b47c20d8bb9e5c9d3cd0137c247ed81">printfInt</a> (int num)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Imprime na tela um inteiro.  <a href="#3b47c20d8bb9e5c9d3cd0137c247ed81"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIscrn_8h.html#273a809d3de4626e50ad4ecd05c44754">APOSDEBUG</a> (int <a class="el" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4">debug</a>, char *text)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Responsável por imprimir mensagens de debug na tela.  <a href="#273a809d3de4626e50ad4ecd05c44754"></a><br></td></tr>
+</table>
+<hr><h2>Funções</h2>
+<a class="anchor" name="273a809d3de4626e50ad4ecd05c44754"></a><!-- doxytag: member="KIscrn.h::APOSDEBUG" ref="273a809d3de4626e50ad4ecd05c44754" args="(int debug, char *text)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void APOSDEBUG           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>debug</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>text</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Responsável por imprimir mensagens de debug na tela. 
+<p>
+
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00138">138</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00061">putch()</a> e <a class="el" href="Slib_8c-source.html#l00242">strlen()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="4826277cc150ddc0f4de4bd464a34909"></a><!-- doxytag: member="KIscrn.h::cls" ref="4826277cc150ddc0f4de4bd464a34909" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cls           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Limpa a tela. 
+<p>
+
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00046">46</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00009">attrib</a>, <a class="el" href="Scrn_8c-source.html#l00011">csr_x</a>, <a class="el" href="Scrn_8c-source.html#l00011">csr_y</a>, <a class="el" href="Slib_8c-source.html#l00249">memsetw()</a>, <a class="el" href="Scrn_8c-source.html#l00032">move_csr()</a> e <a class="el" href="Scrn_8c-source.html#l00007">textmemptr</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="48fd0ff5a5e286669ae0f1885835bcc3"></a><!-- doxytag: member="KIscrn.h::init_video" ref="48fd0ff5a5e286669ae0f1885835bcc3" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_video           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Aciona o modo texto VGA. 
+<p>
+
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00121">121</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00046">cls()</a> e <a class="el" href="Scrn_8c-source.html#l00007">textmemptr</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="aca006dbe60bba1341806e99f8ae3e03"></a><!-- doxytag: member="KIscrn.h::printf" ref="aca006dbe60bba1341806e99f8ae3e03" args="(unsigned char *text)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printf           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname"> <em>text</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Função feita para imprimir na tela. 
+<p>
+
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00103">103</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00061">putch()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="3b47c20d8bb9e5c9d3cd0137c247ed81"></a><!-- doxytag: member="KIscrn.h::printfInt" ref="3b47c20d8bb9e5c9d3cd0137c247ed81" args="(int num)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printfInt           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>num</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Imprime na tela um inteiro. 
+<p>
+
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00129">129</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Slib_8c-source.html#l00205">itoa()</a> e <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="6c191b72e355c963e4eebb94d304f891"></a><!-- doxytag: member="KIscrn.h::putch" ref="6c191b72e355c963e4eebb94d304f891" args="(unsigned char c)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void putch           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&nbsp;</td>
+          <td class="paramname"> <em>c</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Coloca apenas um unico carater na tela. 
+<p>
+
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00061">61</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00009">attrib</a>, <a class="el" href="Scrn_8c-source.html#l00011">csr_x</a>, <a class="el" href="Scrn_8c-source.html#l00011">csr_y</a>, <a class="el" href="Scrn_8c-source.html#l00032">move_csr()</a>, <a class="el" href="Scrn_8c-source.html#l00017">scroll()</a> e <a class="el" href="Scrn_8c-source.html#l00007">textmemptr</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="ffb7f407d6601f057a9c641482a344a0"></a><!-- doxytag: member="KIscrn.h::puts" ref="ffb7f407d6601f057a9c641482a344a0" args="(const char *text)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void puts           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>text</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Função feita para imprimir na tela, feita em ASSEMBLER. 
+<p>
+Usa uma rotina para imprimi uma STRING. 
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00093">93</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00061">putch()</a> e <a class="el" href="Slib_8c-source.html#l00242">strlen()</a>.</p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

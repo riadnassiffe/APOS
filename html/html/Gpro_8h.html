@@ -1,0 +1,1321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/modulos/include/Gpro.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/modulos/include/Gpro.h</h1><code>#include &quot;<a class="el" href="Defs_8h-source.html">../../include/Defs.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="Slib_8h-source.html">../../libs/include/Slib.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="KIscrn_8h-source.html">../../kernel/interface/KIscrn.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="KIgdt_8h-source.html">../../kernel/interface/KIgdt.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="Igmem_8h-source.html">../interface/Igmem.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="MemTable_8h-source.html">../include/MemTable.h</a>&quot;</code><br>
+
+<p>
+<a href="Gpro_8h-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Estruturas de Dados</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__NoProc.html">s_NoProc</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__list.html">s_list</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__linBcp.html">s_linBcp</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__bcp.html">s_bcp</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Definições e Macros</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#2d1f8a74ee9434ede20f14c2270fcbdc">MAX_NAMEPROC</a>&nbsp;&nbsp;&nbsp;10</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#9247007216b0f0b587c226ccec4accdb">PROC_STATE</a>&nbsp;&nbsp;&nbsp;int</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#1b70a7b7f9ac0f632fd5c8e4da396463">PROC_NAME</a>&nbsp;&nbsp;&nbsp;char[MAX_NAMEPROC]</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#2d1f8a74ee9434ede20f14c2270fcbdc">MAX_NAMEPROC</a>&nbsp;&nbsp;&nbsp;10</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#63e32d00bc48471b4db49d481ac228dc">MAX_PROC</a>&nbsp;&nbsp;&nbsp;11</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#38b30392d8e246cd0ba0566c15376777">PROC_CURRENT</a>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#f4169634e0641af11be98d9389f4acd2">PROC_READY</a>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#e1fb029b6b41c8e541f7ac3755fa625a">PROC_BLOCK</a>&nbsp;&nbsp;&nbsp;2</td></tr>
+
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#33340923315d90246ed423c84bc5cba5">create_common_stack</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#d2a9aa2493a850c8b5fa62018b708234">suspend</a> (int id)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#48864075250066869088d8ed82504be4">resched</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Elege o próximo processo a executar. Algoritmo: 1. verifica se algum processo bloqueado já terminou caso sim.. Inserir na lista de Ready 2. verificar se existe processo para ser atendido em Ready caso sim.. 1. Colocar o processo atual na lista de Ready 2. Load para o pr&oacute;ximo processo de Ready.  <a href="#48864075250066869088d8ed82504be4"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#1329b8bb93327fe6274fc35cc64b75a3">validPid</a> (int pid)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Verifica se um Pid e válido.  <a href="#1329b8bb93327fe6274fc35cc64b75a3"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#ecbb94da9a1e01ffdf01183307e22106">init_gProc</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#19de22117d2f804a396411e4acc02a9d">init_Bcp</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Inicia bloco de controle de processo..  <a href="#19de22117d2f804a396411e4acc02a9d"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#134a8f81e099a4309bcc07fdb7f3deba">init_lists</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Inicializa listas de prontos e bloqueados.  <a href="#134a8f81e099a4309bcc07fdb7f3deba"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#c8bec3b196fa5913c94ad83731462a78">getMyPart</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#3706684c308b2c2cc2f6493a08372999">setPid</a> (int pid)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Permite a modificação do PID. Uso restrito do gerenciador de processos.  <a href="#3706684c308b2c2cc2f6493a08372999"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#358d2e2397ca11ccd17553e3c40e7901">exit</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Comando dado pelo próprio processo se mata, quando o mesmo completa sua execução. Ações: -liberar sua particao da memoria -liberar linha da bcp -Nao precisa retirar da fila de pronto ou bloqueado pois esta executando.  <a href="#358d2e2397ca11ccd17553e3c40e7901"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#1b6bfc5b6a2660f3abc99ef7b693df3a">rem_procReadyList</a> (int id)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#5c5cb23773be75d47fab2733d3be15a4">saveStack</a> (int pid)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Salva registradores mapeados.  <a href="#5c5cb23773be75d47fab2733d3be15a4"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#44254be01ae933e998c18d69e471fdfd">loadStack</a> (int id)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Desvia o fluxo de instrução da CPU para o processo com ID. Usa a função asm goAddress(unsigned int pont);.  <a href="#44254be01ae933e998c18d69e471fdfd"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#ba9b84c98fbd0e78a33762a0ead68c2a">setCurrentPid</a> (int pid)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Pega o pid do processo que o executa.  <a href="#ba9b84c98fbd0e78a33762a0ead68c2a"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#20b9cd12c16dd2bafb141277d5200f8b">getMyPid</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Pega o pid do processo que o executa.  <a href="#20b9cd12c16dd2bafb141277d5200f8b"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#81703166adc9d5d798ff8edda0ee85e5">getFreePid</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna um valor de PID válido.  <a href="#81703166adc9d5d798ff8edda0ee85e5"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#331dc8718271025b67f4a22351c3c08f">getCurrentPid</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna o valor do pid do processo atual.  <a href="#331dc8718271025b67f4a22351c3c08f"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#4c2f14867a5d1ef53139c0f673fc896d">createProcess</a> (int pri, char name[MAX_NAMEPROC], unsigned int numArg, void(*pont)())</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Cria um processo.  <a href="#4c2f14867a5d1ef53139c0f673fc896d"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#6df45a9629060425f4bd41de5212c02b">killProcess</a> (int id)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Mata o processo com o ID do parâmetro<ul>
+<li>Seta BCP line do processo PA=0</li><li>Devolve particao.</li><li>Remove o processo das filas de</li><li>Ready</li><li>Block. </li></ul>
+ <a href="#6df45a9629060425f4bd41de5212c02b"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#730c7f26ce37b085cfe2c6cdd9437a38">add_listReady</a> (int id)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#d9a3af65ad4a2d24aca1c27e60d6ccbd">rem_listReady</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#7bd39a87693943267fee9f2a9bce99f6">size_listReady</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna o tamanho da lista de processos prontos.  <a href="#7bd39a87693943267fee9f2a9bce99f6"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#b80e4c96f688af3ee9f0d6e9fe49ddb2">size_listBlock</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna o tamanho da lista de processos bloqueados.  <a href="#b80e4c96f688af3ee9f0d6e9fe49ddb2"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#a19262a0e7f05408019378396c4fd816">add_listBlock</a> (int id)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adiciona a um processo a lista de bloqueado.  <a href="#a19262a0e7f05408019378396c4fd816"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#84cbe8ec2c944cc628a7a8087752bb19">rem_listBlock</a> (int pid)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Remove um processo a lista de bloqueado.  <a href="#84cbe8ec2c944cc628a7a8087752bb19"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#1f2900e13d25cce03b2128c0e699dd5c">printBcpStat</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Imprimi o estado do contrle de processo.  <a href="#1f2900e13d25cce03b2128c0e699dd5c"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#453f8af51f5b2ba8916adab8e05984e3">printSizeReady</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Imprimi o tamanho da lista de processos prontos.  <a href="#453f8af51f5b2ba8916adab8e05984e3"></a><br></td></tr>
+<tr><td colspan="2"><br><h2>Variáveis</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_32&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#4a455c2e8f8fd5a7c638fc6bbfe5c421">reg_eax</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_32&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#44b8221304fffd618e8bb8805b2362e8">reg_ebx</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_32&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#76a36e2cad6f45cfc04772640a7ae743">reg_ecx</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_32&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#45d222ee599a5e6f9737677216818102">reg_edx</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_32&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#46dbda93aa589cab812f65177ae17660">reg_edi</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_32&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#79741e4d94a488a6d4cd01876524d349">reg_esi</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_32&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#d6b9533105520d8e139bd09bf78ef87c">reg_ebp</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_32&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#de11a7481c5bbe50af671e8729e30522">reg_esp</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#44d84218d40569ded26b5d01f7744532">reg_cs</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#02dec734eec69689a8c6104c5434211f">reg_ds</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#0ad629cc5d0ef1c89e03b1f93f2aff71">reg_es</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#b1a105cd2de2bdc82096bf4d653486f4">reg_ss</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#0b7e8e439cc8d7d671786eea38a1f04c">reg_gs</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#c25353215a43f0cc5a0783dd88147c36">reg_fs</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_32&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#1eac00f1f911f1dc393da1e506d7f7b0">reg_eip</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_32&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#7497f64e6da1f6464b00f841e88dc645">reg_eflags</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structs__list.html">s_list</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#d29812e00bc3704153462e8fa6932d41">list_Ready</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structs__list.html">s_list</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gpro_8h.html#d0fbf32b966c1fdcaef7443cac4776f3">list_Block</a></td></tr>
+
+</table>
+<hr><h2>Definições e macros</h2>
+<a class="anchor" name="2d1f8a74ee9434ede20f14c2270fcbdc"></a><!-- doxytag: member="Gpro.h::MAX_NAMEPROC" ref="2d1f8a74ee9434ede20f14c2270fcbdc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_NAMEPROC&nbsp;&nbsp;&nbsp;10          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8h-source.html#l00039">39</a> do arquivo <a class="el" href="Gpro_8h-source.html">Gpro.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="2d1f8a74ee9434ede20f14c2270fcbdc"></a><!-- doxytag: member="Gpro.h::MAX_NAMEPROC" ref="2d1f8a74ee9434ede20f14c2270fcbdc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_NAMEPROC&nbsp;&nbsp;&nbsp;10          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8h-source.html#l00039">39</a> do arquivo <a class="el" href="Gpro_8h-source.html">Gpro.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="63e32d00bc48471b4db49d481ac228dc"></a><!-- doxytag: member="Gpro.h::MAX_PROC" ref="63e32d00bc48471b4db49d481ac228dc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_PROC&nbsp;&nbsp;&nbsp;11          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8h-source.html#l00040">40</a> do arquivo <a class="el" href="Gpro_8h-source.html">Gpro.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00120">checkEsp()</a>, <a class="el" href="Gpro_8c-source.html#l00106">getFreePid()</a>, <a class="el" href="Gpro_8c-source.html#l00073">init_Bcp()</a> e <a class="el" href="Gpro_8c-source.html#l00275">validPid()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="e1fb029b6b41c8e541f7ac3755fa625a"></a><!-- doxytag: member="Gpro.h::PROC_BLOCK" ref="e1fb029b6b41c8e541f7ac3755fa625a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PROC_BLOCK&nbsp;&nbsp;&nbsp;2          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8h-source.html#l00043">43</a> do arquivo <a class="el" href="Gpro_8h-source.html">Gpro.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="38b30392d8e246cd0ba0566c15376777"></a><!-- doxytag: member="Gpro.h::PROC_CURRENT" ref="38b30392d8e246cd0ba0566c15376777" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PROC_CURRENT&nbsp;&nbsp;&nbsp;0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8h-source.html#l00041">41</a> do arquivo <a class="el" href="Gpro_8h-source.html">Gpro.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00514">resched()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="1b70a7b7f9ac0f632fd5c8e4da396463"></a><!-- doxytag: member="Gpro.h::PROC_NAME" ref="1b70a7b7f9ac0f632fd5c8e4da396463" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PROC_NAME&nbsp;&nbsp;&nbsp;char[MAX_NAMEPROC]          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8h-source.html#l00038">38</a> do arquivo <a class="el" href="Gpro_8h-source.html">Gpro.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="f4169634e0641af11be98d9389f4acd2"></a><!-- doxytag: member="Gpro.h::PROC_READY" ref="f4169634e0641af11be98d9389f4acd2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PROC_READY&nbsp;&nbsp;&nbsp;1          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8h-source.html#l00042">42</a> do arquivo <a class="el" href="Gpro_8h-source.html">Gpro.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00141">createProcess()</a> e <a class="el" href="Gpro_8c-source.html#l00384">suspend()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="9247007216b0f0b587c226ccec4accdb"></a><!-- doxytag: member="Gpro.h::PROC_STATE" ref="9247007216b0f0b587c226ccec4accdb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PROC_STATE&nbsp;&nbsp;&nbsp;int          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8h-source.html#l00037">37</a> do arquivo <a class="el" href="Gpro_8h-source.html">Gpro.h</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Funções</h2>
+<a class="anchor" name="a19262a0e7f05408019378396c4fd816"></a><!-- doxytag: member="Gpro.h::add_listBlock" ref="a19262a0e7f05408019378396c4fd816" args="(int id)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add_listBlock           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>id</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Adiciona a um processo a lista de bloqueado. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>id,:</em>&nbsp;</td><td>Pid do processo que será adicionado a lista. </td></tr>
+  </table>
+</dl>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00285">285</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="730c7f26ce37b085cfe2c6cdd9437a38"></a><!-- doxytag: member="Gpro.h::add_listReady" ref="730c7f26ce37b085cfe2c6cdd9437a38" args="(int id)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add_listReady           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>id</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00462">462</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="33340923315d90246ed423c84bc5cba5"></a><!-- doxytag: member="Gpro.h::create_common_stack" ref="33340923315d90246ed423c84bc5cba5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void create_common_stack           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00141">createProcess()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="4c2f14867a5d1ef53139c0f673fc896d"></a><!-- doxytag: member="Gpro.h::createProcess" ref="4c2f14867a5d1ef53139c0f673fc896d" args="(int pri, char name[MAX_NAMEPROC], unsigned int numArg, void(*pont)())" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int createProcess           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pri</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&nbsp;</td>
+          <td class="paramname"> <em>name</em>[MAX_NAMEPROC], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>numArg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)()&nbsp;</td>
+          <td class="paramname"> <em>pont</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Cria um processo. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>pri</em>&nbsp;</td><td>Número de prioridade. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>Nome do processo. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>numArg</em>&nbsp;</td><td>Número de argumentos. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pont</em>&nbsp;</td><td>Endereço do processo. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>0 se o processo for criado com sucesso e -1 se não conseguir. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00141">141</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="358d2e2397ca11ccd17553e3c40e7901"></a><!-- doxytag: member="Gpro.h::exit" ref="358d2e2397ca11ccd17553e3c40e7901" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void exit           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Comando dado pelo próprio processo se mata, quando o mesmo completa sua execução. Ações: -liberar sua particao da memoria -liberar linha da bcp -Nao precisa retirar da fila de pronto ou bloqueado pois esta executando. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00210">210</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="331dc8718271025b67f4a22351c3c08f"></a><!-- doxytag: member="Gpro.h::getCurrentPid" ref="331dc8718271025b67f4a22351c3c08f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getCurrentPid           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna o valor do pid do processo atual. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00034">34</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="81703166adc9d5d798ff8edda0ee85e5"></a><!-- doxytag: member="Gpro.h::getFreePid" ref="81703166adc9d5d798ff8edda0ee85e5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getFreePid           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna um valor de PID válido. 
+<p>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna um valor inteiro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00106">106</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+<p>Referências <a class="el" href="Gpro_8c-source.html#l00022">bcp</a>, <a class="el" href="Gpro_8h-source.html#l00137">s_bcp::lin</a>, <a class="el" href="Gpro_8h-source.html#l00040">MAX_PROC</a> e <a class="el" href="Gpro_8h-source.html#l00115">s_linBcp::pa</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00141">createProcess()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="c8bec3b196fa5913c94ad83731462a78"></a><!-- doxytag: member="Gpro.h::getMyPart" ref="c8bec3b196fa5913c94ad83731462a78" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getMyPart           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00099">99</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="20b9cd12c16dd2bafb141277d5200f8b"></a><!-- doxytag: member="Gpro.h::getMyPid" ref="20b9cd12c16dd2bafb141277d5200f8b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getMyPid           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Pega o pid do processo que o executa. 
+<p>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>o valor do pid, do processo atual. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00083">83</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="19de22117d2f804a396411e4acc02a9d"></a><!-- doxytag: member="Gpro.h::init_Bcp" ref="19de22117d2f804a396411e4acc02a9d" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_Bcp           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Inicia bloco de controle de processo.. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00073">73</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+<p>Referências <a class="el" href="Gpro_8c-source.html#l00022">bcp</a>, <a class="el" href="Gpro_8h-source.html#l00137">s_bcp::lin</a>, <a class="el" href="Gpro_8h-source.html#l00040">MAX_PROC</a> e <a class="el" href="Gpro_8h-source.html#l00115">s_linBcp::pa</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00231">init_gProc()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="ecbb94da9a1e01ffdf01183307e22106"></a><!-- doxytag: member="Gpro.h::init_gProc" ref="ecbb94da9a1e01ffdf01183307e22106" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_gProc           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00231">231</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="134a8f81e099a4309bcc07fdb7f3deba"></a><!-- doxytag: member="Gpro.h::init_lists" ref="134a8f81e099a4309bcc07fdb7f3deba" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_lists           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Inicializa listas de prontos e bloqueados. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00242">242</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+<p>Referências <a class="el" href="Gpro_8h-source.html#l00099">s_list::head</a>, <a class="el" href="Gpro_8c-source.html#l00015">list_Block</a>, <a class="el" href="Gpro_8c-source.html#l00014">list_Ready</a>, <a class="el" href="Defs_8h-source.html#l00033">NULL</a>, <a class="el" href="Gpro_8h-source.html#l00100">s_list::tail</a> e <a class="el" href="Gpro_8h-source.html#l00098">s_list::tam</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00231">init_gProc()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="6df45a9629060425f4bd41de5212c02b"></a><!-- doxytag: member="Gpro.h::killProcess" ref="6df45a9629060425f4bd41de5212c02b" args="(int id)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int killProcess           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>id</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Mata o processo com o ID do parâmetro<ul>
+<li>Seta BCP line do processo PA=0</li><li>Devolve particao.</li><li>Remove o processo das filas de</li><li>Ready</li><li>Block. </li></ul>
+
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>id,:</em>&nbsp;</td><td>Valor do pid a ser encerrado </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retornar 0 se não conseguir 1 se conseguir. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00188">188</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="44254be01ae933e998c18d69e471fdfd"></a><!-- doxytag: member="Gpro.h::loadStack" ref="44254be01ae933e998c18d69e471fdfd" args="(int id)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loadStack           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>id</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Desvia o fluxo de instrução da CPU para o processo com ID. Usa a função asm goAddress(unsigned int pont);. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00368">368</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+<p>Referências <a class="el" href="Gpro_8c-source.html#l00022">bcp</a>, <a class="el" href="Gpro_8h-source.html#l00123">s_linBcp::ebp</a>, <a class="el" href="Gpro_8h-source.html#l00122">s_linBcp::esp</a>, <a class="el" href="Gpro_8h-source.html#l00137">s_bcp::lin</a>, <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>, <a class="el" href="Gpro_8h.html#d6b9533105520d8e139bd09bf78ef87c">reg_ebp</a>, <a class="el" href="Gpro_8h.html#de11a7481c5bbe50af671e8729e30522">reg_esp</a> e <a class="el" href="Defs_8h-source.html#l00014">T_32</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00514">resched()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="1f2900e13d25cce03b2128c0e699dd5c"></a><!-- doxytag: member="Gpro.h::printBcpStat" ref="1f2900e13d25cce03b2128c0e699dd5c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printBcpStat           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Imprimi o estado do contrle de processo. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00040">40</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="453f8af51f5b2ba8916adab8e05984e3"></a><!-- doxytag: member="Gpro.h::printSizeReady" ref="453f8af51f5b2ba8916adab8e05984e3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printSizeReady           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Imprimi o tamanho da lista de processos prontos. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00054">54</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="84cbe8ec2c944cc628a7a8087752bb19"></a><!-- doxytag: member="Gpro.h::rem_listBlock" ref="84cbe8ec2c944cc628a7a8087752bb19" args="(int pid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int rem_listBlock           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pid</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Remove um processo a lista de bloqueado. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>pid</em>&nbsp;</td><td>Número de indentificação do processo que será removido da lista. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna 0 se for removido com sucesso e -1 se falhar. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00322">322</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="d9a3af65ad4a2d24aca1c27e60d6ccbd"></a><!-- doxytag: member="Gpro.h::rem_listReady" ref="d9a3af65ad4a2d24aca1c27e60d6ccbd" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int rem_listReady           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00434">434</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="1b6bfc5b6a2660f3abc99ef7b693df3a"></a><!-- doxytag: member="Gpro.h::rem_procReadyList" ref="1b6bfc5b6a2660f3abc99ef7b693df3a" args="(int id)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int rem_procReadyList           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>id</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00404">404</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="48864075250066869088d8ed82504be4"></a><!-- doxytag: member="Gpro.h::resched" ref="48864075250066869088d8ed82504be4" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int resched           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Elege o próximo processo a executar. Algoritmo: 1. verifica se algum processo bloqueado já terminou caso sim.. Inserir na lista de Ready 2. verificar se existe processo para ser atendido em Ready caso sim.. 1. Colocar o processo atual na lista de Ready 2. Load para o pr&oacute;ximo processo de Ready. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00514">514</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="5c5cb23773be75d47fab2733d3be15a4"></a><!-- doxytag: member="Gpro.h::saveStack" ref="5c5cb23773be75d47fab2733d3be15a4" args="(int pid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void saveStack           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pid</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Salva registradores mapeados. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>pid</em>&nbsp;</td><td>Valor do pid do processo que se deseja salvar os registradores. </td></tr>
+  </table>
+</dl>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00354">354</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+<p>Referências <a class="el" href="Gpro_8c-source.html#l00022">bcp</a>, <a class="el" href="Gpro_8h-source.html#l00123">s_linBcp::ebp</a>, <a class="el" href="Gpro_8h-source.html#l00122">s_linBcp::esp</a>, <a class="el" href="Gpro_8h-source.html#l00137">s_bcp::lin</a>, <a class="el" href="Gpro_8h.html#d6b9533105520d8e139bd09bf78ef87c">reg_ebp</a> e <a class="el" href="Gpro_8h.html#de11a7481c5bbe50af671e8729e30522">reg_esp</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00514">resched()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="ba9b84c98fbd0e78a33762a0ead68c2a"></a><!-- doxytag: member="Gpro.h::setCurrentPid" ref="ba9b84c98fbd0e78a33762a0ead68c2a" args="(int pid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int setCurrentPid           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pid</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Pega o pid do processo que o executa. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>pid,:</em>&nbsp;</td><td>número que sera atribuido ai Pid atual. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna 0 se conseguir atribuir um pid ao processo atual e -1 se der algum erro. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00091">91</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="3706684c308b2c2cc2f6493a08372999"></a><!-- doxytag: member="Gpro.h::setPid" ref="3706684c308b2c2cc2f6493a08372999" args="(int pid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setPid           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pid</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Permite a modificação do PID. Uso restrito do gerenciador de processos. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>pid</em>&nbsp;</td><td>Número para qual se desja modificar o valor do processo atual. </td></tr>
+  </table>
+</dl>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00225">225</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="b80e4c96f688af3ee9f0d6e9fe49ddb2"></a><!-- doxytag: member="Gpro.h::size_listBlock" ref="b80e4c96f688af3ee9f0d6e9fe49ddb2" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int size_listBlock           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna o tamanho da lista de processos bloqueados. 
+<p>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>um inteiro com o valor dos tamanho da lista de bloqueados. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00267">267</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="7bd39a87693943267fee9f2a9bce99f6"></a><!-- doxytag: member="Gpro.h::size_listReady" ref="7bd39a87693943267fee9f2a9bce99f6" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int size_listReady           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna o tamanho da lista de processos prontos. 
+<p>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>um inteiro com o valor dos tamanho da lista de prontos. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00260">260</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="d2a9aa2493a850c8b5fa62018b708234"></a><!-- doxytag: member="Gpro.h::suspend" ref="d2a9aa2493a850c8b5fa62018b708234" args="(int id)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void suspend           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>id</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00384">384</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+<p>Referências <a class="el" href="Gpro_8c-source.html#l00462">add_listReady()</a>, <a class="el" href="Gpro_8c-source.html#l00022">bcp</a>, <a class="el" href="Gpro_8h-source.html#l00137">s_bcp::lin</a>, <a class="el" href="Gpro_8h-source.html#l00042">PROC_READY</a>, <a class="el" href="Gpro_8h-source.html#l00117">s_linBcp::state</a> e <a class="el" href="Gpro_8c-source.html#l00275">validPid()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00514">resched()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="1329b8bb93327fe6274fc35cc64b75a3"></a><!-- doxytag: member="Gpro.h::validPid" ref="1329b8bb93327fe6274fc35cc64b75a3" args="(int pid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int validPid           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pid</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Verifica se um Pid e válido. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>pid,:</em>&nbsp;</td><td>O número a ser verificado </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna 0 se o Pid for válido e -1 se ele não for. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Gpro_8c-source.html#l00275">275</a> do arquivo <a class="el" href="Gpro_8c-source.html">Gpro.c</a>.</p>
+
+<p>Referências <a class="el" href="Gpro_8h-source.html#l00040">MAX_PROC</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00514">resched()</a> e <a class="el" href="Gpro_8c-source.html#l00384">suspend()</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Variáveis</h2>
+<a class="anchor" name="d0fbf32b966c1fdcaef7443cac4776f3"></a><!-- doxytag: member="Gpro.h::list_Block" ref="d0fbf32b966c1fdcaef7443cac4776f3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structs__list.html">s_list</a> <a class="el" href="Gpro_8h.html#d0fbf32b966c1fdcaef7443cac4776f3">list_Block</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8h-source.html#l00104">104</a> do arquivo <a class="el" href="Gpro_8h-source.html">Gpro.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="d29812e00bc3704153462e8fa6932d41"></a><!-- doxytag: member="Gpro.h::list_Ready" ref="d29812e00bc3704153462e8fa6932d41" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structs__list.html">s_list</a> <a class="el" href="Gpro_8h.html#d29812e00bc3704153462e8fa6932d41">list_Ready</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gpro_8h-source.html#l00103">103</a> do arquivo <a class="el" href="Gpro_8h-source.html">Gpro.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="44d84218d40569ded26b5d01f7744532"></a><!-- doxytag: member="Gpro.h::reg_cs" ref="44d84218d40569ded26b5d01f7744532" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_16 <a class="el" href="Gpro_8h.html#44d84218d40569ded26b5d01f7744532">reg_cs</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="02dec734eec69689a8c6104c5434211f"></a><!-- doxytag: member="Gpro.h::reg_ds" ref="02dec734eec69689a8c6104c5434211f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_16 <a class="el" href="Gpro_8h.html#02dec734eec69689a8c6104c5434211f">reg_ds</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="4a455c2e8f8fd5a7c638fc6bbfe5c421"></a><!-- doxytag: member="Gpro.h::reg_eax" ref="4a455c2e8f8fd5a7c638fc6bbfe5c421" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_32 <a class="el" href="Gpro_8h.html#4a455c2e8f8fd5a7c638fc6bbfe5c421">reg_eax</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="d6b9533105520d8e139bd09bf78ef87c"></a><!-- doxytag: member="Gpro.h::reg_ebp" ref="d6b9533105520d8e139bd09bf78ef87c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_32 <a class="el" href="Gpro_8h.html#d6b9533105520d8e139bd09bf78ef87c">reg_ebp</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00141">createProcess()</a>, <a class="el" href="Gpro_8c-source.html#l00368">loadStack()</a> e <a class="el" href="Gpro_8c-source.html#l00354">saveStack()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="44b8221304fffd618e8bb8805b2362e8"></a><!-- doxytag: member="Gpro.h::reg_ebx" ref="44b8221304fffd618e8bb8805b2362e8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_32 <a class="el" href="Gpro_8h.html#44b8221304fffd618e8bb8805b2362e8">reg_ebx</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="76a36e2cad6f45cfc04772640a7ae743"></a><!-- doxytag: member="Gpro.h::reg_ecx" ref="76a36e2cad6f45cfc04772640a7ae743" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_32 <a class="el" href="Gpro_8h.html#76a36e2cad6f45cfc04772640a7ae743">reg_ecx</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="46dbda93aa589cab812f65177ae17660"></a><!-- doxytag: member="Gpro.h::reg_edi" ref="46dbda93aa589cab812f65177ae17660" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_32 <a class="el" href="Gpro_8h.html#46dbda93aa589cab812f65177ae17660">reg_edi</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="45d222ee599a5e6f9737677216818102"></a><!-- doxytag: member="Gpro.h::reg_edx" ref="45d222ee599a5e6f9737677216818102" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_32 <a class="el" href="Gpro_8h.html#45d222ee599a5e6f9737677216818102">reg_edx</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="7497f64e6da1f6464b00f841e88dc645"></a><!-- doxytag: member="Gpro.h::reg_eflags" ref="7497f64e6da1f6464b00f841e88dc645" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_32 <a class="el" href="Gpro_8h.html#7497f64e6da1f6464b00f841e88dc645">reg_eflags</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="1eac00f1f911f1dc393da1e506d7f7b0"></a><!-- doxytag: member="Gpro.h::reg_eip" ref="1eac00f1f911f1dc393da1e506d7f7b0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_32 <a class="el" href="Gpro_8h.html#1eac00f1f911f1dc393da1e506d7f7b0">reg_eip</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00141">createProcess()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="0ad629cc5d0ef1c89e03b1f93f2aff71"></a><!-- doxytag: member="Gpro.h::reg_es" ref="0ad629cc5d0ef1c89e03b1f93f2aff71" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_16 <a class="el" href="Gpro_8h.html#0ad629cc5d0ef1c89e03b1f93f2aff71">reg_es</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="79741e4d94a488a6d4cd01876524d349"></a><!-- doxytag: member="Gpro.h::reg_esi" ref="79741e4d94a488a6d4cd01876524d349" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_32 <a class="el" href="Gpro_8h.html#79741e4d94a488a6d4cd01876524d349">reg_esi</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="de11a7481c5bbe50af671e8729e30522"></a><!-- doxytag: member="Gpro.h::reg_esp" ref="de11a7481c5bbe50af671e8729e30522" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_32 <a class="el" href="Gpro_8h.html#de11a7481c5bbe50af671e8729e30522">reg_esp</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00141">createProcess()</a>, <a class="el" href="Gpro_8c-source.html#l00368">loadStack()</a> e <a class="el" href="Gpro_8c-source.html#l00354">saveStack()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="c25353215a43f0cc5a0783dd88147c36"></a><!-- doxytag: member="Gpro.h::reg_fs" ref="c25353215a43f0cc5a0783dd88147c36" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_16 <a class="el" href="Gpro_8h.html#c25353215a43f0cc5a0783dd88147c36">reg_fs</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="0b7e8e439cc8d7d671786eea38a1f04c"></a><!-- doxytag: member="Gpro.h::reg_gs" ref="0b7e8e439cc8d7d671786eea38a1f04c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_16 <a class="el" href="Gpro_8h.html#0b7e8e439cc8d7d671786eea38a1f04c">reg_gs</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="b1a105cd2de2bdc82096bf4d653486f4"></a><!-- doxytag: member="Gpro.h::reg_ss" ref="b1a105cd2de2bdc82096bf4d653486f4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_16 <a class="el" href="Gpro_8h.html#b1a105cd2de2bdc82096bf4d653486f4">reg_ss</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:30 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

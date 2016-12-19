@@ -1,0 +1,384 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/kernel/interface/KIide.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/kernel/interface/KIide.h</h1><code>#include &quot;<a class="el" href="Ide_8h-source.html">../include/Ide.h</a>&quot;</code><br>
+
+<p>
+<a href="KIide_8h-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIide_8h.html#60c7b5c6ac9d0b23bd2d523454303c67">initIDE</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Inicializa os dispositivos IDE que achar, sendo limitado até dois hds.  <a href="#60c7b5c6ac9d0b23bd2d523454303c67"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIide_8h.html#df28570c3a70c15746a81ea2628652e9">getDiskCylinders</a> (short diskNumber)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retornar a quantidade de cilindros de um hd.  <a href="#df28570c3a70c15746a81ea2628652e9"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIide_8h.html#a576f9e371be3de5d0abe403b8369ae1">getDiskHeads</a> (short diskNumber)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retornar a quantidade de cabeçalhos de um hd.  <a href="#a576f9e371be3de5d0abe403b8369ae1"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIide_8h.html#142511891c2876bd8b63491ce80b90bd">getDiskSectorsPerTrack</a> (short diskNumber)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retornar a quantidade de setores por trilha de um hd.  <a href="#142511891c2876bd8b63491ce80b90bd"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIide_8h.html#44af5d7b11ec51227c837c0a4d973a3b">getDiskInfo</a> (int diskNumber)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Essa função é para uso interno, para debugar o código e mostrar informações do hd.  <a href="#44af5d7b11ec51227c837c0a4d973a3b"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIide_8h.html#289154455e46f469d1835f652a7a58af">getDisks</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Essa função verifica a quantidade de HDs detectados.  <a href="#289154455e46f469d1835f652a7a58af"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIide_8h.html#a0dfd568f17f1f381f4d791b92c34c40">getDiskSize</a> (short diskNumber)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Calcula o tamanho do disco.  <a href="#a0dfd568f17f1f381f4d791b92c34c40"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIide_8h.html#aa22e25a44af8ffe0a30987b43f09cd7">writeDisk</a> (short driveNumber, struct <a class="el" href="structdiskAddress.html">diskAddress</a> *address, char *buffer)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Grava informações no disco.  <a href="#aa22e25a44af8ffe0a30987b43f09cd7"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIide_8h.html#97d6760a3024f7238264c7203d55846e">readDisk</a> (short driveNumber, struct <a class="el" href="structdiskAddress.html">diskAddress</a> *address, char *buffer)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Ler informações no disco.  <a href="#97d6760a3024f7238264c7203d55846e"></a><br></td></tr>
+</table>
+<hr><h2>Funções</h2>
+<a class="anchor" name="df28570c3a70c15746a81ea2628652e9"></a><!-- doxytag: member="KIide.h::getDiskCylinders" ref="df28570c3a70c15746a81ea2628652e9" args="(short diskNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getDiskCylinders           </td>
+          <td>(</td>
+          <td class="paramtype">short&nbsp;</td>
+          <td class="paramname"> <em>diskNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retornar a quantidade de cilindros de um hd. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>diskNumber</em>&nbsp;</td><td>Indica de qual hd será retornado a quantidade de cilindros. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna a quantidade de cilindoros do HD.</dd></dl>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>diskNumber</em>&nbsp;</td><td>Indica de qual hd será retornado a quantidade de cilindros. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna a quantidade de cilindros do HD. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00113">113</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referências <a class="el" href="Ide_8h-source.html#l00110">disk::cylinders</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="a576f9e371be3de5d0abe403b8369ae1"></a><!-- doxytag: member="KIide.h::getDiskHeads" ref="a576f9e371be3de5d0abe403b8369ae1" args="(short diskNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getDiskHeads           </td>
+          <td>(</td>
+          <td class="paramtype">short&nbsp;</td>
+          <td class="paramname"> <em>diskNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retornar a quantidade de cabeçalhos de um hd. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>diskNumber</em>&nbsp;</td><td>Indica de qual hd será retornado a quantidade cabeçalhos. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna a quantidade de cabeçalhos em um disco. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00121">121</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referências <a class="el" href="Ide_8h-source.html#l00112">disk::heads</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00383">calcAddress()</a> e <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="44af5d7b11ec51227c837c0a4d973a3b"></a><!-- doxytag: member="KIide.h::getDiskInfo" ref="44af5d7b11ec51227c837c0a4d973a3b" args="(int diskNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getDiskInfo           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>diskNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Essa função é para uso interno, para debugar o código e mostrar informações do hd. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>diskNumber</em>&nbsp;</td><td>indica de qual hd será retornado a quantidade setores. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Imprimi na tela na tela todas as informações capturadas sobre o HD.</dd></dl>
+Essa função é para uso interno, para debugar o código e mostrar informações do hd.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>diskNumber</em>&nbsp;</td><td>indica de qual hd será retornado a quantidade setores. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Imprimi na tela na tela todas as informações capturadas sobre o HD. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00138">138</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00129">printfInt()</a> e <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Ide_8c-source.html#l00059">detecDisk()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="289154455e46f469d1835f652a7a58af"></a><!-- doxytag: member="KIide.h::getDisks" ref="289154455e46f469d1835f652a7a58af" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getDisks           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Essa função verifica a quantidade de HDs detectados. 
+<p>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna quantidade de discos inicializados. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00155">155</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00027">loadFatIDEDrivers()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="142511891c2876bd8b63491ce80b90bd"></a><!-- doxytag: member="KIide.h::getDiskSectorsPerTrack" ref="142511891c2876bd8b63491ce80b90bd" args="(short diskNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getDiskSectorsPerTrack           </td>
+          <td>(</td>
+          <td class="paramtype">short&nbsp;</td>
+          <td class="paramname"> <em>diskNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retornar a quantidade de setores por trilha de um hd. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>diskNumber</em>&nbsp;</td><td>indica de qual hd será retornado a quantidade setores. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna a quantidade de setores po track de um disco.</dd></dl>
+Retornar a quantidade de setores por trilha de um hd.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>diskNumber</em>&nbsp;</td><td>indica de qual hd será retornado a quantidade setores. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna a quantidade de setores po track de um disco. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00130">130</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referências <a class="el" href="Ide_8h-source.html#l00114">disk::sectorPerTrack</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00383">calcAddress()</a> e <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="a0dfd568f17f1f381f4d791b92c34c40"></a><!-- doxytag: member="KIide.h::getDiskSize" ref="a0dfd568f17f1f381f4d791b92c34c40" args="(short diskNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getDiskSize           </td>
+          <td>(</td>
+          <td class="paramtype">short&nbsp;</td>
+          <td class="paramname"> <em>diskNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Calcula o tamanho do disco. 
+<p>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna o tamanho do disco. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00168">168</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referências <a class="el" href="Ide_8h-source.html#l00116">disk::bytesPerSector</a>, <a class="el" href="Ide_8h-source.html#l00110">disk::cylinders</a>, <a class="el" href="Ide_8h-source.html#l00112">disk::heads</a> e <a class="el" href="Ide_8h-source.html#l00114">disk::sectorPerTrack</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="60c7b5c6ac9d0b23bd2d523454303c67"></a><!-- doxytag: member="KIide.h::initIDE" ref="60c7b5c6ac9d0b23bd2d523454303c67" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initIDE           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Inicializa os dispositivos IDE que achar, sendo limitado até dois hds. 
+<p>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00027">27</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00138">APOSDEBUG()</a>, <a class="el" href="Ide_8c-source.html#l00017">debug</a>, <a class="el" href="Ide_8c-source.html#l00059">detecDisk()</a>, <a class="el" href="Ide_8c-source.html#l00294">diskWait()</a>, <a class="el" href="Ide_8h-source.html#l00080">IDE_DCR_NOINTERRUPT</a>, <a class="el" href="Ide_8h-source.html#l00081">IDE_DCR_RESET</a>, <a class="el" href="Ide_8h-source.html#l00050">IDE_REG_DEVICE_CONTROL</a>, <a class="el" href="IO_8c-source.html#l00008">Out_Byte()</a> e <a class="el" href="Scrn_8c-source.html#l00129">printfInt()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="97d6760a3024f7238264c7203d55846e"></a><!-- doxytag: member="KIide.h::readDisk" ref="97d6760a3024f7238264c7203d55846e" args="(short driveNumber, struct diskAddress *address, char *buffer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int readDisk           </td>
+          <td>(</td>
+          <td class="paramtype">short&nbsp;</td>
+          <td class="paramname"> <em>driveNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structdiskAddress.html">diskAddress</a> *&nbsp;</td>
+          <td class="paramname"> <em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>buffer</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Ler informações no disco. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>driveNumber</em>&nbsp;</td><td>Número do hd que os dados serão sendo lidos. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>address</em>&nbsp;</td><td>Guarda o endereço do HD que irá ser usado. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>buffer</em>&nbsp;</td><td>Endereço da várivel que vai ser gravadas as informações lidas no hd. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna os dados gravador em uma certa região do HD. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="aa22e25a44af8ffe0a30987b43f09cd7"></a><!-- doxytag: member="KIide.h::writeDisk" ref="aa22e25a44af8ffe0a30987b43f09cd7" args="(short driveNumber, struct diskAddress *address, char *buffer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int writeDisk           </td>
+          <td>(</td>
+          <td class="paramtype">short&nbsp;</td>
+          <td class="paramname"> <em>driveNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structdiskAddress.html">diskAddress</a> *&nbsp;</td>
+          <td class="paramname"> <em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>buffer</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Grava informações no disco. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>driveNumber</em>&nbsp;</td><td>número do hd que os dados serão sendo gravados. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>*address</em>&nbsp;</td><td>guarda endereço do HD que irá ser usado.. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>*buffer</em>&nbsp;</td><td>endereço da várivel que vai ser gravada no hd. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna 0(zero), se tiver sucesso na escrita, e diferente de 0 se tiver algum problema. </dd></dl>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

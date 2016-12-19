@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/include/Defs.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/include/Defs.h</h1><a href="Defs_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00005"></a>00005 <span class="preprocessor">#ifndef __DEFS_H</span>
+<a name="l00006"></a>00006 <span class="preprocessor"></span><span class="preprocessor">#define __DEFS_H</span>
+<a name="l00007"></a>00007 <span class="preprocessor"></span>
+<a name="l00008"></a><a class="code" href="Defs_8h.html#c89d6a09162e25252080ca4578e5a738">00008</a> <span class="preprocessor">#define baseCS  0x08</span>
+<a name="l00009"></a><a class="code" href="Defs_8h.html#b94c0b5911db85114beaba6ee1814ad7">00009</a> <span class="preprocessor"></span><span class="preprocessor">#define baseDS  0x10</span>
+<a name="l00010"></a><a class="code" href="Defs_8h.html#49f32fd8c6804d551b95e9a0e4848e6a">00010</a> <span class="preprocessor"></span><span class="preprocessor">#define baseTSS0 0x18</span>
+<a name="l00011"></a><a class="code" href="Defs_8h.html#7eb48ab5603f50aa6de14353e7b7e5f8">00011</a> <span class="preprocessor"></span><span class="preprocessor">#define baseTSS1 0x20</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span>
+<a name="l00013"></a><a class="code" href="Defs_8h.html#5e75d79e78ebce11c04324b815a6a2b5">00013</a> <span class="preprocessor">#define T_16 unsigned int</span>
+<a name="l00014"></a><a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">00014</a> <span class="preprocessor"></span><span class="preprocessor">#define T_32 unsigned long int</span>
+<a name="l00015"></a><a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">00015</a> <span class="preprocessor"></span><span class="preprocessor">#define ushort_t unsigned short   //16bits </span>
+<a name="l00016"></a><a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">00016</a> <span class="preprocessor"></span><span class="preprocessor">#define ulong_t  unsigned long    //64bits </span>
+<a name="l00017"></a><a class="code" href="Defs_8h.html#90e60e29a70bb2590baf90e25e7ef0b1">00017</a> <span class="preprocessor"></span><span class="preprocessor">#define uint_t   unsigned int     //32bits</span>
+<a name="l00018"></a><a class="code" href="Defs_8h.html#807678d6b75a0ea29e946e41423da6f1">00018</a> <span class="preprocessor"></span><span class="preprocessor">#define uchar_t  unsigned char    //8bits</span>
+<a name="l00019"></a><a class="code" href="Defs_8h.html#e4cc35dcc70810fa972cc8a5185a28fa">00019</a> <span class="preprocessor"></span><span class="preprocessor">#define BOOL int</span>
+<a name="l00020"></a><a class="code" href="Defs_8h.html#336ef1743175a62cdf5a7aebcf34609a">00020</a> <span class="preprocessor"></span><span class="preprocessor">#define T_SIZE unsigned int</span>
+<a name="l00021"></a>00021 <span class="preprocessor"></span>
+<a name="l00025"></a><a class="code" href="Defs_8h.html#a8cecfc5c5c054d2875c03e77b7be15d">00025</a> <span class="preprocessor">#define TRUE 1</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span>
+<a name="l00029"></a><a class="code" href="Defs_8h.html#a93f0eb578d23995850d61f7d61c55c1">00029</a> <span class="preprocessor">#define FALSE 0</span>
+<a name="l00030"></a>00030 <span class="preprocessor"></span>
+<a name="l00033"></a><a class="code" href="Defs_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">00033</a> <span class="preprocessor">#define NULL 0x00</span>
+<a name="l00034"></a>00034 <span class="preprocessor"></span>
+<a name="l00037"></a><a class="code" href="Defs_8h.html#7619b847aeded8a6d14cbfa212b2cdfb">00037</a> <span class="keyword">typedef</span> <span class="keywordtype">int</span> <a class="code" href="Defs_8h.html#7619b847aeded8a6d14cbfa212b2cdfb">size_t</a>;
+<a name="l00038"></a>00038 
+<a name="l00040"></a><a class="code" href="Defs_8h.html#73efe787c131b385070f25d18b7c9aa4">00040</a> <span class="preprocessor">#define    EXIT_FAILURE    1   </span>
+<a name="l00041"></a>00041 <span class="preprocessor"></span>
+<a name="l00042"></a><a class="code" href="Defs_8h.html#687984f47d8cce148d1b914d2b79612a">00042</a> <span class="preprocessor">#define    EXIT_SUCCESS    0   </span>
+<a name="l00043"></a>00043 <span class="preprocessor"></span>
+<a name="l00047"></a><a class="code" href="structregsT.html">00047</a> <span class="keyword">struct </span><a class="code" href="structregsT.html">regsT</a> {
+<a name="l00048"></a><a class="code" href="structregsT.html#3dedfd93dbee7adfb41f66283ffb4385">00048</a>         <a class="code" href="Defs_8h.html#5e75d79e78ebce11c04324b815a6a2b5">T_16</a> <a class="code" href="structregsT.html#c1c4e034705b576f01c925defcd73d6e">cs</a>,<a class="code" href="structregsT.html#90573532ef47cb9852fa36835c6c4762">ds</a>,<a class="code" href="structregsT.html#3dedfd93dbee7adfb41f66283ffb4385">ss</a>,<a class="code" href="structregsT.html#e214e0ec824b4ccbeec4c7f132e98624">gs</a>,<a class="code" href="structregsT.html#6b03505c23b7b8bffeba12663a60494b">fs</a>,<a class="code" href="structregsT.html#de75c1245ffb591147a96fa51407ced9">es</a>;
+<a name="l00049"></a><a class="code" href="structregsT.html#af725b5b4295d0e6a928574f9b2a04c0">00049</a>         <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="structregsT.html#2875aacfa919d7a545b670a935e08687">edi</a>, <a class="code" href="structregsT.html#a9aae4c7744154e3748dade022443e3e">esi</a>, <a class="code" href="structregsT.html#70de4610c32c51971df7e3c790472165">ebp</a>, <a class="code" href="structregsT.html#af725b5b4295d0e6a928574f9b2a04c0">esp</a>, <a class="code" href="structregsT.html#0616703d5bd23b4dae0470de2b3c8046">ebx</a>, <a class="code" href="structregsT.html#06cd7f3516c47fa50510edebb028fa5a">edx</a>, <a class="code" href="structregsT.html#135bb142aa05520c7d13137ed211588c">ecx</a>, <a class="code" href="structregsT.html#d2de9b0b01a4af3bf077b1d6ef5810c6">eax</a>;
+<a name="l00050"></a><a class="code" href="structregsT.html#ddfacb2de5ce99176dcc2dd2e7c5bedf">00050</a>         <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="structregsT.html#ddfacb2de5ce99176dcc2dd2e7c5bedf">int_no</a>, <a class="code" href="structregsT.html#bb566c86ca97b438cac32e1afafb4ee0">err_code</a>;
+<a name="l00051"></a><a class="code" href="structregsT.html#5ca2fa66818f54303bdd1c39697fa8b4">00051</a>         <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="structregsT.html#e2e1fef06673ef9274cf8934aeec92e5">eip</a>, <a class="code" href="structregsT.html#8d7e42e1f987407dd7b7585e36f0b8fc">eflags</a>, <a class="code" href="structregsT.html#5ca2fa66818f54303bdd1c39697fa8b4">useresp</a>;
+<a name="l00052"></a>00052 };
+<a name="l00056"></a><a class="code" href="structregs.html">00056</a> <span class="keyword">struct </span><a class="code" href="structregs.html">regs</a> {
+<a name="l00057"></a><a class="code" href="structregs.html#65174883574b177d940de50d85d000ea">00057</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="structregs.html#65174883574b177d940de50d85d000ea">gs</a>, <a class="code" href="structregs.html#0a3292601916fad9c8e8463d5466652d">fs</a>, <a class="code" href="structregs.html#8a3e5cd6d92486294b5bdda1963fde40">es</a>, <a class="code" href="structregs.html#11ee12613bc58244d6e3b166e1892f4a">ds</a>;
+<a name="l00058"></a><a class="code" href="structregs.html#6671599aa5e59fd804561c1c1ed7c53a">00058</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="structregs.html#273e21e568ee550e48dfc2799e5e7d56">edi</a>, <a class="code" href="structregs.html#b25239e8d63dfa05c9ad2f2ba4a0ff7a">esi</a>, <a class="code" href="structregs.html#27936092be139fd35a48fbcf6d3cc318">ebp</a>, <a class="code" href="structregs.html#6671599aa5e59fd804561c1c1ed7c53a">esp</a>, <a class="code" href="structregs.html#1d732c32ac0bd3f2c0a1b84fed7b6312">ebx</a>, <a class="code" href="structregs.html#5177b6604bc2937159c29899a0a6b94a">edx</a>, <a class="code" href="structregs.html#32f7d03f98565974abed738eee025e62">ecx</a>, <a class="code" href="structregs.html#f3ee7124e26955c62234c23ff7420fa5">eax</a>;
+<a name="l00059"></a><a class="code" href="structregs.html#0447d192cd01c7958fc5e06746c345d9">00059</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="structregs.html#0447d192cd01c7958fc5e06746c345d9">int_no</a>, <a class="code" href="structregs.html#37177085b61efd8c7d777880ed814ffe">err_code</a>;
+<a name="l00060"></a><a class="code" href="structregs.html#55d3b6b0025dd401f204d585d256c140">00060</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="structregs.html#483d469ae6b388e4df869c1ebd61d713">eip</a>, <a class="code" href="structregs.html#178d60c6cd2b033533d4a35b966e8868">cs</a>, <a class="code" href="structregs.html#2394860816e82786acb64671237492b2">eflags</a>, <a class="code" href="structregs.html#55d3b6b0025dd401f204d585d256c140">useresp</a>, <a class="code" href="structregs.html#e24c40e9efb433989445bfd318564c90">ss</a>;
+<a name="l00061"></a>00061 };
+<a name="l00062"></a>00062 <span class="preprocessor">#endif</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

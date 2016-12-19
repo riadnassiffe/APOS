@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência da Estrutura diskAddress</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li><a href="functions.html"><span>Campos&nbsp;de&nbsp;Dados</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência da Estrutura diskAddress</h1><!-- doxytag: class="diskAddress" -->Estrutura responsável por armazenar o endereço de uma posição do HD.  
+<a href="#_details">Mais...</a>
+<p>
+<code>#include &lt;<a class="el" href="Ide_8h-source.html">Ide.h</a>&gt;</code>
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Campos de Dados</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdiskAddress.html#ad283e69dfbef6b1323cdc18ba3dc46c">lba</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdiskAddress.html#fec4a33ebc5d3bfdc9a5790532e37a6d">head</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdiskAddress.html#9e59ac496be4054961ce14949200d79c">sector</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdiskAddress.html#2f7b5031a108153440c4de95187bd274">cylinder</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdiskAddress.html#dc9405f2e4d862f336366d5e513a3240">error</a>:1</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Descrição Detalhada</h2>
+Estrutura responsável por armazenar o endereço de uma posição do HD. 
+<p>Definição na linha <a class="el" href="Ide_8h-source.html#l00125">125</a> do arquivo <a class="el" href="Ide_8h-source.html">Ide.h</a>.</p>
+<hr><h2>Campos e Atributos</h2>
+<a class="anchor" name="ad283e69dfbef6b1323cdc18ba3dc46c"></a><!-- doxytag: member="diskAddress::lba" ref="ad283e69dfbef6b1323cdc18ba3dc46c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">short <a class="el" href="structdiskAddress.html#ad283e69dfbef6b1323cdc18ba3dc46c">diskAddress::lba</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Endereço lógico do cluster no HD. 
+<p>Definição na linha <a class="el" href="Ide_8h-source.html#l00127">127</a> do arquivo <a class="el" href="Ide_8h-source.html">Ide.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00402">addDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00383">calcAddress()</a>, <a class="el" href="Fat_8c-source.html#l00740">createDIR()</a>, <a class="el" href="Fat_8c-source.html#l00603">createFile()</a>, <a class="el" href="Fat_8c-source.html#l00853">delDir()</a>, <a class="el" href="Fat_8c-source.html#l00786">delDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00651">delFile()</a>, <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>, <a class="el" href="Fat_8c-source.html#l00098">loadFatList()</a>, <a class="el" href="Fat_8c-source.html#l01026">modifyEntry()</a>, <a class="el" href="Fat_8c-source.html#l00964">printDir()</a>, <a class="el" href="Fat_8c-source.html#l00522">readFile()</a>, <a class="el" href="Fat_8c-source.html#l00905">refreshDirectoryEnter()</a> e <a class="el" href="Fat_8c-source.html#l00334">updateFat()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="fec4a33ebc5d3bfdc9a5790532e37a6d"></a><!-- doxytag: member="diskAddress::head" ref="fec4a33ebc5d3bfdc9a5790532e37a6d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">short <a class="el" href="structdiskAddress.html#fec4a33ebc5d3bfdc9a5790532e37a6d">diskAddress::head</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Cabelhaçalho onde o cluster se encontra. 
+<p>Definição na linha <a class="el" href="Ide_8h-source.html#l00129">129</a> do arquivo <a class="el" href="Ide_8h-source.html">Ide.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00383">calcAddress()</a>, <a class="el" href="Ide_8c-source.html#l00238">readDisk()</a> e <a class="el" href="Ide_8c-source.html#l00180">writeDisk()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="9e59ac496be4054961ce14949200d79c"></a><!-- doxytag: member="diskAddress::sector" ref="9e59ac496be4054961ce14949200d79c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">short <a class="el" href="structdiskAddress.html#9e59ac496be4054961ce14949200d79c">diskAddress::sector</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Setor do cilindro que o cluster se encontra. 
+<p>Definição na linha <a class="el" href="Ide_8h-source.html#l00131">131</a> do arquivo <a class="el" href="Ide_8h-source.html">Ide.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00383">calcAddress()</a>, <a class="el" href="Ide_8c-source.html#l00238">readDisk()</a> e <a class="el" href="Ide_8c-source.html#l00180">writeDisk()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="2f7b5031a108153440c4de95187bd274"></a><!-- doxytag: member="diskAddress::cylinder" ref="2f7b5031a108153440c4de95187bd274" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">short <a class="el" href="structdiskAddress.html#2f7b5031a108153440c4de95187bd274">diskAddress::cylinder</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Cilindro do cabeção que o cluster se encontra. 
+<p>Definição na linha <a class="el" href="Ide_8h-source.html#l00133">133</a> do arquivo <a class="el" href="Ide_8h-source.html">Ide.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00383">calcAddress()</a>, <a class="el" href="Ide_8c-source.html#l00238">readDisk()</a> e <a class="el" href="Ide_8c-source.html#l00180">writeDisk()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="dc9405f2e4d862f336366d5e513a3240"></a><!-- doxytag: member="diskAddress::error" ref="dc9405f2e4d862f336366d5e513a3240" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="structdiskAddress.html#dc9405f2e4d862f336366d5e513a3240">diskAddress::error</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Guarda o valor 1 se houve algum erro no momento de calcular as o endereço do cluster. 
+<p>Definição na linha <a class="el" href="Ide_8h-source.html#l00135">135</a> do arquivo <a class="el" href="Ide_8h-source.html">Ide.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00383">calcAddress()</a> e <a class="el" href="Fat_8c-source.html#l00098">loadFatList()</a>.</p>
+
+</div>
+</div><p>
+<hr>A documentação para esta estrutura foi gerada a partir do seguinte arquivo:<ul>
+<li>src/kernel/include/<a class="el" href="Ide_8h-source.html">Ide.h</a></ul>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:30 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

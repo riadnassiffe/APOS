@@ -1,0 +1,516 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/kernel/Ide.c</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/kernel/Ide.c</h1>Este arquivo tem a finalidade de implementar uma camada de manipulação de hd. Ele fornece as funções de gravar, ler e detecta até dois HD. <a href="#_details">Mais...</a>
+<p>
+<code>#include &quot;<a class="el" href="Ide_8h-source.html">include/Ide.h</a>&quot;</code><br>
+
+<p>
+<a href="Ide_8c-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Ide_8c.html#60c7b5c6ac9d0b23bd2d523454303c67">initIDE</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Inicializa os dispositivos IDE que achar, sendo limitado até dois hds.  <a href="#60c7b5c6ac9d0b23bd2d523454303c67"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Ide_8c.html#591f2f51833b3926d1a1d67da6f8af4a">detecDisk</a> (short int diskNumber)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Detecta HD e captura as informações dele.  <a href="#591f2f51833b3926d1a1d67da6f8af4a"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Ide_8c.html#df28570c3a70c15746a81ea2628652e9">getDiskCylinders</a> (short diskNumber)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retornar a quantidade de cilindros de um hd.  <a href="#df28570c3a70c15746a81ea2628652e9"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Ide_8c.html#a576f9e371be3de5d0abe403b8369ae1">getDiskHeads</a> (short diskNumber)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retornar a quantidade de cabeçalhos de um hd.  <a href="#a576f9e371be3de5d0abe403b8369ae1"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Ide_8c.html#142511891c2876bd8b63491ce80b90bd">getDiskSectorsPerTrack</a> (short diskNumber)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retornar a quantidade de setores por trilha de um hd.  <a href="#142511891c2876bd8b63491ce80b90bd"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Ide_8c.html#44af5d7b11ec51227c837c0a4d973a3b">getDiskInfo</a> (int diskNumber)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Essa função é para uso interno, para depurar o código e mostrar informações do hd.  <a href="#44af5d7b11ec51227c837c0a4d973a3b"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Ide_8c.html#289154455e46f469d1835f652a7a58af">getDisks</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Essa função verifica a quantidade de HDs detectados.  <a href="#289154455e46f469d1835f652a7a58af"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Ide_8c.html#a0dfd568f17f1f381f4d791b92c34c40">getDiskSize</a> (short diskNumber)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Calcula o tamanho do disco.  <a href="#a0dfd568f17f1f381f4d791b92c34c40"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Ide_8c.html#a50554702a6b831c05346509d3a8bdc6">writeDisk</a> (short int driveNumber, struct <a class="el" href="structdiskAddress.html">diskAddress</a> *address, char *buffer)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Grava informações no disco.  <a href="#a50554702a6b831c05346509d3a8bdc6"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Ide_8c.html#49f300dd0c1649ae2c02f98f021592a6">readDisk</a> (short int driveNumber, struct <a class="el" href="structdiskAddress.html">diskAddress</a> *address, char *buffer)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Ler informações no disco.  <a href="#49f300dd0c1649ae2c02f98f021592a6"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Ide_8c.html#ddf34e9daa4318d94658a556a8af0396">diskWait</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Espera o disco completar uma operação e informa se teve sucesso ou não.  <a href="#ddf34e9daa4318d94658a556a8af0396"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Ide_8c.html#bb9ee10191569258e0f22bdd0a95ba62">delay</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gera um delay.  <a href="#bb9ee10191569258e0f22bdd0a95ba62"></a><br></td></tr>
+<tr><td colspan="2"><br><h2>Variáveis</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4">debug</a> = FALSE</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Variável que ativa o modo debug, se seu valor for <a class="el" href="Defs_8h.html#a8cecfc5c5c054d2875c03e77b7be15d">TRUE(1)</a> e desativa se for <a class="el" href="Defs_8h.html#a93f0eb578d23995850d61f7d61c55c1">FALSE(0)</a>.  <a href="#c3e1795766a80ec63b157951b4b9a7d4"></a><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Descrição Detalhada</h2>
+Este arquivo tem a finalidade de implementar uma camada de manipulação de hd. Ele fornece as funções de gravar, ler e detecta até dois HD. 
+<p>
+<dl class="author" compact><dt><b>Autor:</b></dt><dd>Ríad Mattos Nassiffe </dd></dl>
+
+<p>Definição no arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+<hr><h2>Funções</h2>
+<a class="anchor" name="bb9ee10191569258e0f22bdd0a95ba62"></a><!-- doxytag: member="Ide.c::delay" ref="bb9ee10191569258e0f22bdd0a95ba62" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void delay           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Gera um delay. 
+<p>
+<dl class="attention" compact><dt><b>Atenção:</b></dt><dd>Durante o desenvolvimento foi encontrado um problema na execução de muitas repetições de tarefas, com acesso direto a HD. No código fonte do GeekOs foi encontrado uma referencia a esse problema. De acordo com o comentário do GeekOS o problema pertenceria a implementação da máquina virtual BOCHS, entretanto essa atribui o erro a uma especificação do LBA28. Para resolver esse problema de forma correta, seria necessário pegar alguns dados no HD, e calcular um delay. Como os APOS não implementa ainda um modulo de manipulação de tempo isso não foi possível. Por isso configuramos no bochs uma certa freqüência para a máquina a ser emulada, e com base nessa freqüência achamos esse delay. </dd></dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>int retorna o valor 0, caso a operação que estava sendo realizada terminou com sucesso. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00320">320</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Ide_8c-source.html#l00238">readDisk()</a> e <a class="el" href="Ide_8c-source.html#l00180">writeDisk()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="591f2f51833b3926d1a1d67da6f8af4a"></a><!-- doxytag: member="Ide.c::detecDisk" ref="591f2f51833b3926d1a1d67da6f8af4a" args="(short int diskNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int detecDisk           </td>
+          <td>(</td>
+          <td class="paramtype">short int&nbsp;</td>
+          <td class="paramname"> <em>diskNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Detecta HD e captura as informações dele. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>diskNumber</em>&nbsp;</td><td>É um inteiro que corresponde ao número do HD que esta sendo detectado no momento, 0 para o master e 1 para o slave. </td></tr>
+  </table>
+</dl>
+<dl class="attention" compact><dt><b>Atenção:</b></dt><dd>Esse Código na versão passada havia sido baseado no GeekOs, agora modifica para detectar até dois HDs. </dd></dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna 0(zero), se o HD for encontrado e -1, caso ele não seja encontrado. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00059">59</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referências <a class="el" href="Ide_8h-source.html#l00116">disk::bytesPerSector</a>, <a class="el" href="Ide_8h-source.html#l00110">disk::cylinders</a>, <a class="el" href="Ide_8c-source.html#l00294">diskWait()</a>, <a class="el" href="Defs_8h-source.html#l00040">EXIT_FAILURE</a>, <a class="el" href="Defs_8h-source.html#l00042">EXIT_SUCCESS</a>, <a class="el" href="Ide_8c-source.html#l00138">getDiskInfo()</a>, <a class="el" href="Ide_8h-source.html#l00112">disk::heads</a>, <a class="el" href="Ide_8h-source.html#l00057">IDE_COMMAND_IDENTIFY_DRIVE</a>, <a class="el" href="Ide_8h-source.html#l00092">IDE_INDENTIFY_BYTES_SECTOR</a>, <a class="el" href="Ide_8h-source.html#l00090">IDE_INDENTIFY_CYLINDERS</a>, <a class="el" href="Ide_8h-source.html#l00089">IDE_INDENTIFY_HEADERS</a>, <a class="el" href="Ide_8h-source.html#l00093">IDE_INDENTIFY_SECTORS_TRACK</a>, <a class="el" href="Ide_8h-source.html#l00053">IDE_Master</a>, <a class="el" href="Ide_8h-source.html#l00041">IDE_REG_DEVICE_DATA_PORT</a>, <a class="el" href="Ide_8h-source.html#l00047">IDE_REG_DEVICE_HEAD</a>, <a class="el" href="Ide_8h-source.html#l00054">IDE_Slave</a>, <a class="el" href="Ide_8h-source.html#l00048">IDE_STATUS_REGISTER</a>, <a class="el" href="IO_8c-source.html#l00017">In_Byte()</a>, <a class="el" href="IO_8c-source.html#l00047">In_Word()</a>, <a class="el" href="IO_8c-source.html#l00008">Out_Byte()</a>, <a class="el" href="Ide_8h-source.html#l00114">disk::sectorPerTrack</a> e <a class="el" href="Ide_8h-source.html#l00118">disk::status</a>.</p>
+
+<p>Referenciado por <a class="el" href="Ide_8c-source.html#l00027">initIDE()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="ddf34e9daa4318d94658a556a8af0396"></a><!-- doxytag: member="Ide.c::diskWait" ref="ddf34e9daa4318d94658a556a8af0396" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int diskWait           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Espera o disco completar uma operação e informa se teve sucesso ou não. 
+<p>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna o valor 0, caso a operação que estava sendo realizada terminou com sucesso. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00294">294</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00138">APOSDEBUG()</a>, <a class="el" href="Ide_8c-source.html#l00017">debug</a>, <a class="el" href="Defs_8h-source.html#l00042">EXIT_SUCCESS</a>, <a class="el" href="Ide_8h-source.html#l00042">IDE_REG_DEVICE_ERROR_PORT</a>, <a class="el" href="Ide_8h-source.html#l00070">IDE_STATUS_DRIVE_BUSY</a>, <a class="el" href="Ide_8h-source.html#l00077">IDE_STATUS_DRIVE_ERROR</a>, <a class="el" href="Ide_8h-source.html#l00048">IDE_STATUS_REGISTER</a> e <a class="el" href="IO_8c-source.html#l00017">In_Byte()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Ide_8c-source.html#l00059">detecDisk()</a>, <a class="el" href="Ide_8c-source.html#l00027">initIDE()</a>, <a class="el" href="Ide_8c-source.html#l00238">readDisk()</a> e <a class="el" href="Ide_8c-source.html#l00180">writeDisk()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="df28570c3a70c15746a81ea2628652e9"></a><!-- doxytag: member="Ide.c::getDiskCylinders" ref="df28570c3a70c15746a81ea2628652e9" args="(short diskNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getDiskCylinders           </td>
+          <td>(</td>
+          <td class="paramtype">short&nbsp;</td>
+          <td class="paramname"> <em>diskNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retornar a quantidade de cilindros de um hd. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>diskNumber</em>&nbsp;</td><td>Indica de qual hd será retornado a quantidade de cilindros. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna a quantidade de cilindros do HD. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00113">113</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referências <a class="el" href="Ide_8h-source.html#l00110">disk::cylinders</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="a576f9e371be3de5d0abe403b8369ae1"></a><!-- doxytag: member="Ide.c::getDiskHeads" ref="a576f9e371be3de5d0abe403b8369ae1" args="(short diskNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getDiskHeads           </td>
+          <td>(</td>
+          <td class="paramtype">short&nbsp;</td>
+          <td class="paramname"> <em>diskNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retornar a quantidade de cabeçalhos de um hd. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>diskNumber</em>&nbsp;</td><td>Indica de qual hd será retornado a quantidade cabeçalhos. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna a quantidade de cabeçalhos em um disco. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00121">121</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referências <a class="el" href="Ide_8h-source.html#l00112">disk::heads</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00383">calcAddress()</a> e <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="44af5d7b11ec51227c837c0a4d973a3b"></a><!-- doxytag: member="Ide.c::getDiskInfo" ref="44af5d7b11ec51227c837c0a4d973a3b" args="(int diskNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getDiskInfo           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>diskNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Essa função é para uso interno, para depurar o código e mostrar informações do hd. 
+<p>
+Essa função é para uso interno, para debugar o código e mostrar informações do hd.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>diskNumber</em>&nbsp;</td><td>indica de qual hd será retornado a quantidade setores. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Imprimi na tela na tela todas as informações capturadas sobre o HD. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00138">138</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00129">printfInt()</a> e <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Ide_8c-source.html#l00059">detecDisk()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="289154455e46f469d1835f652a7a58af"></a><!-- doxytag: member="Ide.c::getDisks" ref="289154455e46f469d1835f652a7a58af" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getDisks           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Essa função verifica a quantidade de HDs detectados. 
+<p>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna quantidade de discos inicializados. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00155">155</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00027">loadFatIDEDrivers()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="142511891c2876bd8b63491ce80b90bd"></a><!-- doxytag: member="Ide.c::getDiskSectorsPerTrack" ref="142511891c2876bd8b63491ce80b90bd" args="(short diskNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getDiskSectorsPerTrack           </td>
+          <td>(</td>
+          <td class="paramtype">short&nbsp;</td>
+          <td class="paramname"> <em>diskNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retornar a quantidade de setores por trilha de um hd. 
+<p>
+Retornar a quantidade de setores por trilha de um hd.<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>diskNumber</em>&nbsp;</td><td>indica de qual hd será retornado a quantidade setores. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna a quantidade de setores po track de um disco. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00130">130</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referências <a class="el" href="Ide_8h-source.html#l00114">disk::sectorPerTrack</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00383">calcAddress()</a> e <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="a0dfd568f17f1f381f4d791b92c34c40"></a><!-- doxytag: member="Ide.c::getDiskSize" ref="a0dfd568f17f1f381f4d791b92c34c40" args="(short diskNumber)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getDiskSize           </td>
+          <td>(</td>
+          <td class="paramtype">short&nbsp;</td>
+          <td class="paramname"> <em>diskNumber</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Calcula o tamanho do disco. 
+<p>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna o tamanho do disco. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00168">168</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referências <a class="el" href="Ide_8h-source.html#l00116">disk::bytesPerSector</a>, <a class="el" href="Ide_8h-source.html#l00110">disk::cylinders</a>, <a class="el" href="Ide_8h-source.html#l00112">disk::heads</a> e <a class="el" href="Ide_8h-source.html#l00114">disk::sectorPerTrack</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="60c7b5c6ac9d0b23bd2d523454303c67"></a><!-- doxytag: member="Ide.c::initIDE" ref="60c7b5c6ac9d0b23bd2d523454303c67" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initIDE           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Inicializa os dispositivos IDE que achar, sendo limitado até dois hds. 
+<p>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00027">27</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00138">APOSDEBUG()</a>, <a class="el" href="Ide_8c-source.html#l00017">debug</a>, <a class="el" href="Ide_8c-source.html#l00059">detecDisk()</a>, <a class="el" href="Ide_8c-source.html#l00294">diskWait()</a>, <a class="el" href="Ide_8h-source.html#l00080">IDE_DCR_NOINTERRUPT</a>, <a class="el" href="Ide_8h-source.html#l00081">IDE_DCR_RESET</a>, <a class="el" href="Ide_8h-source.html#l00050">IDE_REG_DEVICE_CONTROL</a>, <a class="el" href="IO_8c-source.html#l00008">Out_Byte()</a> e <a class="el" href="Scrn_8c-source.html#l00129">printfInt()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="49f300dd0c1649ae2c02f98f021592a6"></a><!-- doxytag: member="Ide.c::readDisk" ref="49f300dd0c1649ae2c02f98f021592a6" args="(short int driveNumber, struct diskAddress *address, char *buffer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int readDisk           </td>
+          <td>(</td>
+          <td class="paramtype">short int&nbsp;</td>
+          <td class="paramname"> <em>driveNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structdiskAddress.html">diskAddress</a> *&nbsp;</td>
+          <td class="paramname"> <em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>buffer</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Ler informações no disco. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>driveNumber</em>&nbsp;</td><td>Número do hd que os dados serão sendo lidos. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>address</em>&nbsp;</td><td>Guarda o endereço do HD que irá ser usado. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>buffer</em>&nbsp;</td><td>Endereço da variável que vai ser gravadas as informações lidas no hd. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna os dados gravador em uma certa região do HD. </dd></dl>
+
+<p>
+contador para quantidade de vezes que o comando de gravação será usado. 
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00238">238</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referências <a class="el" href="Ide_8h-source.html#l00133">diskAddress::cylinder</a>, <a class="el" href="Ide_8c-source.html#l00320">delay()</a>, <a class="el" href="Ide_8c-source.html#l00294">diskWait()</a>, <a class="el" href="Defs_8h-source.html#l00042">EXIT_SUCCESS</a>, <a class="el" href="Ide_8h-source.html#l00129">diskAddress::head</a>, <a class="el" href="Ide_8h-source.html#l00098">HIGH_BYTE</a>, <a class="el" href="Ide_8h-source.html#l00059">IDE_COMMAND_READ_SECTORS</a>, <a class="el" href="Ide_8h-source.html#l00049">IDE_COMMAND_REGISTER</a>, <a class="el" href="Ide_8h-source.html#l00045">IDE_CYLINDER_LOW_REGISTER</a>, <a class="el" href="Ide_8h-source.html#l00053">IDE_Master</a>, <a class="el" href="Ide_8h-source.html#l00046">IDE_REG_DEVICE_CYLINDER_HIGH</a>, <a class="el" href="Ide_8h-source.html#l00041">IDE_REG_DEVICE_DATA_PORT</a>, <a class="el" href="Ide_8h-source.html#l00042">IDE_REG_DEVICE_ERROR_PORT</a>, <a class="el" href="Ide_8h-source.html#l00047">IDE_REG_DEVICE_HEAD</a>, <a class="el" href="Ide_8h-source.html#l00043">IDE_SECTOR_COUNT_REGISTER</a>, <a class="el" href="Ide_8h-source.html#l00044">IDE_SECTOR_NUMBER_REGISTER</a>, <a class="el" href="Ide_8h-source.html#l00054">IDE_Slave</a>, <a class="el" href="IO_8c-source.html#l00047">In_Word()</a>, <a class="el" href="Ide_8h-source.html#l00096">LOW_BYTE</a>, <a class="el" href="IO_8c-source.html#l00008">Out_Byte()</a>, <a class="el" href="Ide_8h-source.html#l00131">diskAddress::sector</a> e <a class="el" href="Ide_8h-source.html#l00118">disk::status</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00402">addDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00853">delDir()</a>, <a class="el" href="Fat_8c-source.html#l00786">delDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00651">delFile()</a>, <a class="el" href="Fat_8c-source.html#l00098">loadFatList()</a>, <a class="el" href="Fat_8c-source.html#l01026">modifyEntry()</a>, <a class="el" href="Fat_8c-source.html#l00964">printDir()</a>, <a class="el" href="Fat_8c-source.html#l00522">readFile()</a> e <a class="el" href="Fat_8c-source.html#l00905">refreshDirectoryEnter()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="a50554702a6b831c05346509d3a8bdc6"></a><!-- doxytag: member="Ide.c::writeDisk" ref="a50554702a6b831c05346509d3a8bdc6" args="(short int driveNumber, struct diskAddress *address, char *buffer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int writeDisk           </td>
+          <td>(</td>
+          <td class="paramtype">short int&nbsp;</td>
+          <td class="paramname"> <em>driveNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structdiskAddress.html">diskAddress</a> *&nbsp;</td>
+          <td class="paramname"> <em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>buffer</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Grava informações no disco. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>driveNumber</em>&nbsp;</td><td>número do hd que os dados serão sendo gravados. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>*address</em>&nbsp;</td><td>guarda endereço do HD que irá ser usado.. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>*buffer</em>&nbsp;</td><td>endereço da variável que vai ser gravada no hd. </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Retorna:</b></dt><dd>Retorna 0(zero), se tiver sucesso na escrita, e diferente de 0 se tiver algum problema. </dd></dl>
+
+<p>
+contador para quantidade de vezes que o comando de gravação será efetuada.<p>
+variável por passar os valores a serem gravados no HD. 
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00180">180</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referências <a class="el" href="Ide_8h-source.html#l00133">diskAddress::cylinder</a>, <a class="el" href="Ide_8c-source.html#l00320">delay()</a>, <a class="el" href="Ide_8c-source.html#l00294">diskWait()</a>, <a class="el" href="Defs_8h-source.html#l00042">EXIT_SUCCESS</a>, <a class="el" href="Ide_8h-source.html#l00129">diskAddress::head</a>, <a class="el" href="Ide_8h-source.html#l00098">HIGH_BYTE</a>, <a class="el" href="Ide_8h-source.html#l00064">IDE_COMMAND_WRITE_SECTORS</a>, <a class="el" href="Ide_8h-source.html#l00045">IDE_CYLINDER_LOW_REGISTER</a>, <a class="el" href="Ide_8h-source.html#l00053">IDE_Master</a>, <a class="el" href="Ide_8h-source.html#l00046">IDE_REG_DEVICE_CYLINDER_HIGH</a>, <a class="el" href="Ide_8h-source.html#l00041">IDE_REG_DEVICE_DATA_PORT</a>, <a class="el" href="Ide_8h-source.html#l00042">IDE_REG_DEVICE_ERROR_PORT</a>, <a class="el" href="Ide_8h-source.html#l00047">IDE_REG_DEVICE_HEAD</a>, <a class="el" href="Ide_8h-source.html#l00043">IDE_SECTOR_COUNT_REGISTER</a>, <a class="el" href="Ide_8h-source.html#l00044">IDE_SECTOR_NUMBER_REGISTER</a>, <a class="el" href="Ide_8h-source.html#l00054">IDE_Slave</a>, <a class="el" href="Ide_8h-source.html#l00048">IDE_STATUS_REGISTER</a>, <a class="el" href="Ide_8h-source.html#l00096">LOW_BYTE</a>, <a class="el" href="IO_8c-source.html#l00008">Out_Byte()</a>, <a class="el" href="IO_8c-source.html#l00034">Out_Word()</a>, <a class="el" href="Ide_8h-source.html#l00131">diskAddress::sector</a> e <a class="el" href="Ide_8h-source.html#l00118">disk::status</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00402">addDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00740">createDIR()</a>, <a class="el" href="Fat_8c-source.html#l00603">createFile()</a>, <a class="el" href="Fat_8c-source.html#l00853">delDir()</a>, <a class="el" href="Fat_8c-source.html#l00651">delFile()</a>, <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>, <a class="el" href="Fat_8c-source.html#l01026">modifyEntry()</a> e <a class="el" href="Fat_8c-source.html#l00334">updateFat()</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Variáveis</h2>
+<a class="anchor" name="c3e1795766a80ec63b157951b4b9a7d4"></a><!-- doxytag: member="Ide.c::debug" ref="c3e1795766a80ec63b157951b4b9a7d4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4">debug</a> = FALSE          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Variável que ativa o modo debug, se seu valor for <a class="el" href="Defs_8h.html#a8cecfc5c5c054d2875c03e77b7be15d">TRUE(1)</a> e desativa se for <a class="el" href="Defs_8h.html#a93f0eb578d23995850d61f7d61c55c1">FALSE(0)</a>. 
+<p>
+
+<p>Definição na linha <a class="el" href="Ide_8c-source.html#l00017">17</a> do arquivo <a class="el" href="Ide_8c-source.html">Ide.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Ide_8c-source.html#l00294">diskWait()</a> e <a class="el" href="Ide_8c-source.html#l00027">initIDE()</a>.</p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

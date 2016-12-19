@@ -1,0 +1,326 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/If.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/If.h</h1><code>#include &quot;<a class="el" href="Defs_8h-source.html">include/Defs.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="KIscrn_8h-source.html">kernel/interface/KIscrn.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="Slib_8h-source.html">libs/include/Slib.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="Igpro_8h-source.html">modulos/interface/Igpro.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="Itim_8h-source.html">modulos/interface/Itim.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="KIkb_8h-source.html">kernel/interface/KIkb.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="Fat_8h-source.html">kernel/include/Fat.h</a>&quot;</code><br>
+
+<p>
+<a href="If_8h-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Estruturas de Dados</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__shareScreen.html">s_shareScreen</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="If_8h.html#11585dc88b1366a0d406197f83857a54">turnoff</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="If_8h.html#3eba20b8eb97e23499915f0d131bfbd7">initInterfaceShare</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="If_8h.html#a8b43cc29058547d0c9d27ced2922dff">command_analyzer</a> (unsigned char *command)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="If_8h.html#c6b661aa3e6f532e3beba5b19f32e12a">changeInterfaceMode</a> (int pid)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="If_8h.html#5cd4781da1513187706d6ec593c7598a">setInterfaceFree</a> (int pid)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="If_8h.html#88771a73d46f8a054909e810261a5635">setInterfaceNotFree</a> (int pid)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="If_8h.html#6839d0e674e29d7fea2c8e7e8d734289">getInterfaceState</a> (int pid)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="If_8h.html#33d8c55566ef29f1b87704c25bcf003a">command_list</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="If_8h.html#2a1ecaa97390568ca3c11c9ed7d33bf9">command_exit</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="If_8h.html#bd96e0a7ca91eb8e67935b12b5b91b18">command_interface</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="If_8h.html#65821d073510b038187c9c3a46a730b6">get_parm</a> (unsigned char *command)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="If_8h.html#85da473ae22c5f425793485e0504caa1">printfAPOS</a> (unsigned char *text)</td></tr>
+
+</table>
+<hr><h2>Funções</h2>
+<a class="anchor" name="c6b661aa3e6f532e3beba5b19f32e12a"></a><!-- doxytag: member="If.h::changeInterfaceMode" ref="c6b661aa3e6f532e3beba5b19f32e12a" args="(int pid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void changeInterfaceMode           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pid</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Troca o estado da interface<p>
+Troca o estado da interface. 
+<p>Definição na linha <a class="el" href="If_8c-source.html#l00022">22</a> do arquivo <a class="el" href="If_8c-source.html">If.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="a8b43cc29058547d0c9d27ced2922dff"></a><!-- doxytag: member="If.h::command_analyzer" ref="a8b43cc29058547d0c9d27ced2922dff" args="(unsigned char *command)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void command_analyzer           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname"> <em>command</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Analiza os comandos digitados na interface, e executa caso eles estejam implementados. 
+<p>Definição na linha <a class="el" href="If_8c-source.html#l00116">116</a> do arquivo <a class="el" href="If_8c-source.html">If.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="2a1ecaa97390568ca3c11c9ed7d33bf9"></a><!-- doxytag: member="If.h::command_exit" ref="2a1ecaa97390568ca3c11c9ed7d33bf9" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void command_exit           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Responsavel por finalizar o SO.<p>
+Sai do SO e desliga a máquina 
+<p>Definição na linha <a class="el" href="If_8c-source.html#l00070">70</a> do arquivo <a class="el" href="If_8c-source.html">If.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="bd96e0a7ca91eb8e67935b12b5b91b18"></a><!-- doxytag: member="If.h::command_interface" ref="bd96e0a7ca91eb8e67935b12b5b91b18" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void command_interface           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Fun&ccedil;ão principal da interface do S.O, ela é responsavel por capturar os dados digitados pelo usuário 
+<p>Definição na linha <a class="el" href="If_8c-source.html#l00081">81</a> do arquivo <a class="el" href="If_8c-source.html">If.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="33d8c55566ef29f1b87704c25bcf003a"></a><!-- doxytag: member="If.h::command_list" ref="33d8c55566ef29f1b87704c25bcf003a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void command_list           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Responsavel por listar os comandos existentes para usuário<p>
+Lista os commandos disponiveis 
+<p>Definição na linha <a class="el" href="If_8c-source.html#l00051">51</a> do arquivo <a class="el" href="If_8c-source.html">If.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="65821d073510b038187c9c3a46a730b6"></a><!-- doxytag: member="If.h::get_parm" ref="65821d073510b038187c9c3a46a730b6" args="(unsigned char *command)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int get_parm           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname"> <em>command</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Identifica se o parametro é um commando ou não<p>
+Identifica se o parametro é um commando ou não Retorno: -1 = Nao encontrado em command n = Valor do parametro npar 
+<p>Definição na linha <a class="el" href="If_8c-source.html#l00103">103</a> do arquivo <a class="el" href="If_8c-source.html">If.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="6839d0e674e29d7fea2c8e7e8d734289"></a><!-- doxytag: member="If.h::getInterfaceState" ref="6839d0e674e29d7fea2c8e7e8d734289" args="(int pid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getInterfaceState           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pid</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna o estado da interface<p>
+Retornar o status da interface. 
+<p>Definição na linha <a class="el" href="If_8c-source.html#l00045">45</a> do arquivo <a class="el" href="If_8c-source.html">If.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="3eba20b8eb97e23499915f0d131bfbd7"></a><!-- doxytag: member="If.h::initInterfaceShare" ref="3eba20b8eb97e23499915f0d131bfbd7" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initInterfaceShare           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Inicializa a tela. 
+<p>Definição na linha <a class="el" href="If_8c-source.html#l00013">13</a> do arquivo <a class="el" href="If_8c-source.html">If.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="85da473ae22c5f425793485e0504caa1"></a><!-- doxytag: member="If.h::printfAPOS" ref="85da473ae22c5f425793485e0504caa1" args="(unsigned char *text)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printfAPOS           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname"> <em>text</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Imprimi mensagens na tela de acordo o estado da interface 
+<p>Definição na linha <a class="el" href="If_8c-source.html#l00245">245</a> do arquivo <a class="el" href="If_8c-source.html">If.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="5cd4781da1513187706d6ec593c7598a"></a><!-- doxytag: member="If.h::setInterfaceFree" ref="5cd4781da1513187706d6ec593c7598a" args="(int pid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setInterfaceFree           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pid</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Seta a interface como visivel 
+<p>Definição na linha <a class="el" href="If_8c-source.html#l00031">31</a> do arquivo <a class="el" href="If_8c-source.html">If.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="88771a73d46f8a054909e810261a5635"></a><!-- doxytag: member="If.h::setInterfaceNotFree" ref="88771a73d46f8a054909e810261a5635" args="(int pid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setInterfaceNotFree           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>pid</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Seta a interface como não visivel 
+<p>Definição na linha <a class="el" href="If_8c-source.html#l00038">38</a> do arquivo <a class="el" href="If_8c-source.html">If.c</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="11585dc88b1366a0d406197f83857a54"></a><!-- doxytag: member="If.h::turnoff" ref="11585dc88b1366a0d406197f83857a54" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void turnoff           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Finaliza o SO e desliga a máquina 
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/kernel/Scrn.c</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/kernel/Scrn.c</h1>Implementação das funções do Vídeo. <a href="#_details">Mais...</a>
+<p>
+<code>#include &quot;<a class="el" href="Scrn_8h-source.html">include/Scrn.h</a>&quot;</code><br>
+
+<p>
+<a href="Scrn_8c-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Scrn_8c.html#05005f1ebcdff47e3ccc18af05573349">scroll</a> (void)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Faz a tela rolar, para baixo.  <a href="#05005f1ebcdff47e3ccc18af05573349"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Scrn_8c.html#6be5115e7e98eb2f9bfd6c3b9654c1fe">move_csr</a> (void)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Atualiza a posição do cursor do teclado na tela.  <a href="#6be5115e7e98eb2f9bfd6c3b9654c1fe"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Scrn_8c.html#4826277cc150ddc0f4de4bd464a34909">cls</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Limpa a tela.  <a href="#4826277cc150ddc0f4de4bd464a34909"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Scrn_8c.html#6c191b72e355c963e4eebb94d304f891">putch</a> (unsigned char c)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Coloca apenas um unico carater na tela.  <a href="#6c191b72e355c963e4eebb94d304f891"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Scrn_8c.html#ffb7f407d6601f057a9c641482a344a0">puts</a> (const char *text)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Função feita para imprimir na tela, feita em ASSEMBLER.  <a href="#ffb7f407d6601f057a9c641482a344a0"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Scrn_8c.html#aca006dbe60bba1341806e99f8ae3e03">printf</a> (unsigned char *text)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Função feita para imprimir na tela.  <a href="#aca006dbe60bba1341806e99f8ae3e03"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Scrn_8c.html#3bd3818934da694d29c7eaeceb19a66f">settextcolor</a> (unsigned char forecolor, unsigned char backcolor)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Seleciona uma cor para a letra e para o funda da tela.  <a href="#3bd3818934da694d29c7eaeceb19a66f"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Scrn_8c.html#48fd0ff5a5e286669ae0f1885835bcc3">init_video</a> (void)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Aciona o modo texto VGA.  <a href="#48fd0ff5a5e286669ae0f1885835bcc3"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Scrn_8c.html#3b47c20d8bb9e5c9d3cd0137c247ed81">printfInt</a> (int num)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Imprime na tela um inteiro.  <a href="#3b47c20d8bb9e5c9d3cd0137c247ed81"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Scrn_8c.html#273a809d3de4626e50ad4ecd05c44754">APOSDEBUG</a> (int <a class="el" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4">debug</a>, char *text)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Responsável por imprimir mensagens de debug na tela.  <a href="#273a809d3de4626e50ad4ecd05c44754"></a><br></td></tr>
+<tr><td colspan="2"><br><h2>Variáveis</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned short *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Scrn_8c.html#26f1581bc8b65777a3d9ff979a9b1ed4">textmemptr</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Scrn_8c.html#8cc5afea23f899c27d47f9f0595ee10a">attrib</a> = 0x0F</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Scrn_8c.html#7d0257e0a1d4121460efe4b5ada1b33a">csr_x</a> = 0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Scrn_8c.html#f115ca02c22b96a8866496433e782f7a">csr_y</a> = 0</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Descrição Detalhada</h2>
+Implementação das funções do Vídeo. 
+<p>
+
+<p>Definição no arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+<hr><h2>Funções</h2>
+<a class="anchor" name="273a809d3de4626e50ad4ecd05c44754"></a><!-- doxytag: member="Scrn.c::APOSDEBUG" ref="273a809d3de4626e50ad4ecd05c44754" args="(int debug, char *text)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void APOSDEBUG           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>debug</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>text</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Responsável por imprimir mensagens de debug na tela. 
+<p>
+
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00138">138</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00061">putch()</a> e <a class="el" href="Slib_8c-source.html#l00242">strlen()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Ide_8c-source.html#l00294">diskWait()</a>, <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>, <a class="el" href="Ide_8c-source.html#l00027">initIDE()</a>, <a class="el" href="Fat_8c-source.html#l00027">loadFatIDEDrivers()</a>, <a class="el" href="Fat_8c-source.html#l00098">loadFatList()</a>, <a class="el" href="Gmem_8c-source.html#l00340">OSdispose()</a>, <a class="el" href="Fat_8c-source.html#l00964">printDir()</a> e <a class="el" href="Fat_8c-source.html#l00334">updateFat()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="4826277cc150ddc0f4de4bd464a34909"></a><!-- doxytag: member="Scrn.c::cls" ref="4826277cc150ddc0f4de4bd464a34909" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cls           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Limpa a tela. 
+<p>
+
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00046">46</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00009">attrib</a>, <a class="el" href="Scrn_8c-source.html#l00011">csr_x</a>, <a class="el" href="Scrn_8c-source.html#l00011">csr_y</a>, <a class="el" href="Slib_8c-source.html#l00249">memsetw()</a>, <a class="el" href="Scrn_8c-source.html#l00032">move_csr()</a> e <a class="el" href="Scrn_8c-source.html#l00007">textmemptr</a>.</p>
+
+<p>Referenciado por <a class="el" href="Scrn_8c-source.html#l00121">init_video()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="48fd0ff5a5e286669ae0f1885835bcc3"></a><!-- doxytag: member="Scrn.c::init_video" ref="48fd0ff5a5e286669ae0f1885835bcc3" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_video           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Aciona o modo texto VGA. 
+<p>
+
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00121">121</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00046">cls()</a> e <a class="el" href="Scrn_8c-source.html#l00007">textmemptr</a>.</p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="6be5115e7e98eb2f9bfd6c3b9654c1fe"></a><!-- doxytag: member="Scrn.c::move_csr" ref="6be5115e7e98eb2f9bfd6c3b9654c1fe" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void move_csr           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Atualiza a posição do cursor do teclado na tela. 
+<p>
+
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00032">32</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00011">csr_x</a>, <a class="el" href="Scrn_8c-source.html#l00011">csr_y</a> e <a class="el" href="IO_8c-source.html#l00008">Out_Byte()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Scrn_8c-source.html#l00046">cls()</a> e <a class="el" href="Scrn_8c-source.html#l00061">putch()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="aca006dbe60bba1341806e99f8ae3e03"></a><!-- doxytag: member="Scrn.c::printf" ref="aca006dbe60bba1341806e99f8ae3e03" args="(unsigned char *text)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printf           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname"> <em>text</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Função feita para imprimir na tela. 
+<p>
+
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00103">103</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00061">putch()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="3b47c20d8bb9e5c9d3cd0137c247ed81"></a><!-- doxytag: member="Scrn.c::printfInt" ref="3b47c20d8bb9e5c9d3cd0137c247ed81" args="(int num)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printfInt           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>num</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Imprime na tela um inteiro. 
+<p>
+
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00129">129</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Slib_8c-source.html#l00205">itoa()</a> e <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00120">checkEsp()</a>, <a class="el" href="If_8c-source.html#l00116">command_analyzer()</a>, <a class="el" href="Isrs_8c-source.html#l00092">fault_handler()</a>, <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>, <a class="el" href="Ide_8c-source.html#l00138">getDiskInfo()</a>, <a class="el" href="Ide_8c-source.html#l00027">initIDE()</a>, <a class="el" href="Fat_8c-source.html#l00027">loadFatIDEDrivers()</a>, <a class="el" href="Gpro_8c-source.html#l00040">printBcpStat()</a>, <a class="el" href="Fat_8c-source.html#l00964">printDir()</a>, <a class="el" href="Gpro_8c-source.html#l00054">printSizeReady()</a>, <a class="el" href="Gpro_8c-source.html#l00344">rem_procBlockList()</a>, <a class="el" href="MemTable_8c-source.html#l00192">showMemoryTable()</a> e <a class="el" href="Gpro_8c-source.html#l00065">showPid()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="6c191b72e355c963e4eebb94d304f891"></a><!-- doxytag: member="Scrn.c::putch" ref="6c191b72e355c963e4eebb94d304f891" args="(unsigned char c)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void putch           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&nbsp;</td>
+          <td class="paramname"> <em>c</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Coloca apenas um unico carater na tela. 
+<p>
+
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00061">61</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00009">attrib</a>, <a class="el" href="Scrn_8c-source.html#l00011">csr_x</a>, <a class="el" href="Scrn_8c-source.html#l00011">csr_y</a>, <a class="el" href="Scrn_8c-source.html#l00032">move_csr()</a>, <a class="el" href="Scrn_8c-source.html#l00017">scroll()</a> e <a class="el" href="Scrn_8c-source.html#l00007">textmemptr</a>.</p>
+
+<p>Referenciado por <a class="el" href="Scrn_8c-source.html#l00138">APOSDEBUG()</a>, <a class="el" href="Kb_8c-source.html#l00202">eGetString()</a>, <a class="el" href="Scrn_8c-source.html#l00103">printf()</a> e <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="ffb7f407d6601f057a9c641482a344a0"></a><!-- doxytag: member="Scrn.c::puts" ref="ffb7f407d6601f057a9c641482a344a0" args="(const char *text)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void puts           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>text</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Função feita para imprimir na tela, feita em ASSEMBLER. 
+<p>
+Usa uma rotina para imprimi uma STRING. 
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00093">93</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00061">putch()</a> e <a class="el" href="Slib_8c-source.html#l00242">strlen()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>, <a class="el" href="Gpro_8c-source.html#l00462">add_listReady()</a>, <a class="el" href="Gmem_8c-source.html#l00197">addOSTrackPoint()</a>, <a class="el" href="Gpro_8c-source.html#l00120">checkEsp()</a>, <a class="el" href="MemTable_8c-source.html#l00304">checkRelocSize()</a>, <a class="el" href="If_8c-source.html#l00116">command_analyzer()</a>, <a class="el" href="If_8c-source.html#l00070">command_exit()</a>, <a class="el" href="If_8c-source.html#l00081">command_interface()</a>, <a class="el" href="If_8c-source.html#l00051">command_list()</a>, <a class="el" href="Fat_8c-source.html#l00853">delDir()</a>, <a class="el" href="Fat_8c-source.html#l00651">delFile()</a>, <a class="el" href="Kb_8c-source.html#l00190">eGetChar()</a>, <a class="el" href="Isrs_8c-source.html#l00092">fault_handler()</a>, <a class="el" href="Ide_8c-source.html#l00138">getDiskInfo()</a>, <a class="el" href="Gpro_8c-source.html#l00188">killProcess()</a>, <a class="el" href="Gpro_8c-source.html#l00368">loadStack()</a>, <a class="el" href="Fat_8c-source.html#l01026">modifyEntry()</a>, <a class="el" href="Main_8c-source.html#l00003">msgError()</a>, <a class="el" href="Main_8c-source.html#l00016">myFuncao1()</a>, <a class="el" href="Main_8c-source.html#l00023">myFuncao2()</a>, <a class="el" href="Main_8c-source.html#l00030">myFuncao3()</a>, <a class="el" href="Main_8c-source.html#l00037">myFuncao4()</a>, <a class="el" href="Main_8c-source.html#l00044">myFuncao5()</a>, <a class="el" href="Gmem_8c-source.html#l00340">OSdispose()</a>, <a class="el" href="Gmem_8c-source.html#l00293">OSmalloc()</a>, <a class="el" href="Gmem_8c-source.html#l00175">OSmallocF()</a>, <a class="el" href="MemTable_8c-source.html#l00093">partAlloc()</a>, <a class="el" href="MemTable_8c-source.html#l00213">partDispose()</a>, <a class="el" href="Gpro_8c-source.html#l00040">printBcpStat()</a>, <a class="el" href="Fat_8c-source.html#l00964">printDir()</a>, <a class="el" href="If_8c-source.html#l00245">printfAPOS()</a>, <a class="el" href="Scrn_8c-source.html#l00129">printfInt()</a>, <a class="el" href="Gpro_8c-source.html#l00054">printSizeReady()</a>, <a class="el" href="Fat_8c-source.html#l00522">readFile()</a>, <a class="el" href="Fat_8c-source.html#l00905">refreshDirectoryEnter()</a>, <a class="el" href="Gmem_8c-source.html#l00264">releaseOStrackPoint()</a>, <a class="el" href="Gpro_8c-source.html#l00514">resched()</a>, <a class="el" href="MemTable_8c-source.html#l00192">showMemoryTable()</a>, <a class="el" href="Gpro_8c-source.html#l00065">showPid()</a> e <a class="el" href="Gdt_8c-source.html#l00129">tss_install()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="05005f1ebcdff47e3ccc18af05573349"></a><!-- doxytag: member="Scrn.c::scroll" ref="05005f1ebcdff47e3ccc18af05573349" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scroll           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Faz a tela rolar, para baixo. 
+<p>
+
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00017">17</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00009">attrib</a>, <a class="el" href="Scrn_8c-source.html#l00011">csr_y</a>, <a class="el" href="Slib_8c-source.html#l00227">memcpy()</a>, <a class="el" href="Slib_8c-source.html#l00249">memsetw()</a> e <a class="el" href="Scrn_8c-source.html#l00007">textmemptr</a>.</p>
+
+<p>Referenciado por <a class="el" href="Scrn_8c-source.html#l00061">putch()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="3bd3818934da694d29c7eaeceb19a66f"></a><!-- doxytag: member="Scrn.c::settextcolor" ref="3bd3818934da694d29c7eaeceb19a66f" args="(unsigned char forecolor, unsigned char backcolor)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void settextcolor           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&nbsp;</td>
+          <td class="paramname"> <em>forecolor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&nbsp;</td>
+          <td class="paramname"> <em>backcolor</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Seleciona uma cor para a letra e para o funda da tela. 
+<p>
+
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00114">114</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00009">attrib</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Variáveis</h2>
+<a class="anchor" name="8cc5afea23f899c27d47f9f0595ee10a"></a><!-- doxytag: member="Scrn.c::attrib" ref="8cc5afea23f899c27d47f9f0595ee10a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="Scrn_8c.html#8cc5afea23f899c27d47f9f0595ee10a">attrib</a> = 0x0F          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Define as cores da tela 
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00009">9</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Scrn_8c-source.html#l00046">cls()</a>, <a class="el" href="Scrn_8c-source.html#l00061">putch()</a>, <a class="el" href="Scrn_8c-source.html#l00017">scroll()</a> e <a class="el" href="Scrn_8c-source.html#l00114">settextcolor()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="7d0257e0a1d4121460efe4b5ada1b33a"></a><!-- doxytag: member="Scrn.c::csr_x" ref="7d0257e0a1d4121460efe4b5ada1b33a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="Scrn_8c.html#7d0257e0a1d4121460efe4b5ada1b33a">csr_x</a> = 0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Representam as cordenadas do curso 
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00011">11</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Scrn_8c-source.html#l00046">cls()</a>, <a class="el" href="Scrn_8c-source.html#l00032">move_csr()</a> e <a class="el" href="Scrn_8c-source.html#l00061">putch()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="f115ca02c22b96a8866496433e782f7a"></a><!-- doxytag: member="Scrn.c::csr_y" ref="f115ca02c22b96a8866496433e782f7a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="Scrn_8c.html#f115ca02c22b96a8866496433e782f7a">csr_y</a> = 0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00011">11</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Scrn_8c-source.html#l00046">cls()</a>, <a class="el" href="Scrn_8c-source.html#l00032">move_csr()</a>, <a class="el" href="Scrn_8c-source.html#l00061">putch()</a> e <a class="el" href="Scrn_8c-source.html#l00017">scroll()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="26f1581bc8b65777a3d9ff979a9b1ed4"></a><!-- doxytag: member="Scrn.c::textmemptr" ref="26f1581bc8b65777a3d9ff979a9b1ed4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short* <a class="el" href="Scrn_8c.html#26f1581bc8b65777a3d9ff979a9b1ed4">textmemptr</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Guarda o valor para memória de vídeo 
+<p>Definição na linha <a class="el" href="Scrn_8c-source.html#l00007">7</a> do arquivo <a class="el" href="Scrn_8c-source.html">Scrn.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Scrn_8c-source.html#l00046">cls()</a>, <a class="el" href="Scrn_8c-source.html#l00121">init_video()</a>, <a class="el" href="Scrn_8c-source.html#l00061">putch()</a> e <a class="el" href="Scrn_8c-source.html#l00017">scroll()</a>.</p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência da Estrutura FatInstance</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li><a href="functions.html"><span>Campos&nbsp;de&nbsp;Dados</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência da Estrutura FatInstance</h1><!-- doxytag: class="FatInstance" -->Guardar todas informações sobre o sistema de arquivo de um dispositivo.  
+<a href="#_details">Mais...</a>
+<p>
+<code>#include &lt;<a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>&gt;</code>
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Campos de Dados</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structtBpb.html">tBpb</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFatInstance.html#14605661c88f332ddd66ec510fe1d90c">bs</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">short int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFatInstance.html#efee485164fbf8d4048a0e53d7a16310">fatPos</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structfatDirectory.html">fatDirectory</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFatInstance.html#eda5a7c1a9a78740fcd1029544c08a3d">actualDirectory</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned short int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFatInstance.html#fd575cf6e0eb42eb1e1bd61617d9494d">fatList</a> [PARTITIONMAXSIZE]</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">short int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFatInstance.html#12b2937b5c7692c9c00148163a5d699f">LBL</a></td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Descrição Detalhada</h2>
+Guardar todas informações sobre o sistema de arquivo de um dispositivo. 
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00127">127</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+<hr><h2>Campos e Atributos</h2>
+<a class="anchor" name="14605661c88f332ddd66ec510fe1d90c"></a><!-- doxytag: member="FatInstance::bs" ref="14605661c88f332ddd66ec510fe1d90c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structtBpb.html">tBpb</a> <a class="el" href="structFatInstance.html#14605661c88f332ddd66ec510fe1d90c">FatInstance::bs</a><code> [read]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00128">128</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00603">createFile()</a>, <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>, <a class="el" href="Fat_8c-source.html#l00098">loadFatList()</a> e <a class="el" href="Fat_8c-source.html#l00334">updateFat()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="efee485164fbf8d4048a0e53d7a16310"></a><!-- doxytag: member="FatInstance::fatPos" ref="efee485164fbf8d4048a0e53d7a16310" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">short int <a class="el" href="structFatInstance.html#efee485164fbf8d4048a0e53d7a16310">FatInstance::fatPos</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+ponteiro para a posição atual da FAT 
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00130">130</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a> e <a class="el" href="Fat_8c-source.html#l00098">loadFatList()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="eda5a7c1a9a78740fcd1029544c08a3d"></a><!-- doxytag: member="FatInstance::actualDirectory" ref="eda5a7c1a9a78740fcd1029544c08a3d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structfatDirectory.html">fatDirectory</a> <a class="el" href="structFatInstance.html#eda5a7c1a9a78740fcd1029544c08a3d">FatInstance::actualDirectory</a><code> [read]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+entrada atual da fat, que esta sendo utilizada. 
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00132">132</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00603">createFile()</a>, <a class="el" href="Fat_8c-source.html#l00853">delDir()</a>, <a class="el" href="Fat_8c-source.html#l00651">delFile()</a>, <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>, <a class="el" href="Fat_8c-source.html#l00098">loadFatList()</a>, <a class="el" href="Fat_8c-source.html#l01026">modifyEntry()</a>, <a class="el" href="Fat_8c-source.html#l00964">printDir()</a>, <a class="el" href="Fat_8c-source.html#l00522">readFile()</a> e <a class="el" href="Fat_8c-source.html#l00905">refreshDirectoryEnter()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="fd575cf6e0eb42eb1e1bd61617d9494d"></a><!-- doxytag: member="FatInstance::fatList" ref="fd575cf6e0eb42eb1e1bd61617d9494d" args="[PARTITIONMAXSIZE]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short int <a class="el" href="structFatInstance.html#fd575cf6e0eb42eb1e1bd61617d9494d">FatInstance::fatList</a>[PARTITIONMAXSIZE]          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Tabela de alocação de arquivos 
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00134">134</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00402">addDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00740">createDIR()</a>, <a class="el" href="Fat_8c-source.html#l00603">createFile()</a>, <a class="el" href="Fat_8c-source.html#l00853">delDir()</a>, <a class="el" href="Fat_8c-source.html#l00786">delDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00651">delFile()</a>, <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>, <a class="el" href="Fat_8c-source.html#l01026">modifyEntry()</a>, <a class="el" href="Fat_8c-source.html#l00964">printDir()</a>, <a class="el" href="Fat_8c-source.html#l00522">readFile()</a> e <a class="el" href="Fat_8c-source.html#l00905">refreshDirectoryEnter()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="12b2937b5c7692c9c00148163a5d699f"></a><!-- doxytag: member="FatInstance::LBL" ref="12b2937b5c7692c9c00148163a5d699f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">short int <a class="el" href="structFatInstance.html#12b2937b5c7692c9c00148163a5d699f">FatInstance::LBL</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Primeira posição livre na FAT. 
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00136">136</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00402">addDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00740">createDIR()</a>, <a class="el" href="Fat_8c-source.html#l00603">createFile()</a>, <a class="el" href="Fat_8c-source.html#l00786">delDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00651">delFile()</a>, <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>, <a class="el" href="Fat_8c-source.html#l00098">loadFatList()</a> e <a class="el" href="Fat_8c-source.html#l00334">updateFat()</a>.</p>
+
+</div>
+</div><p>
+<hr>A documentação para esta estrutura foi gerada a partir do seguinte arquivo:<ul>
+<li>src/kernel/defs/<a class="el" href="FatDefs_8h-source.html">FatDefs.h</a></ul>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:30 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

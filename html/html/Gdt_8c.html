@@ -1,0 +1,484 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/kernel/Gdt.c</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/kernel/Gdt.c</h1>Este arquivo tem a finalidade de implementar de inicializar a GDT. <a href="#_details">Mais...</a>
+<p>
+<code>#include &quot;<a class="el" href="Gdt_8h-source.html">include/Gdt.h</a>&quot;</code><br>
+
+<p>
+<a href="Gdt_8c-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_32&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gdt_8c.html#dddd57e09d2b94e185be18585fdb8122">getTSS1eip</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna o valor do registrado eip da TSS1.  <a href="#dddd57e09d2b94e185be18585fdb8122"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gdt_8c.html#e268b524ab6c72f781b893d0a396f241">setTSSvalues</a> (ulong_t novo_eip, ulong_t novo_esp)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Define valores para TSS1.  <a href="#e268b524ab6c72f781b893d0a396f241"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gdt_8c.html#5bd5564db40839b5d8c87977e8300ebd">setTSSregs</a> (T_32 eax, T_32 ebx, T_32 ecx, T_32 edx, T_32 esi, T_32 edi, T_32 ebp, T_32 esp)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Define valores para os registradores da TSS1.  <a href="#5bd5564db40839b5d8c87977e8300ebd"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gdt_8c.html#dc6aff57c997f40d870f205be3ad3d2f">init_basicTSS</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Inicializa a TSS e TSS1.  <a href="#dc6aff57c997f40d870f205be3ad3d2f"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gdt_8c.html#0bc06967a986fe4eff7d106bb36dfb75">initTSS_SO</a> (ulong_t eip_scheduller)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Inicializa as variaveis da TSS0.  <a href="#0bc06967a986fe4eff7d106bb36dfb75"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gdt_8c.html#a403dd84f86a16cf891e69242e4d725b">gdt_set_gate</a> (int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Define uma entrada na GDT.  <a href="#a403dd84f86a16cf891e69242e4d725b"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gdt_8c.html#a2a6cef9d7f1d9430289dcbb74530bf3">gdt_install</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">inicializa a GDT, em modo FLAT PROTEGIDO.  <a href="#a2a6cef9d7f1d9430289dcbb74530bf3"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gdt_8c.html#287a992b738fa8178f5dd1d7d36edb1d">reset_tss_gate</a> (int num)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reinicia o valor da TSS armazenado na GDT.  <a href="#287a992b738fa8178f5dd1d7d36edb1d"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gdt_8c.html#b5afd5453991d757e533ba024c42ac13">tss_install</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Deve executar depois do GDT INSTALL...  <a href="#b5afd5453991d757e533ba024c42ac13"></a><br></td></tr>
+<tr><td colspan="2"><br><h2>Variáveis</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structgdt__entry.html">gdt_entry</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gdt_8c.html#aecd9bba62346ee23bff7e6f5fac403b">gdt</a> [5]</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Estrutura que guarda a GDT.  <a href="#aecd9bba62346ee23bff7e6f5fac403b"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structgdt__ptr.html">gdt_ptr</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gdt_8c.html#a517fc098298a5efd8b24551a3a4c44c">gp</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structs__TSS.html">s_TSS</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gdt_8c.html#f38dca4235532cfb9977a708f2a2fd38">tss</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structs__TSS.html">s_TSS</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a></td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Descrição Detalhada</h2>
+Este arquivo tem a finalidade de implementar de inicializar a GDT. 
+<p>
+
+<p>Definição no arquivo <a class="el" href="Gdt_8c-source.html">Gdt.c</a>.</p>
+<hr><h2>Funções</h2>
+<a class="anchor" name="a2a6cef9d7f1d9430289dcbb74530bf3"></a><!-- doxytag: member="Gdt.c::gdt_install" ref="a2a6cef9d7f1d9430289dcbb74530bf3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gdt_install           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+inicializa a GDT, em modo FLAT PROTEGIDO. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gdt_8c-source.html#l00102">102</a> do arquivo <a class="el" href="Gdt_8c-source.html">Gdt.c</a>.</p>
+
+<p>Referências <a class="el" href="Gdt_8h-source.html#l00106">gdt_ptr::base</a>, <a class="el" href="Gdt_8c-source.html#l00013">gdt</a>, <a class="el" href="KIstart_8h.html#9dc74fc329cb61a7332989b6bf181a57">gdt_flush()</a>, <a class="el" href="Gdt_8c-source.html#l00073">gdt_set_gate()</a>, <a class="el" href="Gdt_8c-source.html#l00014">gp</a>, <a class="el" href="Gdt_8h-source.html#l00104">gdt_ptr::limit</a>, <a class="el" href="Gdt_8c-source.html#l00015">tss</a> e <a class="el" href="Gdt_8c-source.html#l00016">tss1</a>.</p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="a403dd84f86a16cf891e69242e4d725b"></a><!-- doxytag: member="Gdt.c::gdt_set_gate" ref="a403dd84f86a16cf891e69242e4d725b" args="(int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gdt_set_gate           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned long&nbsp;</td>
+          <td class="paramname"> <em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned long&nbsp;</td>
+          <td class="paramname"> <em>limit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&nbsp;</td>
+          <td class="paramname"> <em>access</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&nbsp;</td>
+          <td class="paramname"> <em>gran</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Define uma entrada na GDT. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gdt_8c-source.html#l00073">73</a> do arquivo <a class="el" href="Gdt_8c-source.html">Gdt.c</a>.</p>
+
+<p>Referências <a class="el" href="Gdt_8h-source.html#l00095">gdt_entry::access</a>, <a class="el" href="Gdt_8h-source.html#l00097">gdt_entry::base_high</a>, <a class="el" href="Gdt_8h-source.html#l00093">gdt_entry::base_low</a>, <a class="el" href="Gdt_8h-source.html#l00094">gdt_entry::base_middle</a>, <a class="el" href="Gdt_8c-source.html#l00013">gdt</a>, <a class="el" href="Gdt_8h-source.html#l00096">gdt_entry::granulalidade</a> e <a class="el" href="Gdt_8h-source.html#l00092">gdt_entry::limit_low</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gdt_8c-source.html#l00102">gdt_install()</a> e <a class="el" href="Gdt_8c-source.html#l00116">reset_tss_gate()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="dddd57e09d2b94e185be18585fdb8122"></a><!-- doxytag: member="Gdt.c::getTSS1eip" ref="dddd57e09d2b94e185be18585fdb8122" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_32 getTSS1eip           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna o valor do registrado eip da TSS1. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gdt_8c-source.html#l00021">21</a> do arquivo <a class="el" href="Gdt_8c-source.html">Gdt.c</a>.</p>
+
+<p>Referências <a class="el" href="Gdt_8h-source.html#l00057">s_TSS::eip</a> e <a class="el" href="Gdt_8c-source.html#l00016">tss1</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="dc6aff57c997f40d870f205be3ad3d2f"></a><!-- doxytag: member="Gdt.c::init_basicTSS" ref="dc6aff57c997f40d870f205be3ad3d2f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_basicTSS           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Inicializa a TSS e TSS1. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gdt_8c-source.html#l00055">55</a> do arquivo <a class="el" href="Gdt_8c-source.html">Gdt.c</a>.</p>
+
+<p>Referências <a class="el" href="Gdt_8h-source.html#l00055">s_TSS::cr3</a>, <a class="el" href="Gdt_8c-source.html#l00015">tss</a> e <a class="el" href="Gdt_8c-source.html#l00016">tss1</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gdt_8c-source.html#l00129">tss_install()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="0bc06967a986fe4eff7d106bb36dfb75"></a><!-- doxytag: member="Gdt.c::initTSS_SO" ref="0bc06967a986fe4eff7d106bb36dfb75" args="(ulong_t eip_scheduller)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initTSS_SO           </td>
+          <td>(</td>
+          <td class="paramtype">ulong_t&nbsp;</td>
+          <td class="paramname"> <em>eip_scheduller</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Inicializa as variaveis da TSS0. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gdt_8c-source.html#l00062">62</a> do arquivo <a class="el" href="Gdt_8c-source.html">Gdt.c</a>.</p>
+
+<p>Referências <a class="el" href="Defs_8h-source.html#l00008">baseCS</a>, <a class="el" href="Defs_8h-source.html#l00009">baseDS</a>, <a class="el" href="Gdt_8h-source.html#l00071">s_TSS::cs</a>, <a class="el" href="Gdt_8h-source.html#l00075">s_TSS::ds</a>, <a class="el" href="Gdt_8h-source.html#l00059">s_TSS::eflags</a>, <a class="el" href="Gdt_8h-source.html#l00057">s_TSS::eip</a>, <a class="el" href="Gdt_8h-source.html#l00069">s_TSS::es</a>, <a class="el" href="Gdt_8h-source.html#l00073">s_TSS::ss</a> e <a class="el" href="Gdt_8c-source.html#l00015">tss</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00231">init_gProc()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="287a992b738fa8178f5dd1d7d36edb1d"></a><!-- doxytag: member="Gdt.c::reset_tss_gate" ref="287a992b738fa8178f5dd1d7d36edb1d" args="(int num)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void reset_tss_gate           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>num</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Reinicia o valor da TSS armazenado na GDT. 
+<p>
+<dl compact><dt><b>Parâmetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>num</em>&nbsp;</td><td>Inidica qual TSS vai ser reinicializada. </td></tr>
+  </table>
+</dl>
+
+<p>Definição na linha <a class="el" href="Gdt_8c-source.html#l00116">116</a> do arquivo <a class="el" href="Gdt_8c-source.html">Gdt.c</a>.</p>
+
+<p>Referências <a class="el" href="Gdt_8c-source.html#l00073">gdt_set_gate()</a>, <a class="el" href="Gdt_8c-source.html#l00015">tss</a> e <a class="el" href="Gdt_8c-source.html#l00016">tss1</a>.</p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="5bd5564db40839b5d8c87977e8300ebd"></a><!-- doxytag: member="Gdt.c::setTSSregs" ref="5bd5564db40839b5d8c87977e8300ebd" args="(T_32 eax, T_32 ebx, T_32 ecx, T_32 edx, T_32 esi, T_32 edi, T_32 ebp, T_32 esp)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setTSSregs           </td>
+          <td>(</td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>eax</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>ebx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>ecx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>edx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>esi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>edi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>ebp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_32&nbsp;</td>
+          <td class="paramname"> <em>esp</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Define valores para os registradores da TSS1. 
+<p>
+<dl class="attention" compact><dt><b>Atenção:</b></dt><dd>Ebp e esp no momento não estã sendo usados, mas por isso estão comentados. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Gdt_8c-source.html#l00042">42</a> do arquivo <a class="el" href="Gdt_8c-source.html">Gdt.c</a>.</p>
+
+<p>Referências <a class="el" href="Gdt_8h-source.html#l00061">s_TSS::eax</a>, <a class="el" href="Gdt_8h-source.html#l00066">s_TSS::ebp</a>, <a class="el" href="Gdt_8h-source.html#l00064">s_TSS::ebx</a>, <a class="el" href="Gdt_8h-source.html#l00062">s_TSS::ecx</a>, <a class="el" href="Gdt_8h-source.html#l00068">s_TSS::edi</a>, <a class="el" href="Gdt_8h-source.html#l00063">s_TSS::edx</a>, <a class="el" href="Gdt_8h-source.html#l00067">s_TSS::esi</a>, <a class="el" href="Gdt_8h-source.html#l00065">s_TSS::esp</a> e <a class="el" href="Gdt_8c-source.html#l00016">tss1</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="e268b524ab6c72f781b893d0a396f241"></a><!-- doxytag: member="Gdt.c::setTSSvalues" ref="e268b524ab6c72f781b893d0a396f241" args="(ulong_t novo_eip, ulong_t novo_esp)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setTSSvalues           </td>
+          <td>(</td>
+          <td class="paramtype">ulong_t&nbsp;</td>
+          <td class="paramname"> <em>novo_eip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ulong_t&nbsp;</td>
+          <td class="paramname"> <em>novo_esp</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Define valores para TSS1. 
+<p>
+
+<p>Definição na linha <a class="el" href="Gdt_8c-source.html#l00027">27</a> do arquivo <a class="el" href="Gdt_8c-source.html">Gdt.c</a>.</p>
+
+<p>Referências <a class="el" href="Defs_8h-source.html#l00008">baseCS</a>, <a class="el" href="Defs_8h-source.html#l00009">baseDS</a>, <a class="el" href="Gdt_8h-source.html#l00071">s_TSS::cs</a>, <a class="el" href="Gdt_8h-source.html#l00075">s_TSS::ds</a>, <a class="el" href="Gdt_8h-source.html#l00059">s_TSS::eflags</a>, <a class="el" href="Gdt_8h-source.html#l00057">s_TSS::eip</a>, <a class="el" href="Gdt_8h-source.html#l00069">s_TSS::es</a>, <a class="el" href="Gdt_8h-source.html#l00065">s_TSS::esp</a>, <a class="el" href="Gdt_8h-source.html#l00073">s_TSS::ss</a> e <a class="el" href="Gdt_8c-source.html#l00016">tss1</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="b5afd5453991d757e533ba024c42ac13"></a><!-- doxytag: member="Gdt.c::tss_install" ref="b5afd5453991d757e533ba024c42ac13" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tss_install           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Deve executar depois do GDT INSTALL... 
+<p>
+Atualiza os valores das estrutura de TSS. 
+<p>Definição na linha <a class="el" href="Gdt_8c-source.html#l00129">129</a> do arquivo <a class="el" href="Gdt_8c-source.html">Gdt.c</a>.</p>
+
+<p>Referências <a class="el" href="KIstart_8h.html#ee5ed0cd7ce3cbdbff8cc530ac774c44">atualizar_TSS0_STACK()</a>, <a class="el" href="KIstart_8h.html#3c6b2e65b0fe02fd847694ce09060f14">atualizar_TSS1_STACK()</a>, <a class="el" href="Gdt_8c-source.html#l00055">init_basicTSS()</a>, <a class="el" href="KIstart_8h.html#3139abc12ff422a4518bb81d23824933">load_TSS()</a> e <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Variáveis</h2>
+<a class="anchor" name="aecd9bba62346ee23bff7e6f5fac403b"></a><!-- doxytag: member="Gdt.c::gdt" ref="aecd9bba62346ee23bff7e6f5fac403b" args="[5]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structgdt__entry.html">gdt_entry</a> <a class="el" href="Gdt_8c.html#aecd9bba62346ee23bff7e6f5fac403b">gdt</a>[5]          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Estrutura que guarda a GDT. 
+<p>
+<dl class="attention" compact><dt><b>Atenção:</b></dt><dd>Toda GDT deve no minimo ter 3 entradas, uma que sera usada pelo pelo processador, outra para guardar o seguimento da memória onde esta o código do programa e a ultima para guardar para guardar segmineto de Dados. No nosso caso usaremos mais duas entradas na lista, uma para guardar a Tss do ecalonador de processos e outra para a Tss dos processos. </dd></dl>
+
+<p>Definição na linha <a class="el" href="Gdt_8c-source.html#l00013">13</a> do arquivo <a class="el" href="Gdt_8c-source.html">Gdt.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gdt_8c-source.html#l00102">gdt_install()</a> e <a class="el" href="Gdt_8c-source.html#l00073">gdt_set_gate()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="a517fc098298a5efd8b24551a3a4c44c"></a><!-- doxytag: member="Gdt.c::gp" ref="a517fc098298a5efd8b24551a3a4c44c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structgdt__ptr.html">gdt_ptr</a> <a class="el" href="Gdt_8c.html#a517fc098298a5efd8b24551a3a4c44c">gp</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gdt_8c-source.html#l00014">14</a> do arquivo <a class="el" href="Gdt_8c-source.html">Gdt.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gdt_8c-source.html#l00102">gdt_install()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="f38dca4235532cfb9977a708f2a2fd38"></a><!-- doxytag: member="Gdt.c::tss" ref="f38dca4235532cfb9977a708f2a2fd38" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structs__TSS.html">s_TSS</a> <a class="el" href="Gdt_8c.html#f38dca4235532cfb9977a708f2a2fd38">tss</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gdt_8c-source.html#l00015">15</a> do arquivo <a class="el" href="Gdt_8c-source.html">Gdt.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gdt_8c-source.html#l00102">gdt_install()</a>, <a class="el" href="Gdt_8c-source.html#l00055">init_basicTSS()</a>, <a class="el" href="Gdt_8c-source.html#l00062">initTSS_SO()</a> e <a class="el" href="Gdt_8c-source.html#l00116">reset_tss_gate()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="9c85fc3182e83e6a81bbf1cfb936a070"></a><!-- doxytag: member="Gdt.c::tss1" ref="9c85fc3182e83e6a81bbf1cfb936a070" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structs__TSS.html">s_TSS</a> <a class="el" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Gdt_8c-source.html#l00016">16</a> do arquivo <a class="el" href="Gdt_8c-source.html">Gdt.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gdt_8c-source.html#l00102">gdt_install()</a>, <a class="el" href="Gdt_8c-source.html#l00021">getTSS1eip()</a>, <a class="el" href="Gdt_8c-source.html#l00055">init_basicTSS()</a>, <a class="el" href="Gdt_8c-source.html#l00116">reset_tss_gate()</a>, <a class="el" href="Gdt_8c-source.html#l00042">setTSSregs()</a> e <a class="el" href="Gdt_8c-source.html#l00027">setTSSvalues()</a>.</p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/kernel/interface/KIidt.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/kernel/interface/KIidt.h</h1>
+<p>
+<a href="KIidt_8h-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIidt_8h.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a> (unsigned char num, unsigned long base, unsigned short sel, unsigned char flags)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIidt_8h.html#9817da253735954f4767c5ba6155aa0d">idt_install</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIidt_8h.html#f2b1a80331ee6889b813decd3c8e3cba">idt_set_TaskGate</a> (unsigned char num, unsigned short sel, unsigned char flags)</td></tr>
+
+</table>
+<hr><h2>Funções</h2>
+<a class="anchor" name="9817da253735954f4767c5ba6155aa0d"></a><!-- doxytag: member="KIidt.h::idt_install" ref="9817da253735954f4767c5ba6155aa0d" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void idt_install           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Inicializa a IDT. 
+<p>Definição na linha <a class="el" href="Idt_8c-source.html#l00046">46</a> do arquivo <a class="el" href="Idt_8c-source.html">Idt.c</a>.</p>
+
+<p>Referências <a class="el" href="Idt_8h-source.html#l00031">idt_ptr::base</a>, <a class="el" href="Idt_8c-source.html#l00017">idt</a>, <a class="el" href="Idt_8h.html#c32911224d6d0fd8e287f2e021ee3ba4">idt_load()</a>, <a class="el" href="Idt_8c-source.html#l00020">idtp</a>, <a class="el" href="Idt_8h-source.html#l00029">idt_ptr::limit</a> e <a class="el" href="Slib_8c-source.html#l00235">memset()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="a86ab20d352f787dfc8a6ecc5e81c7c2"></a><!-- doxytag: member="KIidt.h::idt_set_gate" ref="a86ab20d352f787dfc8a6ecc5e81c7c2" args="(unsigned char num, unsigned long base, unsigned short sel, unsigned char flags)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void idt_set_gate           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&nbsp;</td>
+          <td class="paramname"> <em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned long&nbsp;</td>
+          <td class="paramname"> <em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short&nbsp;</td>
+          <td class="paramname"> <em>sel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&nbsp;</td>
+          <td class="paramname"> <em>flags</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Define uma entrada da IDT. 
+<p>Definição na linha <a class="el" href="Idt_8c-source.html#l00026">26</a> do arquivo <a class="el" href="Idt_8c-source.html">Idt.c</a>.</p>
+
+<p>Referências <a class="el" href="Idt_8h-source.html#l00019">idt_entry::always0</a>, <a class="el" href="Idt_8h-source.html#l00021">idt_entry::base_hi</a>, <a class="el" href="Idt_8h-source.html#l00017">idt_entry::base_lo</a>, <a class="el" href="Idt_8h-source.html#l00020">idt_entry::flags</a>, <a class="el" href="Idt_8c-source.html#l00017">idt</a> e <a class="el" href="Idt_8h-source.html#l00018">idt_entry::sel</a>.</p>
+
+<p>Referenciado por <a class="el" href="Irq_8c-source.html#l00051">irq_install()</a> e <a class="el" href="Isrs_8c-source.html#l00048">isrs_install()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="f2b1a80331ee6889b813decd3c8e3cba"></a><!-- doxytag: member="KIidt.h::idt_set_TaskGate" ref="f2b1a80331ee6889b813decd3c8e3cba" args="(unsigned char num, unsigned short sel, unsigned char flags)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void idt_set_TaskGate           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&nbsp;</td>
+          <td class="paramname"> <em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short&nbsp;</td>
+          <td class="paramname"> <em>sel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&nbsp;</td>
+          <td class="paramname"> <em>flags</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Define uma entrada na GDT de uma processo. 
+<p>Definição na linha <a class="el" href="Idt_8c-source.html#l00038">38</a> do arquivo <a class="el" href="Idt_8c-source.html">Idt.c</a>.</p>
+
+<p>Referências <a class="el" href="Idt_8h-source.html#l00020">idt_entry::flags</a>, <a class="el" href="Idt_8c-source.html#l00017">idt</a> e <a class="el" href="Idt_8h-source.html#l00018">idt_entry::sel</a>.</p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

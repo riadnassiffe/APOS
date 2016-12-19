@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/modulos/include/MultiBoot.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/modulos/include/MultiBoot.h</h1>
+<p>
+<a href="MultiBoot_8h-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Estruturas de Dados</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structaout__symbol__table.html">aout_symbol_table</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">* Do not include here in boot.S. */  <a href="structaout__symbol__table.html#_details">Mais...</a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structelf__section__header__table.html">elf_section_header_table</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmultiboot__info.html">multiboot_info</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Definições e Macros</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MultiBoot_8h.html#b36ad4b4a42c58aac4ad1f2ba13054e9">MULTIBOOT_HEADER_MAGIC</a>&nbsp;&nbsp;&nbsp;0x1BADB002</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MultiBoot_8h.html#5447ae8b3b45c8ed17ad61c267250992">MULTIBOOT_HEADER_FLAGS</a>&nbsp;&nbsp;&nbsp;0x00010003</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MultiBoot_8h.html#acd617f4e3daafd6eab95fb6215ccae4">MULTIBOOT_BOOTLOADER_MAGIC</a>&nbsp;&nbsp;&nbsp;0x2BADB002</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MultiBoot_8h.html#6423a880df59733d2d9b509c7718d3a9">STACK_SIZE</a>&nbsp;&nbsp;&nbsp;0x4000</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MultiBoot_8h.html#0e7cb3fa3ec28d9888e5999d00fd910e">EXT_C</a>(sym)&nbsp;&nbsp;&nbsp;sym</td></tr>
+
+<tr><td colspan="2"><br><h2>Definições de Tipos</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef struct <a class="el" href="structaout__symbol__table.html">aout_symbol_table</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MultiBoot_8h.html#0f63f69abdd0ba14d60b38b0f9bb8161">aout_symbol_table_t</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef struct <br>
+<a class="el" href="structelf__section__header__table.html">elf_section_header_table</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MultiBoot_8h.html#a22102583b09d2fdc22f21f9201a74ee">elf_section_header_table_t</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef struct <a class="el" href="structmultiboot__info.html">multiboot_info</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MultiBoot_8h.html#bc47d72689f915831784b5bd3f4c2401">multiboot_info_t</a></td></tr>
+
+</table>
+<hr><h2>Definições e macros</h2>
+<a class="anchor" name="0e7cb3fa3ec28d9888e5999d00fd910e"></a><!-- doxytag: member="MultiBoot.h::EXT_C" ref="0e7cb3fa3ec28d9888e5999d00fd910e" args="(sym)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EXT_C          </td>
+          <td>(</td>
+          <td class="paramtype">sym&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%">&nbsp;&nbsp;&nbsp;sym</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MultiBoot_8h-source.html#l00049">49</a> do arquivo <a class="el" href="MultiBoot_8h-source.html">MultiBoot.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="acd617f4e3daafd6eab95fb6215ccae4"></a><!-- doxytag: member="MultiBoot.h::MULTIBOOT_BOOTLOADER_MAGIC" ref="acd617f4e3daafd6eab95fb6215ccae4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MULTIBOOT_BOOTLOADER_MAGIC&nbsp;&nbsp;&nbsp;0x2BADB002          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MultiBoot_8h-source.html#l00040">40</a> do arquivo <a class="el" href="MultiBoot_8h-source.html">MultiBoot.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="5447ae8b3b45c8ed17ad61c267250992"></a><!-- doxytag: member="MultiBoot.h::MULTIBOOT_HEADER_FLAGS" ref="5447ae8b3b45c8ed17ad61c267250992" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MULTIBOOT_HEADER_FLAGS&nbsp;&nbsp;&nbsp;0x00010003          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MultiBoot_8h-source.html#l00036">36</a> do arquivo <a class="el" href="MultiBoot_8h-source.html">MultiBoot.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="b36ad4b4a42c58aac4ad1f2ba13054e9"></a><!-- doxytag: member="MultiBoot.h::MULTIBOOT_HEADER_MAGIC" ref="b36ad4b4a42c58aac4ad1f2ba13054e9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MULTIBOOT_HEADER_MAGIC&nbsp;&nbsp;&nbsp;0x1BADB002          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MultiBoot_8h-source.html#l00030">30</a> do arquivo <a class="el" href="MultiBoot_8h-source.html">MultiBoot.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="6423a880df59733d2d9b509c7718d3a9"></a><!-- doxytag: member="MultiBoot.h::STACK_SIZE" ref="6423a880df59733d2d9b509c7718d3a9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STACK_SIZE&nbsp;&nbsp;&nbsp;0x4000          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MultiBoot_8h-source.html#l00043">43</a> do arquivo <a class="el" href="MultiBoot_8h-source.html">MultiBoot.h</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Definições dos tipos</h2>
+<a class="anchor" name="0f63f69abdd0ba14d60b38b0f9bb8161"></a><!-- doxytag: member="MultiBoot.h::aout_symbol_table_t" ref="0f63f69abdd0ba14d60b38b0f9bb8161" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structaout__symbol__table.html">aout_symbol_table</a>  <a class="el" href="structaout__symbol__table.html">aout_symbol_table_t</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="a22102583b09d2fdc22f21f9201a74ee"></a><!-- doxytag: member="MultiBoot.h::elf_section_header_table_t" ref="a22102583b09d2fdc22f21f9201a74ee" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structelf__section__header__table.html">elf_section_header_table</a>  <a class="el" href="structelf__section__header__table.html">elf_section_header_table_t</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="bc47d72689f915831784b5bd3f4c2401"></a><!-- doxytag: member="MultiBoot.h::multiboot_info_t" ref="bc47d72689f915831784b5bd3f4c2401" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structmultiboot__info.html">multiboot_info</a>  <a class="el" href="structmultiboot__info.html">multiboot_info_t</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:30 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

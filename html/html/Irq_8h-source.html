@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/kernel/include/Irq.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/kernel/include/Irq.h</h1><a href="Irq_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00005"></a>00005 <span class="preprocessor">#include "../../include/Defs.h"</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include "../interface/KIio.h"</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include "../interface/KIidt.h"</span>
+<a name="l00011"></a>00011 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#dbe0f253d11eeb032b3612c8732fb76e">irq0</a>();
+<a name="l00012"></a>00012 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#b67ffa95ff39e0b264f4534d43025c30">irq1</a>();
+<a name="l00013"></a>00013 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#118ba521aa61c5f0785580408a5b95cc">irq2</a>();
+<a name="l00014"></a>00014 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#672afd3d2d2c7a896068f1ee94b6ac4b">irq3</a>();
+<a name="l00015"></a>00015 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#6ece1319726003baeb064fa32a5e27b6">irq4</a>();
+<a name="l00016"></a>00016 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#0c86295415896333de5803b5255cc3fd">irq5</a>();
+<a name="l00017"></a>00017 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#4dd0a509c8829cd9d3606da7ba7cde7a">irq6</a>();
+<a name="l00018"></a>00018 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#a3079d2a2ea8fdd0d36f26fb2f61e316">irq7</a>();
+<a name="l00019"></a>00019 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#763933e69e7a6f5ac0d2802a56b6401b">irq8</a>();
+<a name="l00020"></a>00020 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#59dbef11d3615eb79b6a13c82b5bf476">irq9</a>();
+<a name="l00021"></a>00021 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#93037dcfb63ee486f11dd927f37b57af">irq10</a>();
+<a name="l00022"></a>00022 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#16bf2a49a4c9a48e65c1379d91b79235">irq11</a>();
+<a name="l00023"></a>00023 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#47e842053a77f6409bbd6a50cec87b5e">irq12</a>();
+<a name="l00024"></a>00024 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#af8a8dc035d379d8173b06a2ebd881a1">irq13</a>();
+<a name="l00025"></a>00025 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#a63550aa0e55da846a219a2828007529">irq14</a>();
+<a name="l00026"></a>00026 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#516b16b006f8c0555c15a793220e28a2">irq15</a>();
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#8f9c4b04a877df5e84007f3964625c25">irq_install_handler</a>(<span class="keywordtype">int</span> irq, <span class="keywordtype">void</span> (*handler)(<span class="keyword">struct</span> <a class="code" href="structregs.html">regs</a> *r));
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#ee54c533dd6f14055cfafed7ffd00328">irq_uninstall_handler</a>(<span class="keywordtype">int</span> irq);
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 <span class="comment">/*</span>
+<a name="l00034"></a>00034 <span class="comment"> Remapeando IRC.</span>
+<a name="l00035"></a>00035 <span class="comment"> -&gt; Setar corretamente antes de se comunicar com dispositivos.</span>
+<a name="l00036"></a>00036 <span class="comment"> IRQ 0-7 -&gt; INT 20h-27h</span>
+<a name="l00037"></a>00037 <span class="comment"> IRQ 8-15 -&gt; INT 28h-2Fh</span>
+<a name="l00038"></a>00038 <span class="comment"></span>
+<a name="l00039"></a>00039 <span class="comment"> -&gt; Usamos um algoritmo de dominio público.</span>
+<a name="l00040"></a>00040 <span class="comment"> */</span>
+<a name="l00041"></a>00041 <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#60f49e6b52a3b02f389dff64c8155be4">irq_remap</a>(<span class="keywordtype">void</span>);
+<a name="l00042"></a>00042 <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#e48307dbf5b3d1f8c5768f6f032f2b19">irq_install</a>();
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="comment">/* </span>
+<a name="l00045"></a>00045 <span class="comment"> -&gt; Handlers de interrupcao devem sinalizar o termino da </span>
+<a name="l00046"></a>00046 <span class="comment"> operacao para o chip. Caso nao seja dado o aviso, o sistema</span>
+<a name="l00047"></a>00047 <span class="comment"> nao ira enviar mais sinais.</span>
+<a name="l00048"></a>00048 <span class="comment"> </span>
+<a name="l00049"></a>00049 <span class="comment"> Veja em: [1]</span>
+<a name="l00050"></a>00050 <span class="comment"> *Handlers for IRQs must issue End Of Interrupt (EOI) to one or both PIC chips. For IRQ 0-7: </span>
+<a name="l00051"></a>00051 <span class="comment"> outportb(0x20, 0x20);</span>
+<a name="l00052"></a>00052 <span class="comment"> *For IRQ 8-15, both 8259 chips must get EOI: </span>
+<a name="l00053"></a>00053 <span class="comment"> outportb(0xA0, 0x20);</span>
+<a name="l00054"></a>00054 <span class="comment"> outportb(0x20, 0x20);</span>
+<a name="l00055"></a>00055 <span class="comment"></span>
+<a name="l00056"></a>00056 <span class="comment"> */</span>
+<a name="l00057"></a>00057 <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#1d3f57aadd895abe30129f373f9b8bbc">irq_handler</a>(<span class="keyword">struct</span> <a class="code" href="structregs.html">regs</a> *r);
+<a name="l00058"></a>00058 <span class="comment">/*</span>
+<a name="l00059"></a>00059 <span class="comment"> Este handler sera utilizado apenas para o clock!</span>
+<a name="l00060"></a>00060 <span class="comment"> */</span>
+<a name="l00061"></a>00061 <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#bb5479bdd6a17a3f60e0a8b5c0d4d607">irq_handler_clock</a>();
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

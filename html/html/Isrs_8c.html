@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/kernel/Isrs.c</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/kernel/Isrs.c</h1><code>#include &quot;<a class="el" href="Isrs_8h-source.html">include/Isrs.h</a>&quot;</code><br>
+
+<p>
+<a href="Isrs_8c-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Isrs_8c.html#0c8f78193e14578654a1f4ca0bae6440">isrs_install</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Isrs_8c.html#8e1c2137d8183cd856513ab65a9b1a38">fault_handler</a> (struct <a class="el" href="structregs.html">regs</a> *r)</td></tr>
+
+<tr><td colspan="2"><br><h2>Variáveis</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Isrs_8c.html#79c9f7d90e19dbcd570e013274d75bc1">exception_messages</a> []</td></tr>
+
+</table>
+<hr><h2>Funções</h2>
+<a class="anchor" name="8e1c2137d8183cd856513ab65a9b1a38"></a><!-- doxytag: member="Isrs.c::fault_handler" ref="8e1c2137d8183cd856513ab65a9b1a38" args="(struct regs *r)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fault_handler           </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structregs.html">regs</a> *&nbsp;</td>
+          <td class="paramname"> <em>r</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Todas as exeções que ocorrem no sistema, usam essa função para imprimir menssagens na tela, e paralisa o SO ficando em loop infinito. 
+<p>Definição na linha <a class="el" href="Isrs_8c-source.html#l00092">92</a> do arquivo <a class="el" href="Isrs_8c-source.html">Isrs.c</a>.</p>
+
+<p>Referências <a class="el" href="Isrs_8c-source.html#l00006">exception_messages</a>, <a class="el" href="Defs_8h-source.html#l00059">regs::int_no</a>, <a class="el" href="Scrn_8c-source.html#l00129">printfInt()</a> e <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="0c8f78193e14578654a1f4ca0bae6440"></a><!-- doxytag: member="Isrs.c::isrs_install" ref="0c8f78193e14578654a1f4ca0bae6440" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void isrs_install           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Grava entradas na IDT. 
+<p>Definição na linha <a class="el" href="Isrs_8c-source.html#l00048">48</a> do arquivo <a class="el" href="Isrs_8c-source.html">Isrs.c</a>.</p>
+
+<p>Referências <a class="el" href="Idt_8c-source.html#l00026">idt_set_gate()</a>, <a class="el" href="Isrs_8h.html#f88eb8e98d943aa0461c01de3cb53493">isr0()</a>, <a class="el" href="Isrs_8h.html#eab0ed9ae661801c25f7dc9089c19f72">isr1()</a>, <a class="el" href="Isrs_8h.html#3c8cb1341cf756883a2e7dc317d5272d">isr10()</a>, <a class="el" href="Isrs_8h.html#0d8145cf6ee1ef7834f459ba777d323c">isr11()</a>, <a class="el" href="Isrs_8h.html#00f00421039cb85f9dd9375995c784bd">isr12()</a>, <a class="el" href="Isrs_8h.html#f985dcf66872ee696e5f30d819ac16a1">isr13()</a>, <a class="el" href="Isrs_8h.html#8b63eaa37c03743718870964a3429ba8">isr14()</a>, <a class="el" href="Isrs_8h.html#9160f355325318a990c106ad5c3b8954">isr15()</a>, <a class="el" href="Isrs_8h.html#dd0980c10028b377643da169e52e5be7">isr16()</a>, <a class="el" href="Isrs_8h.html#c7d1e81e585bc7c56b46280006402f9e">isr17()</a>, <a class="el" href="Isrs_8h.html#e685c5ca5ed9c9c5e7d297ad8d14de49">isr18()</a>, <a class="el" href="Isrs_8h.html#d16b5f77287df551e63d3f0c67f8f75d">isr19()</a>, <a class="el" href="Isrs_8h.html#99e457875cca040c3f7c77b61e960b53">isr2()</a>, <a class="el" href="Isrs_8h.html#552d2aedae97d97083d3f9caf6ad59a5">isr20()</a>, <a class="el" href="Isrs_8h.html#f106b9a26e06abf17eebb6f7ae54f905">isr21()</a>, <a class="el" href="Isrs_8h.html#a4b6f47f27ac3b31fc426f5c2a1a669c">isr22()</a>, <a class="el" href="Isrs_8h.html#277e9cc418a637ae584c1ff6525eb2e1">isr23()</a>, <a class="el" href="Isrs_8h.html#2ea113ad8536ca8311ab00d077ece7f1">isr24()</a>, <a class="el" href="Isrs_8h.html#73e919f327e846f72b99de088ae9b822">isr25()</a>, <a class="el" href="Isrs_8h.html#24c118fd7e75c96d19da1bbaf87731e4">isr26()</a>, <a class="el" href="Isrs_8h.html#d97e98084cbcdc21bf03ba314dc243e0">isr27()</a>, <a class="el" href="Isrs_8h.html#b2a5fe4d3cf67be0c67db612aa757c5f">isr28()</a>, <a class="el" href="Isrs_8h.html#8cce4d55d6a199607cd3a9e2a33241b2">isr29()</a>, <a class="el" href="Isrs_8h.html#0ef268d2c16a7b318356451a05fd507b">isr3()</a>, <a class="el" href="Isrs_8h.html#f868664393aedd51c04e3ddd48b8f84f">isr30()</a>, <a class="el" href="Isrs_8h.html#f4ae10cea59f9bb2f79c13b8036d81f1">isr31()</a>, <a class="el" href="Isrs_8h.html#09af768d636144aaeaddd76c92a0a2f5">isr4()</a>, <a class="el" href="Isrs_8h.html#a91d821a4bcafb44933d92945727b0df">isr5()</a>, <a class="el" href="Isrs_8h.html#9fadb95f34937b1ded02c4171b4920ba">isr6()</a>, <a class="el" href="Isrs_8h.html#7eb6ec30db7077fb1c9c9d926a0fc407">isr7()</a>, <a class="el" href="Isrs_8h.html#86bc69345a3bb409665dbadb77a9d393">isr8()</a> e <a class="el" href="Isrs_8h.html#acb7c8490cbd623a3a2bf933ffedd131">isr9()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Variáveis</h2>
+<a class="anchor" name="79c9f7d90e19dbcd570e013274d75bc1"></a><!-- doxytag: member="Isrs.c::exception_messages" ref="79c9f7d90e19dbcd570e013274d75bc1" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* <a class="el" href="Isrs_8c.html#79c9f7d90e19dbcd570e013274d75bc1">exception_messages</a>[]          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Lista com todas as messagens de exeções prevista. 
+<p>Definição na linha <a class="el" href="Isrs_8c-source.html#l00006">6</a> do arquivo <a class="el" href="Isrs_8c-source.html">Isrs.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Isrs_8c-source.html#l00092">fault_handler()</a>.</p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

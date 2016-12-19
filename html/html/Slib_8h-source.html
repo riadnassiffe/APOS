@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/libs/include/Slib.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/libs/include/Slib.h</h1><a href="Slib_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> * Definição da biblioteca de tratamento de String</span>
+<a name="l00003"></a>00003 <span class="comment"> */</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include "../../include/Defs.h"</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#ifndef __SLIB_H</span>
+<a name="l00006"></a>00006 <span class="preprocessor"></span><span class="preprocessor">#define __SLIB_H</span>
+<a name="l00007"></a>00007 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#e4cc35dcc70810fa972cc8a5185a28fa">BOOL</a> <a class="code" href="Slib_8h.html#f520fcceb7e35e814c9fde67260cc554">strcpy</a>( <span class="keywordtype">char</span> *dest,  <span class="keywordtype">char</span> *source);
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#e4cc35dcc70810fa972cc8a5185a28fa">BOOL</a> <a class="code" href="Slib_8h.html#ef594b68710351c8765d390d98b6c42e">strcpyn</a>( <span class="keywordtype">char</span> *dest,  <span class="keywordtype">char</span> *source, <span class="keywordtype">int</span> size);
+<a name="l00011"></a>00011 
+<a name="l00012"></a>00012 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#e4cc35dcc70810fa972cc8a5185a28fa">BOOL</a> <a class="code" href="Slib_8h.html#15bde2174f2412867fc36278b65af29c">strcmp</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *op1, <span class="keyword">const</span> <span class="keywordtype">char</span> *op2);
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#336ef1743175a62cdf5a7aebcf34609a">T_SIZE</a> <a class="code" href="Slib_8h.html#c6b5c6676a3d76674a299a4c92e54e27">strlenght</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *source);
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#e4cc35dcc70810fa972cc8a5185a28fa">BOOL</a> <a class="code" href="Slib_8h.html#084569138c75859ffa8c45c47154d882">strstart</a>( <span class="keywordtype">char</span> *op1,  <span class="keywordtype">char</span> *op2);
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 <span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Slib_8h.html#9775e2d26f2bcc6ad73457233da03074">searchchar</a>( <span class="keywordtype">char</span> *op1, <span class="keywordtype">char</span> op2);
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 <span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Slib_8h.html#72cb14f3bedd63249ea290ef32fd3e54">atoi</a>( <span class="keywordtype">char</span> *<span class="keywordtype">string</span>);
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Slib_8h.html#0338f8f78dbf81dc70849a16e3ec22bb">itoa</a>(<span class="keywordtype">int</span> value, <span class="keywordtype">char</span>* str, <span class="keywordtype">int</span> base);
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 <span class="keywordtype">void</span> *<a class="code" href="Slib_8h.html#82c26cd350df88414f825bca40183ec2">memcpy</a>(<span class="keywordtype">void</span> *dest, <span class="keyword">const</span> <span class="keywordtype">void</span> *src, <span class="keywordtype">size_t</span> count);
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="keywordtype">void</span> *<a class="code" href="Slib_8h.html#38fe60ae379d3aee5c689a88dc43a472">memset</a>(<span class="keywordtype">void</span> *dest, <span class="keywordtype">char</span> val, <span class="keywordtype">size_t</span> count);
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *<a class="code" href="Slib_8h.html#342b75f001ce12419971ebd0050681b7">getfirststr</a>(<span class="keywordtype">char</span> *op1);
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> *<a class="code" href="Slib_8h.html#e7d6183dbe510ba9dbe1aa6f1ec1f40f">memsetw</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> *dest, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> val, <span class="keywordtype">size_t</span> count);
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="keywordtype">size_t</span> <a class="code" href="Slib_8h.html#008e171a518fe0e0352f31b245e03875">strlen</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *str);
+<a name="l00033"></a>00033 <span class="preprocessor">#endif</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/kernel/defs/FatDefs.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/kernel/defs/FatDefs.h</h1><a href="FatDefs_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00007"></a>00007 <span class="preprocessor">#ifndef FATDEFS_H_</span>
+<a name="l00008"></a>00008 <span class="preprocessor"></span><span class="preprocessor">#define FATDEFS_H_</span>
+<a name="l00009"></a><a class="code" href="FatDefs_8h.html#b6ad368e32c6304728c863dbb1e9d8dd">00009</a> <span class="preprocessor"></span><span class="preprocessor">#define EOC  0xFFFF</span>
+<a name="l00010"></a><a class="code" href="FatDefs_8h.html#e17eeb06f496b8ec152d32a5aa746482">00010</a> <span class="preprocessor"></span><span class="preprocessor">#define checked 1</span>
+<a name="l00011"></a><a class="code" href="FatDefs_8h.html#ef5bc51f67c258e3de36353bc58c3dd7">00011</a> <span class="preprocessor"></span><span class="preprocessor">#define unchecked 0</span>
+<a name="l00012"></a><a class="code" href="FatDefs_8h.html#a551ec3e8bfdf08d8442ef55d3deb200">00012</a> <span class="preprocessor"></span><span class="preprocessor">#define PARTITIONMAXSIZE 65535</span>
+<a name="l00013"></a>00013 <span class="preprocessor"></span><span class="preprocessor">#include "../defs/Timer.h"</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 
+<a name="l00021"></a><a class="code" href="structName.html">00021</a> <span class="keyword">struct </span><a class="code" href="structName.html" title="Representa o nome de um arquivo ou diretório.">Name</a>{
+<a name="l00023"></a><a class="code" href="structName.html#8739c71aa4a6b401b61bd741ef390194">00023</a>         <span class="keywordtype">char</span> <a class="code" href="structName.html#8739c71aa4a6b401b61bd741ef390194">name</a>[8];
+<a name="l00025"></a><a class="code" href="structName.html#4fbb7c79c3d895d551e797daed3fe30d">00025</a>         <span class="keywordtype">char</span> <a class="code" href="structName.html#4fbb7c79c3d895d551e797daed3fe30d">type</a>[3];
+<a name="l00026"></a>00026 }__attribute__((<a class="code" href="FatDefs_8h.html#16b1e4fbd894edb397960459715541d8">packed</a>));
+<a name="l00027"></a>00027 
+<a name="l00032"></a><a class="code" href="structAttribute.html">00032</a> <span class="keyword">struct </span><a class="code" href="structAttribute.html" title="Representa os atributos que um arquivo ou diretório pode ter.">Attribute</a>{
+<a name="l00034"></a><a class="code" href="structAttribute.html#12421e5680ed16d47b27bddb2518a729">00034</a>          <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="structAttribute.html#12421e5680ed16d47b27bddb2518a729">reserved1</a>:1;
+<a name="l00036"></a><a class="code" href="structAttribute.html#eb346da1f72f2b5e29f841287c0c215f">00036</a>          <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="structAttribute.html#eb346da1f72f2b5e29f841287c0c215f">reserved2</a>:1;
+<a name="l00038"></a><a class="code" href="structAttribute.html#4d96cf5f87e43b02038d890c0d795666">00038</a>          <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="structAttribute.html#4d96cf5f87e43b02038d890c0d795666">readOnly</a>:1;
+<a name="l00040"></a><a class="code" href="structAttribute.html#2dad6a62417448e1c60f4c32992975e8">00040</a>          <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="structAttribute.html#2dad6a62417448e1c60f4c32992975e8">hidden</a>:1;
+<a name="l00042"></a><a class="code" href="structAttribute.html#e925d1a7dd56c3d9ec27b3dceb6ffeed">00042</a>          <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="structAttribute.html#e925d1a7dd56c3d9ec27b3dceb6ffeed">system</a>:1;
+<a name="l00044"></a><a class="code" href="structAttribute.html#8a29ec3705c795db68ce2a64aebd2c48">00044</a>          <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="structAttribute.html#8a29ec3705c795db68ce2a64aebd2c48">status</a>:1;
+<a name="l00046"></a><a class="code" href="structAttribute.html#352bfa638e4fe8f173f36479e6afb284">00046</a>          <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="structAttribute.html#352bfa638e4fe8f173f36479e6afb284">directory</a>:1;
+<a name="l00048"></a><a class="code" href="structAttribute.html#1e9b5af14a50071b88f2c45ca12e6fc0">00048</a>          <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="structAttribute.html#1e9b5af14a50071b88f2c45ca12e6fc0">file</a>:1;
+<a name="l00049"></a>00049 }__attribute__((<a class="code" href="FatDefs_8h.html#16b1e4fbd894edb397960459715541d8">packed</a>));
+<a name="l00050"></a>00050 
+<a name="l00055"></a><a class="code" href="structfatDirectory.html">00055</a> <span class="keyword">struct </span><a class="code" href="structfatDirectory.html" title="Estrutura que representa as entradas de um diretório.">fatDirectory</a> {
+<a name="l00057"></a><a class="code" href="structfatDirectory.html#34150d64347f0bafe36f0781e17a2f16">00057</a>         <span class="keyword">struct </span><a class="code" href="structName.html" title="Representa o nome de um arquivo ou diretório.">Name</a> <a class="code" href="structfatDirectory.html#34150d64347f0bafe36f0781e17a2f16">file</a>;
+<a name="l00059"></a><a class="code" href="structfatDirectory.html#16fb47757a9786affc18f93576abdb58">00059</a>         <span class="keyword">struct </span><a class="code" href="structAttribute.html" title="Representa os atributos que um arquivo ou diretório pode ter.">Attribute</a> <a class="code" href="structfatDirectory.html#16fb47757a9786affc18f93576abdb58">attribute</a>;
+<a name="l00061"></a><a class="code" href="structfatDirectory.html#793612e6a5515be4dcbcefd12987c00e">00061</a>         <span class="keywordtype">char</span> <a class="code" href="structfatDirectory.html#793612e6a5515be4dcbcefd12987c00e">reserved</a>[10];
+<a name="l00063"></a><a class="code" href="structfatDirectory.html#ed19ea48eaf9a092e6bc5de307c46a08">00063</a>         <span class="keyword">struct </span><a class="code" href="structTime.html">Time</a> <a class="code" href="structfatDirectory.html#ed19ea48eaf9a092e6bc5de307c46a08">time</a>;
+<a name="l00065"></a><a class="code" href="structfatDirectory.html#44f9ca07b43ba2a4e5267ddc4c88ec72">00065</a>         <span class="keyword">struct </span><a class="code" href="structDate.html">Date</a> <a class="code" href="structfatDirectory.html#44f9ca07b43ba2a4e5267ddc4c88ec72">date</a>;
+<a name="l00067"></a><a class="code" href="structfatDirectory.html#c0cc3c681cc7daddcd54257becc6b2dd">00067</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> <a class="code" href="structfatDirectory.html#c0cc3c681cc7daddcd54257becc6b2dd">startCluster</a>;
+<a name="l00069"></a><a class="code" href="structfatDirectory.html#4bea39f8d6c526ccab754274c10ea0d5">00069</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> <a class="code" href="structfatDirectory.html#4bea39f8d6c526ccab754274c10ea0d5">fileSize</a>;
+<a name="l00070"></a>00070 }__attribute__((<a class="code" href="FatDefs_8h.html#16b1e4fbd894edb397960459715541d8">packed</a>));<span class="comment">/***/</span>
+<a name="l00071"></a>00071 
+<a name="l00076"></a><a class="code" href="structtBpb.html">00076</a> <span class="keyword">struct </span><a class="code" href="structtBpb.html" title="Esta estrutura que representa os dados guardados no setor de boot da partição.">tBpb</a>{
+<a name="l00078"></a><a class="code" href="structtBpb.html#730daeafc817ebd41304bdf9de55054b">00078</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>  <a class="code" href="structtBpb.html#730daeafc817ebd41304bdf9de55054b">BS_jmpBoot</a>[3]; 
+<a name="l00080"></a><a class="code" href="structtBpb.html#bc4b3329275fd3b99f0c4d3076fe0446">00080</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>  <a class="code" href="structtBpb.html#bc4b3329275fd3b99f0c4d3076fe0446">BS_OEMName</a>[8]; 
+<a name="l00082"></a><a class="code" href="structtBpb.html#9cd180897deee245ef75b0cdd692c408">00082</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>  <a class="code" href="structtBpb.html#9cd180897deee245ef75b0cdd692c408">BPB_BytsPerSec</a>;
+<a name="l00083"></a>00083   
+<a name="l00084"></a><a class="code" href="structtBpb.html#7e418eaa426534b3a9853604bc554411">00084</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>  <a class="code" href="structtBpb.html#7e418eaa426534b3a9853604bc554411">BPB_SecPerClus</a>;
+<a name="l00086"></a><a class="code" href="structtBpb.html#c3817570c4a21279f8c08382d220a2b2">00086</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>  <a class="code" href="structtBpb.html#c3817570c4a21279f8c08382d220a2b2">BPB_ResvdSecCnt</a>;      
+<a name="l00088"></a><a class="code" href="structtBpb.html#9a36cb60f21c4f3e0a30949c605a7d3d">00088</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>  <a class="code" href="structtBpb.html#9a36cb60f21c4f3e0a30949c605a7d3d">BPB_NumFATs</a>;           
+<a name="l00090"></a><a class="code" href="structtBpb.html#9ebfb91c241b20fa39f2f0fdfdbc01f0">00090</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>  <a class="code" href="structtBpb.html#9ebfb91c241b20fa39f2f0fdfdbc01f0">BPB_LBL</a>;                                      
+<a name="l00092"></a><a class="code" href="structtBpb.html#8515701c8b62d5d5961f75a520b79d5d">00092</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>  <a class="code" href="structtBpb.html#8515701c8b62d5d5961f75a520b79d5d">BPB_TotSec16</a>; 
+<a name="l00094"></a><a class="code" href="structtBpb.html#86a37743557f6b25fcd614ca0080d2f0">00094</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>  <a class="code" href="structtBpb.html#86a37743557f6b25fcd614ca0080d2f0">BPB_Media</a>;             
+<a name="l00096"></a><a class="code" href="structtBpb.html#54657f0a51b31ea2cd2a53a16d98ea10">00096</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>  <a class="code" href="structtBpb.html#54657f0a51b31ea2cd2a53a16d98ea10">BPB_FATSz16</a>;                          
+<a name="l00098"></a><a class="code" href="structtBpb.html#f9ea37e17eb55c7a66958810a682c031">00098</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>  <a class="code" href="structtBpb.html#f9ea37e17eb55c7a66958810a682c031">BPB_SecPerTrk</a>;                
+<a name="l00100"></a><a class="code" href="structtBpb.html#22dd409111c0715f991089a717200cbe">00100</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>  <a class="code" href="structtBpb.html#22dd409111c0715f991089a717200cbe">BPB_NumHeads</a>;                 
+<a name="l00102"></a><a class="code" href="structtBpb.html#81f43dedc6f14f391381ae3cc8d16e60">00102</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="structtBpb.html#81f43dedc6f14f391381ae3cc8d16e60">BPB_HiddSec</a>;
+<a name="l00104"></a><a class="code" href="structtBpb.html#4e8e7e3cc1e74757bdff3c781b5fce0b">00104</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>  <a class="code" href="structtBpb.html#4e8e7e3cc1e74757bdff3c781b5fce0b">BPB_FSVer</a>;                            
+<a name="l00106"></a><a class="code" href="structtBpb.html#25cef46c56c24e23072a91c4e783abd0">00106</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="structtBpb.html#25cef46c56c24e23072a91c4e783abd0">BPB_RootClus</a>;
+<a name="l00108"></a><a class="code" href="structtBpb.html#3107630aa9883bbb87588195c4f44969">00108</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>  <a class="code" href="structtBpb.html#3107630aa9883bbb87588195c4f44969">BS_DrvNum</a>;             
+<a name="l00110"></a><a class="code" href="structtBpb.html#907179ba51db7ecf0654fa32c44bd3f6">00110</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>  <a class="code" href="structtBpb.html#907179ba51db7ecf0654fa32c44bd3f6">BS_Reserved2</a>;  
+<a name="l00112"></a><a class="code" href="structtBpb.html#72210d38ff3d31e6994ef18d6ccc2df3">00112</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>  <a class="code" href="structtBpb.html#72210d38ff3d31e6994ef18d6ccc2df3">BS_BootSig</a>;            
+<a name="l00114"></a><a class="code" href="structtBpb.html#1ccf1816f87aed7b24209a7815bf91cb">00114</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="structtBpb.html#1ccf1816f87aed7b24209a7815bf91cb">BS_VolID</a>;                                               
+<a name="l00116"></a><a class="code" href="structtBpb.html#a3794b9e67676f7e9f7da85d5144de5d">00116</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>  <a class="code" href="structtBpb.html#a3794b9e67676f7e9f7da85d5144de5d">BS_VolLab</a>[11];                                 
+<a name="l00118"></a><a class="code" href="structtBpb.html#6e8f2e628c29aae29321d4ff44c3dc4e">00118</a>   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>  <a class="code" href="structtBpb.html#6e8f2e628c29aae29321d4ff44c3dc4e">BS_FilSysType</a>[8];              
+<a name="l00119"></a>00119   
+<a name="l00120"></a>00120 }__attribute__ ((<a class="code" href="FatDefs_8h.html#16b1e4fbd894edb397960459715541d8">packed</a>));                                                                                                                      
+<a name="l00121"></a>00121         
+<a name="l00122"></a>00122 
+<a name="l00127"></a><a class="code" href="structFatInstance.html">00127</a> <span class="keyword">struct </span><a class="code" href="structFatInstance.html" title="Guardar todas informações sobre o sistema de arquivo de um dispositivo.">FatInstance</a>{
+<a name="l00128"></a><a class="code" href="structFatInstance.html#14605661c88f332ddd66ec510fe1d90c">00128</a>         <span class="keyword">struct </span><a class="code" href="structtBpb.html" title="Esta estrutura que representa os dados guardados no setor de boot da partição.">tBpb</a> <a class="code" href="structFatInstance.html#14605661c88f332ddd66ec510fe1d90c">bs</a>;
+<a name="l00130"></a><a class="code" href="structFatInstance.html#efee485164fbf8d4048a0e53d7a16310">00130</a>         <span class="keywordtype">short</span> <span class="keywordtype">int</span> <a class="code" href="structFatInstance.html#efee485164fbf8d4048a0e53d7a16310">fatPos</a>;
+<a name="l00132"></a><a class="code" href="structFatInstance.html#eda5a7c1a9a78740fcd1029544c08a3d">00132</a>         <span class="keyword">struct </span><a class="code" href="structfatDirectory.html" title="Estrutura que representa as entradas de um diretório.">fatDirectory</a> <a class="code" href="structFatInstance.html#eda5a7c1a9a78740fcd1029544c08a3d">actualDirectory</a>;
+<a name="l00134"></a><a class="code" href="structFatInstance.html#fd575cf6e0eb42eb1e1bd61617d9494d">00134</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>  <a class="code" href="structFatInstance.html#fd575cf6e0eb42eb1e1bd61617d9494d">fatList</a>[<a class="code" href="FatDefs_8h.html#a551ec3e8bfdf08d8442ef55d3deb200">PARTITIONMAXSIZE</a>];
+<a name="l00136"></a><a class="code" href="structFatInstance.html#12b2937b5c7692c9c00148163a5d699f">00136</a>         <span class="keywordtype">short</span> <span class="keywordtype">int</span> <a class="code" href="structFatInstance.html#12b2937b5c7692c9c00148163a5d699f">LBL</a>;
+<a name="l00137"></a>00137 }__attribute__((<a class="code" href="FatDefs_8h.html#16b1e4fbd894edb397960459715541d8">packed</a>));
+<a name="l00138"></a>00138 
+<a name="l00139"></a>00139 <span class="preprocessor">#endif </span><span class="comment">/*FATDEFS_H_*/</span>
+<a name="l00140"></a>00140 
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

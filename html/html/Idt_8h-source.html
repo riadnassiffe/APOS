@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/kernel/include/Idt.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/kernel/include/Idt.h</h1><a href="Idt_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00006"></a>00006 <span class="preprocessor">#include "../../libs/include/Slib.h"</span> 
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Idt_8h.html#c32911224d6d0fd8e287f2e021ee3ba4">idt_load</a>();
+<a name="l00009"></a>00009 <span class="keywordtype">void</span> <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> num, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> base, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> sel, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> flags);
+<a name="l00010"></a>00010 <span class="keywordtype">void</span> <a class="code" href="Idt_8c.html#f2b1a80331ee6889b813decd3c8e3cba">idt_set_TaskGate</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> num, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> sel, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> flags);
+<a name="l00011"></a>00011 <span class="keywordtype">void</span> <a class="code" href="Idt_8c.html#9817da253735954f4767c5ba6155aa0d">idt_install</a>();
+<a name="l00012"></a>00012 
+<a name="l00016"></a><a class="code" href="structidt__entry.html">00016</a> <span class="keyword">struct </span><a class="code" href="structidt__entry.html" title="Define os valores de uma entrada da IDT.">idt_entry</a> {
+<a name="l00017"></a><a class="code" href="structidt__entry.html#7d7806fd6f93a7be7fad98efa77b4da0">00017</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="structidt__entry.html#7d7806fd6f93a7be7fad98efa77b4da0">base_lo</a>;
+<a name="l00018"></a><a class="code" href="structidt__entry.html#e497f0d390f5d96c9cf7178d21624cff">00018</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="structidt__entry.html#e497f0d390f5d96c9cf7178d21624cff">sel</a>;
+<a name="l00019"></a><a class="code" href="structidt__entry.html#d9da320ede3a7fdd12165ccfab4a1c0d">00019</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="structidt__entry.html#d9da320ede3a7fdd12165ccfab4a1c0d">always0</a>;
+<a name="l00020"></a><a class="code" href="structidt__entry.html#a2dd8173abc594eaa80bcc4f4ceaf3ec">00020</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="structidt__entry.html#a2dd8173abc594eaa80bcc4f4ceaf3ec">flags</a>;
+<a name="l00021"></a><a class="code" href="structidt__entry.html#588a301ecbdb0329b2c5f632aaa78e64">00021</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="structidt__entry.html#588a301ecbdb0329b2c5f632aaa78e64">base_hi</a>;
+<a name="l00022"></a>00022 }__attribute__((<a class="code" href="FatDefs_8h.html#16b1e4fbd894edb397960459715541d8">packed</a>));
+<a name="l00023"></a>00023 
+<a name="l00027"></a><a class="code" href="structidt__ptr.html">00027</a> <span class="keyword">struct </span><a class="code" href="structidt__ptr.html" title="Guarda informação sobre o tamanho da IDT.">idt_ptr</a> {
+<a name="l00029"></a><a class="code" href="structidt__ptr.html#2e0c6a55cca7c419da170c4142b8dd98">00029</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="structidt__ptr.html#2e0c6a55cca7c419da170c4142b8dd98" title="Tamanho maximo da lista de interrupção.">limit</a>;
+<a name="l00031"></a><a class="code" href="structidt__ptr.html#685e5838a1a81d9a288d8c422e70a9e4">00031</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="structidt__ptr.html#685e5838a1a81d9a288d8c422e70a9e4" title="Endereço do começo da tabela de descritores de interrupção.">base</a>;
+<a name="l00032"></a>00032 }__attribute__((<a class="code" href="FatDefs_8h.html#16b1e4fbd894edb397960459715541d8">packed</a>));
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

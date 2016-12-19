@@ -1,0 +1,429 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/kernel/Kb.c</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/kernel/Kb.c</h1><code>#include &quot;<a class="el" href="Kb_8h-source.html">include/Kb.h</a>&quot;</code><br>
+
+<p>
+<a href="Kb_8c-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Kb_8c.html#167a6b15ca2288bedb7a54dab3a4c7aa">init_kb_buffer</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Inicializa buffer do teclado.  <a href="#167a6b15ca2288bedb7a54dab3a4c7aa"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Kb_8c.html#f87016b21ffa8bbf312cc597101a2024">get_Kb_Size</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna numero de bytes utilizados no buffer!  <a href="#f87016b21ffa8bbf312cc597101a2024"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Kb_8c.html#d04ca08092b4af375a97ec846cd43dd5">clear_kb_Buffer</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Limpa buffer do teclado.  <a href="#d04ca08092b4af375a97ec846cd43dd5"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Kb_8c.html#fba03d5ea2518f8344dd1838d063619a">inc_kb_mark</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Incrementa marcador do buffer do keyboard!  <a href="#fba03d5ea2518f8344dd1838d063619a"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Kb_8c.html#c567455bd58f43067fdd16371dfdc5d1">add_kb_buffer</a> (unsigned char valor)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adiciona leitura no buffer.  <a href="#c567455bd58f43067fdd16371dfdc5d1"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Kb_8c.html#114db1cbf5b070f0791848b2197fd1e7">get_kb_buffer</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adiciona leitura no buffer.  <a href="#114db1cbf5b070f0791848b2197fd1e7"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Kb_8c.html#23b871a3477e137ad7e6b2a9a22faba6">keyboard_handler</a> (struct <a class="el" href="structregs.html">regs</a> *r)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Trata a recepção de dados do teclado.  <a href="#23b871a3477e137ad7e6b2a9a22faba6"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Kb_8c.html#bd6b26f1f5940de8b8bf297c3f2ddada">eGetChar</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna um caracter lido do teclado!  <a href="#bd6b26f1f5940de8b8bf297c3f2ddada"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Kb_8c.html#55c86264c46a1734303b424e848cce27">eGetString</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna um caracter lido do teclado, com echo no video.  <a href="#55c86264c46a1734303b424e848cce27"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Kb_8c.html#cfa8613948836c8284b9ab7826629946">GetString</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna um caracter lido do teclado, sem echo no video.  <a href="#cfa8613948836c8284b9ab7826629946"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Kb_8c.html#0b1c9e8a4f200a61ba8cf762b22b1303">keyboard_install</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Inicializa o telcado na porta IRQ1.  <a href="#0b1c9e8a4f200a61ba8cf762b22b1303"></a><br></td></tr>
+<tr><td colspan="2"><br><h2>Variáveis</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structs__kb__buffer.html">s_kb_buffer</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Kb_8c.html#23270141499f05bbda2efca0b44201ee">keyboard</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Estruturas que definem o Buffer do KeyBoard.  <a href="#23270141499f05bbda2efca0b44201ee"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Kb_8c.html#1ca22f2c12699e7c637be5469b2ac85d">scancode</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Kb_8c.html#046b0c20207b44ae88e42cc5cd46ab16">kbdus</a> [128][2]</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">MAPEAMENTO DOS SINAIS DO TECLADO: LAYOUT: US Keyboard.  <a href="#046b0c20207b44ae88e42cc5cd46ab16"></a><br></td></tr>
+</table>
+<hr><h2>Funções</h2>
+<a class="anchor" name="c567455bd58f43067fdd16371dfdc5d1"></a><!-- doxytag: member="Kb.c::add_kb_buffer" ref="c567455bd58f43067fdd16371dfdc5d1" args="(unsigned char valor)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add_kb_buffer           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&nbsp;</td>
+          <td class="paramname"> <em>valor</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Adiciona leitura no buffer. 
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00048">48</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referências <a class="el" href="Kb_8h-source.html#l00024">s_kb_buffer::buffer</a>, <a class="el" href="Kb_8c-source.html#l00038">inc_kb_mark()</a>, <a class="el" href="Kb_8c-source.html#l00006">keyboard</a>, <a class="el" href="Kb_8h-source.html#l00023">s_kb_buffer::mark</a> e <a class="el" href="Kb_8h-source.html#l00022">s_kb_buffer::size</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="d04ca08092b4af375a97ec846cd43dd5"></a><!-- doxytag: member="Kb.c::clear_kb_Buffer" ref="d04ca08092b4af375a97ec846cd43dd5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clear_kb_Buffer           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Limpa buffer do teclado. 
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00029">29</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referências <a class="el" href="Kb_8c-source.html#l00006">keyboard</a>, <a class="el" href="Kb_8h-source.html#l00023">s_kb_buffer::mark</a> e <a class="el" href="Kb_8h-source.html#l00022">s_kb_buffer::size</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="bd6b26f1f5940de8b8bf297c3f2ddada"></a><!-- doxytag: member="Kb.c::eGetChar" ref="bd6b26f1f5940de8b8bf297c3f2ddada" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char eGetChar           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna um caracter lido do teclado! 
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00190">190</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referências <a class="el" href="Kb_8c-source.html#l00057">get_kb_buffer()</a>, <a class="el" href="Kb_8c-source.html#l00022">get_Kb_Size()</a> e <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Kb_8c-source.html#l00202">eGetString()</a> e <a class="el" href="Kb_8c-source.html#l00228">GetString()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="55c86264c46a1734303b424e848cce27"></a><!-- doxytag: member="Kb.c::eGetString" ref="55c86264c46a1734303b424e848cce27" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* eGetString           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna um caracter lido do teclado, com echo no video. 
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00202">202</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referências <a class="el" href="Kb_8c-source.html#l00190">eGetChar()</a> e <a class="el" href="Scrn_8c-source.html#l00061">putch()</a>.</p>
+
+<p>Referenciado por <a class="el" href="If_8c-source.html#l00081">command_interface()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="114db1cbf5b070f0791848b2197fd1e7"></a><!-- doxytag: member="Kb.c::get_kb_buffer" ref="114db1cbf5b070f0791848b2197fd1e7" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char get_kb_buffer           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Adiciona leitura no buffer. 
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00057">57</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referências <a class="el" href="Kb_8h-source.html#l00024">s_kb_buffer::buffer</a>, <a class="el" href="Kb_8c-source.html#l00006">keyboard</a>, <a class="el" href="Kb_8h-source.html#l00023">s_kb_buffer::mark</a> e <a class="el" href="Kb_8h-source.html#l00022">s_kb_buffer::size</a>.</p>
+
+<p>Referenciado por <a class="el" href="Kb_8c-source.html#l00190">eGetChar()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="f87016b21ffa8bbf312cc597101a2024"></a><!-- doxytag: member="Kb.c::get_Kb_Size" ref="f87016b21ffa8bbf312cc597101a2024" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int get_Kb_Size           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna numero de bytes utilizados no buffer! 
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00022">22</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referências <a class="el" href="Kb_8c-source.html#l00006">keyboard</a> e <a class="el" href="Kb_8h-source.html#l00022">s_kb_buffer::size</a>.</p>
+
+<p>Referenciado por <a class="el" href="Kb_8c-source.html#l00190">eGetChar()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="cfa8613948836c8284b9ab7826629946"></a><!-- doxytag: member="Kb.c::GetString" ref="cfa8613948836c8284b9ab7826629946" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* GetString           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna um caracter lido do teclado, sem echo no video. 
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00228">228</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referências <a class="el" href="Kb_8c-source.html#l00190">eGetChar()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="fba03d5ea2518f8344dd1838d063619a"></a><!-- doxytag: member="Kb.c::inc_kb_mark" ref="fba03d5ea2518f8344dd1838d063619a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inc_kb_mark           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Incrementa marcador do buffer do keyboard! 
+<p>
+<dl class="attention" compact><dt><b>Atenção:</b></dt><dd>se estiver na ultima posicao, a proxima é a primeira </dd></dl>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00038">38</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referências <a class="el" href="Kb_8c-source.html#l00006">keyboard</a> e <a class="el" href="Kb_8h-source.html#l00023">s_kb_buffer::mark</a>.</p>
+
+<p>Referenciado por <a class="el" href="Kb_8c-source.html#l00048">add_kb_buffer()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="167a6b15ca2288bedb7a54dab3a4c7aa"></a><!-- doxytag: member="Kb.c::init_kb_buffer" ref="167a6b15ca2288bedb7a54dab3a4c7aa" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_kb_buffer           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Inicializa buffer do teclado. 
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00014">14</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referências <a class="el" href="Kb_8c-source.html#l00006">keyboard</a>, <a class="el" href="Kb_8h-source.html#l00023">s_kb_buffer::mark</a> e <a class="el" href="Kb_8h-source.html#l00022">s_kb_buffer::size</a>.</p>
+
+<p>Referenciado por <a class="el" href="Kb_8c-source.html#l00245">keyboard_install()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="23b871a3477e137ad7e6b2a9a22faba6"></a><!-- doxytag: member="Kb.c::keyboard_handler" ref="23b871a3477e137ad7e6b2a9a22faba6" args="(struct regs *r)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void keyboard_handler           </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structregs.html">regs</a> *&nbsp;</td>
+          <td class="paramname"> <em>r</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Trata a recepção de dados do teclado. 
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00172">172</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referências <a class="el" href="Kb_8h-source.html#l00024">s_kb_buffer::buffer</a>, <a class="el" href="IO_8c-source.html#l00017">In_Byte()</a>, <a class="el" href="Kb_8c-source.html#l00073">kbdus</a>, <a class="el" href="Kb_8c-source.html#l00006">keyboard</a>, <a class="el" href="Kb_8h-source.html#l00023">s_kb_buffer::mark</a>, <a class="el" href="Kb_8c-source.html#l00008">scancode</a> e <a class="el" href="Kb_8h-source.html#l00022">s_kb_buffer::size</a>.</p>
+
+<p>Referenciado por <a class="el" href="Kb_8c-source.html#l00245">keyboard_install()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="0b1c9e8a4f200a61ba8cf762b22b1303"></a><!-- doxytag: member="Kb.c::keyboard_install" ref="0b1c9e8a4f200a61ba8cf762b22b1303" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void keyboard_install           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Inicializa o telcado na porta IRQ1. 
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00245">245</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referências <a class="el" href="Kb_8c-source.html#l00014">init_kb_buffer()</a>, <a class="el" href="Irq_8c-source.html#l00014">irq_install_handler()</a> e <a class="el" href="Kb_8c-source.html#l00172">keyboard_handler()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Variáveis</h2>
+<a class="anchor" name="046b0c20207b44ae88e42cc5cd46ab16"></a><!-- doxytag: member="Kb.c::kbdus" ref="046b0c20207b44ae88e42cc5cd46ab16" args="[128][2]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char <a class="el" href="Kb_8c.html#046b0c20207b44ae88e42cc5cd46ab16">kbdus</a>[128][2]          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+MAPEAMENTO DOS SINAIS DO TECLADO: LAYOUT: US Keyboard. 
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00073">73</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Kb_8c-source.html#l00172">keyboard_handler()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="23270141499f05bbda2efca0b44201ee"></a><!-- doxytag: member="Kb.c::keyboard" ref="23270141499f05bbda2efca0b44201ee" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structs__kb__buffer.html">s_kb_buffer</a> <a class="el" href="Kb_8c.html#23270141499f05bbda2efca0b44201ee">keyboard</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Estruturas que definem o Buffer do KeyBoard. 
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00006">6</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Kb_8c-source.html#l00048">add_kb_buffer()</a>, <a class="el" href="Kb_8c-source.html#l00029">clear_kb_Buffer()</a>, <a class="el" href="Kb_8c-source.html#l00057">get_kb_buffer()</a>, <a class="el" href="Kb_8c-source.html#l00022">get_Kb_Size()</a>, <a class="el" href="Kb_8c-source.html#l00038">inc_kb_mark()</a>, <a class="el" href="Kb_8c-source.html#l00014">init_kb_buffer()</a> e <a class="el" href="Kb_8c-source.html#l00172">keyboard_handler()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="1ca22f2c12699e7c637be5469b2ac85d"></a><!-- doxytag: member="Kb.c::scancode" ref="1ca22f2c12699e7c637be5469b2ac85d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char <a class="el" href="Kb_8c.html#1ca22f2c12699e7c637be5469b2ac85d">scancode</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00008">8</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Kb_8c-source.html#l00172">keyboard_handler()</a>.</p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

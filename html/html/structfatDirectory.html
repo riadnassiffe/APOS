@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência da Estrutura fatDirectory</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li><a href="functions.html"><span>Campos&nbsp;de&nbsp;Dados</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência da Estrutura fatDirectory</h1><!-- doxytag: class="fatDirectory" -->Estrutura que representa as entradas de um diretório.  
+<a href="#_details">Mais...</a>
+<p>
+<code>#include &lt;<a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>&gt;</code>
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Campos de Dados</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structName.html">Name</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfatDirectory.html#34150d64347f0bafe36f0781e17a2f16">file</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structAttribute.html">Attribute</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfatDirectory.html#16fb47757a9786affc18f93576abdb58">attribute</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfatDirectory.html#793612e6a5515be4dcbcefd12987c00e">reserved</a> [10]</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structTime.html">Time</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfatDirectory.html#ed19ea48eaf9a092e6bc5de307c46a08">time</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structDate.html">Date</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfatDirectory.html#44f9ca07b43ba2a4e5267ddc4c88ec72">date</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned short int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfatDirectory.html#c0cc3c681cc7daddcd54257becc6b2dd">startCluster</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned long int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfatDirectory.html#4bea39f8d6c526ccab754274c10ea0d5">fileSize</a></td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Descrição Detalhada</h2>
+Estrutura que representa as entradas de um diretório. 
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00055">55</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+<hr><h2>Campos e Atributos</h2>
+<a class="anchor" name="34150d64347f0bafe36f0781e17a2f16"></a><!-- doxytag: member="fatDirectory::file" ref="34150d64347f0bafe36f0781e17a2f16" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structName.html">Name</a> <a class="el" href="structfatDirectory.html#34150d64347f0bafe36f0781e17a2f16">fatDirectory::file</a><code> [read]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Estrutura que da nome aos arquivos 
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00057">57</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00853">delDir()</a>, <a class="el" href="Fat_8c-source.html#l00786">delDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00651">delFile()</a>, <a class="el" href="Fat_8c-source.html#l01026">modifyEntry()</a>, <a class="el" href="Fat_8c-source.html#l00964">printDir()</a>, <a class="el" href="Fat_8c-source.html#l00522">readFile()</a>, <a class="el" href="Fat_8c-source.html#l00905">refreshDirectoryEnter()</a> e <a class="el" href="Fat_8c-source.html#l00484">setDirectoryEntry()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="16fb47757a9786affc18f93576abdb58"></a><!-- doxytag: member="fatDirectory::attribute" ref="16fb47757a9786affc18f93576abdb58" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structAttribute.html">Attribute</a> <a class="el" href="structfatDirectory.html#16fb47757a9786affc18f93576abdb58">fatDirectory::attribute</a><code> [read]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Estrutura que representa os atributos do arquivo 
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00059">59</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00853">delDir()</a>, <a class="el" href="Fat_8c-source.html#l00786">delDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00651">delFile()</a>, <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>, <a class="el" href="Fat_8c-source.html#l01026">modifyEntry()</a>, <a class="el" href="Fat_8c-source.html#l00964">printDir()</a>, <a class="el" href="Fat_8c-source.html#l00905">refreshDirectoryEnter()</a> e <a class="el" href="Fat_8c-source.html#l00484">setDirectoryEntry()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="793612e6a5515be4dcbcefd12987c00e"></a><!-- doxytag: member="fatDirectory::reserved" ref="793612e6a5515be4dcbcefd12987c00e" args="[10]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="structfatDirectory.html#793612e6a5515be4dcbcefd12987c00e">fatDirectory::reserved</a>[10]          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+variável não utilizada 
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00061">61</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="ed19ea48eaf9a092e6bc5de307c46a08"></a><!-- doxytag: member="fatDirectory::time" ref="ed19ea48eaf9a092e6bc5de307c46a08" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structTime.html">Time</a> <a class="el" href="structfatDirectory.html#ed19ea48eaf9a092e6bc5de307c46a08">fatDirectory::time</a><code> [read]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+variável que guarda o hora 
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00063">63</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="44f9ca07b43ba2a4e5267ddc4c88ec72"></a><!-- doxytag: member="fatDirectory::date" ref="44f9ca07b43ba2a4e5267ddc4c88ec72" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structDate.html">Date</a> <a class="el" href="structfatDirectory.html#44f9ca07b43ba2a4e5267ddc4c88ec72">fatDirectory::date</a><code> [read]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+variável que guarda a data 
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00065">65</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="c0cc3c681cc7daddcd54257becc6b2dd"></a><!-- doxytag: member="fatDirectory::startCluster" ref="c0cc3c681cc7daddcd54257becc6b2dd" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short int <a class="el" href="structfatDirectory.html#c0cc3c681cc7daddcd54257becc6b2dd">fatDirectory::startCluster</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+variável que guarda o cluster inicial da arquivo 
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00067">67</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00740">createDIR()</a>, <a class="el" href="Fat_8c-source.html#l00603">createFile()</a>, <a class="el" href="Fat_8c-source.html#l00853">delDir()</a>, <a class="el" href="Fat_8c-source.html#l00651">delFile()</a>, <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>, <a class="el" href="Fat_8c-source.html#l00098">loadFatList()</a>, <a class="el" href="Fat_8c-source.html#l01026">modifyEntry()</a>, <a class="el" href="Fat_8c-source.html#l00964">printDir()</a>, <a class="el" href="Fat_8c-source.html#l00522">readFile()</a>, <a class="el" href="Fat_8c-source.html#l00905">refreshDirectoryEnter()</a> e <a class="el" href="Fat_8c-source.html#l00484">setDirectoryEntry()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="4bea39f8d6c526ccab754274c10ea0d5"></a><!-- doxytag: member="fatDirectory::fileSize" ref="4bea39f8d6c526ccab754274c10ea0d5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long int <a class="el" href="structfatDirectory.html#4bea39f8d6c526ccab754274c10ea0d5">fatDirectory::fileSize</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+variavel que guarda o tamanho da variável do arquivo 
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00069">69</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00740">createDIR()</a>, <a class="el" href="Fat_8c-source.html#l00603">createFile()</a>, <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>, <a class="el" href="Fat_8c-source.html#l00964">printDir()</a> e <a class="el" href="Fat_8c-source.html#l00484">setDirectoryEntry()</a>.</p>
+
+</div>
+</div><p>
+<hr>A documentação para esta estrutura foi gerada a partir do seguinte arquivo:<ul>
+<li>src/kernel/defs/<a class="el" href="FatDefs_8h-source.html">FatDefs.h</a></ul>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:30 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

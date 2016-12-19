@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/kernel/interface/KIirq.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/kernel/interface/KIirq.h</h1><a href="KIirq_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef KIIRQ_H_</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define KIIRQ_H_</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#8f9c4b04a877df5e84007f3964625c25">irq_install_handler</a>(<span class="keywordtype">int</span> irq, <span class="keywordtype">void</span> (*handler)(<span class="keyword">struct</span> <a class="code" href="structregs.html">regs</a> *r));
+<a name="l00005"></a>00005 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#ee54c533dd6f14055cfafed7ffd00328">irq_uninstall_handler</a>(<span class="keywordtype">int</span> irq);
+<a name="l00006"></a>00006 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#e48307dbf5b3d1f8c5768f6f032f2b19">irq_install</a>();
+<a name="l00007"></a>00007 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#60f49e6b52a3b02f389dff64c8155be4">irq_remap</a>(<span class="keywordtype">void</span>);
+<a name="l00008"></a>00008 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#1d3f57aadd895abe30129f373f9b8bbc">irq_handler</a>(<span class="keyword">struct</span> <a class="code" href="structregs.html">regs</a> *r);
+<a name="l00009"></a>00009 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#bb5479bdd6a17a3f60e0a8b5c0d4d607">irq_handler_clock</a>();
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 <span class="preprocessor">#endif </span><span class="comment">/*KIIRQ_H_*/</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

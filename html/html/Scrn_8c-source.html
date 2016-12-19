@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/kernel/Scrn.c</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/kernel/Scrn.c</h1><a href="Scrn_8c.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00005"></a>00005 <span class="preprocessor">#include "<a class="code" href="Scrn_8h.html" title="Definição das funções do Vídeo.">include/Scrn.h</a>"</span>
+<a name="l00007"></a><a class="code" href="Scrn_8c.html#26f1581bc8b65777a3d9ff979a9b1ed4">00007</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> *<a class="code" href="Scrn_8c.html#26f1581bc8b65777a3d9ff979a9b1ed4">textmemptr</a>;
+<a name="l00009"></a><a class="code" href="Scrn_8c.html#8cc5afea23f899c27d47f9f0595ee10a">00009</a> <span class="keywordtype">int</span> <a class="code" href="Scrn_8c.html#8cc5afea23f899c27d47f9f0595ee10a">attrib</a> = 0x0F; 
+<a name="l00011"></a><a class="code" href="Scrn_8c.html#f115ca02c22b96a8866496433e782f7a">00011</a> <span class="keywordtype">int</span> <a class="code" href="Scrn_8c.html#7d0257e0a1d4121460efe4b5ada1b33a">csr_x</a> = 0, <a class="code" href="Scrn_8c.html#f115ca02c22b96a8866496433e782f7a">csr_y</a> = 0; 
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
+<a name="l00017"></a><a class="code" href="Scrn_8c.html#05005f1ebcdff47e3ccc18af05573349">00017</a> <span class="keywordtype">void</span> <a class="code" href="Scrn_8h.html#05005f1ebcdff47e3ccc18af05573349" title="Faz a tela rolar, para baixo.">scroll</a>(<span class="keywordtype">void</span>) {
+<a name="l00018"></a>00018         <span class="keywordtype">unsigned</span> blank, temp;
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020         blank = 0x20 | (<a class="code" href="Scrn_8c.html#8cc5afea23f899c27d47f9f0595ee10a">attrib</a> &lt;&lt; 8);
+<a name="l00021"></a>00021         <span class="keywordflow">if</span> (<a class="code" href="Scrn_8c.html#f115ca02c22b96a8866496433e782f7a">csr_y</a> &gt;= 25) {
+<a name="l00022"></a>00022                 temp = <a class="code" href="Scrn_8c.html#f115ca02c22b96a8866496433e782f7a">csr_y</a> - 25+ 1;
+<a name="l00023"></a>00023                 <a class="code" href="Slib_8h.html#82c26cd350df88414f825bca40183ec2">memcpy</a> (<a class="code" href="Scrn_8c.html#26f1581bc8b65777a3d9ff979a9b1ed4">textmemptr</a>, <a class="code" href="Scrn_8c.html#26f1581bc8b65777a3d9ff979a9b1ed4">textmemptr</a> + temp * 80, (25 - temp) * 80* 2);
+<a name="l00024"></a>00024                 <a class="code" href="Slib_8h.html#e7d6183dbe510ba9dbe1aa6f1ec1f40f">memsetw</a> (<a class="code" href="Scrn_8c.html#26f1581bc8b65777a3d9ff979a9b1ed4">textmemptr</a> + (25 - temp) * 80, blank, 80);
+<a name="l00025"></a>00025                 <a class="code" href="Scrn_8c.html#f115ca02c22b96a8866496433e782f7a">csr_y</a> = 25 - 1;
+<a name="l00026"></a>00026         }
+<a name="l00027"></a>00027 }
+<a name="l00028"></a>00028 
+<a name="l00032"></a><a class="code" href="Scrn_8c.html#6be5115e7e98eb2f9bfd6c3b9654c1fe">00032</a> <span class="keywordtype">void</span> <a class="code" href="Scrn_8h.html#6be5115e7e98eb2f9bfd6c3b9654c1fe" title="Atualiza a posição do cursor do teclado na tela.">move_csr</a>(<span class="keywordtype">void</span>) {
+<a name="l00033"></a>00033         <span class="keywordtype">unsigned</span> temp;
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035         temp = <a class="code" href="Scrn_8c.html#f115ca02c22b96a8866496433e782f7a">csr_y</a> * 80+ <a class="code" href="Scrn_8c.html#7d0257e0a1d4121460efe4b5ada1b33a">csr_x</a>;
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037         <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0x3D4, 14);
+<a name="l00038"></a>00038         <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0x3D5, temp &gt;&gt; 8);
+<a name="l00039"></a>00039         <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0x3D4, 15);
+<a name="l00040"></a>00040         <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0x3D5, temp);
+<a name="l00041"></a>00041 }
+<a name="l00042"></a>00042 
+<a name="l00046"></a><a class="code" href="Scrn_8c.html#4826277cc150ddc0f4de4bd464a34909">00046</a> <span class="keywordtype">void</span> <a class="code" href="Scrn_8h.html#4826277cc150ddc0f4de4bd464a34909" title="Limpa a tela.">cls</a>() {
+<a name="l00047"></a>00047         <span class="keywordtype">unsigned</span> blank;
+<a name="l00048"></a>00048         <span class="keywordtype">int</span> i;
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050         blank = 0x20 | (<a class="code" href="Scrn_8c.html#8cc5afea23f899c27d47f9f0595ee10a">attrib</a> &lt;&lt; 8);
+<a name="l00051"></a>00051         <span class="keywordflow">for</span> (i = 0; i &lt; 25; i++)
+<a name="l00052"></a>00052                 <a class="code" href="Slib_8h.html#e7d6183dbe510ba9dbe1aa6f1ec1f40f">memsetw</a> (<a class="code" href="Scrn_8c.html#26f1581bc8b65777a3d9ff979a9b1ed4">textmemptr</a> + i * 80, blank, 80);
+<a name="l00053"></a>00053         <a class="code" href="Scrn_8c.html#7d0257e0a1d4121460efe4b5ada1b33a">csr_x</a> = 0;
+<a name="l00054"></a>00054         <a class="code" href="Scrn_8c.html#f115ca02c22b96a8866496433e782f7a">csr_y</a> = 0;
+<a name="l00055"></a>00055         <a class="code" href="Scrn_8h.html#6be5115e7e98eb2f9bfd6c3b9654c1fe" title="Atualiza a posição do cursor do teclado na tela.">move_csr</a>();
+<a name="l00056"></a>00056 }
+<a name="l00057"></a>00057 
+<a name="l00061"></a><a class="code" href="Scrn_8c.html#6c191b72e355c963e4eebb94d304f891">00061</a> <span class="keywordtype">void</span> <a class="code" href="Scrn_8h.html#6c191b72e355c963e4eebb94d304f891" title="Coloca apenas um unico carater na tela.">putch</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> c) {
+<a name="l00062"></a>00062         <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> *where;
+<a name="l00063"></a>00063         <span class="keywordtype">unsigned</span> att = <a class="code" href="Scrn_8c.html#8cc5afea23f899c27d47f9f0595ee10a">attrib</a> &lt;&lt; 8;
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065         <span class="keywordflow">if</span> (c == 0x08) {
+<a name="l00066"></a>00066                 <span class="keywordflow">if</span> (<a class="code" href="Scrn_8c.html#7d0257e0a1d4121460efe4b5ada1b33a">csr_x</a> != 0)
+<a name="l00067"></a>00067                         <a class="code" href="Scrn_8c.html#7d0257e0a1d4121460efe4b5ada1b33a">csr_x</a>--;
+<a name="l00068"></a>00068         } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (c == 0x09) {
+<a name="l00069"></a>00069                 <a class="code" href="Scrn_8c.html#7d0257e0a1d4121460efe4b5ada1b33a">csr_x</a> = (<a class="code" href="Scrn_8c.html#7d0257e0a1d4121460efe4b5ada1b33a">csr_x</a> + 8) &amp; ~(8 - 1);
+<a name="l00070"></a>00070         } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (c == <span class="charliteral">'\r'</span>) {
+<a name="l00071"></a>00071                 <a class="code" href="Scrn_8c.html#7d0257e0a1d4121460efe4b5ada1b33a">csr_x</a> = 0;
+<a name="l00072"></a>00072         } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (c == <span class="charliteral">'\n'</span>) {
+<a name="l00073"></a>00073                 <a class="code" href="Scrn_8c.html#7d0257e0a1d4121460efe4b5ada1b33a">csr_x</a> = 0;
+<a name="l00074"></a>00074                 <a class="code" href="Scrn_8c.html#f115ca02c22b96a8866496433e782f7a">csr_y</a>++;
+<a name="l00075"></a>00075         } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (c &gt;= <span class="charliteral">' '</span>) {
+<a name="l00076"></a>00076                 where = <a class="code" href="Scrn_8c.html#26f1581bc8b65777a3d9ff979a9b1ed4">textmemptr</a> + (<a class="code" href="Scrn_8c.html#f115ca02c22b96a8866496433e782f7a">csr_y</a> * 80+ <a class="code" href="Scrn_8c.html#7d0257e0a1d4121460efe4b5ada1b33a">csr_x</a>);
+<a name="l00077"></a>00077                 *where = c | att; <span class="comment">/*atribui cor a um caracter*/</span>
+<a name="l00078"></a>00078                 <a class="code" href="Scrn_8c.html#7d0257e0a1d4121460efe4b5ada1b33a">csr_x</a>++;
+<a name="l00079"></a>00079         }
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081         <span class="keywordflow">if</span> (<a class="code" href="Scrn_8c.html#7d0257e0a1d4121460efe4b5ada1b33a">csr_x</a> &gt;= 80) {
+<a name="l00082"></a>00082                 <a class="code" href="Scrn_8c.html#7d0257e0a1d4121460efe4b5ada1b33a">csr_x</a> = 0;
+<a name="l00083"></a>00083                 <a class="code" href="Scrn_8c.html#f115ca02c22b96a8866496433e782f7a">csr_y</a>++;
+<a name="l00084"></a>00084         }
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086         <a class="code" href="Scrn_8h.html#05005f1ebcdff47e3ccc18af05573349" title="Faz a tela rolar, para baixo.">scroll</a>();
+<a name="l00087"></a>00087         <a class="code" href="Scrn_8h.html#6be5115e7e98eb2f9bfd6c3b9654c1fe" title="Atualiza a posição do cursor do teclado na tela.">move_csr</a>();
+<a name="l00088"></a>00088 }
+<a name="l00089"></a>00089 
+<a name="l00093"></a><a class="code" href="Scrn_8c.html#ffb7f407d6601f057a9c641482a344a0">00093</a> <span class="keywordtype">void</span> <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *text) {
+<a name="l00094"></a>00094         <span class="keywordtype">int</span> i;
+<a name="l00095"></a>00095         <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code" href="Slib_8h.html#008e171a518fe0e0352f31b245e03875">strlen</a>(text); i++) {
+<a name="l00096"></a>00096                 <a class="code" href="Scrn_8h.html#6c191b72e355c963e4eebb94d304f891" title="Coloca apenas um unico carater na tela.">putch</a>(text[i]);
+<a name="l00097"></a>00097         }
+<a name="l00098"></a>00098 }
+<a name="l00099"></a>00099 
+<a name="l00103"></a><a class="code" href="Scrn_8c.html#aca006dbe60bba1341806e99f8ae3e03">00103</a> <span class="keywordtype">void</span> <a class="code" href="Scrn_8h.html#aca006dbe60bba1341806e99f8ae3e03" title="Função feita para imprimir na tela.">printf</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *text) {
+<a name="l00104"></a>00104         <span class="keywordtype">int</span> i=0;
+<a name="l00105"></a>00105         <span class="keywordflow">while</span> (text[i] != <span class="charliteral">'%'</span>) {
+<a name="l00106"></a>00106                 <a class="code" href="Scrn_8h.html#6c191b72e355c963e4eebb94d304f891" title="Coloca apenas um unico carater na tela.">putch</a>(text[i]);
+<a name="l00107"></a>00107                 i++;
+<a name="l00108"></a>00108         }
+<a name="l00109"></a>00109 }
+<a name="l00110"></a>00110 
+<a name="l00114"></a><a class="code" href="Scrn_8c.html#3bd3818934da694d29c7eaeceb19a66f">00114</a> <span class="keywordtype">void</span> <a class="code" href="Scrn_8h.html#3bd3818934da694d29c7eaeceb19a66f" title="Seleciona uma cor para a letra e para o funda da tela.">settextcolor</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> forecolor, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> backcolor) {
+<a name="l00115"></a>00115         <a class="code" href="Scrn_8c.html#8cc5afea23f899c27d47f9f0595ee10a">attrib</a> = (backcolor &lt;&lt; 4) | (forecolor &amp; 0x0F);
+<a name="l00116"></a>00116 }
+<a name="l00117"></a>00117 
+<a name="l00121"></a><a class="code" href="Scrn_8c.html#48fd0ff5a5e286669ae0f1885835bcc3">00121</a> <span class="keywordtype">void</span> <a class="code" href="Scrn_8h.html#48fd0ff5a5e286669ae0f1885835bcc3" title="Aciona o modo texto VGA.">init_video</a>(<span class="keywordtype">void</span>) {
+<a name="l00122"></a>00122         <a class="code" href="Scrn_8c.html#26f1581bc8b65777a3d9ff979a9b1ed4">textmemptr</a> = (<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> *)0xB8000;
+<a name="l00123"></a>00123         <a class="code" href="Scrn_8h.html#4826277cc150ddc0f4de4bd464a34909" title="Limpa a tela.">cls</a>();
+<a name="l00124"></a>00124 }
+<a name="l00125"></a>00125 
+<a name="l00129"></a><a class="code" href="Scrn_8c.html#3b47c20d8bb9e5c9d3cd0137c247ed81">00129</a> <span class="keywordtype">void</span> <a class="code" href="Scrn_8h.html#3b47c20d8bb9e5c9d3cd0137c247ed81" title="Imprime na tela um inteiro.">printfInt</a>(<span class="keywordtype">int</span> num) {
+<a name="l00130"></a>00130         <span class="keywordtype">char</span> <span class="keywordtype">string</span>[10];
+<a name="l00131"></a>00131         <a class="code" href="Slib_8h.html#0338f8f78dbf81dc70849a16e3ec22bb">itoa</a>(num, <span class="keywordtype">string</span>, 10);
+<a name="l00132"></a>00132         <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="keywordtype">string</span>);
+<a name="l00133"></a>00133 }
+<a name="l00134"></a>00134 
+<a name="l00138"></a><a class="code" href="Scrn_8c.html#273a809d3de4626e50ad4ecd05c44754">00138</a> <span class="keywordtype">void</span> <a class="code" href="Scrn_8h.html#273a809d3de4626e50ad4ecd05c44754" title="Responsável por imprimir mensagens de debug na tela.">APOSDEBUG</a>(<span class="keywordtype">int</span> <a class="code" href="Ide_8c.html#c3e1795766a80ec63b157951b4b9a7d4" title="Variável que ativa o modo debug, se seu valor for TRUE(1) e desativa se for FALSE(0)...">debug</a>, <span class="keywordtype">char</span> *text) {
+<a name="l00139"></a>00139         <span class="keywordtype">int</span> i;
+<a name="l00140"></a>00140         <span class="keywordflow">if</span> (debug == 1) {
+<a name="l00141"></a>00141                 <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code" href="Slib_8h.html#008e171a518fe0e0352f31b245e03875">strlen</a>(text); i++) {
+<a name="l00142"></a>00142                         <a class="code" href="Scrn_8h.html#6c191b72e355c963e4eebb94d304f891" title="Coloca apenas um unico carater na tela.">putch</a>(text[i]);
+<a name="l00143"></a>00143                 }
+<a name="l00144"></a>00144         }
+<a name="l00145"></a>00145 }
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

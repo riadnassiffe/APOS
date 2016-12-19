@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/kernel/interface/KIkb.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/kernel/interface/KIkb.h</h1>
+<p>
+<a href="KIkb_8h-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIkb_8h.html#0b1c9e8a4f200a61ba8cf762b22b1303">keyboard_install</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Inicializa o telcado na porta IRQ1.  <a href="#0b1c9e8a4f200a61ba8cf762b22b1303"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIkb_8h.html#bd6b26f1f5940de8b8bf297c3f2ddada">eGetChar</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna um caracter lido do teclado!  <a href="#bd6b26f1f5940de8b8bf297c3f2ddada"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIkb_8h.html#55c86264c46a1734303b424e848cce27">eGetString</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna um caracter lido do teclado, com echo no video.  <a href="#55c86264c46a1734303b424e848cce27"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIkb_8h.html#cfa8613948836c8284b9ab7826629946">GetString</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retorna um caracter lido do teclado, sem echo no video.  <a href="#cfa8613948836c8284b9ab7826629946"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="KIkb_8h.html#c415f3d3380d03003910bb806f16e200">msgError</a> ()</td></tr>
+
+</table>
+<hr><h2>Funções</h2>
+<a class="anchor" name="bd6b26f1f5940de8b8bf297c3f2ddada"></a><!-- doxytag: member="KIkb.h::eGetChar" ref="bd6b26f1f5940de8b8bf297c3f2ddada" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char eGetChar           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna um caracter lido do teclado! 
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00190">190</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referências <a class="el" href="Kb_8c-source.html#l00057">get_kb_buffer()</a>, <a class="el" href="Kb_8c-source.html#l00022">get_Kb_Size()</a> e <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="55c86264c46a1734303b424e848cce27"></a><!-- doxytag: member="KIkb.h::eGetString" ref="55c86264c46a1734303b424e848cce27" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* eGetString           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna um caracter lido do teclado, com echo no video. 
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00202">202</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referências <a class="el" href="Kb_8c-source.html#l00190">eGetChar()</a> e <a class="el" href="Scrn_8c-source.html#l00061">putch()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="cfa8613948836c8284b9ab7826629946"></a><!-- doxytag: member="KIkb.h::GetString" ref="cfa8613948836c8284b9ab7826629946" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* GetString           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Retorna um caracter lido do teclado, sem echo no video. 
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00228">228</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referências <a class="el" href="Kb_8c-source.html#l00190">eGetChar()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="0b1c9e8a4f200a61ba8cf762b22b1303"></a><!-- doxytag: member="KIkb.h::keyboard_install" ref="0b1c9e8a4f200a61ba8cf762b22b1303" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void keyboard_install           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Inicializa o telcado na porta IRQ1. 
+<p>
+
+<p>Definição na linha <a class="el" href="Kb_8c-source.html#l00245">245</a> do arquivo <a class="el" href="Kb_8c-source.html">Kb.c</a>.</p>
+
+<p>Referências <a class="el" href="Kb_8c-source.html#l00014">init_kb_buffer()</a>, <a class="el" href="Irq_8c-source.html#l00014">irq_install_handler()</a> e <a class="el" href="Kb_8c-source.html#l00172">keyboard_handler()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="c415f3d3380d03003910bb806f16e200"></a><!-- doxytag: member="KIkb.h::msgError" ref="c415f3d3380d03003910bb806f16e200" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void msgError           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Main_8c-source.html#l00003">3</a> do arquivo <a class="el" href="Main_8c-source.html">Main.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

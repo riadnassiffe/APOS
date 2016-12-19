@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/kernel/defs/FatDefs.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/kernel/defs/FatDefs.h</h1><code>#include &quot;<a class="el" href="defs_2Timer_8h-source.html">../defs/Timer.h</a>&quot;</code><br>
+
+<p>
+<a href="FatDefs_8h-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Estruturas de Dados</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structName.html">Name</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Representa o nome de um arquivo ou diretório.  <a href="structName.html#_details">Mais...</a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAttribute.html">Attribute</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Representa os atributos que um arquivo ou diretório pode ter.  <a href="structAttribute.html#_details">Mais...</a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfatDirectory.html">fatDirectory</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Estrutura que representa as entradas de um diretório.  <a href="structfatDirectory.html#_details">Mais...</a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtBpb.html">tBpb</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Esta estrutura que representa os dados guardados no setor de boot da partição.  <a href="structtBpb.html#_details">Mais...</a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFatInstance.html">FatInstance</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Guardar todas informações sobre o sistema de arquivo de um dispositivo.  <a href="structFatInstance.html#_details">Mais...</a><br></td></tr>
+<tr><td colspan="2"><br><h2>Definições e Macros</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="FatDefs_8h.html#b6ad368e32c6304728c863dbb1e9d8dd">EOC</a>&nbsp;&nbsp;&nbsp;0xFFFF</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="FatDefs_8h.html#e17eeb06f496b8ec152d32a5aa746482">checked</a>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="FatDefs_8h.html#ef5bc51f67c258e3de36353bc58c3dd7">unchecked</a>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="FatDefs_8h.html#a551ec3e8bfdf08d8442ef55d3deb200">PARTITIONMAXSIZE</a>&nbsp;&nbsp;&nbsp;65535</td></tr>
+
+<tr><td colspan="2"><br><h2>Variáveis</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structName.html">Name</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="FatDefs_8h.html#16b1e4fbd894edb397960459715541d8">packed</a></td></tr>
+
+</table>
+<hr><h2>Definições e macros</h2>
+<a class="anchor" name="e17eeb06f496b8ec152d32a5aa746482"></a><!-- doxytag: member="FatDefs.h::checked" ref="e17eeb06f496b8ec152d32a5aa746482" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define checked&nbsp;&nbsp;&nbsp;1          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00010">10</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00740">createDIR()</a>, <a class="el" href="Fat_8c-source.html#l00603">createFile()</a>, <a class="el" href="Fat_8c-source.html#l00786">delDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>, <a class="el" href="Fat_8c-source.html#l01026">modifyEntry()</a>, <a class="el" href="Fat_8c-source.html#l00964">printDir()</a>, <a class="el" href="Fat_8c-source.html#l00905">refreshDirectoryEnter()</a> e <a class="el" href="Fat_8c-source.html#l00484">setDirectoryEntry()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="b6ad368e32c6304728c863dbb1e9d8dd"></a><!-- doxytag: member="FatDefs.h::EOC" ref="b6ad368e32c6304728c863dbb1e9d8dd" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EOC&nbsp;&nbsp;&nbsp;0xFFFF          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Criação das estruturas e definições para os sistema de arquivos. Orientador: Edeyson Andrade Gomes <a href="mailto:edeyson@gmail.com">edeyson@gmail.com</a> Aluno: Ríad Mattos Nassiffe <a href="mailto:riad.nassiffe@gmail.com">riad.nassiffe@gmail.com</a> 
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00009">9</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00402">addDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00740">createDIR()</a>, <a class="el" href="Fat_8c-source.html#l00603">createFile()</a>, <a class="el" href="Fat_8c-source.html#l00853">delDir()</a>, <a class="el" href="Fat_8c-source.html#l00786">delDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00651">delFile()</a>, <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>, <a class="el" href="Fat_8c-source.html#l01026">modifyEntry()</a>, <a class="el" href="Fat_8c-source.html#l00964">printDir()</a>, <a class="el" href="Fat_8c-source.html#l00522">readFile()</a> e <a class="el" href="Fat_8c-source.html#l00905">refreshDirectoryEnter()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="a551ec3e8bfdf08d8442ef55d3deb200"></a><!-- doxytag: member="FatDefs.h::PARTITIONMAXSIZE" ref="a551ec3e8bfdf08d8442ef55d3deb200" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PARTITIONMAXSIZE&nbsp;&nbsp;&nbsp;65535          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00012">12</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="ef5bc51f67c258e3de36353bc58c3dd7"></a><!-- doxytag: member="FatDefs.h::unchecked" ref="ef5bc51f67c258e3de36353bc58c3dd7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define unchecked&nbsp;&nbsp;&nbsp;0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="FatDefs_8h-source.html#l00011">11</a> do arquivo <a class="el" href="FatDefs_8h-source.html">FatDefs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00402">addDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00740">createDIR()</a>, <a class="el" href="Fat_8c-source.html#l00603">createFile()</a>, <a class="el" href="Fat_8c-source.html#l00853">delDir()</a>, <a class="el" href="Fat_8c-source.html#l00786">delDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00651">delFile()</a> e <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Variáveis</h2>
+<a class="anchor" name="16b1e4fbd894edb397960459715541d8"></a><!-- doxytag: member="FatDefs.h::packed" ref="16b1e4fbd894edb397960459715541d8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structbitMap.html">bitMap</a> <a class="el" href="MemStructs_8h.html#16b1e4fbd894edb397960459715541d8">packed</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/kernel/defs/Timer.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/kernel/defs/Timer.h</h1><a href="Timer_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef TIMER_H_</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define TIMER_H_</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00006"></a><a class="code" href="structTime.html">00006</a> <span class="keyword">struct </span><a class="code" href="structTime.html">Time</a>{
+<a name="l00008"></a><a class="code" href="structTime.html#ba85c8a32bc7bd8306d893eded467b34">00008</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="structTime.html#ba85c8a32bc7bd8306d893eded467b34">sec</a>:5;
+<a name="l00010"></a><a class="code" href="structTime.html#d80550a3de7e95bb2d8e36d5cc3bfb72">00010</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="structTime.html#d80550a3de7e95bb2d8e36d5cc3bfb72">min</a>:6;
+<a name="l00012"></a><a class="code" href="structTime.html#16e5be13edee459e9f080b0eabeb3b0f">00012</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="structTime.html#16e5be13edee459e9f080b0eabeb3b0f">hour</a>:5;
+<a name="l00013"></a>00013 }__attribute__((<a class="code" href="FatDefs_8h.html#16b1e4fbd894edb397960459715541d8">packed</a>));
+<a name="l00014"></a>00014 
+<a name="l00019"></a><a class="code" href="structDate.html">00019</a> <span class="keyword">struct </span><a class="code" href="structDate.html">Date</a>{
+<a name="l00021"></a><a class="code" href="structDate.html#e2ecbe0b286384448cc3f9e40a0f3089">00021</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="structDate.html#e2ecbe0b286384448cc3f9e40a0f3089">day</a>:5;
+<a name="l00023"></a><a class="code" href="structDate.html#044918ad5a7b508bf52797180a049a74">00023</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="structDate.html#044918ad5a7b508bf52797180a049a74">month</a>:4;
+<a name="l00025"></a><a class="code" href="structDate.html#8433722fd18fcddf9d0a369b4b81daf8">00025</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="structDate.html#8433722fd18fcddf9d0a369b4b81daf8">year</a>:7;
+<a name="l00026"></a>00026         
+<a name="l00027"></a>00027 }__attribute__((<a class="code" href="FatDefs_8h.html#16b1e4fbd894edb397960459715541d8">packed</a>));
+<a name="l00028"></a>00028 <span class="preprocessor">#endif</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Wed Mar 19 00:45:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

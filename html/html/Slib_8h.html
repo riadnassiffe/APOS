@@ -1,0 +1,492 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/libs/include/Slib.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/libs/include/Slib.h</h1><code>#include &quot;<a class="el" href="Defs_8h-source.html">../../include/Defs.h</a>&quot;</code><br>
+
+<p>
+<a href="Slib_8h-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Slib_8h.html#f520fcceb7e35e814c9fde67260cc554">strcpy</a> (char *dest, char *source)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Slib_8h.html#ef594b68710351c8765d390d98b6c42e">strcpyn</a> (char *dest, char *source, int size)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Slib_8h.html#15bde2174f2412867fc36278b65af29c">strcmp</a> (const char *op1, const char *op2)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">T_SIZE&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Slib_8h.html#c6b5c6676a3d76674a299a4c92e54e27">strlenght</a> (const char *source)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Slib_8h.html#084569138c75859ffa8c45c47154d882">strstart</a> (char *op1, char *op2)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Slib_8h.html#9775e2d26f2bcc6ad73457233da03074">searchchar</a> (char *op1, char op2)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Slib_8h.html#72cb14f3bedd63249ea290ef32fd3e54">atoi</a> (char *string)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Slib_8h.html#0338f8f78dbf81dc70849a16e3ec22bb">itoa</a> (int value, char *str, int base)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Slib_8h.html#82c26cd350df88414f825bca40183ec2">memcpy</a> (void *dest, const void *src, <a class="el" href="Defs_8h.html#7619b847aeded8a6d14cbfa212b2cdfb">size_t</a> count)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Slib_8h.html#38fe60ae379d3aee5c689a88dc43a472">memset</a> (void *dest, char val, <a class="el" href="Defs_8h.html#7619b847aeded8a6d14cbfa212b2cdfb">size_t</a> count)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Slib_8h.html#342b75f001ce12419971ebd0050681b7">getfirststr</a> (char *op1)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned short *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Slib_8h.html#e7d6183dbe510ba9dbe1aa6f1ec1f40f">memsetw</a> (unsigned short *dest, unsigned short val, <a class="el" href="Defs_8h.html#7619b847aeded8a6d14cbfa212b2cdfb">size_t</a> count)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="Defs_8h.html#7619b847aeded8a6d14cbfa212b2cdfb">size_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Slib_8h.html#008e171a518fe0e0352f31b245e03875">strlen</a> (const char *str)</td></tr>
+
+</table>
+<hr><h2>Funções</h2>
+<a class="anchor" name="72cb14f3bedd63249ea290ef32fd3e54"></a><!-- doxytag: member="Slib.h::atoi" ref="72cb14f3bedd63249ea290ef32fd3e54" args="(char *string)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int atoi           </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>string</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Slib_8c-source.html#l00162">162</a> do arquivo <a class="el" href="Slib_8c-source.html">Slib.c</a>.</p>
+
+<p>Referências <a class="el" href="Slib_8c-source.html#l00099">strlenght()</a>.</p>
+
+<p>Referenciado por <a class="el" href="If_8c-source.html#l00103">get_parm()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="342b75f001ce12419971ebd0050681b7"></a><!-- doxytag: member="Slib.h::getfirststr" ref="342b75f001ce12419971ebd0050681b7" args="(char *op1)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* getfirststr           </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>op1</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Slib_8c-source.html#l00146">146</a> do arquivo <a class="el" href="Slib_8c-source.html">Slib.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="If_8c-source.html#l00103">get_parm()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="0338f8f78dbf81dc70849a16e3ec22bb"></a><!-- doxytag: member="Slib.h::itoa" ref="0338f8f78dbf81dc70849a16e3ec22bb" args="(int value, char *str, int base)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void itoa           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>base</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Slib_8c-source.html#l00205">205</a> do arquivo <a class="el" href="Slib_8c-source.html">Slib.c</a>.</p>
+
+<p>Referências <a class="el" href="Slib_8c-source.html#l00199">strreverse()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Scrn_8c-source.html#l00129">printfInt()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="82c26cd350df88414f825bca40183ec2"></a><!-- doxytag: member="Slib.h::memcpy" ref="82c26cd350df88414f825bca40183ec2" args="(void *dest, const void *src, size_t count)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* memcpy           </td>
+          <td>(</td>
+          <td class="paramtype">void *&nbsp;</td>
+          <td class="paramname"> <em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&nbsp;</td>
+          <td class="paramname"> <em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="Defs_8h.html#7619b847aeded8a6d14cbfa212b2cdfb">size_t</a>&nbsp;</td>
+          <td class="paramname"> <em>count</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Slib_8c-source.html#l00227">227</a> do arquivo <a class="el" href="Slib_8c-source.html">Slib.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Fat_8c-source.html#l00402">addDirectoryEntry()</a>, <a class="el" href="Fat_8c-source.html#l00740">createDIR()</a>, <a class="el" href="Fat_8c-source.html#l00853">delDir()</a>, <a class="el" href="Fat_8c-source.html#l00651">delFile()</a>, <a class="el" href="Fat_8c-source.html#l00183">formatDisk()</a>, <a class="el" href="Fat_8c-source.html#l00098">loadFatList()</a>, <a class="el" href="Fat_8c-source.html#l01026">modifyEntry()</a>, <a class="el" href="Scrn_8c-source.html#l00017">scroll()</a>, <a class="el" href="Fat_8c-source.html#l00484">setDirectoryEntry()</a> e <a class="el" href="Fat_8c-source.html#l00334">updateFat()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="38fe60ae379d3aee5c689a88dc43a472"></a><!-- doxytag: member="Slib.h::memset" ref="38fe60ae379d3aee5c689a88dc43a472" args="(void *dest, char val, size_t count)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* memset           </td>
+          <td>(</td>
+          <td class="paramtype">void *&nbsp;</td>
+          <td class="paramname"> <em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&nbsp;</td>
+          <td class="paramname"> <em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="Defs_8h.html#7619b847aeded8a6d14cbfa212b2cdfb">size_t</a>&nbsp;</td>
+          <td class="paramname"> <em>count</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Slib_8c-source.html#l00235">235</a> do arquivo <a class="el" href="Slib_8c-source.html">Slib.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Idt_8c-source.html#l00046">idt_install()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="e7d6183dbe510ba9dbe1aa6f1ec1f40f"></a><!-- doxytag: member="Slib.h::memsetw" ref="e7d6183dbe510ba9dbe1aa6f1ec1f40f" args="(unsigned short *dest, unsigned short val, size_t count)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short* memsetw           </td>
+          <td>(</td>
+          <td class="paramtype">unsigned short *&nbsp;</td>
+          <td class="paramname"> <em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short&nbsp;</td>
+          <td class="paramname"> <em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="Defs_8h.html#7619b847aeded8a6d14cbfa212b2cdfb">size_t</a>&nbsp;</td>
+          <td class="paramname"> <em>count</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Slib_8c-source.html#l00249">249</a> do arquivo <a class="el" href="Slib_8c-source.html">Slib.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Scrn_8c-source.html#l00046">cls()</a> e <a class="el" href="Scrn_8c-source.html#l00017">scroll()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="9775e2d26f2bcc6ad73457233da03074"></a><!-- doxytag: member="Slib.h::searchchar" ref="9775e2d26f2bcc6ad73457233da03074" args="(char *op1, char op2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int searchchar           </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>op1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&nbsp;</td>
+          <td class="paramname"> <em>op2</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Slib_8c-source.html#l00130">130</a> do arquivo <a class="el" href="Slib_8c-source.html">Slib.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="If_8c-source.html#l00103">get_parm()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="15bde2174f2412867fc36278b65af29c"></a><!-- doxytag: member="Slib.h::strcmp" ref="15bde2174f2412867fc36278b65af29c" args="(const char *op1, const char *op2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL strcmp           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>op1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>op2</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Slib_8c-source.html#l00081">81</a> do arquivo <a class="el" href="Slib_8c-source.html">Slib.c</a>.</p>
+
+<p>Referências <a class="el" href="Defs_8h-source.html#l00029">FALSE</a>, <a class="el" href="Slib_8c-source.html#l00099">strlenght()</a> e <a class="el" href="Defs_8h-source.html#l00025">TRUE</a>.</p>
+
+<p>Referenciado por <a class="el" href="If_8c-source.html#l00116">command_analyzer()</a>, <a class="el" href="Fat_8c-source.html#l00853">delDir()</a>, <a class="el" href="Fat_8c-source.html#l00651">delFile()</a>, <a class="el" href="Fat_8c-source.html#l01026">modifyEntry()</a>, <a class="el" href="Fat_8c-source.html#l00522">readFile()</a> e <a class="el" href="Fat_8c-source.html#l00905">refreshDirectoryEnter()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="f520fcceb7e35e814c9fde67260cc554"></a><!-- doxytag: member="Slib.h::strcpy" ref="f520fcceb7e35e814c9fde67260cc554" args="(char *dest, char *source)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL strcpy           </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>source</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Slib_8c-source.html#l00033">33</a> do arquivo <a class="el" href="Slib_8c-source.html">Slib.c</a>.</p>
+
+<p>Referências <a class="el" href="Slib_8c-source.html#l00099">strlenght()</a> e <a class="el" href="Defs_8h-source.html#l00025">TRUE</a>.</p>
+
+<p>Referenciado por <a class="el" href="If_8c-source.html#l00081">command_interface()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="ef594b68710351c8765d390d98b6c42e"></a><!-- doxytag: member="Slib.h::strcpyn" ref="ef594b68710351c8765d390d98b6c42e" args="(char *dest, char *source, int size)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL strcpyn           </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>size</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Slib_8c-source.html#l00052">52</a> do arquivo <a class="el" href="Slib_8c-source.html">Slib.c</a>.</p>
+
+<p>Referências <a class="el" href="Defs_8h-source.html#l00025">TRUE</a>.</p>
+
+<p>Referenciado por <a class="el" href="Gpro_8c-source.html#l00141">createProcess()</a> e <a class="el" href="If_8c-source.html#l00103">get_parm()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="008e171a518fe0e0352f31b245e03875"></a><!-- doxytag: member="Slib.h::strlen" ref="008e171a518fe0e0352f31b245e03875" args="(const char *str)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Defs_8h.html#7619b847aeded8a6d14cbfa212b2cdfb">size_t</a> strlen           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>str</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Slib_8c-source.html#l00242">242</a> do arquivo <a class="el" href="Slib_8c-source.html">Slib.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Scrn_8c-source.html#l00138">APOSDEBUG()</a> e <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="c6b5c6676a3d76674a299a4c92e54e27"></a><!-- doxytag: member="Slib.h::strlenght" ref="c6b5c6676a3d76674a299a4c92e54e27" args="(const char *source)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_SIZE strlenght           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>source</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Slib_8c-source.html#l00099">99</a> do arquivo <a class="el" href="Slib_8c-source.html">Slib.c</a>.</p>
+
+<p>Referenciado por <a class="el" href="Slib_8c-source.html#l00162">atoi()</a>, <a class="el" href="Fat_8c-source.html#l00603">createFile()</a>, <a class="el" href="If_8c-source.html#l00103">get_parm()</a>, <a class="el" href="Fat_8c-source.html#l01026">modifyEntry()</a>, <a class="el" href="Slib_8c-source.html#l00081">strcmp()</a> e <a class="el" href="Slib_8c-source.html#l00033">strcpy()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="084569138c75859ffa8c45c47154d882"></a><!-- doxytag: member="Slib.h::strstart" ref="084569138c75859ffa8c45c47154d882" args="(char *op1, char *op2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL strstart           </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>op1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>op2</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Slib_8c-source.html#l00116">116</a> do arquivo <a class="el" href="Slib_8c-source.html">Slib.c</a>.</p>
+
+<p>Referências <a class="el" href="Defs_8h-source.html#l00029">FALSE</a> e <a class="el" href="Defs_8h-source.html#l00025">TRUE</a>.</p>
+
+<p>Referenciado por <a class="el" href="If_8c-source.html#l00116">command_analyzer()</a>.</p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

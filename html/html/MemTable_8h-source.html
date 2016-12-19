@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/modulos/include/MemTable.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/modulos/include/MemTable.h</h1><a href="MemTable_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef MEM_H_</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define MEM_H_</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#include "../../include/Defs.h"</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include "<a class="code" href="MultiBoot_8h.html">MultiBoot.h</a>"</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include "../../kernel/interface/KIgdt.h"</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include "../../kernel/interface/KIscrn.h"</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include "../defs/MemStructs.h"</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a><a class="code" href="MemTable_8h.html#ae1c291782a22dfa1d54bd80cba5c1fa">00009</a> <span class="preprocessor">#define MAX_PART 11</span>
+<a name="l00010"></a><a class="code" href="MemTable_8h.html#77e8f2a10448980c03e224df8df2e589">00010</a> <span class="preprocessor"></span><span class="preprocessor">#define TAM2K 2048</span>
+<a name="l00011"></a><a class="code" href="MemTable_8h.html#ab9fa0310b5cfd53d04e143f4ef9ab40">00011</a> <span class="preprocessor"></span><span class="preprocessor">#define TAM4K 4096</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span><span class="preprocessor">#define TAM5K 5120</span>
+<a name="l00013"></a>00013 <span class="preprocessor"></span><span class="preprocessor">#define TAM10K 10240 </span>
+<a name="l00014"></a>00014 <span class="preprocessor"></span><span class="preprocessor">#define TAM1MB 1048576</span>
+<a name="l00015"></a><a class="code" href="MemTable_8h.html#9cfce745fd1f1bd8e3c3c67fdfc383af">00015</a> <span class="preprocessor"></span><span class="preprocessor">#define TAM5MB 5242880</span>
+<a name="l00016"></a><a class="code" href="MemTable_8h.html#070d2ce7b6bb7e5c05602aa8c308d0c4">00016</a> <span class="preprocessor"></span><span class="preprocessor">#define NULL 0x00</span>
+<a name="l00017"></a><a class="code" href="MemTable_8h.html#0a7cdc76472fc14294d81b1d13949adc">00017</a> <span class="preprocessor"></span><span class="preprocessor">#define PARTITIONSIEZE 2102272 //2MB 5K</span>
+<a name="l00018"></a><a class="code" href="MemTable_8h.html#d1991eb62755e9424477b88768f085c0">00018</a> <span class="preprocessor"></span><span class="preprocessor">#define TAM5K 5120</span>
+<a name="l00019"></a><a class="code" href="MemTable_8h.html#36c05fe12a1fe7bab97be46255668e35">00019</a> <span class="preprocessor"></span><span class="preprocessor">#define TAM10K 10240 </span>
+<a name="l00020"></a><a class="code" href="MemTable_8h.html#d29e3fa093f89b98f8b508133d3d3a48">00020</a> <span class="preprocessor"></span><span class="preprocessor">#define TAM1MB 1048576</span>
+<a name="l00021"></a><a class="code" href="MemTable_8h.html#38f531fc585b77dccb8d33b678836f84">00021</a> <span class="preprocessor"></span><span class="preprocessor">#define TAM2MB 2097152</span>
+<a name="l00022"></a><a class="code" href="MemTable_8h.html#fcf795f5a96fd55561abe69f56224630">00022</a> <span class="preprocessor"></span><span class="preprocessor">#define BLOCKSIZE       0X1000</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span>
+<a name="l00024"></a><a class="code" href="structstab__mem.html">00024</a> <span class="keyword">struct </span><a class="code" href="structstab__mem.html">stab_mem</a> {
+<a name="l00025"></a><a class="code" href="structstab__mem.html#752003a41ec6eb2eccb0dd4f16b16474">00025</a>         <span class="keyword">struct </span><a class="code" href="structsdesc__tabMem.html">sdesc_tabMem</a> <a class="code" href="structstab__mem.html#752003a41ec6eb2eccb0dd4f16b16474">lin</a>[<a class="code" href="Gmem_8h.html#ae1c291782a22dfa1d54bd80cba5c1fa">MAX_PART</a>];
+<a name="l00026"></a>00026 };
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="keywordtype">int</span> <a class="code" href="MemTable_8h.html#e77cac32f1a21f97ade2cbcf29918281" title="Inicializa a tabela que guarda as partições da memória.">initMemTable</a>();
+<a name="l00029"></a>00029 <span class="keywordtype">int</span> <a class="code" href="MemTable_8h.html#e5f6adb693ab5f2d6fa281c7c21ca364" title="Função responsável por inicializar o mapa de bit.">initMemBitMap</a>(<a class="code" href="structmultiboot__info.html">multiboot_info_t</a> *boot_info);
+<a name="l00030"></a>00030 <span class="keywordtype">void</span> <a class="code" href="MemTable_8h.html#4e0f33d6db1e52e1c31e66bc4b32ae32" title="Mostrar tabela de memória na tela.">showMemoryTable</a>();
+<a name="l00031"></a>00031 <span class="keywordtype">void</span> <a class="code" href="MemTable_8h.html#654bc1fb49c1facb18b6e2ac51089a9d">initMemoryTable</a>();
+<a name="l00032"></a>00032 <span class="keywordtype">void</span> <a class="code" href="MemTable_8h.html#5278ca6a8aabfc9c157099526e48555c">initMemoryTableLine</a>(<span class="keywordtype">int</span> numLin);
+<a name="l00033"></a>00033 <span class="keywordtype">void</span> <a class="code" href="MemTable_8h.html#3fb406bd54b744080174245b4ec09b54" title="Essa função escreve as linhas da tabela de partições da mémoria e marca as páginas...">addLinPart</a>(<span class="keywordtype">int</span> numLine, <span class="keywordtype">int</span> <a class="code" href="structsdesc__tabMem.html#4450be70534ec0992de71722404e3963">pa</a>, <span class="keywordtype">int</span> pid, <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> c_point, <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> c_size,<a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> h_point, <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> h_size,<a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> s_point, <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> s_size);
+<a name="l00034"></a>00034 <span class="keywordtype">int</span> <a class="code" href="MemTable_8h.html#a7c8227a7c9e42fcf9f3581f2a497273" title="Essa função deve allocar uma partição da memória para o processo, de acordo...">partAlloc</a>(<span class="keywordtype">int</span> pid,<a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> sizeCode,<a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> sizeStack,<a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> sizeHeap);
+<a name="l00035"></a>00035 <span class="keywordtype">void</span> <a class="code" href="MemTable_8h.html#9c73926af5649bce7c5ce424d1e57318">checkRelocSize</a>();
+<a name="l00036"></a>00036 <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="MemTable_8h.html#564904271468b35143b579b9d2634f18" title="Retorna o valor do ponteiro da pilha do stack, de uma determinada linha.">getProcStackPointer</a>(<span class="keywordtype">int</span> numTab);
+<a name="l00037"></a>00037 <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="MemTable_8h.html#2186819c7ce0f89b384a6e2eae737bb0" title="Retorna o valor restante do tamanho da pilha de stack.">getProcStackSize</a>(<span class="keywordtype">int</span> numTab);
+<a name="l00038"></a>00038 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="MemTable_8h.html#a7f28fb01004b3d23d5f9e043a65f505">getMemoryTableSize</a>();
+<a name="l00039"></a>00039 <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> <a class="code" href="MemTable_8h.html#33b0b9bda1814ce7c523e28db221650c">getTableMemoryPa</a>(<span class="keywordtype">int</span> line);
+<a name="l00040"></a>00040 <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> <a class="code" href="MemTable_8h.html#23ed3e9bab38d7a5af35eb15cab6c9fb">getTableMemoryPid</a>(<span class="keywordtype">int</span> line);
+<a name="l00041"></a>00041 <span class="keyword">struct </span><a class="code" href="structs__free__node.html">s_free_node</a> *<a class="code" href="MemTable_8h.html#8fd768925e809390190d18a2e7767968">getTableMemoryCab</a>(<span class="keywordtype">int</span> line);
+<a name="l00042"></a>00042 <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> <a class="code" href="MemTable_8h.html#61411ab16fe38820037ab75a53a44321">getTableMemoryHeapPoint</a>(<span class="keywordtype">int</span> line);
+<a name="l00043"></a>00043 <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> <a class="code" href="MemTable_8h.html#ecdfa300d9e7f1382e3130f98cf1b821">getTableMemoryHeapSize</a>(<span class="keywordtype">int</span> line);
+<a name="l00044"></a>00044 <span class="keywordtype">void</span> <a class="code" href="MemTable_8h.html#c731af1f0e4b8261252594c9d0a0cde3">setTableMemoryRelocSize</a>(<span class="keywordtype">int</span> line,<span class="keywordtype">int</span> <a class="code" href="structs__free__node.html#047aab48ebdab1efed240896f4f6e745">size</a>);
+<a name="l00045"></a>00045 <span class="keywordtype">void</span> <a class="code" href="MemTable_8h.html#d6e24bce6e2887c684704ccdcb6dd65e">setTableMemoryHeapSize</a>(<span class="keywordtype">int</span> line, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> heapSize);
+<a name="l00046"></a>00046 <span class="keywordtype">void</span> <a class="code" href="MemTable_8h.html#96bd780771dcfadbb4b12deeff0edb14">setTableMemoryPa</a>(<span class="keywordtype">int</span> line, <span class="keywordtype">int</span> myPart);
+<a name="l00047"></a>00047 <span class="keywordtype">void</span> <a class="code" href="MemTable_8h.html#b87ca7df09b49e08020c53bce27890c0">setTableMemoryPid</a>(<span class="keywordtype">int</span> line, <span class="keywordtype">int</span> pid);
+<a name="l00048"></a>00048 <span class="keywordtype">void</span> <a class="code" href="MemTable_8h.html#fa96a71ce0b7764a48d067060bd8d786">setTableMemoryCab</a>(<span class="keywordtype">int</span> line, <span class="keyword">struct</span> <a class="code" href="structs__free__node.html">s_free_node</a> *cab);
+<a name="l00049"></a>00049 <span class="keywordtype">void</span> <a class="code" href="MemTable_8h.html#ebef9056fe89017711796dcf3f2e690c">setTableMenoryHeapPoint</a>(<span class="keywordtype">int</span> line, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> heapPointSize);
+<a name="l00050"></a>00050 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="MemTable_8h.html#79d35998d591c4af28224d49056c3f8a" title="Essa função verifica se existe espaço para alocação do tamanho desejado.">searchFreeSpace</a>(<a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> sizeCode);
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 <span class="preprocessor">#endif </span><span class="comment">/*MEM_H_*/</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

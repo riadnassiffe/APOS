@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/modulos/interface/Igpro.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/modulos/interface/Igpro.h</h1><a href="Igpro_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef IGPRO_H_</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define IGPRO_H_</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include "../include/Gpro.h"</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#1f2900e13d25cce03b2128c0e699dd5c" title="Imprimi o estado do contrle de processo.">printBcpStat</a>();
+<a name="l00007"></a>00007 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#453f8af51f5b2ba8916adab8e05984e3" title="Imprimi o tamanho da lista de processos prontos.">printSizeReady</a>();
+<a name="l00008"></a>00008 <span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#1b6bfc5b6a2660f3abc99ef7b693df3a">rem_procReadyList</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);
+<a name="l00009"></a>00009 <span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#4c2f14867a5d1ef53139c0f673fc896d" title="Cria um processo.">createProcess</a>(<span class="keywordtype">int</span> pri, <span class="keywordtype">char</span> name[<a class="code" href="Gpro_8h.html#2d1f8a74ee9434ede20f14c2270fcbdc">MAX_NAMEPROC</a>], <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numArg, <span class="keywordtype">void</span> (*pont)());
+<a name="l00010"></a>00010 <span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Scrn_8h.html#20b9cd12c16dd2bafb141277d5200f8b" title="Pega o pid do processo que o executa.">getMyPid</a>();
+<a name="l00011"></a>00011 <span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#ba9b84c98fbd0e78a33762a0ead68c2a" title="Pega o pid do processo que o executa.">setCurrentPid</a>(<span class="keywordtype">int</span> pid);
+<a name="l00012"></a>00012 <span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#c8bec3b196fa5913c94ad83731462a78">getMyPart</a>();
+<a name="l00013"></a>00013 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#ecbb94da9a1e01ffdf01183307e22106">init_gProc</a>();
+<a name="l00014"></a>00014 <span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#7bd39a87693943267fee9f2a9bce99f6" title="Retorna o tamanho da lista de processos prontos.">size_listReady</a>();
+<a name="l00015"></a>00015 <span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#b80e4c96f688af3ee9f0d6e9fe49ddb2" title="Retorna o tamanho da lista de processos bloqueados.">size_listBlock</a>();
+<a name="l00016"></a>00016 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#730c7f26ce37b085cfe2c6cdd9437a38">add_listReady</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);
+<a name="l00017"></a>00017 <span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#d9a3af65ad4a2d24aca1c27e60d6ccbd">rem_listReady</a>();
+<a name="l00018"></a>00018 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#a19262a0e7f05408019378396c4fd816" title="Adiciona a um processo a lista de bloqueado.">add_listBlock</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);
+<a name="l00019"></a>00019 <span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#84cbe8ec2c944cc628a7a8087752bb19" title="Remove um processo a lista de bloqueado.">rem_listBlock</a>(<span class="keywordtype">int</span> pid);
+<a name="l00020"></a>00020 <span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#48864075250066869088d8ed82504be4" title="Elege o próximo processo a executar. Algoritmo: 1. verifica se algum processo bloqueado...">resched</a>();
+<a name="l00021"></a>00021 <span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#6df45a9629060425f4bd41de5212c02b" title="Mata o processo com o ID do parâmetroSeta BCP line do processo PA=0Devolve particao...">killProcess</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);
+<a name="l00022"></a>00022 <span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#331dc8718271025b67f4a22351c3c08f" title="Retorna o valor do pid do processo atual.">getCurrentPid</a>();
+<a name="l00023"></a>00023 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#3706684c308b2c2cc2f6493a08372999" title="Permite a modificação do PID. Uso restrito do gerenciador de processos.">setPid</a>(<span class="keywordtype">int</span> pid);
+<a name="l00024"></a>00024 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#358d2e2397ca11ccd17553e3c40e7901" title="Comando dado pelo próprio processo se mata, quando o mesmo completa sua execução...">exit</a>();
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="preprocessor">#endif </span><span class="comment">/*IGPRO_H_*/</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

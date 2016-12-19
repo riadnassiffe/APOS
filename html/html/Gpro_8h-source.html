@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/modulos/include/Gpro.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/modulos/include/Gpro.h</h1><a href="Gpro_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> ESCALONADOR</span>
+<a name="l00003"></a>00003 <span class="comment"> - Gerenciamento de Processos </span>
+<a name="l00004"></a>00004 <span class="comment"> */</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006  
+<a name="l00007"></a>00007 <span class="preprocessor">#include "../../include/Defs.h"</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include "../../libs/include/Slib.h"</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include "../../kernel/interface/KIscrn.h"</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include "../../kernel/interface/KIgdt.h"</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include "../interface/Igmem.h"</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include "../include/MemTable.h"</span>
+<a name="l00013"></a>00013 <span class="comment">/*</span>
+<a name="l00014"></a>00014 <span class="comment"> ==============================================================================</span>
+<a name="l00015"></a>00015 <span class="comment"> MAPEAR</span>
+<a name="l00016"></a>00016 <span class="comment"> - Mapeando registradores gerais!</span>
+<a name="l00017"></a>00017 <span class="comment"> */</span>
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="Gpro_8h.html#4a455c2e8f8fd5a7c638fc6bbfe5c421">reg_eax</a>;
+<a name="l00020"></a>00020 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="Gpro_8h.html#44b8221304fffd618e8bb8805b2362e8">reg_ebx</a>;
+<a name="l00021"></a>00021 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="Gpro_8h.html#76a36e2cad6f45cfc04772640a7ae743">reg_ecx</a>;
+<a name="l00022"></a>00022 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="Gpro_8h.html#45d222ee599a5e6f9737677216818102">reg_edx</a>;
+<a name="l00023"></a>00023 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="Gpro_8h.html#46dbda93aa589cab812f65177ae17660">reg_edi</a>;
+<a name="l00024"></a>00024 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="Gpro_8h.html#79741e4d94a488a6d4cd01876524d349">reg_esi</a>;
+<a name="l00025"></a>00025 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="Gpro_8h.html#d6b9533105520d8e139bd09bf78ef87c">reg_ebp</a>;
+<a name="l00026"></a>00026 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="Gpro_8h.html#de11a7481c5bbe50af671e8729e30522">reg_esp</a>;
+<a name="l00027"></a>00027 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#5e75d79e78ebce11c04324b815a6a2b5">T_16</a> <a class="code" href="Gpro_8h.html#44d84218d40569ded26b5d01f7744532">reg_cs</a>;
+<a name="l00028"></a>00028 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#5e75d79e78ebce11c04324b815a6a2b5">T_16</a> <a class="code" href="Gpro_8h.html#02dec734eec69689a8c6104c5434211f">reg_ds</a>;
+<a name="l00029"></a>00029 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#5e75d79e78ebce11c04324b815a6a2b5">T_16</a> <a class="code" href="Gpro_8h.html#0ad629cc5d0ef1c89e03b1f93f2aff71">reg_es</a>;
+<a name="l00030"></a>00030 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#5e75d79e78ebce11c04324b815a6a2b5">T_16</a> <a class="code" href="Gpro_8h.html#b1a105cd2de2bdc82096bf4d653486f4">reg_ss</a>;
+<a name="l00031"></a>00031 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#5e75d79e78ebce11c04324b815a6a2b5">T_16</a> <a class="code" href="Gpro_8h.html#0b7e8e439cc8d7d671786eea38a1f04c">reg_gs</a>;
+<a name="l00032"></a>00032 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#5e75d79e78ebce11c04324b815a6a2b5">T_16</a> <a class="code" href="Gpro_8h.html#c25353215a43f0cc5a0783dd88147c36">reg_fs</a>;
+<a name="l00033"></a>00033 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="Gpro_8h.html#1eac00f1f911f1dc393da1e506d7f7b0">reg_eip</a>;
+<a name="l00034"></a>00034 <span class="keyword">extern</span> <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="Gpro_8h.html#7497f64e6da1f6464b00f841e88dc645">reg_eflags</a>;
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 <span class="preprocessor">#define MAX_NAMEPROC 10 </span>
+<a name="l00037"></a><a class="code" href="Gpro_8h.html#9247007216b0f0b587c226ccec4accdb">00037</a> <span class="preprocessor"></span><span class="preprocessor">#define PROC_STATE int</span>
+<a name="l00038"></a><a class="code" href="Gpro_8h.html#1b70a7b7f9ac0f632fd5c8e4da396463">00038</a> <span class="preprocessor"></span><span class="preprocessor">#define PROC_NAME char[MAX_NAMEPROC]</span>
+<a name="l00039"></a><a class="code" href="Gpro_8h.html#2d1f8a74ee9434ede20f14c2270fcbdc">00039</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX_NAMEPROC 10</span>
+<a name="l00040"></a><a class="code" href="Gpro_8h.html#63e32d00bc48471b4db49d481ac228dc">00040</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX_PROC 11</span>
+<a name="l00041"></a><a class="code" href="Gpro_8h.html#38b30392d8e246cd0ba0566c15376777">00041</a> <span class="preprocessor"></span><span class="preprocessor">#define PROC_CURRENT 0</span>
+<a name="l00042"></a><a class="code" href="Gpro_8h.html#f4169634e0641af11be98d9389f4acd2">00042</a> <span class="preprocessor"></span><span class="preprocessor">#define PROC_READY 1</span>
+<a name="l00043"></a><a class="code" href="Gpro_8h.html#e1fb029b6b41c8e541f7ac3755fa625a">00043</a> <span class="preprocessor"></span><span class="preprocessor">#define PROC_BLOCK 2</span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span>
+<a name="l00045"></a>00045 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="Gpro_8h.html#33340923315d90246ed423c84bc5cba5">create_common_stack</a>();
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047 <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#d2a9aa2493a850c8b5fa62018b708234">suspend</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);
+<a name="l00048"></a>00048 <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#48864075250066869088d8ed82504be4" title="Elege o próximo processo a executar. Algoritmo: 1. verifica se algum processo bloqueado...">resched</a>();
+<a name="l00049"></a>00049 <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#1329b8bb93327fe6274fc35cc64b75a3" title="Verifica se um Pid e válido.">validPid</a>(<span class="keywordtype">int</span> pid);
+<a name="l00050"></a>00050 <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#ecbb94da9a1e01ffdf01183307e22106">init_gProc</a>();
+<a name="l00051"></a>00051 <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#19de22117d2f804a396411e4acc02a9d" title="Inicia bloco de controle de processo..">init_Bcp</a>();
+<a name="l00052"></a>00052 <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#134a8f81e099a4309bcc07fdb7f3deba" title="Inicializa listas de prontos e bloqueados.">init_lists</a>();
+<a name="l00053"></a>00053 <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#c8bec3b196fa5913c94ad83731462a78">getMyPart</a>();
+<a name="l00054"></a>00054 <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#3706684c308b2c2cc2f6493a08372999" title="Permite a modificação do PID. Uso restrito do gerenciador de processos.">setPid</a>(<span class="keywordtype">int</span> pid);
+<a name="l00055"></a>00055 <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#358d2e2397ca11ccd17553e3c40e7901" title="Comando dado pelo próprio processo se mata, quando o mesmo completa sua execução...">exit</a>();
+<a name="l00056"></a>00056 <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#1b6bfc5b6a2660f3abc99ef7b693df3a">rem_procReadyList</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);
+<a name="l00057"></a>00057 <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#5c5cb23773be75d47fab2733d3be15a4" title="Salva registradores mapeados.">saveStack</a>(<span class="keywordtype">int</span> pid);
+<a name="l00058"></a>00058 <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#44254be01ae933e998c18d69e471fdfd" title="Desvia o fluxo de instrução da CPU para o processo com ID. Usa a função asm goAddress(unsigned...">loadStack</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060 <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#ba9b84c98fbd0e78a33762a0ead68c2a" title="Pega o pid do processo que o executa.">setCurrentPid</a>(<span class="keywordtype">int</span> pid);
+<a name="l00061"></a>00061 <span class="keywordtype">int</span> <a class="code" href="Scrn_8h.html#20b9cd12c16dd2bafb141277d5200f8b" title="Pega o pid do processo que o executa.">getMyPid</a>();
+<a name="l00062"></a>00062 <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#81703166adc9d5d798ff8edda0ee85e5" title="Retorna um valor de PID válido.">getFreePid</a>();
+<a name="l00063"></a>00063 <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#331dc8718271025b67f4a22351c3c08f" title="Retorna o valor do pid do processo atual.">getCurrentPid</a>();
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065 <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#4c2f14867a5d1ef53139c0f673fc896d" title="Cria um processo.">createProcess</a>(<span class="keywordtype">int</span> pri, <span class="keywordtype">char</span> name[<a class="code" href="Gpro_8h.html#2d1f8a74ee9434ede20f14c2270fcbdc">MAX_NAMEPROC</a>], <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numArg, <span class="keywordtype">void</span> (*pont)());
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#6df45a9629060425f4bd41de5212c02b" title="Mata o processo com o ID do parâmetroSeta BCP line do processo PA=0Devolve particao...">killProcess</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#730c7f26ce37b085cfe2c6cdd9437a38">add_listReady</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);
+<a name="l00070"></a>00070 <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#d9a3af65ad4a2d24aca1c27e60d6ccbd">rem_listReady</a>();
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#7bd39a87693943267fee9f2a9bce99f6" title="Retorna o tamanho da lista de processos prontos.">size_listReady</a>();
+<a name="l00073"></a>00073 <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#b80e4c96f688af3ee9f0d6e9fe49ddb2" title="Retorna o tamanho da lista de processos bloqueados.">size_listBlock</a>();
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#a19262a0e7f05408019378396c4fd816" title="Adiciona a um processo a lista de bloqueado.">add_listBlock</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);
+<a name="l00076"></a>00076 <span class="keywordtype">int</span> <a class="code" href="Gpro_8c.html#84cbe8ec2c944cc628a7a8087752bb19" title="Remove um processo a lista de bloqueado.">rem_listBlock</a>(<span class="keywordtype">int</span> pid);
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#1f2900e13d25cce03b2128c0e699dd5c" title="Imprimi o estado do contrle de processo.">printBcpStat</a>();
+<a name="l00079"></a>00079 <span class="keywordtype">void</span> <a class="code" href="Gpro_8c.html#453f8af51f5b2ba8916adab8e05984e3" title="Imprimi o tamanho da lista de processos prontos.">printSizeReady</a>();
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 <span class="comment">/*</span>
+<a name="l00082"></a>00082 <span class="comment"> struct s_NoProc</span>
+<a name="l00083"></a>00083 <span class="comment"> Estrutura que define o formato dos objetos da lista de READY\BLOCK</span>
+<a name="l00084"></a>00084 <span class="comment"> */</span>
+<a name="l00085"></a><a class="code" href="structs__NoProc.html">00085</a> <span class="keyword">struct </span><a class="code" href="structs__NoProc.html">s_NoProc</a> {
+<a name="l00086"></a><a class="code" href="structs__NoProc.html#69dc5a3ed1fda80f88afb9fb2b8aa32d">00086</a>         <span class="keywordtype">int</span> <a class="code" href="structs__NoProc.html#69dc5a3ed1fda80f88afb9fb2b8aa32d">id</a>;
+<a name="l00087"></a><a class="code" href="structs__NoProc.html#dd222dc2c587bce5cd56d9cad4d6dfdd">00087</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="structs__NoProc.html#dd222dc2c587bce5cd56d9cad4d6dfdd">prio</a>;
+<a name="l00088"></a><a class="code" href="structs__NoProc.html#2386ddf6896caaaf4265f09bcb5d700a">00088</a>         <span class="keyword">struct </span><a class="code" href="structs__NoProc.html">s_NoProc</a> *<a class="code" href="structs__NoProc.html#2386ddf6896caaaf4265f09bcb5d700a">next</a>;
+<a name="l00089"></a><a class="code" href="structs__NoProc.html#ae1805304692d7c4bbcc2e0c7ceff0f7">00089</a>         <span class="keyword">struct </span><a class="code" href="structs__NoProc.html">s_NoProc</a> *<a class="code" href="structs__NoProc.html#ae1805304692d7c4bbcc2e0c7ceff0f7">back</a>;
+<a name="l00090"></a>00090 };
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092 <span class="comment">/*</span>
+<a name="l00093"></a>00093 <span class="comment"> struct s_list</span>
+<a name="l00094"></a>00094 <span class="comment"> Estrutura que define o formato da lista de Ready e Block</span>
+<a name="l00095"></a>00095 <span class="comment"> </span>
+<a name="l00096"></a>00096 <span class="comment"> */</span>
+<a name="l00097"></a><a class="code" href="structs__list.html">00097</a> <span class="keyword">struct </span><a class="code" href="structs__list.html">s_list</a> {
+<a name="l00098"></a><a class="code" href="structs__list.html#11ea7b41172db20f2553d94e5034e518">00098</a>         <span class="keywordtype">int</span> <a class="code" href="structs__list.html#11ea7b41172db20f2553d94e5034e518">tam</a>;
+<a name="l00099"></a><a class="code" href="structs__list.html#f00184ef36cc77c1100cce3930594c4b">00099</a>         <span class="keyword">struct </span><a class="code" href="structs__NoProc.html">s_NoProc</a> *<a class="code" href="structs__list.html#f00184ef36cc77c1100cce3930594c4b">head</a>;
+<a name="l00100"></a><a class="code" href="structs__list.html#19cedf5631252c40aa8dc04862455eb7">00100</a>         <span class="keyword">struct </span><a class="code" href="structs__NoProc.html">s_NoProc</a> *<a class="code" href="structs__list.html#19cedf5631252c40aa8dc04862455eb7">tail</a>;
+<a name="l00101"></a>00101 };
+<a name="l00102"></a>00102 
+<a name="l00103"></a><a class="code" href="Gpro_8h.html#d29812e00bc3704153462e8fa6932d41">00103</a> <span class="keyword">struct </span><a class="code" href="structs__list.html">s_list</a> <a class="code" href="Gpro_8c.html#d29812e00bc3704153462e8fa6932d41">list_Ready</a>;
+<a name="l00104"></a><a class="code" href="Gpro_8h.html#d0fbf32b966c1fdcaef7443cac4776f3">00104</a> <span class="keyword">struct </span><a class="code" href="structs__list.html">s_list</a> <a class="code" href="Gpro_8c.html#d0fbf32b966c1fdcaef7443cac4776f3">list_Block</a>;
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106 <span class="comment">/*</span>
+<a name="l00107"></a>00107 <span class="comment"></span>
+<a name="l00108"></a>00108 <span class="comment"> struct s_linBcp</span>
+<a name="l00109"></a>00109 <span class="comment"> Estrutura que define o formato da linha do bloco de controle do processo</span>
+<a name="l00110"></a>00110 <span class="comment"> PRESENTE || AUSENTE \ ESTADO \ PRIORIDADE \ NOME_PROCESSO \ </span>
+<a name="l00111"></a>00111 <span class="comment"> NUM_ARGUMENTOS \ STRUCT REGS </span>
+<a name="l00112"></a>00112 <span class="comment"> </span>
+<a name="l00113"></a>00113 <span class="comment"> */</span>
+<a name="l00114"></a><a class="code" href="structs__linBcp.html">00114</a> <span class="keyword">struct </span><a class="code" href="structs__linBcp.html">s_linBcp</a> {
+<a name="l00115"></a><a class="code" href="structs__linBcp.html#d3e16d8d1eb88171447c5ae134b8f436">00115</a>         <span class="keywordtype">int</span> <a class="code" href="structs__linBcp.html#d3e16d8d1eb88171447c5ae134b8f436">pa</a>;
+<a name="l00116"></a><a class="code" href="structs__linBcp.html#7379b439330ec0c319a2537c76c212e1">00116</a>         <span class="keywordtype">int</span> <a class="code" href="structs__linBcp.html#7379b439330ec0c319a2537c76c212e1">myPart</a>;
+<a name="l00117"></a><a class="code" href="structs__linBcp.html#313983733af6f4d8f33ff966a0d2106b">00117</a>         <span class="keywordtype">int</span> <a class="code" href="structs__linBcp.html#313983733af6f4d8f33ff966a0d2106b">state</a>;
+<a name="l00118"></a><a class="code" href="structs__linBcp.html#396ed13dda5b41017080566020759239">00118</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="structs__linBcp.html#396ed13dda5b41017080566020759239">prio</a>;
+<a name="l00119"></a><a class="code" href="structs__linBcp.html#337ba0c12081ddcb11909d8d0b4c6bab">00119</a>         <span class="keywordtype">char</span> <a class="code" href="structs__linBcp.html#337ba0c12081ddcb11909d8d0b4c6bab">pname</a>[MAX_NAMEPROC];
+<a name="l00120"></a><a class="code" href="structs__linBcp.html#47abfd74cda53e0c6bf61143afb1bb4a">00120</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="structs__linBcp.html#47abfd74cda53e0c6bf61143afb1bb4a">numArgs</a>;
+<a name="l00121"></a>00121         void (*<a class="code" href="structs__linBcp.html#b991dfd1886ea0f0a9bf483ed507cedb">pont</a>)();
+<a name="l00122"></a><a class="code" href="structs__linBcp.html#8e3fd2a3693d012870b7891b97a175fb">00122</a>         <span class="keywordtype">void</span> *<a class="code" href="structs__linBcp.html#8e3fd2a3693d012870b7891b97a175fb">esp</a>;
+<a name="l00123"></a><a class="code" href="structs__linBcp.html#d099ba465d7bb239f0f599e719f76706">00123</a>         <span class="keywordtype">void</span> *<a class="code" href="structs__linBcp.html#d099ba465d7bb239f0f599e719f76706">ebp</a>;
+<a name="l00124"></a>00124 };
+<a name="l00125"></a>00125 <span class="comment">/*</span>
+<a name="l00126"></a>00126 <span class="comment">Funções de manipulação das estruturas:</span>
+<a name="l00127"></a>00127 <span class="comment">struct s_NoProc{int id,struct s_NoProc *next,struct s_NoProc *back}</span>
+<a name="l00128"></a>00128 <span class="comment">struct s_list{int tam,struct s_NoProc *head,struct s_NoProc *tail}</span>
+<a name="l00129"></a>00129 <span class="comment">struct s_list list_Ready;</span>
+<a name="l00130"></a>00130 <span class="comment">struct s_list list_Block;   </span>
+<a name="l00131"></a>00131 <span class="comment">*/</span>
+<a name="l00132"></a>00132 <span class="comment">/*</span>
+<a name="l00133"></a>00133 <span class="comment"> struct s_bcp</span>
+<a name="l00134"></a>00134 <span class="comment"> Estrutura que define a BCP.</span>
+<a name="l00135"></a>00135 <span class="comment"> */</span>
+<a name="l00136"></a><a class="code" href="structs__bcp.html">00136</a> <span class="keyword">struct </span><a class="code" href="structs__bcp.html">s_bcp</a> {
+<a name="l00137"></a><a class="code" href="structs__bcp.html#03bfe2aeb47b4cfa3e670dc25b36f77a">00137</a>         <span class="keyword">struct </span><a class="code" href="structs__linBcp.html">s_linBcp</a> <a class="code" href="structs__bcp.html#03bfe2aeb47b4cfa3e670dc25b36f77a">lin</a>[<a class="code" href="Gpro_8h.html#63e32d00bc48471b4db49d481ac228dc">MAX_PROC</a>];
+<a name="l00138"></a>00138 };
+<a name="l00139"></a>00139 
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

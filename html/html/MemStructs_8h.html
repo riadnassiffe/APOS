@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/modulos/defs/MemStructs.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/modulos/defs/MemStructs.h</h1>
+<p>
+<a href="MemStructs_8h-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Estruturas de Dados</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdesc__tabMem.html">sdesc_tabMem</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__free__node.html">s_free_node</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbitMap.html">bitMap</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Definições e Macros</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MemStructs_8h.html#9a8e700d56e7d858108b755ad3edb52e">FREE</a>&nbsp;&nbsp;&nbsp;0x00</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MemStructs_8h.html#bcd0a22ee4346cad5706adb6d2119429">USED</a>&nbsp;&nbsp;&nbsp;0x01</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MemStructs_8h.html#81cb74761d269ea2740e5df37fbf4847">PAGE</a>&nbsp;&nbsp;&nbsp;4096</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MemStructs_8h.html#79bcfb6bde984f42d1124b068a509af7">BASE</a>&nbsp;&nbsp;&nbsp;100</td></tr>
+
+<tr><td colspan="2"><br><h2>Variáveis</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structsdesc__tabMem.html">sdesc_tabMem</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="MemStructs_8h.html#16b1e4fbd894edb397960459715541d8">packed</a></td></tr>
+
+</table>
+<hr><h2>Definições e macros</h2>
+<a class="anchor" name="79bcfb6bde984f42d1124b068a509af7"></a><!-- doxytag: member="MemStructs.h::BASE" ref="79bcfb6bde984f42d1124b068a509af7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BASE&nbsp;&nbsp;&nbsp;100          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemStructs_8h-source.html#l00007">7</a> do arquivo <a class="el" href="MemStructs_8h-source.html">MemStructs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="MemTable_8c-source.html#l00021">initMemBitMap()</a> e <a class="el" href="MemTable_8c-source.html#l00163">searchFreeSpace()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="9a8e700d56e7d858108b755ad3edb52e"></a><!-- doxytag: member="MemStructs.h::FREE" ref="9a8e700d56e7d858108b755ad3edb52e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FREE&nbsp;&nbsp;&nbsp;0x00          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemStructs_8h-source.html#l00004">4</a> do arquivo <a class="el" href="MemStructs_8h-source.html">MemStructs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="MemTable_8c-source.html#l00021">initMemBitMap()</a>, <a class="el" href="MemTable_8c-source.html#l00093">partAlloc()</a>, <a class="el" href="MemTable_8c-source.html#l00213">partDispose()</a> e <a class="el" href="MemTable_8c-source.html#l00163">searchFreeSpace()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="81cb74761d269ea2740e5df37fbf4847"></a><!-- doxytag: member="MemStructs.h::PAGE" ref="81cb74761d269ea2740e5df37fbf4847" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PAGE&nbsp;&nbsp;&nbsp;4096          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemStructs_8h-source.html#l00006">6</a> do arquivo <a class="el" href="MemStructs_8h-source.html">MemStructs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="MemTable_8c-source.html#l00021">initMemBitMap()</a>, <a class="el" href="MemTable_8c-source.html#l00093">partAlloc()</a> e <a class="el" href="MemTable_8c-source.html#l00213">partDispose()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="bcd0a22ee4346cad5706adb6d2119429"></a><!-- doxytag: member="MemStructs.h::USED" ref="bcd0a22ee4346cad5706adb6d2119429" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define USED&nbsp;&nbsp;&nbsp;0x01          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="MemStructs_8h-source.html#l00005">5</a> do arquivo <a class="el" href="MemStructs_8h-source.html">MemStructs.h</a>.</p>
+
+<p>Referenciado por <a class="el" href="MemTable_8c-source.html#l00021">initMemBitMap()</a> e <a class="el" href="MemTable_8c-source.html#l00093">partAlloc()</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Variáveis</h2>
+<a class="anchor" name="16b1e4fbd894edb397960459715541d8"></a><!-- doxytag: member="MemStructs.h::packed" ref="16b1e4fbd894edb397960459715541d8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structbitMap.html">bitMap</a> <a class="el" href="MemStructs_8h.html#16b1e4fbd894edb397960459715541d8">packed</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

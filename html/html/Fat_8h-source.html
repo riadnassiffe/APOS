@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/kernel/include/Fat.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/kernel/include/Fat.h</h1><a href="Fat_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> * Orientador: Edeyson Andrade Gomes   edeyson@gmail.com</span>
+<a name="l00003"></a>00003 <span class="comment"> * Aluno: Ríad Mattos Nassiffe            riad.nassiffe@gmail.com</span>
+<a name="l00004"></a>00004 <span class="comment"> */</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#ifndef FAT_H_</span>
+<a name="l00006"></a>00006 <span class="preprocessor"></span><span class="preprocessor">#define FAT_H_</span>
+<a name="l00007"></a>00007 <span class="preprocessor"></span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include "../interface/KIscrn.h"</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include "<a class="code" href="Ide_8h.html" title="Fornece um arquivo com todas as definições e prototipação das funções utilizadas...">Ide.h</a>"</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include "../../libs/include/Slib.h"</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include "../../modulos/interface/Igmem.h"</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include "../defs/FatDefs.h"</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include "../../include/Defs.h"</span>
+<a name="l00014"></a>00014 
+<a name="l00016"></a>00016 <span class="keywordtype">int</span> <a class="code" href="Fat_8h.html#33c0d4ebb128fd8f3b6027191f3b73dc">fatSeekCluster</a>();<span class="comment">/*não implementado*/</span>
+<a name="l00018"></a>00018 <span class="keywordtype">int</span> <a class="code" href="Fat_8c.html#8ade7c95fb9669c2a42b8950474b84af" title="Esta função deve carrega todos os volumes detectados, e listados pelo drive IDE...">loadFatIDEDrivers</a>();
+<a name="l00020"></a>00020 <span class="keywordtype">int</span> <a class="code" href="Fat_8c.html#ab5b856bdea33a3bcd6b92b3741190d4" title="Tenta carregar na LBA 0 do dispositivo o BS, do sistema de partição, se não conseguir...">loadFatList</a>(<span class="keywordtype">short</span> <span class="keywordtype">int</span> driveNumber);
+<a name="l00022"></a>00022 <span class="keywordtype">int</span> <a class="code" href="Fat_8c.html#9588e166a75e2559d64aa27132b5e28f" title="Fomata o disco, no sistema de partição AFS2.0, criando uma bs e um Fat para ele...">formatDisk</a>(<span class="keywordtype">short</span> <span class="keywordtype">int</span> driveNumber);
+<a name="l00024"></a>00024 <span class="keywordtype">int</span> <a class="code" href="Fat_8c.html#6c3231707b55e1e8cc48a1e7923839da" title="Pegar o valor da LBA*, e calcula o endereço do HD.">calcAddress</a>(<span class="keywordtype">short</span> <span class="keywordtype">int</span> volumeNumber, <span class="keyword">struct</span> <a class="code" href="structdiskAddress.html" title="Estrutura responsável por armazenar o endereço de uma posição do HD.">diskAddress</a> *address);
+<a name="l00026"></a>00026 <span class="keywordtype">int</span> <a class="code" href="Fat_8c.html#1be2e5bac21b53aa3d6736bc4beb628b" title="Ler um arquivo do diretório atual.">readFile</a>(<span class="keywordtype">short</span> <span class="keywordtype">int</span> driveNumber, <span class="keywordtype">char</span> *name, <span class="keywordtype">char</span> *type) ;
+<a name="l00028"></a>00028 <span class="keywordtype">int</span> <a class="code" href="Fat_8c.html#6898244ccdbbe8f9ab35001524802626" title="Acrescenta uma entrada de um diretório para outro.">addDirectoryEntry</a>(<span class="keywordtype">short</span> <span class="keywordtype">int</span> driveNumber, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> lba,<span class="keywordtype">char</span> *name, <span class="keyword">struct</span> <a class="code" href="structAttribute.html" title="Representa os atributos que um arquivo ou diretório pode ter.">Attribute</a> attribute, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> fileSize);
+<a name="l00030"></a>00030 <span class="keywordtype">int</span> <a class="code" href="Fat_8c.html#a607d9c91b3aaa6ad9c6fc0b0f01427d" title="Seta valores para um DirectoryEntry.">setDirectoryEntry</a>(<span class="keyword">struct</span> <a class="code" href="structfatDirectory.html" title="Estrutura que representa as entradas de um diretório.">fatDirectory</a> *newEntry, <span class="keywordtype">char</span> *name,<span class="keyword">struct</span> <a class="code" href="structAttribute.html" title="Representa os atributos que um arquivo ou diretório pode ter.">Attribute</a> attribute, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> startCluster,<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> fileSize);
+<a name="l00032"></a>00032 <span class="keywordtype">int</span> <a class="code" href="Fat_8c.html#3db07212e5795833bdd0c6a4bfd29986" title="Cria um diretorio.">createDIR</a>(<span class="keywordtype">short</span> <span class="keywordtype">int</span> driveNumber, <span class="keywordtype">char</span> *name,<span class="keywordtype">char</span> attr);
+<a name="l00034"></a>00034 <span class="keywordtype">int</span> <a class="code" href="Fat_8c.html#95a7aeafd74b4f8fc670ad5289a12395" title="Cria uma arquivo no diretório atual.">createFile</a>(<span class="keywordtype">short</span> <span class="keywordtype">int</span> driveNumber, <span class="keywordtype">char</span> *name, <span class="keywordtype">char</span> attr, <span class="keywordtype">char</span> *file);
+<a name="l00036"></a>00036 <span class="keywordtype">int</span> <a class="code" href="Fat_8c.html#ce93e750ab8efdb659bb2ee6afe3fd1f" title="Remove um DirectoryEntry do diretório atual.">delDirectoryEntry</a>(<span class="keywordtype">short</span> <span class="keywordtype">int</span> driveNumber, <span class="keywordtype">short</span> <span class="keywordtype">int</span> startCluster);
+<a name="l00038"></a>00038 <span class="keywordtype">int</span> <a class="code" href="Fat_8c.html#fdc91eb61dc27e41e7a89455c9909316" title="Deleta um arquivo do diretório atual.">delFile</a>(<span class="keywordtype">short</span> <span class="keywordtype">int</span> driveNumber, <span class="keywordtype">char</span> *name, <span class="keywordtype">char</span> *type,<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> dirStartCluster);
+<a name="l00040"></a>00040 <span class="keywordtype">int</span> <a class="code" href="Fat_8c.html#ac40f6c5bdbc9e36558946572c22f971" title="Deleta todos os arquivos e diretórios contidos no arquivo tb.">delDir</a>(<span class="keywordtype">short</span> <span class="keywordtype">int</span> driveNumber, <span class="keywordtype">char</span> *fileName);
+<a name="l00042"></a>00042 <span class="keywordtype">int</span> <a class="code" href="Fat_8c.html#192789b92c69b7c8224a17915f33a7fc" title="Esta função serve para imprimir na tela todas as informações do diretorio atual...">printDir</a>(<span class="keywordtype">short</span> <span class="keywordtype">int</span> driveNumber);
+<a name="l00044"></a>00044 <span class="keywordtype">int</span> <a class="code" href="Fat_8c.html#b2ef313f23df0aeadc3741f16bdcb75f" title="Grava as ultimas modificações da FAT no HD.">updateFat</a>(<span class="keywordtype">int</span> driveNumber);
+<a name="l00046"></a>00046 <span class="keywordtype">int</span> <a class="code" href="Fat_8c.html#a06f318d5d5e6dc5eb78278a4ad3e809" title="atualiza o diretório atual para algum que seja filho do atual.">refreshDirectoryEnter</a>(<span class="keywordtype">short</span> <span class="keywordtype">int</span> driveNumber, <span class="keywordtype">char</span> *name);
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 <span class="preprocessor">#endif </span><span class="comment">/*FAT_H_*/</span>
+<a name="l00049"></a>00049 
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

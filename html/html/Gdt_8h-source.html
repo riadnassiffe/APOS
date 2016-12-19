@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/kernel/include/Gdt.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/kernel/include/Gdt.h</h1><a href="Gdt_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00005"></a>00005 <span class="preprocessor">#include "../interface/KIgdt.h"</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include "../interface/KIstart.h"</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include "../interface/KIscrn.h"</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="Gdt_8c.html#dddd57e09d2b94e185be18585fdb8122" title="Retorna o valor do registrado eip da TSS1.">getTSS1eip</a>();
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="keywordtype">void</span> <a class="code" href="Gdt_8c.html#e268b524ab6c72f781b893d0a396f241" title="Define valores para TSS1.">setTSSvalues</a>(<a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> novo_eip, <a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> novo_esp);
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="keywordtype">void</span> <a class="code" href="Gdt_8c.html#5bd5564db40839b5d8c87977e8300ebd" title="Define valores para os registradores da TSS1.">setTSSregs</a>(<a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> eax, <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> ebx, <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> ecx, <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> edx, <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> esi, <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> edi,     <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> ebp, <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> esp);
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 <span class="keywordtype">void</span> <a class="code" href="Gdt_8c.html#dc6aff57c997f40d870f205be3ad3d2f" title="Inicializa a TSS e TSS1.">init_basicTSS</a>();
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="keywordtype">void</span> <a class="code" href="Gdt_8c.html#0bc06967a986fe4eff7d106bb36dfb75" title="Inicializa as variaveis da TSS0.">initTSS_SO</a>(<a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> eip_scheduller);
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 <span class="keywordtype">void</span> <a class="code" href="Gdt_8c.html#a403dd84f86a16cf891e69242e4d725b" title="Define uma entrada na GDT.">gdt_set_gate</a>(<span class="keywordtype">int</span> num, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> base, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> limit,     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> access, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> gran);
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="keywordtype">void</span> <a class="code" href="Gdt_8c.html#a2a6cef9d7f1d9430289dcbb74530bf3" title="inicializa a GDT, em modo FLAT PROTEGIDO.">gdt_install</a>();
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="keywordtype">void</span> <a class="code" href="Gdt_8c.html#287a992b738fa8178f5dd1d7d36edb1d" title="Reinicia o valor da TSS armazenado na GDT.">reset_tss_gate</a>(<span class="keywordtype">int</span> num);
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="keywordtype">void</span> <a class="code" href="Gdt_8c.html#b5afd5453991d757e533ba024c42ac13" title="Deve executar depois do GDT INSTALL...">tss_install</a>();
+<a name="l00028"></a>00028 
+<a name="l00032"></a><a class="code" href="structs__TSS.html">00032</a> <span class="keyword">struct </span><a class="code" href="structs__TSS.html" title="Estrutura de uma TSS.">s_TSS</a> {
+<a name="l00033"></a><a class="code" href="structs__TSS.html#a880b85b7cc322d8a1074931db1122b6">00033</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#a880b85b7cc322d8a1074931db1122b6">link</a>;
+<a name="l00034"></a>00034         <span class="comment">// +0</span>
+<a name="l00035"></a><a class="code" href="structs__TSS.html#962f463b7ad5e74dd194a553e2f1627b">00035</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#962f463b7ad5e74dd194a553e2f1627b">reserved1</a>;
+<a name="l00036"></a>00036         <span class="comment">// +2</span>
+<a name="l00037"></a><a class="code" href="structs__TSS.html#85da616b74730ccee76d0d781fd0b1c3">00037</a>         <a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> <a class="code" href="structs__TSS.html#85da616b74730ccee76d0d781fd0b1c3">esp0</a>;
+<a name="l00038"></a>00038         <span class="comment">// +4</span>
+<a name="l00039"></a><a class="code" href="structs__TSS.html#b509e02a739bc457a8fef2b788a4d17a">00039</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#b509e02a739bc457a8fef2b788a4d17a">ss0</a>;
+<a name="l00040"></a>00040         <span class="comment">// +12</span>
+<a name="l00041"></a><a class="code" href="structs__TSS.html#73d033be7dc5f49d84602de03f96774c">00041</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#73d033be7dc5f49d84602de03f96774c">reserved2</a>;
+<a name="l00042"></a>00042         <span class="comment">// +14</span>
+<a name="l00043"></a><a class="code" href="structs__TSS.html#11de85f8d171b053725dcb01dc221e78">00043</a>         <a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> <a class="code" href="structs__TSS.html#11de85f8d171b053725dcb01dc221e78">esp1</a>;
+<a name="l00044"></a>00044         <span class="comment">// +16</span>
+<a name="l00045"></a><a class="code" href="structs__TSS.html#592d4b988717e8ae0db1b01bd4c361c7">00045</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#592d4b988717e8ae0db1b01bd4c361c7">ss1</a>;
+<a name="l00046"></a>00046         <span class="comment">// +24</span>
+<a name="l00047"></a><a class="code" href="structs__TSS.html#92e7f5c42b26a011f08894fc4c2fe1c6">00047</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#92e7f5c42b26a011f08894fc4c2fe1c6">reserved3</a>;
+<a name="l00048"></a>00048         <span class="comment">// +26</span>
+<a name="l00049"></a><a class="code" href="structs__TSS.html#2d1387a7fb75e6e5fd0c9de6cf5571db">00049</a>         <a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> <a class="code" href="structs__TSS.html#2d1387a7fb75e6e5fd0c9de6cf5571db">esp2</a>;
+<a name="l00050"></a>00050         <span class="comment">// +28</span>
+<a name="l00051"></a><a class="code" href="structs__TSS.html#3a93da8983ff85d9ba2177b78ac1eba1">00051</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#3a93da8983ff85d9ba2177b78ac1eba1">ss2</a>;
+<a name="l00052"></a>00052         <span class="comment">// +36</span>
+<a name="l00053"></a><a class="code" href="structs__TSS.html#4d473a2257e0ae50bbb1915c5e774a72">00053</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#4d473a2257e0ae50bbb1915c5e774a72">reserved4</a>;
+<a name="l00054"></a>00054         <span class="comment">// +38</span>
+<a name="l00055"></a><a class="code" href="structs__TSS.html#ea1d00010ea38087aa02b20ed6e08997">00055</a>         <a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> <a class="code" href="structs__TSS.html#ea1d00010ea38087aa02b20ed6e08997">cr3</a>;
+<a name="l00056"></a>00056         <span class="comment">// +40</span>
+<a name="l00057"></a><a class="code" href="structs__TSS.html#9dfef00e5e0a3b9fcb463f61ebc58d8c">00057</a>         <a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> <a class="code" href="structs__TSS.html#9dfef00e5e0a3b9fcb463f61ebc58d8c">eip</a>;
+<a name="l00058"></a>00058         <span class="comment">// +48</span>
+<a name="l00059"></a><a class="code" href="structs__TSS.html#69ecd26168cd74a49f405dc400c75d1b">00059</a>         <a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> <a class="code" href="structs__TSS.html#69ecd26168cd74a49f405dc400c75d1b">eflags</a>;
+<a name="l00060"></a>00060         <span class="comment">// +56</span>
+<a name="l00061"></a><a class="code" href="structs__TSS.html#2cd1464df63adfa7f8622ce648d28dcb">00061</a>         <a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> <a class="code" href="structs__TSS.html#2cd1464df63adfa7f8622ce648d28dcb">eax</a>;
+<a name="l00062"></a><a class="code" href="structs__TSS.html#ee5ecfb3d27e19469722db2d09e6fe31">00062</a>         <a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> <a class="code" href="structs__TSS.html#ee5ecfb3d27e19469722db2d09e6fe31">ecx</a>;
+<a name="l00063"></a><a class="code" href="structs__TSS.html#ba76074a964df84c45a1a564dc032308">00063</a>         <a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> <a class="code" href="structs__TSS.html#ba76074a964df84c45a1a564dc032308">edx</a>;
+<a name="l00064"></a><a class="code" href="structs__TSS.html#791f3e70fed5ae4d520d580a55887896">00064</a>         <a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> <a class="code" href="structs__TSS.html#791f3e70fed5ae4d520d580a55887896">ebx</a>;
+<a name="l00065"></a><a class="code" href="structs__TSS.html#806abcdf0b396a361f486fab1a506f88">00065</a>         <a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> <a class="code" href="structs__TSS.html#806abcdf0b396a361f486fab1a506f88">esp</a>;
+<a name="l00066"></a><a class="code" href="structs__TSS.html#19b70e2952d6bc2114dafe7519c56a8d">00066</a>         <a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> <a class="code" href="structs__TSS.html#19b70e2952d6bc2114dafe7519c56a8d">ebp</a>;
+<a name="l00067"></a><a class="code" href="structs__TSS.html#4697935340d2902c73298d37d4d987a0">00067</a>         <a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> <a class="code" href="structs__TSS.html#4697935340d2902c73298d37d4d987a0">esi</a>;
+<a name="l00068"></a><a class="code" href="structs__TSS.html#85025a6629f9043b0408e856e5c470b7">00068</a>         <a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> <a class="code" href="structs__TSS.html#85025a6629f9043b0408e856e5c470b7">edi</a>;
+<a name="l00069"></a><a class="code" href="structs__TSS.html#a240bffbadb39a728280873af086cece">00069</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#a240bffbadb39a728280873af086cece">es</a>;
+<a name="l00070"></a><a class="code" href="structs__TSS.html#7976871357e7e65e0c67362ceb32789a">00070</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#7976871357e7e65e0c67362ceb32789a">reserved5</a>;
+<a name="l00071"></a><a class="code" href="structs__TSS.html#b32f86259aac83ec33b927603d4cd6f3">00071</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#b32f86259aac83ec33b927603d4cd6f3">cs</a>;
+<a name="l00072"></a><a class="code" href="structs__TSS.html#84927265774f3e8d6755bd9f3e288266">00072</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#84927265774f3e8d6755bd9f3e288266">reserved6</a>;
+<a name="l00073"></a><a class="code" href="structs__TSS.html#353cfd13676e96b14c972764079414fb">00073</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#353cfd13676e96b14c972764079414fb">ss</a>;
+<a name="l00074"></a><a class="code" href="structs__TSS.html#1650e5b9b662a9f2b362983574163c2b">00074</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#1650e5b9b662a9f2b362983574163c2b">reserved7</a>;
+<a name="l00075"></a><a class="code" href="structs__TSS.html#4aca71575c6a981c67bff8d01d2a9f95">00075</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#4aca71575c6a981c67bff8d01d2a9f95">ds</a>;
+<a name="l00076"></a><a class="code" href="structs__TSS.html#cb38be3de9cc6fdc8fc5a736afcf67d1">00076</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#cb38be3de9cc6fdc8fc5a736afcf67d1">reserved8</a>;
+<a name="l00077"></a><a class="code" href="structs__TSS.html#c8614048d1c176ca0aff08dd0ba77b91">00077</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#c8614048d1c176ca0aff08dd0ba77b91">fs</a>;
+<a name="l00078"></a><a class="code" href="structs__TSS.html#c84542eac8f7a4206471789c661e6338">00078</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#c84542eac8f7a4206471789c661e6338">reserved9</a>;
+<a name="l00079"></a><a class="code" href="structs__TSS.html#0e25bd84688ed716351b77a2df48541c">00079</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#0e25bd84688ed716351b77a2df48541c">gs</a>;
+<a name="l00080"></a><a class="code" href="structs__TSS.html#7feb5179b5e650332471c3ac49fe940c">00080</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#7feb5179b5e650332471c3ac49fe940c">reserved10</a>;
+<a name="l00081"></a><a class="code" href="structs__TSS.html#25310906cf68f6f2476aca0b57541c0e">00081</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#25310906cf68f6f2476aca0b57541c0e">ldt</a>;
+<a name="l00082"></a><a class="code" href="structs__TSS.html#5f1439954c0b88c6bb5fd54cf46e30ca">00082</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#5f1439954c0b88c6bb5fd54cf46e30ca">reserved11</a>;
+<a name="l00083"></a><a class="code" href="structs__TSS.html#a634316b6bcee91e8b357dfe4ad378e2">00083</a>         <a class="code" href="Defs_8h.html#90e60e29a70bb2590baf90e25e7ef0b1">uint_t</a> <a class="code" href="structs__TSS.html#a634316b6bcee91e8b357dfe4ad378e2">debugTrap</a> : 1;
+<a name="l00084"></a><a class="code" href="structs__TSS.html#382f64df824d60cfd50b58fb0e8dfb03">00084</a>         <a class="code" href="Defs_8h.html#90e60e29a70bb2590baf90e25e7ef0b1">uint_t</a> <a class="code" href="structs__TSS.html#382f64df824d60cfd50b58fb0e8dfb03">reserved12</a> : 15;
+<a name="l00085"></a><a class="code" href="structs__TSS.html#355155b93ab518129e2f108c15668c97">00085</a>         <a class="code" href="Defs_8h.html#4d8794a79a90073ff8880de08c1f1f80">ushort_t</a> <a class="code" href="structs__TSS.html#355155b93ab518129e2f108c15668c97">ioMapBase</a>;
+<a name="l00086"></a>00086 };
+<a name="l00087"></a>00087 
+<a name="l00091"></a><a class="code" href="structgdt__entry.html">00091</a> <span class="keyword">struct </span><a class="code" href="structgdt__entry.html" title="Descritor da GDT, guarda as informações contidas em uma entrada da GDT.">gdt_entry</a> {
+<a name="l00092"></a><a class="code" href="structgdt__entry.html#c68e1850ddeb382e0dbc8cfe22d42aa8">00092</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="structgdt__entry.html#c68e1850ddeb382e0dbc8cfe22d42aa8">limit_low</a>;
+<a name="l00093"></a><a class="code" href="structgdt__entry.html#7b7269cc9a28a206ef004f528f2fb41c">00093</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="structgdt__entry.html#7b7269cc9a28a206ef004f528f2fb41c">base_low</a>;
+<a name="l00094"></a><a class="code" href="structgdt__entry.html#869911eed1931b1df8272d293c3de6e1">00094</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="structgdt__entry.html#869911eed1931b1df8272d293c3de6e1">base_middle</a>;
+<a name="l00095"></a><a class="code" href="structgdt__entry.html#c0dba4b1cca30f81b5badf2078e5db87">00095</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="structgdt__entry.html#c0dba4b1cca30f81b5badf2078e5db87">access</a>;
+<a name="l00096"></a><a class="code" href="structgdt__entry.html#30e097a703886733dafccdeac4351ba3">00096</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="structgdt__entry.html#30e097a703886733dafccdeac4351ba3">granulalidade</a>;
+<a name="l00097"></a><a class="code" href="structgdt__entry.html#1e040b9a71a04673a33ac57c7bd499be">00097</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="structgdt__entry.html#1e040b9a71a04673a33ac57c7bd499be">base_high</a>;
+<a name="l00098"></a>00098 }__attribute__((<a class="code" href="FatDefs_8h.html#16b1e4fbd894edb397960459715541d8">packed</a>));
+<a name="l00102"></a><a class="code" href="structgdt__ptr.html">00102</a> <span class="keyword">struct </span><a class="code" href="structgdt__ptr.html" title="gdt_ptr guarda a informação, do tamanho minimo e maximo que uma GDT pode ter, o...">gdt_ptr</a> {
+<a name="l00104"></a><a class="code" href="structgdt__ptr.html#7c3ab4c2422a1d95e8b0477eb92a06bc">00104</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="structgdt__ptr.html#7c3ab4c2422a1d95e8b0477eb92a06bc" title="tamanho maximo.">limit</a>;
+<a name="l00106"></a><a class="code" href="structgdt__ptr.html#02f0bdaf71f196a073d817d333cc4959">00106</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="structgdt__ptr.html#02f0bdaf71f196a073d817d333cc4959" title="endereço do começo da GDT.">base</a>;
+<a name="l00107"></a>00107 }__attribute__((<a class="code" href="FatDefs_8h.html#16b1e4fbd894edb397960459715541d8">packed</a>));
+<a name="l00108"></a>00108 
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

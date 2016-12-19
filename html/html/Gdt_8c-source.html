@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/kernel/Gdt.c</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/kernel/Gdt.c</h1><a href="Gdt_8c.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00005"></a>00005 <span class="preprocessor">#include "<a class="code" href="Gdt_8h.html" title="Este arquivo implementada a GDT, a partir das especificões da INTEL.">include/Gdt.h</a>"</span>
+<a name="l00006"></a>00006 
+<a name="l00013"></a><a class="code" href="Gdt_8c.html#aecd9bba62346ee23bff7e6f5fac403b">00013</a> <span class="keyword">struct </span><a class="code" href="structgdt__entry.html" title="Descritor da GDT, guarda as informações contidas em uma entrada da GDT.">gdt_entry</a> <a class="code" href="Gdt_8c.html#aecd9bba62346ee23bff7e6f5fac403b" title="Estrutura que guarda a GDT.">gdt</a>[5];
+<a name="l00014"></a><a class="code" href="Gdt_8c.html#a517fc098298a5efd8b24551a3a4c44c">00014</a> <span class="keyword">struct </span><a class="code" href="structgdt__ptr.html" title="gdt_ptr guarda a informação, do tamanho minimo e maximo que uma GDT pode ter, o...">gdt_ptr</a> <a class="code" href="Gdt_8c.html#a517fc098298a5efd8b24551a3a4c44c">gp</a>;
+<a name="l00015"></a><a class="code" href="Gdt_8c.html#f38dca4235532cfb9977a708f2a2fd38">00015</a> <span class="keyword">struct </span><a class="code" href="structs__TSS.html" title="Estrutura de uma TSS.">s_TSS</a> <a class="code" href="Gdt_8c.html#f38dca4235532cfb9977a708f2a2fd38">tss</a>;
+<a name="l00016"></a><a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">00016</a> <span class="keyword">struct </span><a class="code" href="structs__TSS.html" title="Estrutura de uma TSS.">s_TSS</a> <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>;
+<a name="l00017"></a>00017 
+<a name="l00021"></a><a class="code" href="Gdt_8h.html#dddd57e09d2b94e185be18585fdb8122">00021</a> <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="Gdt_8c.html#dddd57e09d2b94e185be18585fdb8122" title="Retorna o valor do registrado eip da TSS1.">getTSS1eip</a>() {
+<a name="l00022"></a>00022         <span class="keywordflow">return</span> <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#9dfef00e5e0a3b9fcb463f61ebc58d8c">eip</a>;
+<a name="l00023"></a>00023 }
+<a name="l00027"></a><a class="code" href="KIgdt_8h.html#e268b524ab6c72f781b893d0a396f241">00027</a> <span class="keywordtype">void</span> <a class="code" href="Gdt_8c.html#e268b524ab6c72f781b893d0a396f241" title="Define valores para TSS1.">setTSSvalues</a>(<a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> novo_eip, <a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> novo_esp) {
+<a name="l00028"></a>00028         <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#b32f86259aac83ec33b927603d4cd6f3">cs</a> = <a class="code" href="Defs_8h.html#c89d6a09162e25252080ca4578e5a738">baseCS</a>;
+<a name="l00029"></a>00029         <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#4aca71575c6a981c67bff8d01d2a9f95">ds</a> = <a class="code" href="Defs_8h.html#b94c0b5911db85114beaba6ee1814ad7">baseDS</a>;
+<a name="l00030"></a>00030         <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#353cfd13676e96b14c972764079414fb">ss</a> = <a class="code" href="Defs_8h.html#b94c0b5911db85114beaba6ee1814ad7">baseDS</a>;
+<a name="l00031"></a>00031         <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#a240bffbadb39a728280873af086cece">es</a> = <a class="code" href="Defs_8h.html#b94c0b5911db85114beaba6ee1814ad7">baseDS</a>;
+<a name="l00032"></a>00032         <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#69ecd26168cd74a49f405dc400c75d1b">eflags</a> = 0x00000202;
+<a name="l00033"></a>00033         <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#9dfef00e5e0a3b9fcb463f61ebc58d8c">eip</a> = novo_eip;
+<a name="l00034"></a>00034         <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#806abcdf0b396a361f486fab1a506f88">esp</a> = novo_esp;
+<a name="l00035"></a>00035 }
+<a name="l00042"></a><a class="code" href="KIgdt_8h.html#5bd5564db40839b5d8c87977e8300ebd">00042</a> <span class="keywordtype">void</span> <a class="code" href="Gdt_8c.html#5bd5564db40839b5d8c87977e8300ebd" title="Define valores para os registradores da TSS1.">setTSSregs</a>(<a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="structs__TSS.html#2cd1464df63adfa7f8622ce648d28dcb">eax</a>, <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="structs__TSS.html#791f3e70fed5ae4d520d580a55887896">ebx</a>, <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="structs__TSS.html#ee5ecfb3d27e19469722db2d09e6fe31">ecx</a>, <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="structs__TSS.html#ba76074a964df84c45a1a564dc032308">edx</a>, <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="structs__TSS.html#4697935340d2902c73298d37d4d987a0">esi</a>, <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="structs__TSS.html#85025a6629f9043b0408e856e5c470b7">edi</a>,     <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="structs__TSS.html#19b70e2952d6bc2114dafe7519c56a8d">ebp</a>, <a class="code" href="Defs_8h.html#63dcce4307a44f3fa48e0d33e2d35186">T_32</a> <a class="code" href="structs__TSS.html#806abcdf0b396a361f486fab1a506f88">esp</a>){
+<a name="l00043"></a>00043         <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#2cd1464df63adfa7f8622ce648d28dcb">eax</a> = eax;
+<a name="l00044"></a>00044         <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#791f3e70fed5ae4d520d580a55887896">ebx</a> = ebx;
+<a name="l00045"></a>00045         <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#ee5ecfb3d27e19469722db2d09e6fe31">ecx</a> = ecx;
+<a name="l00046"></a>00046         <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#ba76074a964df84c45a1a564dc032308">edx</a> = edx;
+<a name="l00047"></a>00047         <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#4697935340d2902c73298d37d4d987a0">esi</a> = esi;
+<a name="l00048"></a>00048         <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#85025a6629f9043b0408e856e5c470b7">edi</a> = edi;
+<a name="l00049"></a>00049         <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#19b70e2952d6bc2114dafe7519c56a8d">ebp</a> = ebp;
+<a name="l00050"></a>00050         <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#806abcdf0b396a361f486fab1a506f88">esp</a> = esp;
+<a name="l00051"></a>00051 }
+<a name="l00055"></a><a class="code" href="Gdt_8h.html#dc6aff57c997f40d870f205be3ad3d2f">00055</a> <span class="keywordtype">void</span> <a class="code" href="Gdt_8c.html#dc6aff57c997f40d870f205be3ad3d2f" title="Inicializa a TSS e TSS1.">init_basicTSS</a>() {
+<a name="l00056"></a>00056         <a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>.<a class="code" href="structs__TSS.html#ea1d00010ea38087aa02b20ed6e08997">cr3</a> = 0;
+<a name="l00057"></a>00057         <a class="code" href="Gdt_8c.html#f38dca4235532cfb9977a708f2a2fd38">tss</a>.<a class="code" href="structs__TSS.html#ea1d00010ea38087aa02b20ed6e08997">cr3</a> = 0;
+<a name="l00058"></a>00058 }
+<a name="l00062"></a><a class="code" href="KIgdt_8h.html#0bc06967a986fe4eff7d106bb36dfb75">00062</a> <span class="keywordtype">void</span> <a class="code" href="Gdt_8c.html#0bc06967a986fe4eff7d106bb36dfb75" title="Inicializa as variaveis da TSS0.">initTSS_SO</a>(<a class="code" href="Defs_8h.html#a30766370911de5c97cb47e1b790d810">ulong_t</a> eip_scheduller) {
+<a name="l00063"></a>00063         <a class="code" href="Gdt_8c.html#f38dca4235532cfb9977a708f2a2fd38">tss</a>.<a class="code" href="structs__TSS.html#b32f86259aac83ec33b927603d4cd6f3">cs</a> = <a class="code" href="Defs_8h.html#c89d6a09162e25252080ca4578e5a738">baseCS</a>;
+<a name="l00064"></a>00064         <a class="code" href="Gdt_8c.html#f38dca4235532cfb9977a708f2a2fd38">tss</a>.<a class="code" href="structs__TSS.html#4aca71575c6a981c67bff8d01d2a9f95">ds</a> = <a class="code" href="Defs_8h.html#b94c0b5911db85114beaba6ee1814ad7">baseDS</a>;
+<a name="l00065"></a>00065         <a class="code" href="Gdt_8c.html#f38dca4235532cfb9977a708f2a2fd38">tss</a>.<a class="code" href="structs__TSS.html#353cfd13676e96b14c972764079414fb">ss</a> = <a class="code" href="Defs_8h.html#b94c0b5911db85114beaba6ee1814ad7">baseDS</a>;
+<a name="l00066"></a>00066         <a class="code" href="Gdt_8c.html#f38dca4235532cfb9977a708f2a2fd38">tss</a>.<a class="code" href="structs__TSS.html#a240bffbadb39a728280873af086cece">es</a> = <a class="code" href="Defs_8h.html#b94c0b5911db85114beaba6ee1814ad7">baseDS</a>;
+<a name="l00067"></a>00067         <a class="code" href="Gdt_8c.html#f38dca4235532cfb9977a708f2a2fd38">tss</a>.<a class="code" href="structs__TSS.html#69ecd26168cd74a49f405dc400c75d1b">eflags</a> = 0x00000202;
+<a name="l00068"></a>00068         <a class="code" href="Gdt_8c.html#f38dca4235532cfb9977a708f2a2fd38">tss</a>.<a class="code" href="structs__TSS.html#9dfef00e5e0a3b9fcb463f61ebc58d8c">eip</a> = eip_scheduller;
+<a name="l00069"></a>00069 }
+<a name="l00073"></a><a class="code" href="Gdt_8h.html#a403dd84f86a16cf891e69242e4d725b">00073</a> <span class="keywordtype">void</span> <a class="code" href="Gdt_8c.html#a403dd84f86a16cf891e69242e4d725b" title="Define uma entrada na GDT.">gdt_set_gate</a>(<span class="keywordtype">int</span> num, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> base, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> limit,
+<a name="l00074"></a>00074                 <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> access, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> gran) {
+<a name="l00075"></a>00075         
+<a name="l00076"></a>00076         <a class="code" href="Gdt_8c.html#aecd9bba62346ee23bff7e6f5fac403b" title="Estrutura que guarda a GDT.">gdt</a>[num].<a class="code" href="structgdt__entry.html#7b7269cc9a28a206ef004f528f2fb41c">base_low</a> = (base &amp; 0xFFFF);
+<a name="l00077"></a>00077         <a class="code" href="Gdt_8c.html#aecd9bba62346ee23bff7e6f5fac403b" title="Estrutura que guarda a GDT.">gdt</a>[num].<a class="code" href="structgdt__entry.html#869911eed1931b1df8272d293c3de6e1">base_middle</a> = (base &gt;&gt; 16) &amp; 0xFF;
+<a name="l00078"></a>00078         <a class="code" href="Gdt_8c.html#aecd9bba62346ee23bff7e6f5fac403b" title="Estrutura que guarda a GDT.">gdt</a>[num].<a class="code" href="structgdt__entry.html#1e040b9a71a04673a33ac57c7bd499be">base_high</a> = (base &gt;&gt; 24) &amp; 0xFF;
+<a name="l00079"></a>00079         
+<a name="l00080"></a>00080         <a class="code" href="Gdt_8c.html#aecd9bba62346ee23bff7e6f5fac403b" title="Estrutura que guarda a GDT.">gdt</a>[num].<a class="code" href="structgdt__entry.html#c68e1850ddeb382e0dbc8cfe22d42aa8">limit_low</a> = (limit &amp; 0xFFFF);
+<a name="l00081"></a>00081         <a class="code" href="Gdt_8c.html#aecd9bba62346ee23bff7e6f5fac403b" title="Estrutura que guarda a GDT.">gdt</a>[num].<a class="code" href="structgdt__entry.html#30e097a703886733dafccdeac4351ba3">granulalidade</a> = ((limit &gt;&gt; 16) &amp; 0x0F);
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083         <a class="code" href="Gdt_8c.html#aecd9bba62346ee23bff7e6f5fac403b" title="Estrutura que guarda a GDT.">gdt</a>[num].<a class="code" href="structgdt__entry.html#30e097a703886733dafccdeac4351ba3">granulalidade</a> |=  (gran &amp; 0xF0);
+<a name="l00084"></a>00084         <a class="code" href="Gdt_8c.html#aecd9bba62346ee23bff7e6f5fac403b" title="Estrutura que guarda a GDT.">gdt</a>[num].<a class="code" href="structgdt__entry.html#c0dba4b1cca30f81b5badf2078e5db87">access</a> = access;
+<a name="l00085"></a>00085 }
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 <span class="comment">/*</span>
+<a name="l00088"></a>00088 <span class="comment"> *Seta a GDT a partir da especificações Intel.</span>
+<a name="l00089"></a>00089 <span class="comment"> *1. Primeira linha da GDT é reservada para uso da Intel.</span>
+<a name="l00090"></a>00090 <span class="comment"> *2. Segunda linha: CODE BASE e CODE LIMIT</span>
+<a name="l00091"></a>00091 <span class="comment"> *3. Terceira linha: DATA BASE e DATA LIMIT</span>
+<a name="l00092"></a>00092 <span class="comment"> *4. Quarta e quinta linha : TSS</span>
+<a name="l00093"></a>00093 <span class="comment"> *Como iremos trabalhar no modo Protected Flat Model o CS = DS</span>
+<a name="l00094"></a>00094 <span class="comment"> *Ou seja o sistema não trabalha com segmentação.</span>
+<a name="l00095"></a>00095 <span class="comment"> *[OBS] Os parametros adicionais especificam o tipo de segmento</span>
+<a name="l00096"></a>00096 <span class="comment"> *e outras propriedades. Ver Intel [N]</span>
+<a name="l00097"></a>00097 <span class="comment"> * Depois </span>
+<a name="l00098"></a>00098 <span class="comment"> */</span>
+<a name="l00102"></a><a class="code" href="KIgdt_8h.html#a2a6cef9d7f1d9430289dcbb74530bf3">00102</a> <span class="keywordtype">void</span> <a class="code" href="Gdt_8c.html#a2a6cef9d7f1d9430289dcbb74530bf3" title="inicializa a GDT, em modo FLAT PROTEGIDO.">gdt_install</a>() {
+<a name="l00103"></a>00103         <a class="code" href="Gdt_8c.html#a517fc098298a5efd8b24551a3a4c44c">gp</a>.<a class="code" href="structgdt__ptr.html#7c3ab4c2422a1d95e8b0477eb92a06bc" title="tamanho maximo.">limit</a> = (<span class="keyword">sizeof</span>(<span class="keyword">struct </span><a class="code" href="structgdt__entry.html" title="Descritor da GDT, guarda as informações contidas em uma entrada da GDT.">gdt_entry</a>) * 5) - 1;
+<a name="l00104"></a>00104         <a class="code" href="Gdt_8c.html#a517fc098298a5efd8b24551a3a4c44c">gp</a>.<a class="code" href="structgdt__ptr.html#02f0bdaf71f196a073d817d333cc4959" title="endereço do começo da GDT.">base</a> = (<span class="keywordtype">unsigned</span> int) &amp;<a class="code" href="Gdt_8c.html#aecd9bba62346ee23bff7e6f5fac403b" title="Estrutura que guarda a GDT.">gdt</a>;
+<a name="l00105"></a>00105         <a class="code" href="Gdt_8c.html#a403dd84f86a16cf891e69242e4d725b" title="Define uma entrada na GDT.">gdt_set_gate</a>(0, 0, 0, 0, 0);
+<a name="l00106"></a>00106         <a class="code" href="Gdt_8c.html#a403dd84f86a16cf891e69242e4d725b" title="Define uma entrada na GDT.">gdt_set_gate</a>(1, 0, 0xFFFFFFFF, 0x9A, 0xCF);
+<a name="l00107"></a>00107         <a class="code" href="Gdt_8c.html#a403dd84f86a16cf891e69242e4d725b" title="Define uma entrada na GDT.">gdt_set_gate</a>(2, 0, 0xFFFFFFFF, 0x92, 0xCF);
+<a name="l00108"></a>00108         <a class="code" href="Gdt_8c.html#a403dd84f86a16cf891e69242e4d725b" title="Define uma entrada na GDT.">gdt_set_gate</a>(3,(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span>)&amp;<a class="code" href="Gdt_8c.html#f38dca4235532cfb9977a708f2a2fd38">tss</a>, <span class="keyword">sizeof</span>(tss),0x89, 0x0F);
+<a name="l00109"></a>00109         <a class="code" href="Gdt_8c.html#a403dd84f86a16cf891e69242e4d725b" title="Define uma entrada na GDT.">gdt_set_gate</a>(4,(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span>)&amp;<a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>,<span class="keyword">sizeof</span>(tss1),0x89, 0x0F);
+<a name="l00110"></a>00110         <a class="code" href="KIstart_8h.html#9dc74fc329cb61a7332989b6bf181a57" title="Função implementada em assembly que possibilita desligar a máquina.">gdt_flush</a>();
+<a name="l00111"></a>00111 }
+<a name="l00116"></a><a class="code" href="Gdt_8h.html#287a992b738fa8178f5dd1d7d36edb1d">00116</a> <span class="keywordtype">void</span> <a class="code" href="Gdt_8c.html#287a992b738fa8178f5dd1d7d36edb1d" title="Reinicia o valor da TSS armazenado na GDT.">reset_tss_gate</a>(<span class="keywordtype">int</span> num) {
+<a name="l00117"></a>00117         <span class="keywordflow">if</span> (num == 1) {
+<a name="l00118"></a>00118                 <a class="code" href="Gdt_8c.html#a403dd84f86a16cf891e69242e4d725b" title="Define uma entrada na GDT.">gdt_set_gate</a>(4, (<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span>)&amp;<a class="code" href="Gdt_8c.html#9c85fc3182e83e6a81bbf1cfb936a070">tss1</a>, <span class="keyword">sizeof</span>(tss1),0x89, 0x0F);
+<a name="l00119"></a>00119         }
+<a name="l00120"></a>00120         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (num == 0) {
+<a name="l00121"></a>00121                 <a class="code" href="Gdt_8c.html#a403dd84f86a16cf891e69242e4d725b" title="Define uma entrada na GDT.">gdt_set_gate</a>(3,(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span>)&amp;<a class="code" href="Gdt_8c.html#f38dca4235532cfb9977a708f2a2fd38">tss</a>,<span class="keyword">sizeof</span>(tss),0x89, 0x0F);
+<a name="l00122"></a>00122         }
+<a name="l00123"></a>00123 }
+<a name="l00124"></a>00124 
+<a name="l00126"></a>00126 
+<a name="l00129"></a><a class="code" href="KIgdt_8h.html#b5afd5453991d757e533ba024c42ac13">00129</a> <span class="keywordtype">void</span> <a class="code" href="Gdt_8c.html#b5afd5453991d757e533ba024c42ac13" title="Deve executar depois do GDT INSTALL...">tss_install</a>() {
+<a name="l00130"></a>00130         <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"Instalando TSS ! v0.5 \n"</span>);
+<a name="l00131"></a>00131         <a class="code" href="Gdt_8c.html#dc6aff57c997f40d870f205be3ad3d2f" title="Inicializa a TSS e TSS1.">init_basicTSS</a>();
+<a name="l00132"></a>00132         <a class="code" href="KIstart_8h.html#ee5ed0cd7ce3cbdbff8cc530ac774c44">atualizar_TSS0_STACK</a>();
+<a name="l00133"></a>00133         <a class="code" href="KIstart_8h.html#3c6b2e65b0fe02fd847694ce09060f14">atualizar_TSS1_STACK</a>();
+<a name="l00134"></a>00134         <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"Valores atualizados! \n"</span>);
+<a name="l00135"></a>00135         <a class="code" href="KIstart_8h.html#3139abc12ff422a4518bb81d23824933">load_TSS</a>();
+<a name="l00136"></a>00136         <a class="code" href="Scrn_8h.html#ffb7f407d6601f057a9c641482a344a0" title="Usa uma rotina para imprimi uma STRING.">puts</a>(<span class="stringliteral">"TSS instalada! \n"</span>);
+<a name="l00137"></a>00137 }
+<a name="l00138"></a>00138 
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

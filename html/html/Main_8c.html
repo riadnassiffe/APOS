@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Referência do Arquivo src/kernel/Main.c</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referência do Arquivo src/kernel/Main.c</h1><code>#include &quot;<a class="el" href="Main_8h-source.html">include/Main.h</a>&quot;</code><br>
+
+<p>
+<a href="Main_8c-source.html">Vá para o código-fonte deste arquivo.</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Estruturas de Dados</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structteste.html">teste</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Funções</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Main_8c.html#c415f3d3380d03003910bb806f16e200">msgError</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Main_8c.html#27b50922049a3ec4d188d64b8fbed8a5">myFuncao1</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Main_8c.html#2da5b0c11a996b3e13c5e1c30fca6d5b">myFuncao2</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Main_8c.html#af3f40cf44b0e28f11dcd2d6b984fd99">myFuncao3</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Main_8c.html#cc011445220c885d45de58bebece9ccc">myFuncao4</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Main_8c.html#3f4dfba961cd13f9a502d28bcc1fe845">myFuncao5</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Main_8c.html#690bf473bca405c75180cd43c1233a08">_main</a> (<a class="el" href="structmultiboot__info.html">multiboot_info_t</a> *boot_info)</td></tr>
+
+<tr><td colspan="2"><br><h2>Variáveis</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void(*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="Main_8c.html#e706a54da3acd821e188a646e2143efa">ponteiro</a> )()</td></tr>
+
+</table>
+<hr><h2>Funções</h2>
+<a class="anchor" name="690bf473bca405c75180cd43c1233a08"></a><!-- doxytag: member="Main.c::_main" ref="690bf473bca405c75180cd43c1233a08" args="(multiboot_info_t *boot_info)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void _main           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmultiboot__info.html">multiboot_info_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>boot_info</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Main_8c-source.html#l00053">53</a> do arquivo <a class="el" href="Main_8c-source.html">Main.c</a>.</p>
+
+<p>Referências <a class="el" href="If_8c-source.html#l00081">command_interface()</a>, <a class="el" href="Gpro_8c-source.html#l00141">createProcess()</a>, <a class="el" href="Gdt_8c-source.html#l00102">gdt_install()</a>, <a class="el" href="Idt_8c-source.html#l00046">idt_install()</a>, <a class="el" href="Gpro_8c-source.html#l00231">init_gProc()</a>, <a class="el" href="Scrn_8c-source.html#l00121">init_video()</a>, <a class="el" href="Ide_8c-source.html#l00027">initIDE()</a>, <a class="el" href="If_8c-source.html#l00013">initInterfaceShare()</a>, <a class="el" href="MemTable_8c-source.html#l00021">initMemBitMap()</a>, <a class="el" href="Irq_8c-source.html#l00051">irq_install()</a>, <a class="el" href="Isrs_8c-source.html#l00048">isrs_install()</a>, <a class="el" href="Kb_8c-source.html#l00245">keyboard_install()</a>, <a class="el" href="Fat_8c-source.html#l00027">loadFatIDEDrivers()</a>, <a class="el" href="Main_8c-source.html#l00016">myFuncao1()</a>, <a class="el" href="Main_8c-source.html#l00023">myFuncao2()</a>, <a class="el" href="Main_8c-source.html#l00030">myFuncao3()</a>, <a class="el" href="Main_8c-source.html#l00037">myFuncao4()</a>, <a class="el" href="Main_8c-source.html#l00044">myFuncao5()</a>, <a class="el" href="Main_8c.html#e706a54da3acd821e188a646e2143efa">ponteiro</a>, <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>, <a class="el" href="Gdt_8c-source.html#l00116">reset_tss_gate()</a>, <a class="el" href="Tim_8c-source.html#l00051">timer_install()</a> e <a class="el" href="Gdt_8c-source.html#l00129">tss_install()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="c415f3d3380d03003910bb806f16e200"></a><!-- doxytag: member="Main.c::msgError" ref="c415f3d3380d03003910bb806f16e200" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void msgError           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Main_8c-source.html#l00003">3</a> do arquivo <a class="el" href="Main_8c-source.html">Main.c</a>.</p>
+
+<p>Referências <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="27b50922049a3ec4d188d64b8fbed8a5"></a><!-- doxytag: member="Main.c::myFuncao1" ref="27b50922049a3ec4d188d64b8fbed8a5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void myFuncao1           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Main_8c-source.html#l00016">16</a> do arquivo <a class="el" href="Main_8c-source.html">Main.c</a>.</p>
+
+<p>Referências <a class="el" href="If_8c-source.html#l00245">printfAPOS()</a> e <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="2da5b0c11a996b3e13c5e1c30fca6d5b"></a><!-- doxytag: member="Main.c::myFuncao2" ref="2da5b0c11a996b3e13c5e1c30fca6d5b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void myFuncao2           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Main_8c-source.html#l00023">23</a> do arquivo <a class="el" href="Main_8c-source.html">Main.c</a>.</p>
+
+<p>Referências <a class="el" href="If_8c-source.html#l00245">printfAPOS()</a> e <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="af3f40cf44b0e28f11dcd2d6b984fd99"></a><!-- doxytag: member="Main.c::myFuncao3" ref="af3f40cf44b0e28f11dcd2d6b984fd99" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void myFuncao3           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Main_8c-source.html#l00030">30</a> do arquivo <a class="el" href="Main_8c-source.html">Main.c</a>.</p>
+
+<p>Referências <a class="el" href="If_8c-source.html#l00245">printfAPOS()</a> e <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="cc011445220c885d45de58bebece9ccc"></a><!-- doxytag: member="Main.c::myFuncao4" ref="cc011445220c885d45de58bebece9ccc" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void myFuncao4           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Main_8c-source.html#l00037">37</a> do arquivo <a class="el" href="Main_8c-source.html">Main.c</a>.</p>
+
+<p>Referências <a class="el" href="If_8c-source.html#l00245">printfAPOS()</a> e <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="3f4dfba961cd13f9a502d28bcc1fe845"></a><!-- doxytag: member="Main.c::myFuncao5" ref="3f4dfba961cd13f9a502d28bcc1fe845" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void myFuncao5           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Definição na linha <a class="el" href="Main_8c-source.html#l00044">44</a> do arquivo <a class="el" href="Main_8c-source.html">Main.c</a>.</p>
+
+<p>Referências <a class="el" href="Gpro_8c-source.html#l00210">exit()</a>, <a class="el" href="If_8c-source.html#l00245">printfAPOS()</a> e <a class="el" href="Scrn_8c-source.html#l00093">puts()</a>.</p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Variáveis</h2>
+<a class="anchor" name="e706a54da3acd821e188a646e2143efa"></a><!-- doxytag: member="Main.c::ponteiro" ref="e706a54da3acd821e188a646e2143efa" args=")()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* <a class="el" href="Main_8c.html#e706a54da3acd821e188a646e2143efa">ponteiro</a>)()          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+<p>Referenciado por <a class="el" href="Main_8c-source.html#l00053">_main()</a>.</p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>

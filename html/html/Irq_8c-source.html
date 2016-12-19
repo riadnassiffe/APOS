@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>APOS: Código-Fonte de src/kernel/Irq.c</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Gerado por Doxygen 1.5.5 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Página&nbsp;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Estruturas&nbsp;de&nbsp;Dados</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+    </ul>
+  </div>
+<h1>src/kernel/Irq.c</h1><a href="Irq_8c.html">Vá para a documentação deste arquivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> IRQ  </span>
+<a name="l00003"></a>00003 <span class="comment">*/</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include "<a class="code" href="Irq_8h.html" title="Este arquivo realiza o tratamento de interrupções.">include/Irq.h</a>"</span>
+<a name="l00005"></a>00005 
+<a name="l00009"></a><a class="code" href="Irq_8c.html#27f64c2ce72943e8401fa0423cc118e2">00009</a> <span class="keywordtype">void</span> *<a class="code" href="Irq_8c.html#27f64c2ce72943e8401fa0423cc118e2">irq_routines</a>[16] = {0, 0, 0, 0, 0, 0, 0, 0,
+<a name="l00010"></a>00010                                                   0, 0, 0, 0, 0, 0, 0, 0};
+<a name="l00014"></a><a class="code" href="Irq_8c.html#8f9c4b04a877df5e84007f3964625c25">00014</a> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#8f9c4b04a877df5e84007f3964625c25">irq_install_handler</a>(<span class="keywordtype">int</span> irq, <span class="keywordtype">void</span> (*handler)(<span class="keyword">struct</span> <a class="code" href="structregs.html">regs</a> *r)){
+<a name="l00015"></a>00015         
+<a name="l00016"></a>00016     <a class="code" href="Irq_8c.html#27f64c2ce72943e8401fa0423cc118e2">irq_routines</a>[irq] = handler;
+<a name="l00017"></a>00017 }
+<a name="l00021"></a><a class="code" href="Irq_8c.html#ee54c533dd6f14055cfafed7ffd00328">00021</a> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#ee54c533dd6f14055cfafed7ffd00328">irq_uninstall_handler</a>(<span class="keywordtype">int</span> irq)
+<a name="l00022"></a>00022 {
+<a name="l00023"></a>00023     <a class="code" href="Irq_8c.html#27f64c2ce72943e8401fa0423cc118e2">irq_routines</a>[irq] = 0;
+<a name="l00024"></a>00024 }
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="comment">/*</span>
+<a name="l00028"></a>00028 <span class="comment">   Remapeando IRC.</span>
+<a name="l00029"></a>00029 <span class="comment">   -&gt; Setar corretamente antes de se comunicar com dispositivos.</span>
+<a name="l00030"></a>00030 <span class="comment">       IRQ 0-7 -&gt; INT 20h-27h</span>
+<a name="l00031"></a>00031 <span class="comment">       IRQ 8-15 -&gt; INT 28h-2Fh</span>
+<a name="l00032"></a>00032 <span class="comment">   -&gt; Usamos um algoritmo de dominio público.</span>
+<a name="l00033"></a>00033 <span class="comment">*/</span>
+<a name="l00034"></a><a class="code" href="Irq_8c.html#60f49e6b52a3b02f389dff64c8155be4">00034</a> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#60f49e6b52a3b02f389dff64c8155be4">irq_remap</a>(<span class="keywordtype">void</span>){
+<a name="l00035"></a>00035         
+<a name="l00036"></a>00036     <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0x20, 0x11);
+<a name="l00037"></a>00037     <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0xA0, 0x11);
+<a name="l00038"></a>00038     <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0x21, 0x20);
+<a name="l00039"></a>00039     <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0xA1, 0x28);
+<a name="l00040"></a>00040     <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0x21, 0x04);
+<a name="l00041"></a>00041     <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0xA1, 0x02);
+<a name="l00042"></a>00042     <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0x21, 0x01);
+<a name="l00043"></a>00043     <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0xA1, 0x01);
+<a name="l00044"></a>00044     <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0x21, 0x0);
+<a name="l00045"></a>00045     <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0xA1, 0x0);
+<a name="l00046"></a>00046 }
+<a name="l00047"></a>00047 
+<a name="l00051"></a><a class="code" href="Irq_8c.html#e48307dbf5b3d1f8c5768f6f032f2b19">00051</a> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#e48307dbf5b3d1f8c5768f6f032f2b19">irq_install</a>(){
+<a name="l00052"></a>00052         
+<a name="l00053"></a>00053     <a class="code" href="Irq_8h.html#60f49e6b52a3b02f389dff64c8155be4">irq_remap</a>();
+<a name="l00054"></a>00054     <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(32, (<span class="keywordtype">unsigned</span>)<a class="code" href="Irq_8h.html#dbe0f253d11eeb032b3612c8732fb76e">irq0</a>, 0x08, 0x8E);
+<a name="l00055"></a>00055     <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(33, (<span class="keywordtype">unsigned</span>)<a class="code" href="Irq_8h.html#b67ffa95ff39e0b264f4534d43025c30">irq1</a>, 0x08, 0x8E);
+<a name="l00056"></a>00056     <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(34, (<span class="keywordtype">unsigned</span>)<a class="code" href="Irq_8h.html#118ba521aa61c5f0785580408a5b95cc">irq2</a>, 0x08, 0x8E);
+<a name="l00057"></a>00057     <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(35, (<span class="keywordtype">unsigned</span>)<a class="code" href="Irq_8h.html#672afd3d2d2c7a896068f1ee94b6ac4b">irq3</a>, 0x08, 0x8E);
+<a name="l00058"></a>00058     <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(36, (<span class="keywordtype">unsigned</span>)<a class="code" href="Irq_8h.html#6ece1319726003baeb064fa32a5e27b6">irq4</a>, 0x08, 0x8E);
+<a name="l00059"></a>00059     <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(37, (<span class="keywordtype">unsigned</span>)<a class="code" href="Irq_8h.html#0c86295415896333de5803b5255cc3fd">irq5</a>, 0x08, 0x8E);
+<a name="l00060"></a>00060     <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(38, (<span class="keywordtype">unsigned</span>)<a class="code" href="Irq_8h.html#4dd0a509c8829cd9d3606da7ba7cde7a">irq6</a>, 0x08, 0x8E);
+<a name="l00061"></a>00061     <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(39, (<span class="keywordtype">unsigned</span>)<a class="code" href="Irq_8h.html#a3079d2a2ea8fdd0d36f26fb2f61e316">irq7</a>, 0x08, 0x8E);
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063     <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(40, (<span class="keywordtype">unsigned</span>)<a class="code" href="Irq_8h.html#763933e69e7a6f5ac0d2802a56b6401b">irq8</a>, 0x08, 0x8E);
+<a name="l00064"></a>00064     <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(41, (<span class="keywordtype">unsigned</span>)<a class="code" href="Irq_8h.html#59dbef11d3615eb79b6a13c82b5bf476">irq9</a>, 0x08, 0x8E);
+<a name="l00065"></a>00065     <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(42, (<span class="keywordtype">unsigned</span>)<a class="code" href="Irq_8h.html#93037dcfb63ee486f11dd927f37b57af">irq10</a>, 0x08, 0x8E);
+<a name="l00066"></a>00066     <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(43, (<span class="keywordtype">unsigned</span>)<a class="code" href="Irq_8h.html#16bf2a49a4c9a48e65c1379d91b79235">irq11</a>, 0x08, 0x8E);
+<a name="l00067"></a>00067     <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(44, (<span class="keywordtype">unsigned</span>)<a class="code" href="Irq_8h.html#47e842053a77f6409bbd6a50cec87b5e">irq12</a>, 0x08, 0x8E);
+<a name="l00068"></a>00068     <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(45, (<span class="keywordtype">unsigned</span>)<a class="code" href="Irq_8h.html#af8a8dc035d379d8173b06a2ebd881a1">irq13</a>, 0x08, 0x8E);
+<a name="l00069"></a>00069     <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(46, (<span class="keywordtype">unsigned</span>)<a class="code" href="Irq_8h.html#a63550aa0e55da846a219a2828007529">irq14</a>, 0x08, 0x8E);
+<a name="l00070"></a>00070     <a class="code" href="Idt_8c.html#a86ab20d352f787dfc8a6ecc5e81c7c2">idt_set_gate</a>(47, (<span class="keywordtype">unsigned</span>)<a class="code" href="Irq_8h.html#516b16b006f8c0555c15a793220e28a2">irq15</a>, 0x08, 0x8E);
+<a name="l00071"></a>00071 }
+<a name="l00072"></a>00072 
+<a name="l00086"></a><a class="code" href="Irq_8c.html#1d3f57aadd895abe30129f373f9b8bbc">00086</a> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#1d3f57aadd895abe30129f373f9b8bbc">irq_handler</a>(<span class="keyword">struct</span> <a class="code" href="structregs.html">regs</a> *r){
+<a name="l00087"></a>00087     void (*handler)(<span class="keyword">struct </span><a class="code" href="structregs.html">regs</a> *r);
+<a name="l00088"></a>00088  
+<a name="l00089"></a>00089     handler = <a class="code" href="Irq_8c.html#27f64c2ce72943e8401fa0423cc118e2">irq_routines</a>[r-&gt;<a class="code" href="structregs.html#0447d192cd01c7958fc5e06746c345d9">int_no</a> - 32];   
+<a name="l00090"></a>00090     <span class="keywordflow">if</span> (handler)
+<a name="l00091"></a>00091     {
+<a name="l00092"></a>00092         handler(r);
+<a name="l00093"></a>00093     }
+<a name="l00094"></a>00094     <span class="keywordflow">if</span> (r-&gt;<a class="code" href="structregs.html#0447d192cd01c7958fc5e06746c345d9">int_no</a> &gt;= 40)
+<a name="l00095"></a>00095     {
+<a name="l00096"></a>00096         <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0xA0, 0x20);
+<a name="l00097"></a>00097     }
+<a name="l00098"></a>00098     <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0x20, 0x20);
+<a name="l00099"></a>00099 }
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101 <span class="comment">/*</span>
+<a name="l00102"></a>00102 <span class="comment">   Este handler sera utilizado apenas para o clock!</span>
+<a name="l00103"></a>00103 <span class="comment">*/</span>
+<a name="l00104"></a><a class="code" href="Irq_8c.html#bb5479bdd6a17a3f60e0a8b5c0d4d607">00104</a> <span class="keywordtype">void</span> <a class="code" href="Irq_8h.html#bb5479bdd6a17a3f60e0a8b5c0d4d607">irq_handler_clock</a>(){
+<a name="l00105"></a>00105         void (*handler)();
+<a name="l00106"></a>00106    
+<a name="l00107"></a>00107         handler = <a class="code" href="Irq_8c.html#27f64c2ce72943e8401fa0423cc118e2">irq_routines</a>[0];
+<a name="l00108"></a>00108     <span class="keywordflow">if</span> (handler)
+<a name="l00109"></a>00109     {
+<a name="l00110"></a>00110       handler();
+<a name="l00111"></a>00111     }
+<a name="l00112"></a>00112     <a class="code" href="Io_8h.html#7428aa46f312091045636d8e4bf49f1a" title="Escreve um byte na porta de I/O.">Out_Byte</a>(0x20, 0x20);
+<a name="l00113"></a>00113 }
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116 <span class="comment">/*</span>
+<a name="l00117"></a>00117 <span class="comment">  Referencias:        </span>
+<a name="l00118"></a>00118 <span class="comment">  [1] http://my.execpc.com/~geezer/osd/intr/index.htm</span>
+<a name="l00119"></a>00119 <span class="comment">  [2] http://my.execpc.com/~geezer/osd/intr/8259.c</span>
+<a name="l00120"></a>00120 <span class="comment">*/</span>
+</pre></div></div>
+<hr size="1"><address style="text-align: right;"><small>Gerado em Sat Mar 22 18:49:29 2008 para APOS por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
+</body>
+</html>
